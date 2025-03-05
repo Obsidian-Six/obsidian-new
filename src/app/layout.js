@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { poppins } from "./fonts/font";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,9 +21,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.className} antialiased`}
+        cz-shortcut-listen="true"
+        data-new-gr-c-s-check-loaded="14.1224.0"
+        data-gr-ext-installed=""
       >
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
         {children}
       </body>
     </html>
