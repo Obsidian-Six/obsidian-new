@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
       <body
         className={`poppins antialiased`}
         cz-shortcut-listen="true"
-        data-new-gr-c-s-check-loaded="14.1224.0"
+        data-new-gr-c-s-check-loaded="14.1226.0"
         data-gr-ext-installed=""
       >
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
