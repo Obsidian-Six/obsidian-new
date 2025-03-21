@@ -7,10 +7,10 @@ import { GoArrowUpRight } from "react-icons/go";
 
 const ContactUs = () => {
   return (
-    <div id="contactUs" className="my-20">
+    <div id="contactUs" className="mb-20">
       <div className="max-w-5xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 textmain gap-10">
         {/* Contact Details */}
-        <div className="space-y-6">
+        <div className="space-y-6 md:sticky md:top-20 self-start max-md:grid max-md:grid-cols-2">
           <div>
             <h2 className="text-xl font-medium poppins">Call Us</h2>
             <div className="flex items-center space-x-2 my-2.5">
@@ -25,14 +25,14 @@ const ContactUs = () => {
               <span className="text-sm font-semibold inter">info@obsidiansix.io</span>
             </div>
           </div>
-          <div>
+          <div className="">
             <h2 className="text-xl font-medium poppins">Our Socials</h2>
             <div className="flex items-center space-x-2 my-2.5">
               <RiInstagramLine />
               <span className="text-sm font-semibold inter">obsidiansix.io</span>
             </div>
           </div>
-          <div>
+          <div className="max-md:col-span-2">
             <h2 className="text-xl font-medium poppins">Visit Us</h2>
             <div className="flex space-x-2 my-2.5">
               <GrLocation />

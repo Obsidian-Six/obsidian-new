@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { MotionDiv } from "../utils/page";
 
 const OurWork = () => {
   const swiperRef = useRef(null);
@@ -51,17 +52,28 @@ const OurWork = () => {
     },
   ];
 
+  const variants = {
+    start: { y: 200, opacity: 0 },
+    end: { y: 0, opacity: 1 }
+  };
+
   return (
     <div id="ourWork" className="max-w-7xl mx-auto px-4">
       {/* Title Section */}
-      <div className="text-center my-14 text-xs font-semibold textmain">
+      <div className="text-center md:my-14 my-6 text-xs font-semibold textmain">
         [Our Work]
       </div>
 
-      <div className="text-6xl my-16 textmain max-w-5xl mx-auto text-center font-light leading-snug max-md:text-4xl max-md:leading-normal">
+      <MotionDiv
+        variants={variants}
+        initial={variants.start}
+        whileInView={variants.end}
+        transition={{ duration: 0.4, delay: 0.1 }}
+        viewport={{ once: true }}
+        className="text-6xl md:my-16 my-10 textmain max-w-5xl mx-auto text-center font-light leading-snug max-md:text-3xl  max-md:leading-normal poppins">
         We empowered many ambitious businesses to achieve and surpass their
         <span className="highlight"> growth </span> objectives.
-      </div>
+      </MotionDiv>
 
       {/* Swiper Slider */}
       <div
@@ -73,7 +85,7 @@ const OurWork = () => {
           ref={swiperRef}
           modules={[Autoplay]}
           // slidesPerView={2}
-          // spaceBetween={30}
+          spaceBetween={15}
           loop={true}
           autoplay={{
             delay: 0,
@@ -81,14 +93,14 @@ const OurWork = () => {
           }}
           speed={4000} // Controls smoothness of sliding
           breakpoints={{
-            640: { slidesPerView: 1 , spaceBetween :5},
+            640: { slidesPerView: 1 , spaceBetween :10},
             1024: { slidesPerView: 2 , spaceBetween :10},
             1280: { slidesPerView: 3.5 , spaceBetween :30},
           }}
         >
           {projects.map((project, i) => (
             <SwiperSlide key={i}>
-              <div className="textmain">
+              <MotionDiv whileHover={{ scale: 0.85 }} className="textmain hover:">
                 {/* Project Title */}
                 <div className="text-xs text-[#5A00EC] flex items-center gap-2 uppercase">
                   <p className="h-2.5 w-2.5 bg-[#5A00EC]" /> {project.title}
@@ -116,14 +128,14 @@ const OurWork = () => {
                 <p className="textmain mt-8 inter opacity-60 max-md:mt-4 max-md:text-sm">
                   {project.description}
                 </p>
-              </div>
+              </MotionDiv>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
 
       {/* View More Button */}
-      <button className="textmain text-xl bordermain mx-auto px-4 py-2 flex self-center my-20 max-md:my-12 max-md:text-lg">
+      <button className="textmain text-xl bordermain mx-auto px-4 py-2 flex self-center my-20 max-md:my-10 max-md:text-lg">
         View More
       </button>
     </div>

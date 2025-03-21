@@ -5,6 +5,7 @@ import { GoArrowUpRight } from "react-icons/go";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { MotionDiv } from "../utils/page";
 
 const OurTeam = () => {
   const swiperRef = useRef(null);
@@ -13,6 +14,13 @@ const OurTeam = () => {
     name: "Aniket Kalawat",
     role: "Software Developer",
   });
+
+  const variants = {
+    start: { y: 200, opacity: 0 },
+    end: { y: 0, opacity: 1 },
+    startUp: { x: 200, opacity: 0 },
+    endUp: { x: 0, opacity: 1 },
+  };
 
   return (
     <div id="aboutUs" className="relative">
@@ -23,8 +31,18 @@ const OurTeam = () => {
         className="h-full w-full opacity-20 absolute object-cover"
       />
 
+<div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-80"></div>
+
+
       {/* Header Section */}
-      <div className="p-12 text-center">
+      <MotionDiv
+      variants={variants}
+      initial={variants.start}
+      whileInView={variants.end}
+      transition={{ duration: 0.4, delay: 0.1 }}
+      viewport={{ once: true }}
+
+       className="p-12 text-center">
         <div className="text-6xl font-light max-w-5xl mx-auto leading-snug max-md:text-4xl max-sm:text-3xl">
           Behind Every Great
           <span className="highlight"> Strategy </span>
@@ -35,11 +53,11 @@ const OurTeam = () => {
           Contact Us
           <GoArrowUpRight className="text-2xl" />
         </button>
-      </div>
+      </MotionDiv>
 
       {/* Swiper Slider */}
       <div
-        className="overflow-hidden"
+        className="overflow-hidden pb-28"
         onMouseEnter={() => swiperRef.current?.swiper.autoplay.stop()}
         onMouseLeave={() => swiperRef.current?.swiper.autoplay.start()}
       >

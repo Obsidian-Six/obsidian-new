@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { BsArrowRightCircle } from "react-icons/bs";
+import { MotionDiv } from "../utils/page";
 
 const services = [
   {
@@ -12,13 +13,13 @@ const services = [
   },
   {
     name: "Web Development",
-    image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*hRmFxnHzppZkNTRxCIqNXw.png",
+    image: "https://designshack.net/wp-content/uploads/responsive-website-app-templates.jpg",
     description:
       "We create modern, responsive, and high-performance websites tailored to your business needs, ensuring a seamless user experience.",
   },
   {
     name: "Digital Marketing",
-    image: "https://www.elegantthemes.com/blog/wp-content/uploads/2023/03/Digital-Marketing-Examples.png",
+    image: "https://designshack.net/wp-content/uploads/responsive-website-app-templates.jpg",
     description:
       "Our expert digital marketing strategies help boost your brand’s online presence, drive traffic, and increase conversions effectively.",
   },
@@ -26,9 +27,15 @@ const services = [
 
 const HomeService = () => {
   const [selectedService, setSelectedService] = useState(services[0]);
+  const variants = {
+    start: { x: 500, opacity: 0 },
+    end: { x: 0, opacity: 1 },
+    startUp: { x: -200, opacity: 0 },
+    endUp: { x: 0, opacity: 1 },
+  };
 
   return (
-    <div id="services" className="max-w-7xl mx-auto my-20 px-4">
+    <div id="services" className="max-w-7xl mx-auto my-20 px-4 overflow-hidden">
       {/* Title */}
       <div className="text-6xl font-light poppins uppercase max-md:text-4xl">
         Services
@@ -37,7 +44,13 @@ const HomeService = () => {
       {/* Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-24 my-10 items-end">
         {/* Service List */}
-        <div>
+        <MotionDiv
+         variants={variants}
+         initial={variants.startUp}
+         whileInView={variants.endUp}
+         transition={{ duration: 0.4, delay: 0.1 }}
+         viewport={{ once: true }}
+        >
           {services.map((service) => (
             <div
               key={service.name}
@@ -49,10 +62,17 @@ const HomeService = () => {
               {service.name} <BsArrowRightCircle />
             </div>
           ))}
-        </div>
+        </MotionDiv>
 
         {/* Image & Description */}
-        <div className="col-span-2 max-md:col-span-1">
+        <MotionDiv
+        key={selectedService.name}
+        variants={variants}
+        initial={variants.start}
+        whileInView={variants.end}
+        transition={{ duration: 0.4, delay: 0.1 }}
+        viewport={{ once: false }}
+         className="col-span-2 max-md:col-span-1">
           <img
             src={selectedService.image}
             alt={selectedService.name}
@@ -69,7 +89,7 @@ const HomeService = () => {
               {selectedService.description}
             </p>
           </div>
-        </div>
+        </MotionDiv>
       </div>
     </div>
   );

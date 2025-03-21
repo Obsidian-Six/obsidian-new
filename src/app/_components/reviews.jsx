@@ -1,14 +1,28 @@
 import React from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { MotionDiv } from "../utils/page";
 
 const Reviews = () => {
+  const variants = {
+    start: { y: 200, opacity: 0 },
+    end: { y: 0, opacity: 1 },
+    startUp: { x: 200, opacity: 0 },
+    endUp: { x: 0, opacity: 1 },
+  };
   return (
     <div className="bg-[#5A00EC]/10">
       <div className="max-w-6xl mx-auto pb-32 px-4">
-        <div className="text-6xl py-14 textmain max-w-5xl mx-auto text-center font-light leading-snug max-md:text-4xl max-md:leading-normal">
+        <MotionDiv
+          variants={variants}
+          initial={variants.start}
+          whileInView={variants.end}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="text-6xl py-14 textmain max-w-5xl mx-auto text-center font-light leading-snug max-md:text-4xl max-md:leading-normal"
+        >
           Hear from Those We’ve Helped
           <span className="highlight block">grow </span>
-        </div>
+        </MotionDiv>
 
         {/* Slider */}
         <div className="grid grid-cols-12 items-end gap-4 max-md:grid-cols-1">
@@ -31,7 +45,9 @@ const Reviews = () => {
             <div className="bg-[#19183A] max-md:h-48">{/* youtube add */}</div>
             <div className="bg-white p-8 relative">
               <p className="textmain text-2xl my-2.5 max-md:text-xl">Vanya</p>
-              <p className="textmain text-sm inter my-2.5 max-md:text-xs">The Geeky Yougin</p>
+              <p className="textmain text-sm inter my-2.5 max-md:text-xs">
+                The Geeky Yougin
+              </p>
               <div className="textmain opacity-80 mt-[30%] max-md:mt-6">
                 <svg
                   className="w-5 h-5"

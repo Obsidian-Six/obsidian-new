@@ -1,6 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import { FaFacebookSquare, FaTwitterSquare, FaInstagramSquare } from "react-icons/fa";
+import { CiFacebook } from "react-icons/ci";
+import { SlSocialTwitter } from "react-icons/sl";
+import { FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -52,13 +54,13 @@ const Footer = () => {
             <p className="text-sm text-[#19183A] mb-4 md:mb-0">info@obsidiansix.io</p>
             <div className="flex justify-center md:justify-end space-x-4 mt-4 md:mt-0">
               <a className="text-[#19183A] hover:text-gray-600" href="#">
-                <FaFacebookSquare className="text-2xl sm:text-3xl" />
+                <CiFacebook className="text-2xl sm:text-3xl" />
               </a>
               <a className="text-[#19183A] hover:text-gray-600" href="#">
-                <FaTwitterSquare className="text-2xl sm:text-3xl" />
+                <SlSocialTwitter className="text-2xl sm:text-3xl" />
               </a>
               <a className="text-[#19183A] hover:text-gray-600" href="#">
-                <FaInstagramSquare className="text-2xl sm:text-3xl" />
+                <FaInstagram className="text-2xl sm:text-3xl" />
               </a>
             </div>
           </div>
