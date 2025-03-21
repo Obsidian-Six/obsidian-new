@@ -15,6 +15,8 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { MotionDiv, MotionP } from "../utils/page";
 import { ReactTyped } from "react-typed";
+import Particle from "./particle";
+import ParticleSnow from "./particle-snow";
 
 const HeroSection = () => {
   const arr = [""];
@@ -49,6 +51,7 @@ const HeroSection = () => {
     >
       {arr.map((ele, i) => (
         <SwiperSlide key={i} className="h-full w-full bg-[#d9d9d9]">
+           <ParticleSnow />
           <div className="relative text-color z-10 flex flex-col justify-center items-center h-full text-center max-w-4xl mx-auto md:p-0 sm:p-4 p-6 max-md:mt-10">
             {/* Heading */}
             <MotionDiv
