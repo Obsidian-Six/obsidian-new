@@ -5,12 +5,7 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -27,6 +22,13 @@ body {
 
 * {
   scroll-behavior: smooth;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 .text-color , .textmain {
@@ -100,18 +102,10 @@ body {
 
 
 button {
-  /* padding: 0.8em 1.8em; */
-  /* border: 2px solid #5A00EC; */
   position: relative;
   overflow: hidden;
-  /* background-color: transparent; */
-  /* text-align: center; */
-  /* text-transform: uppercase; */
-  /* font-size: 16px; */
   transition: .3s;
   z-index: 1;
-  /* font-family: inherit; */
-  /* color: #5A00EC; */
  }
  
  button::before {
