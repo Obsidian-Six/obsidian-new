@@ -30,7 +30,7 @@ const ApproachSection = () => {
   ];
 
   return (
-    <section className="py-20 w-[60%] mx-auto text-center">
+    <section className="md:py-20 py-10 md:w-[60%] w-[80%] mx-auto text-center">
       <p className="text-2xl md:text-3xl font-base text-[#5A00EC] my-10 uppercase mb-6 poppins">
       OUR APPROACH
         </p>

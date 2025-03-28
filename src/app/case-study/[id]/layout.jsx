@@ -1,17 +1,15 @@
-import Footer from '@/app/_components/footer'
-import Navbar from '@/app/_components/navbar'
-import React from 'react'
+import Footer from "@/app/_components/footer";
+import Navbar from "@/app/_components/navbar";
+import React from "react";
 
-const layout = ({children}) => {
+const layout = ({ children }) => {
   return (
     <div>
-        <Navbar />
-        <div className='min-h-screen'>
-            {children}
-        </div>
-        <Footer />
+      <Navbar />
+      {children}
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default layout
+export default layout;

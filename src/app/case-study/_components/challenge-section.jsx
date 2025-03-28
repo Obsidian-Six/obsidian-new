@@ -2,8 +2,8 @@ import React from "react";
 
 const ChallengeSection = () => {
   return (
-    <div className="bg-[#5A00EC] text-white py-10">
-      <div className="w-[60%] mx-auto py-20 ">
+    <div className="bg-[#5A00EC] text-white md:py-10">
+      <div className="md:w-[60%] w-[80%] mx-auto py-20 ">
         <p className="text-2xl md:text-3xl font-base uppercase mb-6 poppins">
           The Challenge
         </p>
@@ -12,7 +12,7 @@ const ChallengeSection = () => {
           <span className="highlight">Pachmarhi Ayurveda</span> faced several hurdles
           in the digital space:
         </p>
-        <ul className="space-y-4 text-2xl inter font-light">
+        <ul className="space-y-4 md:text-2xl sm:text-xl text-base inter font-light">
           <li>
             <span className="font-normal">▪ Limited Digital Presence –</span> No
             significant reach or branding across online platforms.
