@@ -45,15 +45,6 @@ const TheImpact = () => {
         <div className='md:my-32 my-10'>
             <img src='/images/logo/logo2.png' alt='No Preview' className='md:h-44 h-20 mx-auto' />
         </div>
-        <div className="bg-[#5A00EC] text-white p-6 flex flex-col md:flex-row justify-evenly items-center text-center md:text-left">
-            <div className="text-6xl font-light leading-snug max-md:text-4xl max-sm:text-3xl">
-                Start your journey towards
-                <span className={`highlight`}> growth </span>
-            </div>
-            <button className="md:p-4 p-2 textmain md:px-10 px-4 bg-white flex items-center justify-center mt-4 md:mt-0">
-                <HiArrowSmallRight className="md:text-7xl sm:text-3xl text-2xl textmain" />
-            </button>
-        </div>
     </>
   )
 }

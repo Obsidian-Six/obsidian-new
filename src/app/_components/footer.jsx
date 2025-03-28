@@ -3,10 +3,21 @@ import React from "react";
 import { CiFacebook } from "react-icons/ci";
 import { SlSocialTwitter } from "react-icons/sl";
 import { FaInstagram } from "react-icons/fa";
+import { HiArrowSmallRight } from "react-icons/hi2";
 
 const Footer = () => {
   return (
     <>
+    
+    <div className="bg-[#5A00EC] text-white p-6 flex flex-col md:flex-row justify-evenly items-center text-center md:text-left">
+            <div className="text-6xl font-light leading-snug max-md:text-4xl max-sm:text-3xl">
+                Start your journey towards
+                <span className={`highlight`}> growth </span>
+            </div>
+            <button className="md:p-4 p-2 textmain md:px-10 px-4 bg-white flex items-center justify-center mt-4 md:mt-0">
+                <HiArrowSmallRight className="md:text-7xl sm:text-3xl text-2xl textmain" />
+            </button>
+        </div>
       <div className="max-w-7xl mx-auto py-20 px-6">
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
           {/* Logo & Description */}
