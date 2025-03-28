@@ -14,9 +14,19 @@ const HeroCase = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToNextSection = () => {
+    const nextSection = document.getElementById("case-study-section"); // Target section
+    if (nextSection) {
+      window.scrollTo({
+        top: nextSection.offsetTop,
+        behavior: "smooth", // Smooth scroll effect
+      });
+    }
+  };
+
   return (
     <>
-      <div className="relative w-full h-screen overflow-hidden">
+      <div className="relative w-full md:h-screen h-[90vh] overflow-hidden">
         <img
           alt="A scenic waterfall in a forest with a large rock in the foreground. The rock has 'Pachmarhi Ayurveda' written on it in blue letters."
           className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-300 ease-out"
@@ -34,14 +44,14 @@ const HeroCase = () => {
           className="absolute bottom-4 left-1/2 transform -translate-x-1/2 transition-transform duration-300"
           style={{ transform: `translateY(${offset * 0.2}px)` }} // Slower movement for depth effect
         >
-          <button className="bg-purple-600 text-white p-4 rounded-full">
+          <button  onClick={scrollToNextSection} className="bg-purple-600 text-white p-4 rounded-full cursor-pointer animate-bounce">
             <FaArrowDown />
           </button>
         </div>
       </div>
       
       {/* Case Study Section */}
-      <div className="bg-[#19183A] text-white py-20">
+      <div id="case-study-section" className="bg-[#19183A] text-white py-20">
         <div className="w-[80%] mx-auto poppins">
           <div
             className="md:text-xl sm:text-base text-sm flex items-center gap-2 uppercase transition-transform duration-300"
