@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { MotionDiv } from "../utils/page";
+import { CaseStudyData } from "@/data";
+import Link from "next/link";
 
 const OurWork = () => {
   const swiperRef = useRef(null);
@@ -98,36 +100,30 @@ const OurWork = () => {
             1280: { slidesPerView: 3.5 , spaceBetween :30},
           }}
         >
-          {projects.map((project, i) => (
+          {CaseStudyData.map((ele, i) => (
             <SwiperSlide key={i}>
               <MotionDiv whileHover={{ scale: 0.85 }} className="textmain hover:">
-                {/* Project Title */}
-                <div className="text-xs text-[#5A00EC] flex items-center gap-2 uppercase">
-                  <p className="h-2.5 w-2.5 bg-[#5A00EC]" /> {project.title}
-                </div>
-
-                <p className="my-1.5 text-xl max-md:text-lg">{project.category}</p>
-
-                {/* Image */}
-                <img
-                  src={project.img}
-                  className="my-2.5 w-full rounded-md md:h-72 h-52 object-cover"
-                  alt="Project"
-                />
-
-                {/* Tags */}
-                <div className="text-xs textmain space-x-3 flex flex-wrap max-md:space-x-2 max-md:gap-2">
-                  {project.tags.map((tag, index) => (
-                    <span key={index} className="px-3 py-1 bordermain rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Project Description */}
-                <p className="textmain mt-8 inter opacity-60 max-md:mt-4 max-md:text-sm">
-                  {project.description}
-                </p>
+                  <Link href={`/case-study/${ele.id}`}>
+                    <div className="text-xs text-[#5A00EC] flex items-center gap-2 uppercase">
+                      <p className="h-2.5 w-2.5 bg-[#5A00EC]" /> {ele.name}
+                    </div>
+                    <p className="my-1.5 text-xl max-md:text-lg">{ele.category}</p>
+                    <img
+                      src={ele.cardImg}
+                      className="my-2.5 w-full rounded-md md:h-72 h-52 object-cover"
+                      alt="Project"
+                    />
+                    <div className="text-xs textmain space-x-3 space-y-2 flex flex-wrap max-md:space-x-2 max-md:gap-2">
+                      {ele.tags.map((tag, index) => (
+                        <span key={index} className="px-3 py-1 bordermain rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="textmain mt-8 inter opacity-60 max-md:mt-4 max-md:text-sm">
+                      {ele.cardData}
+                    </p>
+                  </Link>
               </MotionDiv>
             </SwiperSlide>
           ))}
@@ -135,9 +131,9 @@ const OurWork = () => {
       </div>
 
       {/* View More Button */}
-      <button className="textmain text-xl bordermain mx-auto px-4 py-2 flex self-center my-20 max-md:my-10 max-md:text-lg">
+      <Link href={'/case-study'} className=" button text-[#19183A] w-fit text-xl bordermain mx-auto px-4 py-2 flex self-center my-20 max-md:my-10 max-md:text-lg hover:bg-[#5A00EC] hover:text-white transition-transform duration-300 ease-linear" >
         View More
-      </button>
+      </Link>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ApproachSection = () => {
+const ApproachSection = ({ele}) => {
   const approaches = [
     {
       title: "REBRANDING DIGITAL PRESENCE",
@@ -34,43 +34,39 @@ const ApproachSection = () => {
       <p className="text-2xl md:text-3xl font-base text-[#5A00EC] my-10 uppercase mb-6 poppins">
       OUR APPROACH
         </p>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-14">
-        {approaches.slice(0, 4).map((item, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-14">
+  {ele.approch.slice(0, ele.approch.length % 2 === 0 ? ele.approch.length : ele.approch.length - 1).map((item, index) => (
+    <div key={index} className="w-full">
+      <div className="relative h-full">
+        <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-[#5A00EC] rounded" />
+        <div className="relative h-full p-5 bg-white border border-[#19183A] rounded">
           <div className="w-full">
-          <div className="relative h-full">
-            <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-[#5A00EC] rounded" />
-            <div className="relative h-full p-5 bg-white border border-[#19183A] rounded">
-              <div className="w-full">
-                <h3 className="my-2 ml-3  text-lg text-[#19183A]">
-                  {item.title}
-                </h3>
-              </div>
-              <p className="mb-2 text-[#19183A]/80 text-xl mt-5">
-                {item.description}
-              </p>
-            </div>
+            <h3 className="my-2 ml-3 text-lg text-[#19183A]">{item.name}</h3>
           </div>
+          <p className="mb-2 text-[#19183A]/80 text-xl mt-5">{item.detail}</p>
         </div>
-        
-        ))}
       </div>
+    </div>
+  ))}
+</div>
 
-      <div className="w-full mt-10">
-          <div className="relative h-full">
-            <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-[#5A00EC] rounded" />
-            <div className="relative h-full p-5 bg-white border border-[#19183A] rounded">
-              <div className="w-full">
-                <h3 className="my-2 ml-3  text-lg text-[#19183A]">
-                {approaches[4].title}
-                </h3>
-              </div>
-              <p className="mb-2 text-[#19183A]/80 text-xl mt-5 max-w-md mx-auto">
-              {approaches[4].description}
-              </p>
-            </div>
-          </div>
+{/* If the number of elements is odd, render the last one as full width */}
+{ele.approch.length % 2 !== 0 && (
+  <div className="w-full mt-10">
+    <div className="relative h-full">
+      <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-[#5A00EC] rounded" />
+      <div className="relative h-full p-5 bg-white border border-[#19183A] rounded">
+        <div className="w-full">
+          <h3 className="my-2 ml-3 text-lg text-[#19183A]">{ele.approch[ele.approch.length - 1].name}</h3>
         </div>
+        <p className="mb-2 text-[#19183A]/80 text-xl mt-5 max-w-md mx-auto">
+          {ele.approch[ele.approch.length - 1].detail}
+        </p>
+      </div>
+    </div>
+  </div>
+)}
+
       
     </section>
   );

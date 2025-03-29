@@ -1,7 +1,6 @@
 import React from 'react'
-import { HiArrowSmallRight } from 'react-icons/hi2'
 
-const TheImpact = () => {
+const TheImpact = ({ele}) => {
   return (
     <>
         <div className='w-[80%] mx-auto'>
@@ -18,28 +17,22 @@ const TheImpact = () => {
                     </defs>
                 </svg>
             </div>
-            <div className='grid md:grid-cols-2 md:gap-32 sm:gap-10 gap-6 items-center'>
-                <p className='md:text-6xl sm:text-4xl text-2xl  poppins font-semibold textmain leading-normal'>Stronger Brand Credibility</p>
-                <p className='md:text-2xl sm:text-xl text-lg inter font-normal textmain leading-normal'>Established Pachmarhi Ayurveda as a trusted name in the Ayurvedic industry</p>
-            </div>
+            {
+                ele.impact.map((item , j) => (
+                    < div key={j}>
+                    <div className='grid md:grid-cols-2 md:gap-32 sm:gap-10 gap-6 items-center'>
+                        <p className='md:text-6xl sm:text-4xl text-2xl  poppins font-semibold textmain leading-normal'>{item.name}</p>
+                        <p className='md:text-2xl sm:text-xl text-lg inter font-normal textmain leading-normal'>{item.detail}</p>
+                    </div>
+                    <div className='bg-[#5A00EC] h-[1px] md:w-[60%] mx-auto md:my-16 sm:my-10 my-6'/>
+                    </div>
 
-            <div className='bg-[#5A00EC] h-[1px] md:w-[60%] mx-auto md:my-16 sm:my-10 my-6'/>
-            
-            <div className='grid md:grid-cols-2 md:gap-32 sm:gap-10 gap-6 items-center'>
-                <p className='md:text-6xl sm:text-4xl text-2xl  poppins font-semibold textmain leading-normal'>Revenue Growth</p>
-                <p className='md:text-2xl sm:text-xl text-lg inter font-normal textmain leading-normal'>Online sales now contribute significantly to their overall revenue.</p>
-            </div>
-
-            <div className='bg-[#5A00EC] h-[1px] md:w-[60%] mx-auto md:my-16 sm:my-10 my-6'/>
-            
-            <div className='grid md:grid-cols-2 md:gap-32 sm:gap-10 gap-6 items-center'>
-                <p className='md:text-6xl sm:text-4xl text-2xl  poppins font-semibold textmain leading-normal'>Sustained Online Engagement</p>
-                <p className='md:text-2xl sm:text-xl text-lg inter font-normal textmain leading-normal'>Ongoing social media and digital marketing ensure long-term success.</p>
-            </div>
+                ))
+            }
         </div>
         <div className='bg-[#5A00EC] md:my-32 my-10'>
             <p className='text-white md:text-5xl sm:text-3xl text-2xl font-semibold poppins md:w-[60%] w-[80%] mx-auto leading-normal md:py-28 py-10'>
-            With a powerful digital presence and consistent online growth, Pachmarhi Ayurveda has successfully expanded beyond its offline roots, proving that even traditional brands can thrive in the digital age.
+           {ele.detail}
             </p>
         </div>
         <div className='md:my-32 my-10'>
@@ -50,3 +43,18 @@ const TheImpact = () => {
 }
 
 export default TheImpact
+
+
+
+
+// <div className='grid md:grid-cols-2 md:gap-32 sm:gap-10 gap-6 items-center'>
+// <p className='md:text-6xl sm:text-4xl text-2xl  poppins font-semibold textmain leading-normal'>Revenue Growth</p>
+// <p className='md:text-2xl sm:text-xl text-lg inter font-normal textmain leading-normal'>Online sales now contribute significantly to their overall revenue.</p>
+// </div>
+
+// <div className='bg-[#5A00EC] h-[1px] md:w-[60%] mx-auto md:my-16 sm:my-10 my-6'/>
+
+// <div className='grid md:grid-cols-2 md:gap-32 sm:gap-10 gap-6 items-center'>
+// <p className='md:text-6xl sm:text-4xl text-2xl  poppins font-semibold textmain leading-normal'>Sustained Online Engagement</p>
+// <p className='md:text-2xl sm:text-xl text-lg inter font-normal textmain leading-normal'>Ongoing social media and digital marketing ensure long-term success.</p>
+// </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChallengeSection = () => {
+const ChallengeSection = ({ele}) => {
   return (
     <div className="bg-[#5A00EC] text-white md:py-10">
       <div className="md:w-[60%] w-[80%] mx-auto py-20 ">
@@ -8,38 +8,19 @@ const ChallengeSection = () => {
           The Challenge
         </p>
         <p className="text-lg md:text-2xl font-light my-10 inter">
-          Despite their strong offline reputation,{" "}
+          {/* Despite their strong offline reputation,{" "}
           <span className="highlight">Pachmarhi Ayurveda</span> faced several hurdles
-          in the digital space:
+          in the digital space: */}
+          {ele.challenge.data}
         </p>
         <ul className="space-y-4 md:text-2xl sm:text-xl text-base inter font-light">
-          <li>
-            <span className="font-normal">▪ Limited Digital Presence –</span> No
-            significant reach or branding across online platforms.
-          </li>
-          <li>
-            <span className="font-normal">▪ No Social Media Strategy –</span>{" "}
-            Struggled with organic reach and lacked engaging content.
-          </li>
-          <li>
-            <span className="font-normal">
-              ▪ Skepticism About Digital Marketing –
-            </span>{" "}
-            Initially, the client did not believe in the power of digital
-            platforms.
-          </li>
-          <li>
-            <span className="font-normal">
-              ▪ No E-commerce Website –
-            </span>{" "}
-            Without an online store, their sales were restricted to offline retail.
-          </li>
-          <li>
-            <span className="font-normal">
-              ▪ Trust Issues in the Ayurveda Industry –
-            </span>{" "}
-             Many fake brands existed in the market, making credibility a key factor.
-          </li>
+          {
+            ele.challenge.point.map((data,j) => (
+            <li key={j}>
+              <span className="font-normal">▪ {data.name} –</span> {data.detail}
+            </li>
+            ))
+          }
         </ul>
       </div>
 

@@ -6,22 +6,40 @@ import { MotionDiv } from "../utils/page";
 
 const services = [
   {
-    name: "Branding",
+    name: "Branding & Identity",
     image: "https://designshack.net/wp-content/uploads/responsive-website-app-templates.jpg",
     description:
-      "We’ll craft unique brand identities, including logos, color schemes, and messaging, to help your business stand out and leave a lasting impression.",
+      "We craft unique brand identities, including logo design, color schemes, typography, and messaging, to create a lasting impact for your business.",
   },
   {
     name: "Web Development",
-    image: "https://designshack.net/wp-content/uploads/responsive-website-app-templates.jpg",
+    image: "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     description:
-      "We create modern, responsive, and high-performance websites tailored to your business needs, ensuring a seamless user experience.",
+      "From custom websites to scalable web applications, we develop high-performance, responsive, and user-friendly digital solutions tailored to your needs.",
   },
   {
-    name: "Digital Marketing",
-    image: "https://designshack.net/wp-content/uploads/responsive-website-app-templates.jpg",
+    name: "E-Commerce Solutions",
+    image: "https://images.pexels.com/photos/8939307/pexels-photo-8939307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     description:
-      "Our expert digital marketing strategies help boost your brand’s online presence, drive traffic, and increase conversions effectively.",
+      "We build and optimize e-commerce platforms, integrating secure payment gateways, seamless user experiences, and conversion-focused designs.",
+  },
+  {
+    name: "Digital Marketing & SEO",
+    image: "https://images.pexels.com/photos/38547/office-freelancer-computer-business-38547.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "Our expert digital marketing strategies, including SEO, paid advertising, and content marketing, help boost visibility, drive traffic, and increase conversions.",
+  },
+  {
+    name: "UI/UX & Motion Graphics",
+    image: "https://images.pexels.com/photos/2584076/pexels-photo-2584076.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "We create intuitive, user-centered designs with engaging animations, interactive elements, and conversion-optimized interfaces.",
+  },
+  {
+    name: "Custom Web Applications",
+    image: "https://images.pexels.com/photos/7634159/pexels-photo-7634159.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "We build scalable SaaS platforms, real-time web applications, and automation tools to streamline business operations and enhance user experiences.",
   },
 ];
 
@@ -42,7 +60,7 @@ const HomeService = () => {
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-24 my-10 items-end">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-12 leading-normal my-10 items-end">
         {/* Service List */}
         <MotionDiv
          variants={variants}
@@ -80,7 +98,7 @@ const HomeService = () => {
           />
 
           {/* Service Description */}
-          <div className="flex flex-col md:flex-row gap-6 md:gap-12 lg:gap-24 mt-5">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-12 lg:gap-14 mt-5  leading-normal">
             <div className="text-4xl max-md:text-2xl font-light poppins uppercase">
               {selectedService.name}
               <p className="h-[1px] bg-[#5A00EC] w-[80%] md:ml-auto" />
