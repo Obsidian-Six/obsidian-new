@@ -84,17 +84,17 @@ const HomeService = () => {
 
         {/* Image & Description */}
         <MotionDiv
-        key={selectedService.name}
+        // key={selectedService.name}
         variants={variants}
-        initial={variants.start}
-        whileInView={variants.end}
-        transition={{ duration: 0.4, delay: 0.1 }}
-        viewport={{ once: false }}
-         className="col-span-2 max-md:col-span-1">
+        // initial={variants.start}
+        // whileInView={variants.end}
+        // transition={{ duration: 0.4, delay: 0.1 }}
+        // viewport={{ once: false }}
+         className="md:col-span-2 col-span-1">
           <img
             src={selectedService.image}
             alt={selectedService.name}
-            className="w-full h-[26rem] max-md:h-auto object-cover rounded-lg transition-all duration-300"
+            className="w-full md:h-[26rem] h-44 object-cover rounded-lg "
           />
 
           {/* Service Description */}

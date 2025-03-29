@@ -152,7 +152,7 @@ const ContactUs = () => {
 
             {/* Submit Button */}
             <div>
-              <button className="font-medium text-sm ml-auto px-5 py-2 text-white flex items-center justify-between gap-2 bg-[#5A00EC] my-6 w-fit max-md:w-full">
+              <button className="font-medium text-sm ml-auto px-5 py-2 text-white flex items-center justify-between gap-2 bg-[#5A00EC] my-6 w-fit ">
                 Send Enquiry <GoArrowUpRight className="text-2xl" />
               </button>
             </div>

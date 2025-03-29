@@ -31,7 +31,7 @@ const TheImpact = ({ele}) => {
             }
         </div>
         <div className='bg-[#5A00EC] md:my-32 my-10'>
-            <p className='text-white md:text-5xl sm:text-3xl text-2xl font-semibold poppins md:w-[60%] w-[80%] mx-auto leading-normal md:py-28 py-10'>
+            <p className='text-white md:text-5xl sm:text-3xl text-2xl font-semibold poppins md:w-[60%] w-[80%] mx-auto leading-normal md:py-28 py-10 '>
            {ele.detail}
             </p>
         </div>

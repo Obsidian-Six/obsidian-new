@@ -1,15 +1,33 @@
 import React from "react";
+import './banner.css'
 
 const Banner = () => {
   return (
     <div
-      className="h-[50vh] sm:h-[75vh] md:h-[90vh] bg-cover bg-center bg-no-repeat "
-      style={{
-        backgroundImage:
-          "url('https://www.monster.com.vn/career-advice/wp-content/uploads/2021/08/PCM-Students-After-Class-12th.jpg')",
-        backgroundAttachment: "fixed",
-      }}
-    ></div>
+      className="h-[50vh] sm:h-[75vh] md:h-[90vh]"
+    >
+      
+    	<div className="area">
+        <ul className="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
   );
 };
 

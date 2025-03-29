@@ -79,7 +79,7 @@ const HeroCase = ({ele}) => {
             Overview
           </p>
           <p
-            className="md:text-2xl sm:text-xl text-base text-[#19183A]/75 font-light inter leading-9"
+            className="md:text-2xl sm:text-xl text-base text-[#19183A]/75 font-light inter leading-9 max-md:text-justify"
             style={{ transform: `translateY(${offset * 0.05}px)` }} // Minimal movement for readability
           >
             {ele.overview}
