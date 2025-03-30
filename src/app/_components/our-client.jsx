@@ -2,7 +2,18 @@ import React from "react";
 import { HiArrowSmallRight } from "react-icons/hi2";
 
 const OurClient = () => {
-  const arr = ["", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+  const arr = [
+    "https://www.shim.co.in/wp-content/uploads/elementor/thumbs/12-q7r8iwctozlshe0edhjelc7pqk67vw1dmgyjlzgr68.png",
+    "https://www.tenontenstays.com/assests/logo.png",
+    "https://www.rezmytour.com/assets/images/logo.png",
+    "https://abcapital.ae/wp-content/uploads/2023/07/abcap-logo-e1703014705681.png.webp",
+    "https://4dgcc.vercel.app/_next/image?url=%2Fassets%2Fimages%2Flogo.png&w=1920&q=75",
+    "https://pachmarhiayurveda.com/assets/logo-CKua0_W6.png",
+    "http://sportxcoins.com/wp-content/uploads/2024/09/Sportx-Coins-Logo.png",
+    "/our-client/matoshree.png",
+    "https://www.vishalfitness.com/images/logo.png",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGYtDgdZRraWnJCNWqhn3n9vqJCUwuURtNzA&s"
+  ];
 
   return (
     <>
@@ -19,9 +30,9 @@ const OurClient = () => {
           {arr.map((ele, i) => (
             <div key={i} className="bg-white flex justify-center p-5">
               <img
-                src="https://www.shim.co.in/wp-content/uploads/elementor/thumbs/12-q7r8iwctozlshe0edhjelc7pqk67vw1dmgyjlzgr68.png"
+                src={ele}
                 alt="No Preview"
-                className="h-20 w-fit"
+                className="h-20 w-fit object-contain"
               />
             </div>
           ))}

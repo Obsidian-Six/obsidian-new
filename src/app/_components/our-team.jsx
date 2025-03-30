@@ -10,7 +10,7 @@ import { MotionDiv } from "../utils/page";
 const OurTeam = () => {
   const swiperRef = useRef(null);
   const teamMembers = Array(10).fill({
-    img: "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fimages%2Fbharat-bajaj.jpg&w=1920&q=75",
+    img: "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fimages%2Faniketk.jpg&w=1920&q=75",
     name: "Aniket Kalawat",
     role: "Software Developer",
   });
@@ -31,18 +31,17 @@ const OurTeam = () => {
         className="h-full w-full opacity-20 absolute object-cover"
       />
 
-<div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-80"></div>
-
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-80"></div>
 
       {/* Header Section */}
       <MotionDiv
-      variants={variants}
-      initial={variants.start}
-      whileInView={variants.end}
-      transition={{ duration: 0.4, delay: 0.1 }}
-      viewport={{ once: true }}
-
-       className="p-12 text-center">
+        variants={variants}
+        initial={variants.start}
+        whileInView={variants.end}
+        transition={{ duration: 0.4, delay: 0.1 }}
+        viewport={{ once: true }}
+        className="p-12 text-center"
+      >
         <div className="text-6xl font-light max-w-5xl mx-auto leading-snug max-md:text-4xl max-sm:text-3xl">
           Behind Every Great
           <span className="highlight"> Strategy </span>

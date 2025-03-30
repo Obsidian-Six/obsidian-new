@@ -1,11 +1,27 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { PiPhoneCall } from "react-icons/pi";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiInstagramLine } from "react-icons/ri";
 import { GrLocation } from "react-icons/gr";
 import { GoArrowUpRight } from "react-icons/go";
+import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2";
 
 const ContactUs = () => {
+  const [phone, setPhone] = useState("");
+  const data = [
+    "Website Development",
+    "Complete Digital Marketing",
+    "Social Media Marketing",
+    "Content Marketing",
+    "SEO",
+    "PPC Ads",
+    "Email Marketing",
+    "Design Services",
+    "Others",
+  ];
   return (
     <div id="contactUs" className="mb-20">
       <div className="max-w-5xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 textmain gap-10">
@@ -22,14 +38,18 @@ const ContactUs = () => {
             <h2 className="text-xl font-medium poppins">Mail Us</h2>
             <div className="flex items-center space-x-2 my-2.5">
               <MdOutlineMailOutline />
-              <span className="text-sm font-semibold inter">info@obsidiansix.io</span>
+              <span className="text-sm font-semibold inter">
+                info@obsidiansix.io
+              </span>
             </div>
           </div>
           <div className="">
             <h2 className="text-xl font-medium poppins">Our Socials</h2>
             <div className="flex items-center space-x-2 my-2.5">
               <RiInstagramLine />
-              <span className="text-sm font-semibold inter">obsidiansix.io</span>
+              <span className="text-sm font-semibold inter">
+                obsidiansix.io
+              </span>
             </div>
           </div>
           <div className="max-md:col-span-2">
@@ -37,7 +57,8 @@ const ContactUs = () => {
             <div className="flex space-x-2 my-2.5">
               <GrLocation />
               <span className="text-sm font-semibold inter">
-                96/2 Ravidas Nagar near Bhawani Parisar Indrapuri, Bhopal Madhya Pradesh India Pincode 462023.
+                96/2 Ravidas Nagar near Bhawani Parisar Indrapuri, Bhopal Madhya
+                Pradesh India Pincode 462023.
               </span>
             </div>
           </div>
@@ -48,7 +69,10 @@ const ContactUs = () => {
           <form className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label className="text-xs font-semibold inter" htmlFor="first-name">
+                <label
+                  className="text-xs font-semibold inter"
+                  htmlFor="first-name"
+                >
                   First Name
                 </label>
                 <input
@@ -59,7 +83,10 @@ const ContactUs = () => {
                 />
               </div>
               <div>
-                <label className="text-xs font-semibold inter" htmlFor="last-name">
+                <label
+                  className="text-xs font-semibold inter"
+                  htmlFor="last-name"
+                >
                   Last Name
                 </label>
                 <input
@@ -81,21 +108,22 @@ const ContactUs = () => {
                 type="email"
               />
             </div>
-            <div>
-              <label className="text-xs font-semibold inter" htmlFor="phone-number">
+            <div className="w-full">
+              <label
+                className="text-xs font-semibold inter w-full"
+                htmlFor="phone-number"
+              >
                 Phone Number
               </label>
-              <div className="flex">
-                <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                  +91
-                </span>
-                <input
-                  className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full"
-                  id="phone-number"
-                  placeholder="9870808989"
-                  type="text"
-                />
-              </div>
+              <PhoneInput
+                country={"in"} // Default country
+                value={phone}
+                onChange={(value) => setPhone(value)}
+                inputClass="!border !border-[#C3C3C3] p-2.5 !text-xs !outline-none !w-full !rounded-none"
+                containerClass="!w-full"
+                buttonClass="!rounded-none"
+                dropdownClass="!rounded-none"
+              />
             </div>
 
             {/* Selectable Options */}
@@ -104,23 +132,15 @@ const ContactUs = () => {
                 What do you need help with?
               </label>
               <div className="flex flex-wrap gap-2 mt-2">
-                {[
-                  "Website Development",
-                  "Complete Digital Marketing",
-                  "Social Media Marketing",
-                  "Content Marketing",
-                  "SEO",
-                  "PPC Ads",
-                  "Email Marketing",
-                  "Design Services",
-                  "Others",
-                ].map((option, index) => (
+                {data.map((option, index) => (
                   <label
                     key={index}
                     className="flex items-center space-x-2 border border-gray-300 px-4 py-2 text-sm cursor-pointer peer-checked:border-[#5A00EC] peer-checked:text-[#5A00EC]"
                   >
                     <input type="checkbox" className="hidden peer" />
-                    <span className="peer-checked:text-[#5A00EC]">{option}</span>
+                    <span className="peer-checked:text-[#5A00EC]">
+                      {option}
+                    </span>
                   </label>
                 ))}
               </div>
@@ -128,7 +148,10 @@ const ContactUs = () => {
 
             {/* Company Info */}
             <div>
-              <label className="text-xs font-semibold inter" htmlFor="company-name">
+              <label
+                className="text-xs font-semibold inter"
+                htmlFor="company-name"
+              >
                 Company Name
               </label>
               <input
@@ -139,7 +162,10 @@ const ContactUs = () => {
               />
             </div>
             <div>
-              <label className="text-xs font-semibold inter" htmlFor="company-website">
+              <label
+                className="text-xs font-semibold inter"
+                htmlFor="company-website"
+              >
                 Company Website
               </label>
               <input
