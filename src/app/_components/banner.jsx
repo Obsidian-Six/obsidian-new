@@ -6,7 +6,6 @@ const Banner = () => {
     <div
       className="h-[50vh] sm:h-[75vh] md:h-[90vh]"
     >
-      
     	<div className="area">
         <ul className="circles">
           <li></li>
