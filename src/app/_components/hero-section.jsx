@@ -34,23 +34,23 @@ const HeroSection = () => {
 
 
   return (
-    <div
+    <Swiper
       // spaceBetween={30}
-      // centeredSlides={true}
-      // autoplay={{
-      //   delay: 2500,
-      //   disableOnInteraction: false,
-      // }}
+      centeredSlides={true}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
       // pagination={{
       //   clickable: true,
       // }}
-      // id="home"
+      id="home"
       // navigation={true}
       // modules={[Autoplay, Pagination, Navigation]}
       className="mySwiper relative bg-gradient-to-r from-primary-main to-heading-main text-white overflow-hidden h-screen"
     >
       {arr.map((ele, i) => (
-        <div key={i} className="h-full w-full bg-[#d9d9d9]">
+        <SwiperSlide key={i} className="h-full w-full bg-[#d9d9d9]">
            <ParticleSnow />
           <div className="relative text-color z-10 flex flex-col justify-center items-center h-full text-center max-w-4xl mx-auto md:p-0 sm:p-4 p-6 max-md:mt-10">
             {/* Heading */}
@@ -128,9 +128,9 @@ const HeroSection = () => {
               </div>
             </MotionDiv>
           </div>
-        </div>
+        </SwiperSlide>
       ))}
-    </div>
+    </Swiper>
   );
 };
 
