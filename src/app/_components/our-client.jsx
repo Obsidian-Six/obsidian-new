@@ -3,16 +3,18 @@ import { HiArrowSmallRight } from "react-icons/hi2";
 
 const OurClient = () => {
   const arr = [
+    "https://cdn.dribbble.com/userupload/22025714/file/original-2ced14db767d6e643d72603d798b9b39.png",
+    "https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.jpg",
     "https://www.shim.co.in/wp-content/uploads/elementor/thumbs/12-q7r8iwctozlshe0edhjelc7pqk67vw1dmgyjlzgr68.png",
     "https://www.tenontenstays.com/assests/logo.png",
     "https://www.rezmytour.com/assets/images/logo.png",
     "https://abcapital.ae/wp-content/uploads/2023/07/abcap-logo-e1703014705681.png.webp",
-    "https://4dgcc.vercel.app/_next/image?url=%2Fassets%2Fimages%2Flogo.png&w=1920&q=75",
     "https://pachmarhiayurveda.com/assets/logo-CKua0_W6.png",
     "http://sportxcoins.com/wp-content/uploads/2024/09/Sportx-Coins-Logo.png",
-    "/our-client/matoshree.png",
-    "https://www.vishalfitness.com/images/logo.png",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGYtDgdZRraWnJCNWqhn3n9vqJCUwuURtNzA&s"
+    "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fimages%2Fmagha-6b5980fd.png&w=1920&q=75",
+    "https://www.truevalueventures.in/logo3.png",
+    // "https://www.thegyef.com/_next/image?url=%2Fimages%2Flogo1.png&w=1920&q=75",
+    // "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fimages%2Fmore-09e1cd70.png&w=1920&q=75"
   ];
 
   return (

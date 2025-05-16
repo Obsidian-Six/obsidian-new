@@ -7,34 +7,54 @@ import { MotionDiv } from "../utils/page";
 
 const reviews = [
   {
-    name: "Vanya",
-    title: "The Geeky Youngin",
+    name: "Bharat Bajaj",
+    title: "Founder, AB Capital Services",
     feedback:
-      "I am so impressed with the details and the planning that it felt like we have been working together for such a long time. Would strongly recommend them if you want anything to do with video.",
+      "Hii Obsidian Team let me take this opportunity to Thank you from the bottom of my Heart. The Campaigns you started running for us gave us recognition and much-needed clients in the form of Leads and my business took off. I got many potential clients and the chain continues even today. All of us have to take different pathways to move ahead in life and let me reaffirm you that the foundation you gave AB Capital social media from the beginning will remain warm in our hearts.",
     company: "AB CAPITAL",
     image:
       "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fimages%2Fbharat-bajaj.jpg&w=1920&q=75",
     video: "https://www.youtube.com/embed/tgbNymZ7vqY", // Replace with actual video link
   },
   {
-    name: "John Doe",
-    title: "Entrepreneur",
+    name: "Dr. Pushpendra Tiwari",
+    title: "Founder of Rehab Masters",
     feedback:
-      "Amazing team! They understood my vision and delivered more than I expected. Will definitely work with them again.",
-    company: "Startup X",
+      "Built a Great Website for me Great efforts from team , listened to all My queries and cleared them all , Thank you Obsidian",
+    company: "Rehab Master",
     image:
-      "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2FHoem%20pages%20images%2FIGMB%20Home%20page%201.png&w=1920&q=75",
+      "https://rehabmasters.in/wp-content/uploads/2024/07/Dr-pushpendra-tiwari-300x300.jpg",
     video: "https://www.youtube.com/embed/3JZ_D3ELwOQ", // Replace with actual video link
   },
   {
-    name: "Sarah Smith",
-    title: "Business Coach",
+    name: "Dr. Komal Taneja",
+    title: "shim.co.in",
     feedback:
-      "Their attention to detail and strategic approach helped my business scale rapidly. Highly recommend them!",
+      "You people are doing amazing job..I would like to thank you for handling all the social media platforms of SHIM College with so much of efficiency and hard-work. Your team is highly dedicated towards their clients. You understand the needs so well and do the work accordingly.",
+    company: "SHIM",
+    image:
+      "https://www.shim.co.in/wp-content/uploads/2023/05/komaltaneja.png",
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual video link
+  },
+  {
+    name: "Mr. Rahul Singh",
+    title: "True Value Ventures",
+    feedback:
+      "Working with Obsidian has been an exceptional experience. The way they handled our branding and digital strategy brought measurable results in a short time. Highly professional and creative team!",
     company: "Success Hub",
     image:
-      "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fimages%2Fpushpendra_tiwari.jpeg&w=1920&q=75",
+      "https://www.truevalueventures.in/owner.png",
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual video link
+  },
+  {
+    name: "Deepak Chhabra",
+    title: "The Global Youth Empowerment Foundation",
+    feedback:
+      "Obsidian understood our business goals perfectly and executed our vision across all platforms. The team’s energy and creativity are unmatched. We are seeing amazing growth in engagement and conversions!",
+    company: "TheGYEF",
+    image:
+      "https://www.thegyef.com/images/deepak.jpg", 
+    video: "https://www.youtube.com/embed/ScMzIvxBSi4", // Placeholder video link
   },
 ];
 
@@ -57,7 +77,7 @@ const Reviews = () => {
   // }, []);
 
   return (
-    <div className="bg-[#5A00EC]/10">
+    <div id="aboutUs" className="bg-[#5A00EC]/10">
       <div className="max-w-6xl mx-auto pb-32 px-4">
         <MotionDiv
           initial={{ opacity: 0, y: 50 }}
@@ -91,7 +111,7 @@ const Reviews = () => {
 
           {/* Main Review Section */}
           <div className="col-span-8 h-[30rem] grid grid-cols-2 max-md:grid-cols-1">
-            <div className="bg-[#19183A] max-md:h-48"> 
+            {/* <div className="bg-[#19183A] max-md:h-48"> 
                 <iframe
                 width="100%"
                 height="100%"
@@ -101,7 +121,15 @@ const Reviews = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
-             </div>
+             </div> */}
+             <div className="bg-[#19183A] flex items-center justify-center max-md:h-48 max-md:mt-3">
+                <img
+                  src={reviews[currentIndex].image}
+                  alt={reviews[currentIndex].name}
+                  className="w-full h-96 object-contain"
+                />
+              </div>
+
             <div className="bg-white p-8 relative">
            
               <p className="textmain text-2xl my-2.5 max-md:text-xl">{reviews[currentIndex].name}</p>
@@ -120,7 +148,7 @@ const Reviews = () => {
                     fill="#BCBCD4"
                   />
                 </svg>
-                <p className="px-5 text-sm inter max-md:px-3 max-md:text-xs">{reviews[currentIndex].feedback}</p>
+                <p className="px-5 text-sm inter max-md:px-3 max-md:text-xs md:h-56 h-28 overflow-y-scroll">{reviews[currentIndex].feedback}</p>
               </div>
 
               {/* Navigation Buttons */}

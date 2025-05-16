@@ -17,6 +17,7 @@ import { MotionDiv, MotionP } from "../utils/page";
 import { ReactTyped } from "react-typed";
 import Particle from "./particle";
 import ParticleSnow from "./particle-snow";
+import Link from "next/link";
 
 const HeroSection = () => {
   const arr = [""];
@@ -99,9 +100,9 @@ const HeroSection = () => {
             </MotionP>
 
             {/* Call-to-Action Button */}
-            <button className="font-medium text-sm mx-auto px-5 py-3 bg-white flex items-center justify-between gap-2 text-[#5A00EC] my-6 max-md:w-fit">
-              Let’s Grow <GoArrowUpRight className="text-2xl" />
-            </button>
+            <Link href={"/#contactUs"} className="font-medium text-sm mx-auto px-5 py-3 bg-white flex items-center justify-between gap-2 text-[#5A00EC] hover:bg-[#5A00EC] hover:text-white transition-transform group my-6 max-md:w-fit">
+              Let’s Grow <GoArrowUpRight className="text-2xl group-hover:rotate-45 transition-transform" />
+            </Link>
 
             <MotionDiv
              variants={variants}

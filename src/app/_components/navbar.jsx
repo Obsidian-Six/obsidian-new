@@ -99,36 +99,44 @@ const Navbar = () => {
       </nav>
       {/* Mobile Drawer Navigation */}
       <div
-        className={`fixed top-0 right-0 z-50 h-screen p-4 bg-gradient-to-r from-[#d9d9d9] border-l border-[#FD7B28] to-white transition-transform transform ${
-          isDrawer ? "translate-x-0" : "translate-x-full"
-        } w-80 lg:hidden`}
-      >
-        <button type="button" onClick={() => setIsDrawer(false)} className="absolute top-4 right-4">
-          <RxCross1 className="text-2xl textmain" />
-        </button>
+  className={`fixed top-0 right-0 z-[9999] h-full p-4 bg-gradient-to-r from-[#d9d9d9] to-white border-l border-[#FD7B28] transition-transform duration-300 ease-in-out transform ${
+    isDrawer ? "translate-x-0" : "translate-x-full"
+  } w-4/5 max-w-sm sm:w-80 lg:hidden shadow-xl backdrop-blur-md`}
+>
+  <button
+    type="button"
+    onClick={() => setIsDrawer(false)}
+    className="absolute top-4 right-2"
+  >
+    <RxCross1 className="text-2xl textmain" />
+  </button>
 
-        <div className="mt-12">
-          <img src="/images/logo/logo2.png" className="h-10 mx-auto" alt="Logo" />
-        </div>
+  <div className="mt-1">
+    <img src="/images/logo/logo2.png" className="h-10 mx-auto" alt="Logo" />
+  </div>
 
-        <div className="py-6">
-          <ul className="space-y-4 font-medium text-lg">
-            {arr.map((ele, i) => (
-              <li key={i} className="border-b-2">
-                <Link
-                  href={ele.link}
-                  className={`flex items-center p-3 rounded-lg hover:text-primary-main hover:bg-white ${
-                    path === ele.link ? "bg-primary-main font-medium" : "text-heading-main"
-                  }`}
-                  onClick={() => setIsDrawer(false)}
-                >
-                  &#9673; <span className="ml-3">{ele.name}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+  <div className="py-6 overflow-y-auto max-h-[80vh]">
+   <ul className="space-y-4">
+      {arr.map((ele, i) => (
+        <li key={i}>
+          <Link
+            href={ele.link}
+            className={`flex items-center gap-3 px-4 py-3 rounded-md text-base font-medium transition-colors ${
+              path === ele.link
+                ? "bg-[#FD7B28] text-white shadow"
+                : "text-gray-800 hover:bg-[#fef0e7] hover:text-[#FD7B28]"
+            }`}
+            onClick={() => setIsDrawer(false)}
+          >
+            <span className="text-xl">●</span>
+            {ele.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
     </>
   );
 };

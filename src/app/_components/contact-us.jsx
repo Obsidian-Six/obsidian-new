@@ -8,6 +8,7 @@ import { GrLocation } from "react-icons/gr";
 import { GoArrowUpRight } from "react-icons/go";
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
+import Link from "next/link";
 
 const ContactUs = () => {
   const [phone, setPhone] = useState("");
@@ -31,25 +32,25 @@ const ContactUs = () => {
             <h2 className="text-xl font-medium poppins">Call Us</h2>
             <div className="flex items-center space-x-2 my-2.5">
               <PiPhoneCall className="text-xl" />
-              <span className="text-sm font-semibold inter">+919961662729</span>
+              <Link href={"tel:+918085652729"} className="text-sm font-semibold inter">+918085652729</Link>
             </div>
           </div>
           <div>
             <h2 className="text-xl font-medium poppins">Mail Us</h2>
             <div className="flex items-center space-x-2 my-2.5">
               <MdOutlineMailOutline />
-              <span className="text-sm font-semibold inter">
-                info@obsidiansix.io
-              </span>
+              <Link href={"mailto:info@obsidiansix.com"} className="text-sm font-semibold inter">
+                info@obsidiansix.com
+              </Link>
             </div>
           </div>
           <div className="">
             <h2 className="text-xl font-medium poppins">Our Socials</h2>
             <div className="flex items-center space-x-2 my-2.5">
               <RiInstagramLine />
-              <span className="text-sm font-semibold inter">
-                obsidiansix.io
-              </span>
+              <Link href={"https://www.obsidiansix.com/"} className="text-sm font-semibold inter">
+                obsidiansix.com
+              </Link>
             </div>
           </div>
           <div className="max-md:col-span-2">
@@ -57,8 +58,7 @@ const ContactUs = () => {
             <div className="flex space-x-2 my-2.5">
               <GrLocation />
               <span className="text-sm font-semibold inter">
-                96/2 Ravidas Nagar near Bhawani Parisar Indrapuri, Bhopal Madhya
-                Pradesh India Pincode 462023.
+                Bhopal , Indore , Bangalore , Pune
               </span>
             </div>
           </div>

@@ -23,7 +23,7 @@ const OurTeam = () => {
   };
 
   return (
-    <div id="aboutUs" className="relative">
+    <div id="" className="relative">
       {/* Background Image */}
       <img
         src="/images/logo/bg.png"

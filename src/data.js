@@ -267,7 +267,7 @@ export const CaseStudyData = [
         name: 'Ten On Ten Stays',
         category: 'Hospitality & Marketing',
         cardData: 'Developed a high-converting digital presence for Ten On Ten Stays, positioning them as a 360° revenue growth partner for hotels and resorts.',
-        cardImg: 'https://img.freepik.com/free-photo/view-luxurious-hotel-hallway_23-2150683497.jpg?t=st=1743222635~exp=1743226235~hmac=71967047ab192820a37e1764cf141769e6831dfb56dffae1da541df1f11ee848&w=1380',
+        cardImg: 'http://tenontenstays.com/assests/01.png',
         tags: ["Website", "Branding", "SEO", "UI/UX"],
         img: 'https://img.freepik.com/free-photo/beautiful-castle-architecture_23-2150754875.jpg?t=st=1743222693~exp=1743226293~hmac=69bb516d07c39aaf4f09a4b6fb7508f3360a038fa9b7d098e6dc996be7687f8b&w=1380',
         casesection: {

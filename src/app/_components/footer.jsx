@@ -8,21 +8,23 @@ import { HiArrowSmallRight } from "react-icons/hi2";
 const Footer = () => {
   return (
     <>
-    
-    <div className="bg-[#5A00EC] text-white p-6 flex flex-col md:flex-row justify-evenly items-center text-center md:text-left">
-            <div className="text-6xl font-light leading-snug max-md:text-4xl max-sm:text-3xl">
-                Start your journey towards
-                <span className={`highlight`}> growth </span>
-            </div>
-            <button className="md:p-4 p-2 textmain md:px-10 px-4 bg-white flex items-center justify-center mt-4 md:mt-0">
-                <HiArrowSmallRight className="md:text-7xl sm:text-3xl text-2xl textmain" />
-            </button>
+      <div className="bg-[#5A00EC] text-white p-6 flex flex-col md:flex-row justify-evenly items-center text-center md:text-left">
+        <div className="text-6xl font-light leading-snug max-md:text-4xl max-sm:text-3xl">
+          Start your journey towards
+          <span className={`highlight`}> growth </span>
         </div>
+        <button className="md:p-4 p-2 textmain md:px-10 px-4 bg-white flex items-center justify-center mt-4 md:mt-0">
+          <HiArrowSmallRight className="md:text-7xl sm:text-3xl text-2xl textmain" />
+        </button>
+      </div>
       <div className="max-w-7xl mx-auto py-20 px-6">
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
           {/* Logo & Description */}
           <div className="mb-8 md:mb-0">
-            <Link href="/" className="flex items-center justify-center md:justify-start">
+            <Link
+              href="/"
+              className="flex items-center justify-center md:justify-start"
+            >
               <img
                 src="/images/logo/logo2.png"
                 className="h-8 sm:h-10 scale-100"
@@ -39,18 +41,23 @@ const Footer = () => {
           {/* Navigation Links */}
           <div className="text-center md:text-right">
             <ul className="space-y-2">
-              {["Home", "Works", "Services", "Blogs", "About us", "Contact us"].map(
-                (item, index) => (
-                  <li key={index}>
-                    <a
-                      className="text-lg text-[#19183A] hover:text-gray-600"
-                      href="#"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                "Home",
+                "Works",
+                "Services",
+                "Blogs",
+                "About us",
+                "Contact us",
+              ].map((item, index) => (
+                <li key={index}>
+                  <a
+                    className="text-lg text-[#19183A] hover:text-gray-600"
+                    href="#"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -59,10 +66,12 @@ const Footer = () => {
         <div className="border-t border-gray-300 mt-8 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <p className="text-sm text-[#19183A] mb-4 md:mb-0 max-w-xs">
-              96/2 Ravidas Nagar near Bhawani Parisar Indrapuri, Bhopal Madhya Pradesh India Pincode 462023.
+              Bhopal , Indore , Bangalore , Pune
             </p>
-            <p className="text-sm text-[#19183A] mb-4 md:mb-0">+919961662729</p>
-            <p className="text-sm text-[#19183A] mb-4 md:mb-0">info@obsidiansix.io</p>
+            <Link href={"tel:+918085652729"} className="text-sm text-[#19183A] mb-4 md:mb-0">+918085652729</Link>
+            <Link href={"mailto:info@obsidiansix.com"} className="text-sm text-[#19183A] mb-4 md:mb-0">
+              info@obsidiansix.com
+            </Link>
             <div className="flex justify-center md:justify-end space-x-4 mt-4 md:mt-0">
               <a className="text-[#19183A] hover:text-gray-600" href="#">
                 <CiFacebook className="text-2xl sm:text-3xl" />

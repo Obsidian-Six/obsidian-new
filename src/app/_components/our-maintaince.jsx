@@ -1,6 +1,7 @@
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import { MotionDiv, MotionP } from "../utils/page";
+import Link from "next/link";
 
 const OurMaintenance = () => {
   const variants = {
@@ -36,9 +37,9 @@ const OurMaintenance = () => {
       </MotionP>
 
       {/* CTA Button */}
-      <button className="font-medium text-sm px-5 py-3 text-white flex items-center gap-2 bg-[#5A00EC] my-6">
+      <Link href={"/#contactUs"} className="font-medium text-sm px-5 py-3 text-white flex items-center gap-2 bg-[#5A00EC] my-6 w-fit">
         Let’s Grow <GoArrowUpRight className="text-2xl" />
-      </button>
+      </Link>
 
       {/* Maintenance Service Cards */}
       <div className="grid grid-cols-5 gap-10 max-md:grid-cols-1 my-10">
