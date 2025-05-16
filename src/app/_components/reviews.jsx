@@ -126,7 +126,7 @@ const Reviews = () => {
                 <img
                   src={reviews[currentIndex].image}
                   alt={reviews[currentIndex].name}
-                  className="w-full h-96 object-contain"
+                  className="w-full md:h-96 h-48 object-contain"
                 />
               </div>
 
