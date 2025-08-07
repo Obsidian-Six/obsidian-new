@@ -7,7 +7,7 @@ import { MotionDiv } from "../utils/page";
 const services = [
   {
     name: "Branding & Identity",
-    image: "https://designshack.net/wp-content/uploads/responsive-website-app-templates.jpg",
+  image: "/images/branding.jpg",
     description:
       "We craft unique brand identities, including logo design, color schemes, typography, and messaging, to create a lasting impact for your business.",
   },

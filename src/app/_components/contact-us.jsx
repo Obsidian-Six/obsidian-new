@@ -58,7 +58,7 @@ const ContactUs = () => {
             <div className="flex space-x-2 my-2.5">
               <GrLocation />
               <span className="text-sm font-semibold inter">
-                Bhopal , Indore , Bangalore , Pune
+                Bhopal , Indore , Mumbai , Delhi
               </span>
             </div>
           </div>

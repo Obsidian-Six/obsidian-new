@@ -1,47 +1,67 @@
 import React from "react";
-import { HiArrowSmallRight } from "react-icons/hi2";
 
-const OurClient = () => {
-  const arr = [
-    "https://cdn.dribbble.com/userupload/22025714/file/original-2ced14db767d6e643d72603d798b9b39.png",
-    "https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.jpg",
-    "https://www.shim.co.in/wp-content/uploads/elementor/thumbs/12-q7r8iwctozlshe0edhjelc7pqk67vw1dmgyjlzgr68.png",
-    "https://www.tenontenstays.com/assests/logo.png",
-    "https://www.rezmytour.com/assets/images/logo.png",
-    "https://abcapital.ae/wp-content/uploads/2023/07/abcap-logo-e1703014705681.png.webp",
-    "https://pachmarhiayurveda.com/assets/logo-CKua0_W6.png",
-    "http://sportxcoins.com/wp-content/uploads/2024/09/Sportx-Coins-Logo.png",
-    "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fimages%2Fmagha-6b5980fd.png&w=1920&q=75",
-    "https://www.truevalueventures.in/logo3.png",
-    // "https://www.thegyef.com/_next/image?url=%2Fimages%2Flogo1.png&w=1920&q=75",
-    // "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fimages%2Fmore-09e1cd70.png&w=1920&q=75"
-  ];
+const arr = [
+  "https://animationvisarts.com/wp-content/uploads/2023/10/image-15.png",
+  "our-client/swiggy.png",
+  "our-client/kotak.png",
+  "https://logos-world.net/wp-content/uploads/2020/11/Zomato-Logo.png",
+  "https://pachmarhiayurveda.com/assets/logo-CKua0_W6.png",
+  
+  "https://funnel.io/hubfs/Connectors/amazon-dsp.svg",
+  "our-client/AB.png",
+  "https://www.tenontenstays.com/assests/logo.png",
+  "https://www.rezmytour.com/assets/images/logo.png",
+  "https://www.truevalueventures.in/logo3.png",
+  "our-client/lt.png",
+  "https://www.shim.co.in/wp-content/uploads/elementor/thumbs/12-q7r8iwctozlshe0edhjelc7pqk67vw1dmgyjlzgr68.png",
+  "/our-client/indian.png",
+  "our-client/BB.png",
+  "our-client/tb.png",
+  "our-client/khoshnaw.png",
+  "our-client/Eurotech.png",
+  "our-client/nidan.png",
+  "our-client/sporxcoin.png",
+  "https://upload.wikimedia.org/wikipedia/commons/7/75/DTDC_logo.png",
+  
+];
 
-  return (
-    <>
-      {/* Clients Section */}
-      <div className="bg-[#19183A] p-16 text-white max-md:p-8">
-        <div className="text-6xl text-center font-light max-w-5xl mx-auto leading-snug max-md:text-4xl max-sm:text-3xl">
-          They
-          <span className={`highlight`}> believe </span>
-          in us
+const OurClient = () => (
+  <section className="bg-black py-20 px-4">
+    <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center mb-20">
+      <h2 className="text-5xl md:text-6xl text-white font-light mb-7 md:mb-0 md:text-left w-full md:w-1/2 tracking-wide">
+        Clients
+      </h2>
+      <p className="text-lg md:text-xl text-white font-light md:text-right w-full md:w-1/2">
+        Our clients are everything to us; so are we to them.
+      </p>
+    </div>
+    <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-14 gap-x-10">
+      {arr.map((src, i) => (
+        <div key={i} className="flex items-center justify-center">
+          <img
+            src={src}
+            alt={`client-logo-${i}`}
+            className="
+              max-h-16 object-contain 
+              transition-all duration-300
+              filter logo-white
+              hover:filter-none
+            "
+            loading="lazy"
+          />
         </div>
-
-        {/* Clients Logo Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 max-w-6xl mx-auto my-14 justify-center">
-          {arr.map((ele, i) => (
-            <div key={i} className="bg-white flex justify-center p-5">
-              <img
-                src={ele}
-                alt="No Preview"
-                className="h-20 w-fit object-contain"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
-  );
-};
+      ))}
+    </div>
+    {/* Custom style for “white by default, color on hover” */}
+    <style>{`
+      .logo-white {
+        filter: brightness(0) invert(1);
+      }
+      .logo-white:hover {
+        filter: none;
+      }
+    `}</style>
+  </section>
+);
 
 export default OurClient;

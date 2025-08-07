@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import { CiFacebook } from "react-icons/ci";
-import { SlSocialTwitter } from "react-icons/sl";
-import { FaInstagram } from "react-icons/fa";
+import { SlSocialLinkedin, SlSocialTwitter } from "react-icons/sl";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { HiArrowSmallRight } from "react-icons/hi2";
 
 const Footer = () => {
@@ -66,20 +66,20 @@ const Footer = () => {
         <div className="border-t border-gray-300 mt-8 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <p className="text-sm text-[#19183A] mb-4 md:mb-0 max-w-xs">
-              Bhopal , Indore , Bangalore , Pune
+              Bhopal , Indore , Bangalore , delhi
             </p>
             <Link href={"tel:+918085652729"} className="text-sm text-[#19183A] mb-4 md:mb-0">+918085652729</Link>
             <Link href={"mailto:info@obsidiansix.com"} className="text-sm text-[#19183A] mb-4 md:mb-0">
               info@obsidiansix.com
             </Link>
             <div className="flex justify-center md:justify-end space-x-4 mt-4 md:mt-0">
-              <a className="text-[#19183A] hover:text-gray-600" href="#">
+              {/* <a className="text-[#19183A] hover:text-gray-600" href="#" target="_blank">
                 <CiFacebook className="text-2xl sm:text-3xl" />
+              </a> */}
+              <a className="text-[#19183A] hover:text-gray-600" href="https://www.linkedin.com/company/obsidian-six/" target="_blank">
+                <FaLinkedin className="text-2xl sm:text-3xl" />
               </a>
-              <a className="text-[#19183A] hover:text-gray-600" href="#">
-                <SlSocialTwitter className="text-2xl sm:text-3xl" />
-              </a>
-              <a className="text-[#19183A] hover:text-gray-600" href="#">
+              <a className="text-[#19183A] hover:text-gray-600" href="https://www.instagram.com/obsidiansixofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
                 <FaInstagram className="text-2xl sm:text-3xl" />
               </a>
             </div>

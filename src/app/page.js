@@ -1,5 +1,6 @@
 import Banner from "./_components/banner";
 import ContactUs from "./_components/contact-us";
+import FloatingWhatsapp from "./_components/FloatingWhatsapp";
 import Footer from "./_components/footer";
 import HeroSection from "./_components/hero-section";
 import HomeService from "./_components/home-service";
@@ -23,6 +24,7 @@ export default function Home() {
       {/* <OurTeam /> */}
       <ContactUs />
       <OurClient />
+      <FloatingWhatsapp />
       <Footer />
 
     </div>

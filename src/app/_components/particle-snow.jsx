@@ -53,10 +53,10 @@ const ParticleSnow = () => {
                     },
                     particles: {
                         color: {
-                            value: "#FD7B28",
+                            value: "#ffffff",
                         },
                         links: {
-                            color: "#FD7B28",
+                            color: "#ffffff",
                          
                         },
                         number: {
@@ -80,7 +80,7 @@ const ParticleSnow = () => {
                             },
                         },
                         color: {
-                            value: ["#FD7B28"], // White, Light Blue, Sky Blue
+                            value: ["#ffffff"], // White, Light Blue, Sky Blue
                         },
                     },
                     detectRetina: true,
