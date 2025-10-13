@@ -1,36 +1,36 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowDown } from "react-icons/fa";
+import Image from "next/image";
+import type { CaseStudy } from "@/data";
 
-const HeroCase = ({ele}) => {
+export default function HeroCase({ ele }: { ele: CaseStudy }) {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setOffset(window.scrollY * 0.2); // Adjust scrolling speed
-    };
-
+    const handleScroll = () => setOffset(window.scrollY * 0.2);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToNextSection = () => {
-    const nextSection = document.getElementById("case-study-section"); // Target section
+    const nextSection = document.getElementById("case-study-section");
     if (nextSection) {
-      window.scrollTo({
-        top: nextSection.offsetTop,
-        behavior: "smooth", // Smooth scroll effect
-      });
+      window.scrollTo({ top: nextSection.offsetTop, behavior: "smooth" });
     }
   };
 
   return (
     <>
       <div className="relative w-full md:h-screen h-[90vh] overflow-hidden">
-        <img
-          alt="A scenic waterfall in a forest with a large rock in the foreground. The rock has 'Pachmarhi Ayurveda' written on it in blue letters."
+        <Image
+          alt={ele.name}
           className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-300 ease-out"
           src={ele.img}
+          fill
+          sizes="100vw"
+          priority
+          unoptimized
           style={{ transform: `translateY(${offset}px)` }}
         />
         <div
@@ -44,18 +44,20 @@ const HeroCase = ({ele}) => {
           className="absolute bottom-4 left-1/2 transform -translate-x-1/2 transition-transform duration-300"
           style={{ transform: `translateY(${offset * 0.2}px)` }}
         >
-          <button  onClick={scrollToNextSection} className="bg-purple-600 text-white p-4 rounded-full cursor-pointer animate-bounce">
+          <button
+            onClick={scrollToNextSection}
+            className="bg-purple-600 text-white p-4 rounded-full cursor-pointer animate-bounce"
+          >
             <FaArrowDown />
           </button>
         </div>
       </div>
-      
-      {/* Case Study Section */}
+
       <div id="case-study-section" className="bg-[#19183A] text-white py-20">
         <div className="w-[80%] mx-auto poppins">
           <div
             className="md:text-xl sm:text-base text-sm flex items-center gap-2 uppercase transition-transform duration-300"
-            style={{ transform: `translateY(${offset * 0.1}px)` }} // Subtle movement
+            style={{ transform: `translateY(${offset * 0.1}px)` }}
           >
             <p className="h-2.5 w-2.5 bg-[#5A00EC]" /> Case Study - {ele?.name}
           </div>
@@ -69,18 +71,17 @@ const HeroCase = ({ele}) => {
         </div>
       </div>
 
-      {/* Overview Section */}
       <div className="py-20 poppins">
         <div className="md:w-[60%] w-[80%] mx-auto">
           <p
             className="text-[#5A00EC] text-3xl md:mb-10 mb-6 uppercase transition-transform duration-300"
-            style={{ transform: `translateY(${offset * 0.1}px)` }} // Slight motion
+            style={{ transform: `translateY(${offset * 0.1}px)` }}
           >
             Overview
           </p>
           <p
             className="md:text-2xl sm:text-xl text-base text-[#19183A]/75 font-light inter leading-9 max-md:text-justify"
-            style={{ transform: `translateY(${offset * 0.05}px)` }} // Minimal movement for readability
+            style={{ transform: `translateY(${offset * 0.05}px)` }}
           >
             {ele.overview}
           </p>
@@ -88,6 +89,4 @@ const HeroCase = ({ele}) => {
       </div>
     </>
   );
-};
-
-export default HeroCase;
+}

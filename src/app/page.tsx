@@ -7,7 +7,6 @@ import HomeService from "./_components/home-service";
 import Navbar from "./_components/navbar";
 import OurClient from "./_components/our-client";
 import OurMaintaince from "./_components/our-maintaince";
-import OurTeam from "./_components/our-team";
 import OurWork from "./_components/our-work";
 import Reviews from "./_components/reviews";
 

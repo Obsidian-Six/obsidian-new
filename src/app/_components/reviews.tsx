@@ -42,6 +42,17 @@ const Reviews = () => {
     );
   };
 
+  // If no reviews, render nothing
+  if (reviews.length === 0) {
+    return null;
+  }
+
+  const prevIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+  const nextIndex = (currentIndex + 1) % reviews.length;
+  const currentReview = reviews[currentIndex]!;
+  const prevReview = reviews[prevIndex]!;
+  const nextReview = reviews[nextIndex]!;
+
   return (
     <div id="aboutUs" className="bg-[#5A00EC]/10">
       <div className="max-w-6xl mx-auto pb-32 px-4">
@@ -61,10 +72,7 @@ const Reviews = () => {
             onClick={prevSlide}
           >
             <Image
-              src={
-                reviews[(currentIndex - 1 + reviews.length) % reviews.length]
-                  .image
-              }
+              src={prevReview.image}
               alt="Previous"
               width={320}
               height={112}
@@ -72,26 +80,16 @@ const Reviews = () => {
             />
             <div className="absolute h-full w-full bg-gradient-to-t from-black to-transparent top-0 left-0" />
             <div className="absolute bottom-0 text-white p-2.5">
-              <p className="text-xs poppins">
-                {
-                  reviews[(currentIndex - 1 + reviews.length) % reviews.length]
-                    .title
-                }
-              </p>
-              <p className="text-sm inter">
-                {
-                  reviews[(currentIndex - 1 + reviews.length) % reviews.length]
-                    .company
-                }
-              </p>
+              <p className="text-xs poppins">{prevReview.title}</p>
+              <p className="text-sm inter">{prevReview.company}</p>
             </div>
           </div>
 
           <div className="col-span-8 h-[30rem] grid grid-cols-2 max-md:grid-cols-1">
             <div className="bg-[#19183A] flex items-center justify-center max-md:h-48 max-md:mt-3">
               <Image
-                src={reviews[currentIndex].image}
-                alt={reviews[currentIndex].name}
+                src={currentReview.image}
+                alt={currentReview.name}
                 width={640}
                 height={384}
                 className="w-full md:h-96 h-48 object-contain"
@@ -100,10 +98,10 @@ const Reviews = () => {
 
             <div className="bg-white p-8 relative">
               <p className="textmain text-2xl my-2.5 max-md:text-xl">
-                {reviews[currentIndex].name}
+                {currentReview.name}
               </p>
               <p className="textmain text-sm inter my-2.5 max-md:text-xs">
-                {reviews[currentIndex].title}
+                {currentReview.title}
               </p>
               <div className="textmain opacity-80 mt-[30%] max-md:mt-6">
                 <svg
@@ -120,7 +118,7 @@ const Reviews = () => {
                   />
                 </svg>
                 <p className="px-5 text-sm inter max-md:px-3 max-md:text-xs md:h-56 h-28 overflow-y-scroll">
-                  {reviews[currentIndex].feedback}
+                  {currentReview.feedback}
                 </p>
               </div>
 
@@ -146,7 +144,7 @@ const Reviews = () => {
             onClick={nextSlide}
           >
             <Image
-              src={reviews[(currentIndex + 1) % reviews.length].image}
+              src={nextReview.image}
               alt="Next"
               width={320}
               height={112}
@@ -154,12 +152,8 @@ const Reviews = () => {
             />
             <div className="absolute h-full w-full bg-gradient-to-t from-black to-transparent top-0 left-0" />
             <div className="absolute bottom-0 text-white p-2.5">
-              <p className="text-xs poppins">
-                {reviews[(currentIndex + 1) % reviews.length].title}
-              </p>
-              <p className="text-sm inter">
-                {reviews[(currentIndex + 1) % reviews.length].company}
-              </p>
+              <p className="text-xs poppins">{nextReview.title}</p>
+              <p className="text-sm inter">{nextReview.company}</p>
             </div>
           </div>
         </div>

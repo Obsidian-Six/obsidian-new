@@ -1,4 +1,56 @@
-export const CaseStudyData = [
+// Types for Case Study data used across the app
+export interface CaseStudyTag extends String {}
+
+export interface CaseStudyCaseSection {
+  data: string;
+  highlight: string;
+}
+
+export interface CaseStudyChallengePoint {
+  name: string;
+  detail: string;
+}
+
+export interface CaseStudyChallenge {
+  data: string;
+  point: CaseStudyChallengePoint[];
+}
+
+export interface CaseStudyApproachItem {
+  name: string;
+  detail: string;
+}
+
+export interface CaseStudyResultItem {
+  img: string;
+  title: string;
+  highlight: string;
+  data: string;
+}
+
+export interface CaseStudyImpactItem {
+  name: string;
+  detail: string;
+}
+
+export interface CaseStudy {
+  id: string;
+  name: string;
+  category: string;
+  cardData: string;
+  cardImg: string;
+  tags: string[];
+  img: string; // hero image
+  casesection: CaseStudyCaseSection;
+  overview: string;
+  challenge: CaseStudyChallenge;
+  approch: CaseStudyApproachItem[]; // Keeping original key name used in data
+  result: CaseStudyResultItem[];
+  impact: CaseStudyImpactItem[];
+  detail: string;
+}
+
+export const CaseStudyData: CaseStudy[] = [
   {
     id: "pachmarhi",
     name: "Pachmarhi Ayurveda",

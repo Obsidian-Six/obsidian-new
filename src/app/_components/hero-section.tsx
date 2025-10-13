@@ -34,7 +34,7 @@ const HeroSection = () => {
       id="home"
       className="mySwiper relative bg-black text-white overflow-hidden h-screen"
     >
-      {arr.map((ele, i) => (
+      {arr.map((_, i) => (
         <SwiperSlide key={i} className="h-full w-full relative bg-black">
           <ParticleSnow />
           <div className="relative z-10 flex flex-col justify-center items-center h-full text-center max-w-5xl mx-auto px-6 sm:px-4 md:p-0">
