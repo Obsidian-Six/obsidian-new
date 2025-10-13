@@ -1,28 +1,27 @@
 import React from "react";
+import Image from "next/image";
 
-const arr = [
+const arr: string[] = [
   "https://animationvisarts.com/wp-content/uploads/2023/10/image-15.png",
-  "our-client/swiggy.png",
-  "our-client/kotak.png",
+  "/our-client/swiggy.png",
+  "/our-client/kotak.png",
   "https://logos-world.net/wp-content/uploads/2020/11/Zomato-Logo.png",
   "https://pachmarhiayurveda.com/assets/logo-CKua0_W6.png",
-  
   "https://funnel.io/hubfs/Connectors/amazon-dsp.svg",
-  "our-client/AB.png",
+  "/our-client/AB.png",
   "https://www.tenontenstays.com/assests/logo.png",
   "https://www.rezmytour.com/assets/images/logo.png",
   "https://www.truevalueventures.in/logo3.png",
-  "our-client/lt.png",
+  "/our-client/lt.png",
   "https://www.shim.co.in/wp-content/uploads/elementor/thumbs/12-q7r8iwctozlshe0edhjelc7pqk67vw1dmgyjlzgr68.png",
   "/our-client/indian.png",
-  "our-client/BB.png",
-  "our-client/tb.png",
-  "our-client/khoshnaw.png",
-  "our-client/Eurotech.png",
-  "our-client/nidan.png",
-  "our-client/sporxcoin.png",
+  "/our-client/BB.png",
+  "/our-client/tb.png",
+  "/our-client/khoshnaw.png",
+  "/our-client/Eurotech.png",
+  "/our-client/nidan.png",
+  "/our-client/sporxcoin.png",
   "https://upload.wikimedia.org/wikipedia/commons/7/75/DTDC_logo.png",
-  
 ];
 
 const OurClient = () => (
@@ -38,21 +37,21 @@ const OurClient = () => (
     <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-14 gap-x-10">
       {arr.map((src, i) => (
         <div key={i} className="flex items-center justify-center">
-          <img
+          <Image
             src={src}
             alt={`client-logo-${i}`}
+            width={160}
+            height={64}
             className="
               max-h-16 object-contain 
               transition-all duration-300
               filter logo-white
               hover:filter-none
             "
-            loading="lazy"
           />
         </div>
       ))}
     </div>
-    {/* Custom style for “white by default, color on hover” */}
     <style>{`
       .logo-white {
         filter: brightness(0) invert(1);

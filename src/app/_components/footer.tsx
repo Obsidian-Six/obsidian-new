@@ -1,7 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
-import { CiFacebook } from "react-icons/ci";
-import { SlSocialLinkedin, SlSocialTwitter } from "react-icons/sl";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { HiArrowSmallRight } from "react-icons/hi2";
 
@@ -25,10 +24,12 @@ const Footer = () => {
               href="/"
               className="flex items-center justify-center md:justify-start"
             >
-              <img
+              <Image
                 src="/images/logo/logo2.png"
-                className="h-8 sm:h-10 scale-100"
                 alt="Logo"
+                width={160}
+                height={40}
+                className="h-8 sm:h-10 w-auto scale-100"
               />
             </Link>
             <p className="text-sm inter max-w-xs textmain opacity-90 my-5">
@@ -68,18 +69,31 @@ const Footer = () => {
             <p className="text-sm text-[#19183A] mb-4 md:mb-0 max-w-xs">
               Bhopal , Indore , Bangalore , delhi
             </p>
-            <Link href={"tel:+918085652729"} className="text-sm text-[#19183A] mb-4 md:mb-0">+918085652729</Link>
-            <Link href={"mailto:info@obsidiansix.com"} className="text-sm text-[#19183A] mb-4 md:mb-0">
+            <Link
+              href={"tel:+918085652729"}
+              className="text-sm text-[#19183A] mb-4 md:mb-0"
+            >
+              +918085652729
+            </Link>
+            <Link
+              href={"mailto:info@obsidiansix.com"}
+              className="text-sm text-[#19183A] mb-4 md:mb-0"
+            >
               info@obsidiansix.com
             </Link>
             <div className="flex justify-center md:justify-end space-x-4 mt-4 md:mt-0">
-              {/* <a className="text-[#19183A] hover:text-gray-600" href="#" target="_blank">
-                <CiFacebook className="text-2xl sm:text-3xl" />
-              </a> */}
-              <a className="text-[#19183A] hover:text-gray-600" href="https://www.linkedin.com/company/obsidian-six/" target="_blank">
+              <a
+                className="text-[#19183A] hover:text-gray-600"
+                href="https://www.linkedin.com/company/obsidian-six/"
+                target="_blank"
+              >
                 <FaLinkedin className="text-2xl sm:text-3xl" />
               </a>
-              <a className="text-[#19183A] hover:text-gray-600" href="https://www.instagram.com/obsidiansixofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+              <a
+                className="text-[#19183A] hover:text-gray-600"
+                href="https://www.instagram.com/obsidiansixofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+              >
                 <FaInstagram className="text-2xl sm:text-3xl" />
               </a>
             </div>
@@ -90,7 +104,7 @@ const Footer = () => {
             <p className="text-xs text-[#19183A]/50">
               © Copyright 2025, All Rights Reserved by Obsidian
             </p>
-            <p className="text-xs text-[#19183A]/50">Terms &amp; Conditions</p>
+            <p className="text-xs text-[#19183A]/50">Terms & Conditions</p>
           </div>
         </div>
       </div>

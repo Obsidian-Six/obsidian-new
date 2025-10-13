@@ -12,7 +12,7 @@ import Link from "next/link";
 
 const ContactUs = () => {
   const [phone, setPhone] = useState("");
-  const data = [
+  const data: string[] = [
     "Website Development",
     "Complete Digital Marketing",
     "Social Media Marketing",
@@ -32,14 +32,22 @@ const ContactUs = () => {
             <h2 className="text-xl font-medium poppins">Call Us</h2>
             <div className="flex items-center space-x-2 my-2.5">
               <PiPhoneCall className="text-xl" />
-              <Link href={"tel:+918085652729"} className="text-sm font-semibold inter">+918085652729</Link>
+              <Link
+                href={"tel:+918085652729"}
+                className="text-sm font-semibold inter"
+              >
+                +918085652729
+              </Link>
             </div>
           </div>
           <div>
             <h2 className="text-xl font-medium poppins">Mail Us</h2>
             <div className="flex items-center space-x-2 my-2.5">
               <MdOutlineMailOutline />
-              <Link href={"mailto:info@obsidiansix.com"} className="text-sm font-semibold inter">
+              <Link
+                href={"mailto:info@obsidiansix.com"}
+                className="text-sm font-semibold inter"
+              >
                 info@obsidiansix.com
               </Link>
             </div>
@@ -48,7 +56,10 @@ const ContactUs = () => {
             <h2 className="text-xl font-medium poppins">Our Socials</h2>
             <div className="flex items-center space-x-2 my-2.5">
               <RiInstagramLine />
-              <Link href={"https://www.obsidiansix.com/"} className="text-sm font-semibold inter">
+              <Link
+                href={"https://www.obsidiansix.com/"}
+                className="text-sm font-semibold inter"
+              >
                 obsidiansix.com
               </Link>
             </div>
@@ -116,9 +127,9 @@ const ContactUs = () => {
                 Phone Number
               </label>
               <PhoneInput
-                country={"in"} // Default country
+                country={"in"}
                 value={phone}
-                onChange={(value) => setPhone(value)}
+                onChange={(value: string) => setPhone(value)}
                 inputClass="!border !border-[#C3C3C3] p-2.5 !text-xs !outline-none !w-full !rounded-none"
                 containerClass="!w-full"
                 buttonClass="!rounded-none"

@@ -1,0 +1,106 @@
+"use client";
+
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import { MotionDiv } from "@/lib/motion";
+import { CaseStudyData } from "@/data";
+import Link from "next/link";
+import Image from "next/image";
+
+const OurWork = () => {
+  const swiperRef = useRef<any>(null);
+
+  const variants = {
+    start: { y: 200, opacity: 0 },
+    end: { y: 0, opacity: 1 },
+  };
+
+  return (
+    <div id="ourWork" className="max-w-7xl mx-auto px-4">
+      <div className="text-center md:my-14 my-6 text-xs font-semibold textmain">
+        [Our Work]
+      </div>
+
+      <MotionDiv
+        variants={variants}
+        initial={variants.start}
+        whileInView={variants.end}
+        transition={{ duration: 0.4, delay: 0.1 }}
+        viewport={{ once: true }}
+        className="text-6xl md:my-16 my-10 textmain max-w-5xl mx-auto text-center font-light leading-snug max-md:text-3xl  max-md:leading-normal poppins"
+      >
+        We empowered many ambitious businesses to achieve and surpass their
+        <span className="highlight"> growth </span> objectives.
+      </MotionDiv>
+
+      <div
+        className="overflow-hidden"
+        onMouseEnter={() => swiperRef.current?.swiper.autoplay.stop()}
+        onMouseLeave={() => swiperRef.current?.swiper.autoplay.start()}
+      >
+        <Swiper
+          ref={swiperRef}
+          modules={[Autoplay]}
+          spaceBetween={15}
+          loop={true}
+          autoplay={{ delay: 0, disableOnInteraction: false }}
+          speed={4000}
+          breakpoints={{
+            640: { slidesPerView: 1, spaceBetween: 10 },
+            1024: { slidesPerView: 2, spaceBetween: 10 },
+            1280: { slidesPerView: 3.5, spaceBetween: 30 },
+          }}
+        >
+          {CaseStudyData.map((ele, i) => (
+            <SwiperSlide key={i}>
+              <MotionDiv
+                whileHover={{ scale: 0.85 }}
+                className="textmain hover:"
+              >
+                <Link href={`/case-study/${ele.id}`}>
+                  <div className="text-xs text-[#5A00EC] flex items-center gap-2 uppercase">
+                    <p className="h-2.5 w-2.5 bg-[#5A00EC]" /> {ele.name}
+                  </div>
+                  <p className="my-1.5 text-xl max-md:text-lg">
+                    {ele.category}
+                  </p>
+                  <Image
+                    src={ele.cardImg}
+                    className="my-2.5 w-full rounded-md md:h-72 h-52 object-cover"
+                    alt="Project"
+                    width={640}
+                    height={288}
+                  />
+                  <div className="text-xs textmain space-x-3 space-y-2 flex flex-wrap max-md:space-x-2 max-md:gap-2">
+                    {ele.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bordermain rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="textmain mt-8 inter opacity-60 max-md:mt-4 max-md:text-sm">
+                    {ele.cardData}
+                  </p>
+                </Link>
+              </MotionDiv>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      <Link
+        href={"/case-study"}
+        className=" button text-[#19183A] w-fit text-xl bordermain mx-auto px-4 py-2 flex self-center my-20 max-md:my-10 max-md:text-lg hover:bg-[#5A00EC] hover:text-white transition-transform duration-300 ease-linear"
+      >
+        View More
+      </Link>
+    </div>
+  );
+};
+
+export default OurWork;

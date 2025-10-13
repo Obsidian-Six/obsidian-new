@@ -1,5 +1,5 @@
 import React from "react";
-import { MotionDiv } from "../utils/page";
+import { MotionDiv } from "@/lib/motion";
 import Link from "next/link";
 import { CaseStudyData } from "@/data";
 
@@ -84,29 +84,32 @@ const page = () => {
             className="textmain cursor-pointer"
           >
             <Link href={`/case-study/${ele.id}`}>
-                {/* Project Title */}
-                <div className="text-xs text-[#5A00EC] flex items-center gap-2 uppercase">
+              {/* Project Title */}
+              <div className="text-xs text-[#5A00EC] flex items-center gap-2 uppercase">
                 <p className="h-2.5 w-2.5 bg-[#5A00EC]" /> {ele.name}
-                </div>
-                <p className="my-1.5 text-xl max-md:text-lg">{ele.category}</p>
-                {/* Image */}
-                <img
+              </div>
+              <p className="my-1.5 text-xl max-md:text-lg">{ele.category}</p>
+              {/* Image */}
+              <img
                 src={ele.cardImg}
                 className="my-2.5 w-full rounded-md md:h-80 h-52 object-cover"
                 alt={ele.name}
-                />
-                {/* Tags */}
-                <div className="text-xs textmain space-x-3 space-y-2 flex flex-wrap max-md:space-x-2 max-md:gap-2">
+              />
+              {/* Tags */}
+              <div className="text-xs textmain space-x-3 space-y-2 flex flex-wrap max-md:space-x-2 max-md:gap-2">
                 {ele.tags.map((tag, index) => (
-                    <span key={index} className="px-3 py-1 bordermain rounded-full">
+                  <span
+                    key={index}
+                    className="px-3 py-1 bordermain rounded-full"
+                  >
                     {tag}
-                    </span>
+                  </span>
                 ))}
-                </div>
-                {/* Project Description */}
-                <p className="textmain mt-8 inter opacity-60 max-md:mt-4 max-md:text-sm">
+              </div>
+              {/* Project Description */}
+              <p className="textmain mt-8 inter opacity-60 max-md:mt-4 max-md:text-sm">
                 {ele.cardData}
-                </p>
+              </p>
             </Link>
           </MotionDiv>
         ))}

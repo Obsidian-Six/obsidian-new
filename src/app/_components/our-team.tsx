@@ -5,10 +5,13 @@ import { GoArrowUpRight } from "react-icons/go";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import { MotionDiv } from "../utils/page";
+import { MotionDiv } from "@/lib/motion";
+import Image from "next/image";
+
+type SwiperRef = React.MutableRefObject<any>;
 
 const OurTeam = () => {
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<any>(null) as SwiperRef;
   const teamMembers = Array(10).fill({
     img: "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fimages%2Faniketk.jpg&w=1920&q=75",
     name: "Aniket Kalawat",
@@ -20,15 +23,17 @@ const OurTeam = () => {
     end: { y: 0, opacity: 1 },
     startUp: { x: 200, opacity: 0 },
     endUp: { x: 0, opacity: 1 },
-  };
+  } as const;
 
   return (
     <div id="" className="relative">
       {/* Background Image */}
-      <img
+      <Image
         src="/images/logo/bg.png"
-        alt="No Preview"
-        className="h-full w-full opacity-20 absolute object-cover"
+        alt="Background"
+        fill
+        className="opacity-20 object-cover"
+        priority
       />
 
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-80"></div>
@@ -67,17 +72,19 @@ const OurTeam = () => {
           autoplay={{ delay: 0, disableOnInteraction: false }}
           speed={3000}
           breakpoints={{
-            320: { slidesPerView: 1.5, spaceBetween: 10 }, // Mobile
-            640: { slidesPerView: 2, spaceBetween: 20 }, // Tablet
-            1024: { slidesPerView: 5.5, spaceBetween: 30 }, // Desktop
+            320: { slidesPerView: 1.5, spaceBetween: 10 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 5.5, spaceBetween: 30 },
           }}
         >
           {teamMembers.map((member, i) => (
             <SwiperSlide key={i}>
               <div className="relative md:w-60 h-72 group mx-auto">
-                <img
+                <Image
                   src={member.img}
                   alt="No Preview"
+                  width={240}
+                  height={288}
                   className="md:w-60 h-72 object-cover transition-all duration-500 filter grayscale group-hover:grayscale-0"
                 />
                 <div className="absolute bottom-0 p-2.5 left-0 w-full">

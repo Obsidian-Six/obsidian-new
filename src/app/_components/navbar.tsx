@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { IoMenu } from "react-icons/io5";
 import { RxCross1 } from "react-icons/rx";
-import { MotionDiv } from "../utils/page";
+import { MotionDiv } from "@/lib/motion";
+import Image from "next/image";
 
 const Navbar = () => {
   const path = usePathname();
@@ -34,31 +35,34 @@ const Navbar = () => {
     <>
       {/* Navbar */}
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
-          }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
+        }`}
       >
         <div className="flex items-center justify-between max-w-screen-xl px-4 mx-auto">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <img
+            <Image
               src={
-                isScrolled
-                  ? "/images/logo/logo2.png"
-                  : "/images/logo/logo1.png"
+                isScrolled ? "/images/logo/logo2.png" : "/images/logo/logo1.png"
               }
-              className="h-8 mr-3 sm:h-10 transition-all duration-300"
+              width={140}
+              height={40}
+              className="h-8 mr-3 sm:h-10 w-auto transition-all duration-300"
               alt="Logo"
+              priority
             />
           </Link>
 
           {/* Mobile Menu Icon */}
           <div className="lg:hidden">
             <IoMenu
-              className={`text-2xl cursor-pointer transition-colors duration-300 ${isScrolled ? "text-black" : "text-white"}`}
+              className={`text-2xl cursor-pointer transition-colors duration-300 ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
               onClick={() => setIsDrawer(true)}
             />
           </div>
-
 
           {/* Desktop Nav */}
           <ul className="hidden lg:flex justify-between text-lg w-full max-w-xl">
@@ -74,7 +78,6 @@ const Navbar = () => {
                 >
                   {ele.name}
                 </Link>
-
               </li>
             ))}
           </ul>
@@ -98,8 +101,9 @@ const Navbar = () => {
 
       {/* Mobile Drawer Navigation */}
       <div
-        className={`fixed top-0 right-0 z-[9999] h-full p-4 bg-gradient-to-r from-[#d9d9d9] to-white border-l border-[#FD7B28] transition-transform duration-300 ease-in-out transform ${isDrawer ? "translate-x-0" : "translate-x-full"
-          } w-4/5 max-w-sm sm:w-80 lg:hidden shadow-xl backdrop-blur-md`}
+        className={`fixed top-0 right-0 z-[9999] h-full p-4 bg-gradient-to-r from-[#d9d9d9] to-white border-l border-[#FD7B28] transition-transform duration-300 ease-in-out transform ${
+          isDrawer ? "translate-x-0" : "translate-x-full"
+        } w-4/5 max-w-sm sm:w-80 lg:hidden shadow-xl backdrop-blur-md`}
       >
         <button
           type="button"
@@ -109,10 +113,12 @@ const Navbar = () => {
           <RxCross1 className="text-2xl textmain" />
         </button>
 
-        <div className="mt-1">
-          <img
+        <div className="mt-1 flex justify-center">
+          <Image
             src="/images/logo/logo2.png"
-            className="h-10 mx-auto"
+            width={160}
+            height={40}
+            className="h-10 w-auto"
             alt="Logo"
           />
         </div>
@@ -123,10 +129,11 @@ const Navbar = () => {
               <li key={i}>
                 <Link
                   href={ele.link}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-md text-base font-medium transition-colors ${path === ele.link
-                    ? "bg-[#FD7B28] text-white shadow"
-                    : "text-gray-800 hover:bg-[#fef0e7] hover:text-[#FD7B28]"
-                    }`}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-md text-base font-medium transition-colors ${
+                    path === ele.link
+                      ? "bg-[#FD7B28] text-white shadow"
+                      : "text-gray-800 hover:bg-[#fef0e7] hover:text-[#FD7B28]"
+                  }`}
                   onClick={() => setIsDrawer(false)}
                 >
                   <span className="text-xl">●</span>
