@@ -1,63 +1,130 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import { BsArrowRightCircle } from "react-icons/bs";
 import { MotionDiv } from "@/lib/motion";
 
+type Service = {
+  name: string;
+  image: string;
+  description: string;
+};
+
+const services: Service[] = [
+  {
+    name: "Branding & Identity",
+    image: "/images/branding.jpg",
+    description:
+      "We craft unique brand identities, including logo design, color schemes, typography, and messaging, to create a lasting impact for your business.",
+  },
+  {
+    name: "Web Development",
+    image:
+      "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    description:
+      "From custom websites to scalable web applications, we develop high-performance, responsive, and user-friendly digital solutions tailored to your needs.",
+  },
+  {
+    name: "E-Commerce Solutions",
+    image:
+      "https://images.pexels.com/photos/8939307/pexels-photo-8939307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    description:
+      "We build and optimize e-commerce platforms, integrating secure payment gateways, seamless user experiences, and conversion-focused designs.",
+  },
+  {
+    name: "Digital Marketing & SEO",
+    image:
+      "https://images.pexels.com/photos/38547/office-freelancer-computer-business-38547.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "Our expert digital marketing strategies, including SEO, paid advertising, and content marketing, help boost visibility, drive traffic, and increase conversions.",
+  },
+  {
+    name: "UI/UX & Motion Graphics",
+    image:
+      "https://images.pexels.com/photos/2584076/pexels-photo-2584076.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "We create intuitive, user-centered designs with engaging animations, interactive elements, and conversion-optimized interfaces.",
+  },
+  {
+    name: "Custom Web Applications",
+    image:
+      "https://images.pexels.com/photos/7634159/pexels-photo-7634159.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "We build scalable SaaS platforms, real-time web applications, and automation tools to streamline business operations and enhance user experiences.",
+  },
+];
+
 const HomeService = () => {
+  const [selectedService, setSelectedService] = useState<Service>(services[0]!);
+
   const variants = {
-    start: { y: 40, opacity: 0 },
-    end: { y: 0, opacity: 1 },
+    start: { x: 500, opacity: 0 },
+    end: { x: 0, opacity: 1 },
+    startUp: { x: -200, opacity: 0 },
+    endUp: { x: 0, opacity: 1 },
   } as const;
 
-  const services: { title: string; desc: string }[] = [
-    { title: "Branding", desc: "Identity, guidelines, and creative systems." },
-    {
-      title: "Web Development",
-      desc: "Modern, fast, conversion-focused websites.",
-    },
-    {
-      title: "SEO",
-      desc: "Technical, on-page, and content to rank and convert.",
-    },
-    {
-      title: "Paid Ads",
-      desc: "Performance campaigns to drive qualified leads.",
-    },
-  ];
-
   return (
-    <section id="services" className="max-w-7xl mx-auto px-4 py-20">
-      <div className="text-center md:my-6 my-2 text-xs font-semibold textmain">
-        [Services]
+    <div id="services" className="max-w-7xl mx-auto my-20 px-4 overflow-hidden">
+      {/* Title */}
+      <div className="text-6xl font-light poppins uppercase max-md:text-4xl">
+        Services
       </div>
 
-      <MotionDiv
-        variants={variants}
-        initial={variants.start}
-        whileInView={variants.end}
-        transition={{ duration: 0.4, delay: 0.05 }}
-        viewport={{ once: true }}
-        className="text-5xl md:text-6xl textmain font-light leading-snug text-center max-w-4xl mx-auto"
-      >
-        We craft digital experiences that scale your
-        <span className="highlight"> growth</span>
-      </MotionDiv>
+      {/* Services Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-12 leading-normal my-10 items-end">
+        {/* Service List */}
+        <MotionDiv
+          variants={variants}
+          initial={variants.startUp}
+          whileInView={variants.endUp}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          {services.map((service) => (
+            <button
+              type="button"
+              key={service.name}
+              aria-pressed={selectedService.name === service.name}
+              className={`w-full text-left flex items-center justify-between text-2xl max-md:text-xl uppercase poppins py-5 border-b border-b-[#19183A]/20 cursor-pointer ${
+                selectedService.name === service.name
+                  ? "text-[#5A00EC]"
+                  : "textmain"
+              }`}
+              onClick={() => setSelectedService(service)}
+            >
+              {service.name} <BsArrowRightCircle aria-hidden="true" />
+            </button>
+          ))}
+        </MotionDiv>
 
-      <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6 mt-12">
-        {services.map((s, i) => (
-          <MotionDiv
-            key={i}
-            variants={variants}
-            initial={variants.start}
-            whileInView={variants.end}
-            transition={{ duration: 0.35, delay: 0.08 + i * 0.05 }}
-            viewport={{ once: true }}
-            className="p-6 border rounded-md bordermain bg-white/50"
-          >
-            <h3 className="text-xl font-medium textmain">{s.title}</h3>
-            <p className="text-sm inter opacity-70 mt-2 textmain">{s.desc}</p>
-          </MotionDiv>
-        ))}
+        {/* Image & Description */}
+        <MotionDiv className="md:col-span-2 col-span-1">
+          <div className="relative w-full md:h-[26rem] h-44">
+            <Image
+              src={selectedService.image}
+              alt={selectedService.name}
+              fill
+              sizes="(min-width: 768px) 66vw, 100vw"
+              className="object-cover rounded-lg"
+              priority
+            />
+          </div>
+
+          {/* Service Description */}
+          <div className="flex flex-col md:flex-row gap-6 md:gap-12 lg:gap-14 mt-5 leading-normal">
+            <div className="text-4xl max-md:text-2xl font-light poppins uppercase">
+              {selectedService.name}
+              <p className="h-[1px] bg-[#5A00EC] w-[80%] md:ml-auto" />
+            </div>
+            <p className="textmain inter opacity-90 max-md:text-sm">
+              {selectedService.description}
+            </p>
+          </div>
+        </MotionDiv>
       </div>
-    </section>
+    </div>
   );
 };
 

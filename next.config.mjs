@@ -36,6 +36,20 @@ const nextConfig = {
       { protocol: "https", hostname: "www.thegyef.com", pathname: "/**" },
       { protocol: "https", hostname: "sportxcoins.com", pathname: "/**" },
       { protocol: "https", hostname: "www.4dgcc.com", pathname: "/**" },
+      // Added for services/reviews original assets
+      { protocol: "https", hostname: "images.pexels.com", pathname: "/**" },
+      { protocol: "https", hostname: "media.licdn.com", pathname: "/**" },
+      {
+        protocol: "https",
+        hostname: "content.jdmagicbox.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn2.gstatic.com",
+        pathname: "/**",
+      },
+      { protocol: "https", hostname: "www.khonshnaw.com", pathname: "/**" },
     ],
   },
 };
