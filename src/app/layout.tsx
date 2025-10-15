@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-page-custom-font */
+import Navbar from "./_components/navbar/navbar";
 import "./globals.css";
 import type { ReactNode } from "react";
 
@@ -11,17 +12,23 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
         className={`poppins antialiased`}
         cz-shortcut-listen="true"
         data-new-gr-c-s-check-loaded="14.1226.0"
         data-gr-ext-installed=""
       >
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-          rel="stylesheet"
-        />
-        {children}
+        <header>
+          <Navbar />
+        </header>
+        <main>{children}</main>
+        <footer></footer>
       </body>
     </html>
   );

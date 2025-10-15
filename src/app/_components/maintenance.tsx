@@ -4,7 +4,7 @@ import { MotionDiv, MotionP } from "@/lib/motion";
 import Link from "next/link";
 import Image from "next/image";
 
-const OurMaintenance = () => {
+export default function Maintenance() {
   const variants = {
     start: { y: 200, opacity: 0 },
     end: { y: 0, opacity: 1 },
@@ -174,6 +174,4 @@ const OurMaintenance = () => {
       </div>
     </div>
   );
-};
-
-export default OurMaintenance;
+}
