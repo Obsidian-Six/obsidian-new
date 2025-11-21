@@ -1,0 +1,7 @@
+services:
+  obsidiansix-beta:
+    image: obsidiansix/obsidiansix:beta
+    container_name: obsidiansix-beta
+    restart: unless-stopped
+    ports:
+      - "3000:3000"

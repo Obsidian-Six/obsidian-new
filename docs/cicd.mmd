@@ -1,0 +1,102 @@
+flowchart LR
+    %% ===== Developer Stage =====
+    subgraph DEV_STAGE["Developer & Repository"]
+        direction LR
+        DEV[/"Local Developer commits code"/]
+        GITHUB{{"GitHub Repository"}}
+    end
+
+    %% ===== CI Stage (GitHub Actions) =====
+    subgraph CI_STAGE["CI Pipeline (GitHub Actions)"]
+        direction TB
+        TESTS["Run Automated Tests"]
+        BUILD["Build Docker Image"]
+        PUSH["Push Image to Docker Hub"]
+        NOTIFY_JENKINS["Trigger Jenkins via Webhook (on success)"]
+        TEST_FAIL["Notify Developer: Tests Failed"]
+        BUILD_FAIL["Notify Developer: Build Failed"]
+        PUSH_FAIL["Notify Developer: Docker Push Failed"]
+    end
+
+    %% ===== Docker Hub (Artifact Registry) =====
+    subgraph REGISTRY["Image Registry"]
+        direction TB
+        DOCKERHUB[("Docker Hub")]
+    end
+
+    %% ===== CD Stage (Jenkins on VPS) =====
+    subgraph CD_STAGE["CD Pipeline (Jenkins on VPS)"]
+        direction TB
+        JENKINS["Jenkins (Webhook Receiver)"]
+        PREPARE_IMAGES["Prepare Images: Tag latest → previous, pull new latest"]
+        UPGRADE_CONTAINERS["Upgrade Containers with Docker Compose"]
+        HEALTHCHECK["Verify Container Health"]
+        ROLLBACK_DEPLOYMENT["Rollback to Previous Image if Upgrade Fails"]
+        CLEANUP_IMAGES["Cleanup Dangling/Old Images"]
+        DEPLOY_FAIL["Notify: Deployment Failed"]
+        DEPLOY_SUCCESS["Notify: Deployment Successful"]
+    end
+
+    %% ===== Deployment & Routing =====
+    subgraph DEPLOY_STAGE["Routing (Traefik in Docker Compose)"]
+        direction TB
+        TRAEFIK["Traefik Reverse Proxy (already running)"]
+        RUNNING_APP["Updated Application Container"]
+    end
+
+    %% ===== Flow Connections =====
+    DEV == Push code ==> GITHUB
+    GITHUB == Trigger GitHub Actions ==> TESTS
+    TESTS -- Pass --> BUILD
+    TESTS -- Fail --> TEST_FAIL
+    BUILD -- Success --> PUSH
+    BUILD -- Fail --> BUILD_FAIL
+    PUSH -- Success --> DOCKERHUB
+    PUSH -- Success --> NOTIFY_JENKINS
+    PUSH -- Fail --> PUSH_FAIL
+    NOTIFY_JENKINS ==> JENKINS
+    JENKINS --> PREPARE_IMAGES
+    PREPARE_IMAGES --> UPGRADE_CONTAINERS
+    UPGRADE_CONTAINERS --> HEALTHCHECK
+    HEALTHCHECK -- Success --> CLEANUP_IMAGES
+    HEALTHCHECK -- Fail --> ROLLBACK_DEPLOYMENT
+    ROLLBACK_DEPLOYMENT --> DEPLOY_FAIL
+    CLEANUP_IMAGES --> DEPLOY_SUCCESS
+    DEPLOY_SUCCESS --> TRAEFIK
+    TRAEFIK --> RUNNING_APP
+    RUNNING_APP -. Routed by .-> TRAEFIK
+
+    %% ===== Styling =====
+    classDef dev fill:#a2d2ff,stroke:#003366,color:#003366,font-weight:bold
+    classDef repo fill:#d9d9d9,stroke:#444,color:#111,font-weight:bold
+    classDef decision fill:#fff3b0,stroke:#c97e12,color:#333,font-weight:bold
+    classDef github fill:#cdeac0,stroke:#2a9d8f,color:#333,font-weight:bold
+    classDef jenkins fill:#ffd6a5,stroke:#c97e12,color:#333,font-weight:bold
+    classDef build fill:#b9fbc0,stroke:#259d53,color:#333,font-weight:bold
+    classDef docker fill:#90e0ef,stroke:#0077b6,color:#003366,font-weight:bold
+    classDef router fill:#ffb5a7,stroke:#b22222,color:#333,font-weight:bold
+    classDef notify fill:#f8d7da,stroke:#721c24,color:#721c24,font-weight:bold
+    classDef action fill:#cdeac0,stroke:#2a9d8f,color:#2a9d8f,font-weight:bold
+    classDef registry fill:#d0ebff,stroke:#0077b6,color:#003366,font-weight:bold
+
+    %% ===== Class Assignments =====
+    DEV:::dev
+    GITHUB:::repo
+    TESTS:::decision
+    BUILD:::build
+    TEST_FAIL:::notify
+    BUILD_FAIL:::notify
+    PUSH:::docker
+    PUSH_FAIL:::notify
+    NOTIFY_JENKINS:::action
+    JENKINS:::jenkins
+    PREPARE_IMAGES:::build
+    UPGRADE_CONTAINERS:::build
+    HEALTHCHECK:::decision
+    ROLLBACK_DEPLOYMENT:::notify
+    CLEANUP_IMAGES:::build
+    DEPLOY_FAIL:::notify
+    DEPLOY_SUCCESS:::action
+    TRAEFIK:::router
+    RUNNING_APP:::docker
+    DOCKERHUB:::registry

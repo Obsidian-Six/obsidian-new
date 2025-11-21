@@ -12,8 +12,11 @@ const Footer = () => {
           Start your journey towards
           <span className={`highlight`}> growth </span>
         </div>
-        <button className="md:p-4 p-2 textmain md:px-10 px-4 bg-white flex items-center justify-center mt-4 md:mt-0">
-          <HiArrowSmallRight className="md:text-7xl sm:text-3xl text-2xl textmain" />
+        <button
+          data-variant="opener"
+          className="md:p-4 p-2 text-[#19183a] hover:text-white md:px-10 px-4 bg-white flex items-center justify-center mt-4 md:mt-0"
+        >
+          <HiArrowSmallRight className="md:text-7xl sm:text-3xl text-2xl" />
         </button>
       </div>
       <div className="max-w-7xl mx-auto py-20 px-6">

@@ -5,14 +5,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { GoArrowUpRight } from "react-icons/go";
 import { Autoplay } from "swiper/modules";
 import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
-import { MotionDiv, MotionP } from "@/lib/motion";
+import { MotionDiv, MotionH1, MotionP } from "@/lib/motion";
 import { ReactTyped } from "react-typed";
-import ParticleSnow from "./particle-snow";
+import ParticleSnow from "../particle-snow";
 import Link from "next/link";
 
 import "swiper/css";
 
-const HeroSection = () => {
+export default function Hero() {
   const arr = [""]; // Placeholder, add more slides if needed
 
   const variants = {
@@ -39,7 +39,7 @@ const HeroSection = () => {
           <ParticleSnow />
           <div className="relative z-10 flex flex-col justify-center items-center h-full text-center max-w-5xl mx-auto px-6 sm:px-4 md:p-0">
             {/* Heading */}
-            <MotionDiv
+            <MotionH1
               variants={variants}
               initial={variants.startX}
               animate={variants.endX}
@@ -87,7 +87,7 @@ const HeroSection = () => {
                   </svg>
                 </span>
               </div>
-            </MotionDiv>
+            </MotionH1>
 
             {/* Subtext */}
             <MotionP
@@ -161,6 +161,4 @@ const HeroSection = () => {
       ))}
     </Swiper>
   );
-};
-
-export default HeroSection;
+}

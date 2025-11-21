@@ -4,56 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { BsArrowRightCircle } from "react-icons/bs";
 import { MotionDiv } from "@/lib/motion";
-
-type Service = {
-  name: string;
-  image: string;
-  description: string;
-};
-
-const services: Service[] = [
-  {
-    name: "Branding & Identity",
-    image: "/images/branding.jpg",
-    description:
-      "We craft unique brand identities, including logo design, color schemes, typography, and messaging, to create a lasting impact for your business.",
-  },
-  {
-    name: "Web Development",
-    image:
-      "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    description:
-      "From custom websites to scalable web applications, we develop high-performance, responsive, and user-friendly digital solutions tailored to your needs.",
-  },
-  {
-    name: "E-Commerce Solutions",
-    image:
-      "https://images.pexels.com/photos/8939307/pexels-photo-8939307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    description:
-      "We build and optimize e-commerce platforms, integrating secure payment gateways, seamless user experiences, and conversion-focused designs.",
-  },
-  {
-    name: "Digital Marketing & SEO",
-    image:
-      "https://images.pexels.com/photos/38547/office-freelancer-computer-business-38547.jpeg?auto=compress&cs=tinysrgb&w=600",
-    description:
-      "Our expert digital marketing strategies, including SEO, paid advertising, and content marketing, help boost visibility, drive traffic, and increase conversions.",
-  },
-  {
-    name: "UI/UX & Motion Graphics",
-    image:
-      "https://images.pexels.com/photos/2584076/pexels-photo-2584076.jpeg?auto=compress&cs=tinysrgb&w=600",
-    description:
-      "We create intuitive, user-centered designs with engaging animations, interactive elements, and conversion-optimized interfaces.",
-  },
-  {
-    name: "Custom Web Applications",
-    image:
-      "https://images.pexels.com/photos/7634159/pexels-photo-7634159.jpeg?auto=compress&cs=tinysrgb&w=600",
-    description:
-      "We build scalable SaaS platforms, real-time web applications, and automation tools to streamline business operations and enhance user experiences.",
-  },
-];
+import services, { type Service } from "./data";
 
 const HomeService = () => {
   const [selectedService, setSelectedService] = useState<Service>(services[0]!);
@@ -68,9 +19,9 @@ const HomeService = () => {
   return (
     <div id="services" className="max-w-7xl mx-auto my-20 px-4 overflow-hidden">
       {/* Title */}
-      <div className="text-6xl font-light poppins uppercase max-md:text-4xl">
+      <h2 className="text-6xl font-light poppins uppercase max-md:text-4xl">
         Services
-      </div>
+      </h2>
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-12 leading-normal my-10 items-end">
@@ -90,7 +41,7 @@ const HomeService = () => {
               className={`w-full text-left flex items-center justify-between text-2xl max-md:text-xl uppercase poppins py-5 border-b border-b-[#19183A]/20 cursor-pointer ${
                 selectedService.name === service.name
                   ? "text-[#5A00EC]"
-                  : "textmain"
+                  : "text-main"
               }`}
               onClick={() => setSelectedService(service)}
             >
@@ -118,7 +69,7 @@ const HomeService = () => {
               {selectedService.name}
               <p className="h-[1px] bg-[#5A00EC] w-[80%] md:ml-auto" />
             </div>
-            <p className="textmain inter opacity-90 max-md:text-sm">
+            <p className="text-main inter opacity-90 max-md:text-sm">
               {selectedService.description}
             </p>
           </div>

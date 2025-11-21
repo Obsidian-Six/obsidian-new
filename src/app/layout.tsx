@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import Navbar from "./_components/navbar/navbar";
+import FloatingWhatsapp from "./_components/floating-whatsapp";
+import Footer from "./_components/footer";
+import Navbar from "./_components/navbar";
 import "./globals.css";
 import type { ReactNode } from "react";
 
@@ -28,7 +30,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Navbar />
         </header>
         <main>{children}</main>
-        <footer></footer>
+        <footer>
+          <Footer />
+        </footer>
+        <FloatingWhatsapp />
       </body>
     </html>
   );

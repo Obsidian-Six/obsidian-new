@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: "build",
   images: {
     remotePatterns: [
+      { protocol: "https", hostname: "www.claimsnidan.com", pathname: "/**" },
       { protocol: "https", hostname: "sdg.esa.int", pathname: "/**" },
       { protocol: "https", hostname: "boxxinsurance.com", pathname: "/**" },
       {
