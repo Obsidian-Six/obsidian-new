@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import reviews from "./data";
 import Image from "next/image";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import SliderLeft from "./slider-left";
 import SliderRight from "./slider-right";
+import reviews from "@/lib/store/reviews";
 
 const Slider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);

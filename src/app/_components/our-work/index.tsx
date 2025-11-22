@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { MotionDiv, MotionP } from "@/lib/motion";
-import { CaseStudyData } from "@/data";
 import Link from "next/link";
 import Image from "next/image";
+import caseStudiesData from "@/lib/store/case-studies";
 
 const OurWork = () => {
   const swiperRef = useRef<any>(null);
@@ -53,29 +53,29 @@ const OurWork = () => {
             1280: { slidesPerView: 3.5, spaceBetween: 30 },
           }}
         >
-          {CaseStudyData.map((ele, i) => (
-            <SwiperSlide key={i}>
+          {caseStudiesData.map((caseStudy, index) => (
+            <SwiperSlide key={index}>
               <MotionDiv
                 initial={{ scale: 0.85 }}
                 whileHover={{ scale: 1 }}
                 className="text-main hover:"
               >
-                <Link href={`/case-study/${ele.id}`}>
+                <Link href={`/case-studies/${caseStudy.slug}`}>
                   <div className="text-xs text-[#5A00EC] flex items-center gap-2 uppercase">
-                    <p className="h-2.5 w-2.5 bg-[#5A00EC]" /> {ele.name}
+                    <p className="h-2.5 w-2.5 bg-[#5A00EC]" /> {caseStudy.name}
                   </div>
                   <p className="my-1.5 text-xl max-md:text-lg">
-                    {ele.category}
+                    {caseStudy.category}
                   </p>
                   <Image
-                    src={ele.cardImg}
+                    src={caseStudy.image}
                     className="my-2.5 w-full rounded-md md:h-72 h-52 object-cover"
                     alt="Project"
                     width={640}
                     height={288}
                   />
                   <div className="text-xs text-main space-x-3 space-y-2 flex flex-wrap max-md:space-x-2 max-md:gap-2">
-                    {ele.tags.map((tag, index) => (
+                    {caseStudy.tags.map((tag, index) => (
                       <span
                         key={index}
                         className="px-3 py-1 border-main rounded-full"
@@ -85,7 +85,7 @@ const OurWork = () => {
                     ))}
                   </div>
                   <p className="text-main mt-8 inter opacity-60 max-md:mt-4 max-md:text-sm">
-                    {ele.cardData}
+                    {caseStudy.details}
                   </p>
                 </Link>
               </MotionDiv>
@@ -95,7 +95,7 @@ const OurWork = () => {
       </div>
 
       <Link
-        href={"/case-study"}
+        href={"/case-studies"}
         className=" button text-[#19183A] w-fit text-xl border-main mx-auto px-4 py-2 flex self-center my-20 max-md:my-10 max-md:text-lg hover:bg-[#5A00EC] hover:text-white transition-transform duration-300 ease-linear"
       >
         View More

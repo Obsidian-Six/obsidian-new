@@ -1,5 +1,5 @@
+import clientLogos from "@/lib/store/client-logos";
 import Image from "next/image";
-import clientLogos from "./data";
 
 export default async function OurClients() {
   return (

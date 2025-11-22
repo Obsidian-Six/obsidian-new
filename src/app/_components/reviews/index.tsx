@@ -9,7 +9,7 @@ const Reviews = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="text-6xl py-14 textmain max-w-5xl mx-auto text-center font-light leading-snug max-md:text-4xl max-md:leading-normal"
+          className="text-6xl py-14 text-main max-w-5xl mx-auto text-center font-light leading-snug max-md:text-4xl max-md:leading-normal"
         >
           Hear from Those We’ve Helped
           <span className="highlight block">grow</span>

@@ -1,5 +1,5 @@
+import type Review from "@/lib/models/review.types";
 import Image from "next/image";
-import type { Review } from "./data";
 
 interface SliderRightProps {
   review: Review;

@@ -1,7 +1,7 @@
 "use client";
 
-import type ContactUs from "@/lib/models/contact-us.interface";
-import { handleContactUsFormSubmission } from "@/lib/services/contact-us.service";
+import type Contact from "@/lib/models/contact.types";
+import { handleContactUsFormSubmission } from "@/lib/services/contact.api";
 import { useState } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import PhoneInput from "react-phone-input-2";
@@ -34,7 +34,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
     setIsSubmitted(false);
     // Handle form submission logic here
-    const contactUs: ContactUs = {
+    const contact: Contact = {
       firstName,
       lastName,
       email,
@@ -43,8 +43,8 @@ const ContactForm = () => {
       companyName,
       companyWebsite,
     };
-    console.log("Submitting form with data:", contactUs);
-    handleContactUsFormSubmission(contactUs).finally(() => {
+    console.log("Submitting form with data:", contact);
+    handleContactUsFormSubmission(contact).finally(() => {
       // Reset form fields after successful submission
       setFirstName("");
       setLastName("");
@@ -118,7 +118,6 @@ const ContactForm = () => {
           containerClass="!w-full"
           buttonClass="!rounded-none"
           dropdownClass="!rounded-none"
-          required
         />
       </div>
 
