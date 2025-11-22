@@ -18,7 +18,7 @@ const OurWork = () => {
   };
 
   return (
-    <div id="ourWork" className="max-w-7xl mx-auto px-4">
+    <section id="ourWork" className="max-w-7xl mx-auto px-4">
       <h2 className="text-center md:my-14 my-6 text-xs font-semibold text-main">
         [Our Work]
       </h2>
@@ -100,7 +100,7 @@ const OurWork = () => {
       >
         View More
       </Link>
-    </div>
+    </section>
   );
 };
 

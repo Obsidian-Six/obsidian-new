@@ -27,10 +27,12 @@ const ContactForm = () => {
   const [companyName, setCompanyName] = useState<string>("");
   const [companyWebsite, setCompanyWebsite] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setIsSubmitted(false);
     // Handle form submission logic here
     const contactUs: ContactUs = {
       firstName,
@@ -52,6 +54,7 @@ const ContactForm = () => {
       setCompanyName("");
       setCompanyWebsite("");
       setIsSubmitting(false);
+      setIsSubmitted(true);
       console.log("Form submitted successfully");
     });
   };
@@ -180,15 +183,30 @@ const ContactForm = () => {
           onChange={(e) => setCompanyWebsite(e.target.value)}
         />
       </div>
+      {isSubmitted && (
+        <p className="text-green-600 text-xs mt-2">
+          Thank you for your enquiry. We will get back to you soon.
+        </p>
+      )}
 
       {/* Submit Button */}
       <div>
         <button
           disabled={isSubmitting}
-          className="font-medium text-sm ml-auto px-5 py-2 text-white flex items-center justify-between gap-2 bg-[#5A00EC] my-6 w-fit cursor-pointer"
+          className={`font-medium text-sm ml-auto px-5 py-2 text-white flex items-center justify-between gap-2 bg-[#5A00EC] my-6 w-fit ${
+            isSubmitting
+              ? "opacity-50 cursor-progress"
+              : "opacity-100 cursor-pointer"
+          }`}
           type="submit"
         >
-          Send Enquiry <GoArrowUpRight className="text-2xl" />
+          {isSubmitting ? (
+            "Sending..."
+          ) : (
+            <>
+              Send Enquiry <GoArrowUpRight className="text-2xl" />
+            </>
+          )}
         </button>
       </div>
     </form>

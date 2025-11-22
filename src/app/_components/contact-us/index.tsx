@@ -8,7 +8,7 @@ import ContactForm from "./contact-form";
 
 const ContactUs = () => {
   return (
-    <div id="contactUs" className="mb-20">
+    <section id="contactUs" className="mb-20">
       <h2 className="invisible">Contact Us</h2>
       <div className="max-w-5xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 text-main gap-10">
         {/* Contact Details */}
@@ -55,7 +55,7 @@ const ContactUs = () => {
         {/* Contact Form */}
         <ContactForm />
       </div>
-    </div>
+    </section>
   );
 };
 

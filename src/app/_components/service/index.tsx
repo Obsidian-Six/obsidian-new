@@ -17,7 +17,10 @@ const HomeService = () => {
   } as const;
 
   return (
-    <div id="services" className="max-w-7xl mx-auto my-20 px-4 overflow-hidden">
+    <section
+      id="services"
+      className="max-w-7xl mx-auto my-20 px-4 overflow-hidden"
+    >
       {/* Title */}
       <h2 className="text-6xl font-light poppins uppercase max-md:text-4xl">
         Services
@@ -75,7 +78,7 @@ const HomeService = () => {
           </div>
         </MotionDiv>
       </div>
-    </div>
+    </section>
   );
 };
 
