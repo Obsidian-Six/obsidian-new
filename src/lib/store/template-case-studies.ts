@@ -46,8 +46,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     "challenge": {
       "data": "Building a digital asset ecosystem for the luxury automotive market involved overcoming high barriers to entry and technical complexity:",
-      "image1" : "/Eurotech/image2.png",
-      "image2" : "/Eurotech/image3.png",
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       "point": [
         {
           "name": "Complex Payment Integration",
@@ -182,6 +182,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "The client faced specific B2B hurdles that limited their visibility and lead quality in the industrial market:",
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       point: [
         {
           name: "Low-Quality Leads",
@@ -316,6 +318,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "The client faced several critical hurdles that halted their digital growth and lead flow:",
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       point: [
         {
           name: "Compromised Digital Assets",
@@ -448,6 +452,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "SHIM faced critical hurdles that prevented them from reaching their enrollment potential:",
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       point: [
         {
           name: "Insufficient Candidate Enrollment",
@@ -576,6 +582,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "Tathyabaan is a popular publisher of competitive exam books with a strong offline presence in Madhya Pradesh. However, their online presence was almost negligible, causing them to miss massive opportunities to connect with students. Our team stepped in to transform their digital footprint with professional web development and a viral content strategy.",
 
     challenge: {
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       data: "Tathyabaan faced several digital hurdles that prevented them from reaching the modern student demographic:",
       point: [
         {
@@ -707,6 +715,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "A leading educational institute was struggling with low traffic, ineffective landing pages, and a slow, outdated website that failed to convert visitors into student inquiries. Our goal was to rebuild their digital presence with a structured, fast, and conversion-driven website.",
 
     challenge: {
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       data: "The institute faced major digital challenges that hindered student enrollment:",
       point: [
         {
@@ -838,6 +848,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     overview:
       "Pachmarhi Ayurveda is a well-established Ayurvedic brand rooted in the heart of Madhya Pradesh. Known for its pure and effective natural oils and remedies, the brand has built a loyal customer base through offline sales and word-of-mouth marketing. However, in an increasingly digital world, their lack of an online presence limited their growth potential. In 2022, we partnered with them to take their brand digital, establish a strong online identity, and unlock nationwide sales opportunities.",
     challenge: {
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       data: "Despite their strong offline reputation, Pachmarhi Ayurveda faced several hurdles in the digital space:",
       point: [
         {
@@ -981,6 +993,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "Rezmytour, a Dubai-based travel agency, needed a simple yet high-impact website to attract tourists and increase bookings. Their existing platform lacked structure, clear storytelling, and effective SEO, which resulted in low inquiries and poor engagement. Our team stepped in to transform their digital presence with a streamlined website, strategic branding, and SEO-driven content.",
 
     challenge: {
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       data: "Rezmytour faced multiple digital challenges that hindered its growth:",
       point: [
         {
@@ -1112,6 +1126,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "A USA-based NGO approached us for a modern, impactful website that would strengthen their digital presence, engage supporters, and drive donations. The NGO lacked a clear digital direction and needed a site that reflected their mission while improving outreach and fundraising efforts.",
 
     challenge: {
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       data: "The NGO faced multiple digital hurdles that limited its impact:",
       point: [
         {
@@ -1251,6 +1267,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "The company faced key branding and digital challenges:",
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       point: [
         {
           name: "Unclear Brand Positioning",
@@ -1391,6 +1409,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "Sportsxcoin faced key digital and strategic challenges:",
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       point: [
         {
           name: "Undefined Scope",
@@ -1525,6 +1545,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "The company faced several key digital challenges:",
+      "image1": "/Eurotech/image2.png",
+      "image2": "/Eurotech/image3.png",
       point: [
         {
           name: "Bilingual Website Requirement",

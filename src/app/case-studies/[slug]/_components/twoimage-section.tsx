@@ -1,7 +1,7 @@
 "use client";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform, Transition } from "framer-motion";
+import { motion, useScroll, useTransform, type Transition } from "framer-motion";
 
 
 interface ProjectData {

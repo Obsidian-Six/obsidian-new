@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import React from "react";
+
 
 const ScrollReveal = dynamic(
   () => import("./Scroll-section").then((m) => m.default),
