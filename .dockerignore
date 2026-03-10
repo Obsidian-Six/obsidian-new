@@ -1,0 +1,80 @@
+# Version control & meta
+.git
+.git/*
+.gitignore
+.gitattributes
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.orig
+
+# Node dependency directories (reinstall inside image)
+node_modules
+**/node_modules
+.pnpm-store
+.npm
+.yarn
+.yarn/cache
+.yarn/install-state.gz
+
+# Next.js build artifacts
+.next/
+.next/cache/
+out/
+.vercel/
+
+# Turborepo / build system caches
+.turbo/
+build/
+dist/
+.cache/
+*.tsbuildinfo
+.eslintcache
+
+# Environment (keep only non-local .env if needed)
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs & reports
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+coverage/
+coverage-final.json
+reports/
+test-results/
+playwright-report/
+cypress/videos/
+cypress/screenshots/
+
+# Storybook static export
+storybook-static/
+.storybook-out/
+
+# Testing / tooling temp
+.cypress/
+__tests__/cache/
+.vscode-test/
+
+# Misc temp
+tmp/
+temp/
+*.pid
+*.seed
+
+# Build / generated assets you recreate
+public/**/*.map
+
+# Ignore lockfile backups, but keep primary lockfiles for reproducible installs
+package-lock.json.*
+yarn.lock.*
+pnpm-lock.yaml.*

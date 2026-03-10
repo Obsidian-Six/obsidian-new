@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  obsidiansix-beta:
+    build: .
+    image: obsidian-app:v1
+    container_name: obsidiansix-beta
+    restart: unless-stopped
+    environment:
+      HOSTNAME: "0.0.0.0"
+      TRUST_PROXY: "true"
+      NODE_ENV: "production"
+    env_file:
+      - .env
+    
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+          cpus: '0.50' 
+
+    networks:
+      - traefik
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.obsidiansix-beta.rule=Host(`obsidiansix.com`) || Host(`www.obsidiansix.com`)"
+      - "traefik.http.routers.obsidiansix-beta.entrypoints=websecure"
+      - "traefik.http.routers.obsidiansix-beta.tls=true"
+      - "traefik.http.routers.obsidiansix-beta.tls.certresolver=myresolver"
+      - "traefik.http.services.obsidiansix-beta.loadbalancer.server.port=3000"
+
+networks:
+  traefik:
+    external: true
