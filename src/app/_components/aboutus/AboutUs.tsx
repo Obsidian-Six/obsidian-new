@@ -68,7 +68,7 @@ export default function AboutUs() {
     {
       title: "Marketing & Growth",
       desc: "Digital marketers and SEO specialists work together to drive visibility and measurable results.",
-      image: "/marketing&seoCrop.jpeg", 
+      image: "/marketing&seoCrop.jpeg",
       gradient: "from-indigo-500/20"
     },
   ];
@@ -95,9 +95,9 @@ export default function AboutUs() {
               [ About the Agency ]
             </span>
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] lg:leading-[0.95] tracking-tighter text-slate-900">
-              Building Digital <br className="hidden md:block" />
+              Creating Digital <br className="hidden md:block" />
               Experiences That <br className="hidden md:block" />
-              Lead to Real <span className="italic font-serif font-light text-blue-600">growth</span>
+              Promote The Actual <span className="italic font-serif font-light text-blue-600"> Growth.</span>
             </h1>
           </MotionDiv>
 
@@ -108,7 +108,7 @@ export default function AboutUs() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <p className="text-lg md:text-xl text-slate-500 border-l-2 border-blue-600 pl-6 leading-relaxed max-w-md">
-              At Obsidian Six, we help brands evolve, scale, and dominate their digital space through aggressive strategy and refined creativity.
+              At Obsidian Six, we assist brands to uplift, evolve, and dominate their digital space through Expansionist strategy and refined creativity.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -125,7 +125,7 @@ export default function AboutUs() {
         <div className="my-32">
           <MotionDiv {...fadeInUp} className="relative">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium max-w-5xl leading-tight text-slate-800">
-              “We exist to turn <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-serif italic">vision</span> into results—and brands into unforgettable <span className="underline decoration-blue-500/30 underline-offset-8">experiences</span>.”
+              “We exist to turn <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-serif italic">vision</span> into results—creating digital expertise that <span className="underline decoration-blue-500/30 underline-offset-8">elevates your growth</span>.”
             </h2>
           </MotionDiv>
         </div>
@@ -155,12 +155,15 @@ export default function AboutUs() {
                 <div className="hidden md:block md:col-span-1 text-slate-200 font-mono text-xl group-hover:text-blue-600 transition-colors">
                   0{idx + 1}
                 </div>
-                <div className="w-full md:col-span-4 relative overflow-hidden h-48 md:h-32 rounded-2xl bg-slate-100 group-hover:shadow-lg transition-all duration-500">
-                  {/* The Actual Image */}
+                <div className="w-full md:col-span-4 relative overflow-hidden rounded-2xl bg-slate-100 group-hover:shadow-lg transition-all duration-500 aspect-video md:aspect-[4/3]">
+                  {/* - aspect-video (16:9) on mobile makes it wide but not too tall
+      - md:aspect-[4/3] makes it slightly taller/squarer on desktop where space is tighter 
+  */}
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw" // Optimization for Next.js
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
 

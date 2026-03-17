@@ -67,13 +67,6 @@ export default function PremiumImageShowcase({ data }: { data: ProjectData }) {
                             <div className="w-8 h-[1px] bg-white/50" />
                             <span className="text-[10px] tracking-[0.6em] text-white/70 uppercase font-medium">{data.leftPanel.topLabel}</span>
                         </div>
-
-                        <div className="flex justify-between items-end">
-                            <h3 className="text-white font-black text-2xl italic tracking-tighter">
-                                {data.brandName}<span style={{ color: data.accentColor }}>.</span>
-                            </h3>
-                            <span className="text-[9px] tracking-[0.4em] text-white/40 uppercase">{data.leftPanel.bottomLabel}</span>
-                        </div>
                     </div>
                 </motion.div>
 

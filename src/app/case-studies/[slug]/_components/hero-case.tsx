@@ -35,16 +35,27 @@ export default function HeroCase({ ele }: { ele: TemplateCaseStudy }) {
           style={{ y: smoothY, scale, rotateX, opacity }}
           className="absolute inset-0 w-full h-full z-0"
         >
-          <Image
-            alt={ele.name}
-            src={ele.heroImage}
-            fill
-            priority
-            className="object-cover opacity-60 brightness-75"
-            sizes="100vw"
-          />
-          {/* Gradient Overlay for Depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#19183A]/20 to-[#19183A]" />
+          {/* --- VIDEO / IMAGE CONDITIONAL LOGIC --- */}
+          {ele.heroVideo && ele.heroVideo.length > 0 ? (
+            <video
+              src={ele.heroVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover opacity-60 brightness-75"
+            />
+          ) : (
+            <Image
+              alt={ele.name}
+              src={ele.heroImage}
+              fill
+              priority
+              className="object-cover opacity-60 brightness-75"
+              sizes="100vw"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-[#0a0a0b]" />
         </motion.div>
 
         {/* --- 2. FLOATING BACK BUTTON --- */}
@@ -78,7 +89,7 @@ export default function HeroCase({ ele }: { ele: TemplateCaseStudy }) {
             className="mt-6 flex justify-center"
           >
             <span className="h-[1px] w-20 bg-purple-500 self-center"></span>
-            <span className="mx-4 text-purple-400 uppercase tracking-widest text-sm font-bold">Premium Case Study</span>
+            <span className="mx-4 text-purple-400 uppercase tracking-widest text-sm font-bold">Case Study</span>
             <span className="h-[1px] w-20 bg-purple-500 self-center"></span>
           </motion.div>
         </div>
@@ -155,6 +166,36 @@ export default function HeroCase({ ele }: { ele: TemplateCaseStudy }) {
           </div>
         </div>
       </section>
+
+      {/* --- 6. CINEMATIC OVERVIEW VIDEO --- */}
+      {ele.overviewVideo && ele.overviewVideo.length > 0 && (
+        <section className="relative w-full h-[80vh] md:h-[90vh] overflow-hidden bg-black">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="relative w-full h-full"
+          >
+            <video
+              src={ele.overviewVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black/20" />
+            
+            {/* Project Branding */}
+            <div className="absolute bottom-8 left-6 md:left-16 z-10">
+              <p className="text-white/30 text-[10px] uppercase tracking-[0.5em] font-bold">
+                Project Showcase
+              </p>
+            </div>
+          </motion.div>
+        </section>
+      )}
     </div>
   );
 }

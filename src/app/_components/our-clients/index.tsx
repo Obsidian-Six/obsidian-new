@@ -8,11 +8,11 @@ export default function OurClients() {
   return (
     <section id="ourClients" className="bg-white py-16 md:py-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* --- Header Section --- */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-12 md:mb-16">
           <div className="w-full md:w-1/2">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               className="text-[#5A00EC] font-mono text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-bold"
@@ -25,7 +25,9 @@ export default function OurClients() {
           </div>
           <div className="w-full md:w-1/3 border-l-2 border-black pl-6">
             <p className="text-sm md:text-base text-gray-600 font-light leading-relaxed">
-              We build long-term relationships based on trust and digital excellence with global brands.
+
+              Empowering business throughout the world.
+
             </p>
           </div>
         </div>
@@ -46,7 +48,7 @@ export default function OurClients() {
                 <Image
                   src={logo.url}
                   alt={logo.name || `client-logo-${index}`}
-                  width={180} 
+                  width={180}
                   height={90}
                   /* Medium sizing: max-w 150px on desktop, 90px on mobile */
                   className="w-auto h-auto max-w-[80px] sm:max-w-[100px] md:max-w-[150px] max-h-[35px] sm:max-h-[45px] md:max-h-[65px] object-contain transition-all duration-500 
@@ -57,7 +59,7 @@ export default function OurClients() {
             </motion.div>
           ))}
         </div>
-        
+
       </div>
     </section>
   );

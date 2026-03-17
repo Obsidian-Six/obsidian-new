@@ -17,27 +17,26 @@ export default function Maintenance() {
       {/* Heading */}
       <MotionH2
         variants={variants}
-        initial={variants.start}
-        whileInView={variants.end}
-        transition={{ duration: 0.4, delay: 0.1 }}
-        viewport={{ once: true }}
-        className="text-6xl mt-28 textmain font-bold leading-tight max-md:text-4xl max-md:leading-snug"
+        initial="start"
+        whileInView="end"
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: false }}
+        className="text-6xl mt-28 textmain font-bold leading-[1.1] max-md:text-4xl max-md:leading-snug tracking-tighter"
       >
-        Elevate your digital presence with high-performance maintenance.
+        We exist to convert your <span className="italic font-serif font-light text-[#5A00EC]">imagination</span> into achievements.
       </MotionH2>
 
       {/* Subtitle */}
       <MotionP
         variants={variants}
-        initial={variants.start}
-        whileInView={variants.end}
-        transition={{ duration: 0.4, delay: 0.1 }}
-        viewport={{ once: true }}
-        className="text-2xl max-w-2xl textmain my-10 max-md:text-lg opacity-80"
+        initial="start"
+        whileInView="end"
+        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        viewport={{ once: false }}
+        className="text-2xl max-w-2xl textmain my-10 max-md:text-lg opacity-80 leading-relaxed"
       >
-        We handle the technical heavy lifting—optimization, security, and updates—so you can focus on scaling your revenue.
+        Transforming brands into opportunities through high-performance digital strategy and relentless technical excellence.
       </MotionP>
-
       {/* CTA Button */}
       <Link
         href={"/#contactUs"}
@@ -48,7 +47,7 @@ export default function Maintenance() {
 
       {/* Maintenance Service Cards */}
       <div className="flex flex-col gap-20 md:grid md:grid-cols-5 md:gap-10 my-20">
-        
+
         {/* Card 1 */}
         <div className="col-span-3 hidden md:block" />
         <MotionDiv

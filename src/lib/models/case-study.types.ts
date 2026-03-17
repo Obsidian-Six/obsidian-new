@@ -11,7 +11,7 @@ export interface TwoImageSectionPanel {
 }
 
 export interface TwoImageSection {
-  brandName: string;
+  brandName?: string;
   logoText?: string;
   accentColor?: string;
   leftPanel: TwoImageSectionPanel;
@@ -72,6 +72,11 @@ export interface GalleryItem {
 
 export interface TemplateCaseStudy extends CaseStudy {
   heroImage: string; // hero image
+  heroVideo: string;
+  overviewVideo:string;
+  ChallengeVideo : string,
+  ApproachVideo : string,
+  ResultVideo:string,
   overview: string;
   caseSection: CaseStudyCaseSection;
   gallery: GalleryItem[];

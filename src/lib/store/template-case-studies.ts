@@ -1,9 +1,10 @@
 import type { TemplateCaseStudy } from "@/lib/models/case-study.types";
 
 const templateCaseStudiesData: TemplateCaseStudy[] = [
+
   {
-    "id": "eurotech_exchange",
-    "name": "Eurotech Exchange",
+    "id": "luxury_car_investment",
+    "name": "Luxury Car Investment",
     "slug": "luxury-car-tokenization-blockchain-marketplace",
     "category": "Fintech & Automotive",
     "gallery": [
@@ -13,27 +14,23 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       { "img": "https://images.unsplash.com/photo-1542362567-b07e54358753?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D", "text": "Advanced microservices architecture for global scalability and secure transactions." },
       { "img": "https://images.unsplash.com/photo-1513036191774-b2badb8fcb76?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhcnN8ZW58MHx8MHx8fDA%3D", "text": "AI-powered real-time assistance and investment monitoring dashboard." }
     ],
-    "details":
-      "Revolutionized luxury automotive investment by combining blockchain tokenization with a high-end marketplace, enabling fractional ownership and increasing user engagement by 200%.",
-    "image":
-      "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1170&auto=format&fit=crop",
+    "details": "Revolutionized luxury automotive investment by combining blockchain tokenization with a high-end marketplace, enabling fractional ownership and increasing user engagement by 200%.",
+    "image": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1170&auto=format&fit=crop",
     "tags": ["Blockchain", "Tokenization", "Fintech", "Next.js", "AI Integration"],
-    "heroImage":
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1170&auto=format&fit=crop",
-    // "heroImage":
-    //   "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1170&auto=format&fit=crop",
+    "heroImage": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1170&auto=format&fit=crop",
+    "heroVideo": "/videos/Eurotech/eurotech.mp4",
+    "overviewVideo": "/videos/Eurotech/eurotech2.mp4",
+    "ChallengeVideo": "/videos/Eurotech/Video2.mp4",
+    "ApproachVideo": "",
+    "ResultVideo": "",
+
+
     "caseSection": {
       "data": "Luxury Car Ownership Through Blockchain &",
-      "highlight": "Tokenization",
+      "highlight": "Tokenization"
     },
-
-    "overview":
-      "Eurotech Exchange is a digital ecosystem combining automotive excellence and financial innovation. It allows collectors and investors to buy, sell, and customize luxury vehicles while introducing a fractional ownership model through tokenized auctions. By utilizing blockchain for transparency and AI for support, the platform opens access to premium automotive assets for a global audience.",
-
+    "overview": "Luxury Car Investment is a digital ecosystem combining automotive excellence and financial innovation. It allows collectors and investors to buy, sell, and customize luxury vehicles while introducing a fractional ownership model through tokenized auctions. By utilizing blockchain for transparency and AI for support, the platform opens access to premium automotive assets for a global audience.",
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
       "leftPanel": {
         "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
         "topLabel": "Platform",
@@ -43,7 +40,6 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
         "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
       }
     },
-
     "challenge": {
       "data": "Building a digital asset ecosystem for the luxury automotive market involved overcoming high barriers to entry and technical complexity:",
       "image1": "/Eurotech/image2.png",
@@ -51,45 +47,36 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "point": [
         {
           "name": "Complex Payment Integration",
-          "detail":
-            "Integrating secure infrastructure to handle both fiat and cryptocurrency transactions in real time for high-value assets."
+          "detail": "Integrating secure infrastructure to handle both fiat and cryptocurrency transactions in real time for high-value assets."
         },
         {
           "name": "Fractional Ownership Hurdles",
-          "detail":
-            "Enabling tokenization required secure backend systems for token minting, distribution, and automated profit sharing."
+          "detail": "Enabling tokenization required secure backend systems for token minting, distribution, and automated profit sharing."
         },
         {
           "name": "Dual Audience Engagement",
-          "detail":
-            "Catering simultaneously to traditional luxury car buyers and modern crypto investors within a unified user experience."
+          "detail": "Catering simultaneously to traditional luxury car buyers and modern crypto investors within a unified user experience."
         },
         {
           "name": "Technical Scalability",
-          "detail":
-            "Developing a microservices architecture capable of global scaling with integrated AI support and deep CRM functionality."
+          "detail": "Developing a microservices architecture capable of global scaling with integrated AI support and deep CRM functionality."
         }
       ]
     },
-
     "approaches": [
       {
         "name": "MICROSERVICES & HYBRID PAYMENTS",
-        "detail":
-          "Built a TypeScript/Next.js architecture separating marketplace operations from crypto processing to ensure stability and secure hybrid payment gateways."
+        "detail": "Built a TypeScript/Next.js architecture separating marketplace operations from crypto processing to ensure stability and secure hybrid payment gateways."
       },
       {
         "name": "BLOCKCHAIN-BASED 'THE VAULT'",
-        "detail":
-          "Developed a system for tokenizing collectible vehicles, allowing users to buy participation tokens and receive automated profit distributions."
+        "detail": "Developed a system for tokenizing collectible vehicles, allowing users to buy participation tokens and receive automated profit distributions."
       },
       {
         "name": "AI & INTERACTIVE CUSTOMIZATION",
-        "detail":
-          "Implemented an AI-powered chatbot for real-time support and an interactive configuration tool to increase emotional investment and engagement."
+        "detail": "Implemented an AI-powered chatbot for real-time support and an interactive configuration tool to increase emotional investment and engagement."
       }
     ],
-
     "results": [
       {
         "img": "/Eurotech/result1.png",
@@ -116,188 +103,336 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
         "data": "Tokenization lowered entry barriers, turning multi-million dollar cars into accessible, liquid digital assets."
       }
     ],
-
     "impacts": [
       {
         "name": "Pioneering Fintech Innovation",
-        "detail":
-          "Successfully merged luxury automotive assets with blockchain, creating a new digitally tradable asset class."
+        "detail": "Successfully merged luxury automotive assets with blockchain, creating a new digitally tradable asset class."
       },
       {
         "name": "Automated Investment Cycles",
-        "detail":
-          "Established transparent, automated profit distribution systems that build trust in high-stakes investments."
+        "detail": "Established transparent, automated profit distribution systems that build trust in high-stakes investments."
       },
       {
         "name": "Scalable Future-Ready Platform",
-        "detail":
-          "Created a path for global expansion with a stack ready to onboard manufacturers and dealers worldwide."
+        "detail": "Created a path for global expansion with a stack ready to onboard manufacturers and dealers worldwide."
       }
     ],
-
-    "detail":
-      "By integrating a sophisticated blockchain tokenization engine with a high-performance luxury marketplace, we transformed rare vehicles into accessible digital investments. The platform successfully combined TypeScript, Next.js, and secure smart contract logic to deliver a 200% boost in engagement and a scalable growth engine that bridges the gap between traditional collectors and modern crypto investors.",
+    "detail": "By integrating a sophisticated blockchain tokenization engine with a high-performance luxury marketplace, we transformed rare vehicles into accessible digital investments. The platform successfully combined TypeScript, Next.js, and secure smart contract logic to deliver a 200% boost in engagement and a scalable growth engine that bridges the gap between traditional collectors and modern crypto investors.",
     "pageType": "template"
-  }
-  , {
-    id: "heavy_machinery_manufacturer",
-    name: "Heavy Machinery Manufacturer",
-    slug: "heavy-machinery-b2b-lead-generation",
-    category: "B2B Marketing",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
-      { "img": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4", "text": "Authority-driven content creation for industrial buyers." },
-      { "img": "https://images.unsplash.com/photo-1551288049-bbbda536ad37", "text": "Reducing manual handling of leads by 40% via CRM integration." },
-      { "img": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122", "text": "Establishing long-term digital authority in heavy engineering." }
+  },
+  {
+    "id": "dubai_travel_agency_transformation",
+    "name": "Dubai Elite Travel Platform",
+    "slug": "dubai-travel-storytelling-seo-conversion-platform",
+    "category": "Travel & Tourism",
+    "gallery": [
+      {
+        "img": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&auto=format&fit=crop&q=60",
+        "text": "Cinematic Storytelling: Using high-impact visuals to showcase Dubai’s most exciting attractions."
+      },
+      {
+        "img": "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=500&auto=format&fit=crop&q=60",
+        "text": "Intuitive Navigation: A clean system guiding visitors naturally through curated tour packages."
+      },
+      {
+        "img": "/Travel/overview.png",
+        "text": "Strategic SEO: Technical architecture designed to dominate travel-related search queries."
+      },
+      {
+        "img": "/Travel/overview2.png",
+        "text": "Conversion Optimization: A streamlined booking flow that reduces friction for international tourists."
+      },
+      {
+        "img": "/Travel/overview3.png",
+        "text": "Global Lead Generation: Rebuilding the site as a powerful marketing tool for organic growth."
+      }
     ],
+    "details": "Transformed a Dubai-based travel agency's digital presence by combining modern web design, strategic storytelling, and SEO optimization to convert global visitors into confirmed tour bookings.",
+    "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1170&auto=format&fit=crop",
+    "tags": [
+      "Travel Technology",
+      "SEO Strategy",
+      "Conversion Optimization",
+      "Visual Storytelling",
+      "Lead Generation"
+    ],
+    "heroImage": "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=1170&auto=format&fit=crop",
+    "heroVideo": "/Travel/HeroVideo.mp4",
+    "overviewVideo": "/Travel/OurApproachVideo.mp4",
+    "ChallengeVideo": "/Travel/OurApproachVideo.mp4",
+    "ApproachVideo": "",
+    "ResultVideo": "",
+
+
+    "caseSection": {
+      "data": "Visual Engagement & Seamless Discovery for",
+      "highlight": "Dubai Travel Experiences"
+    },
+    "overview": "A Dubai-based travel agency wanted to strengthen its digital presence and attract more international tourists. While the agency offered exciting tour packages, their website lacked the structure and clarity needed to convert visitors. This project rebuilt the platform to effectively showcase Dubai’s attractions while guiding visitors smoothly toward booking a tour through strategic storytelling and lead-generation tools.",
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
-        "topLabel": "Platform",
-        "bottomLabel": "Token Vault"
+        "bgImage": "/Travel/features1.png",
+        "topLabel": "Tourism Hub",
+        "bottomLabel": "Lead Gen"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "/Travel/features2.png"
+      }
+
+    },
+    "challenge": {
+      "data": "The website needed a complete transformation from both a design and strategy perspective to create a clear visitor journey:",
+      "image1": "/Travel/challenges1.png",
+      "image2": "/Travel/challenges2.png",
+      "point": [
+        {
+          "name": "Navigation & Clarity Issues",
+          "detail": "Content lacked structure, making it difficult for visitors to quickly understand services or navigate the site efficiently."
+        },
+        {
+          "name": "Lack of Storytelling",
+          "detail": "The platform failed to communicate the excitement and uniqueness of Dubai’s travel experiences, reducing emotional engagement."
+        },
+        {
+          "name": "Poor Search Visibility",
+          "detail": "Weak SEO structure and lack of optimized content resulted in missed organic traffic and potential leads from search engines."
+        },
+        {
+          "name": "Conversion Struggles",
+          "detail": "Despite strong tour offerings, the site struggled to bridge the gap between browsing and final booking confirmation."
+        }
+      ]
+    },
+    "approaches": [
+      {
+        "name": "SIMPLICITY & CLARITY REDESIGN",
+        "detail": "Introduced a clean and intuitive navigation system that guides visitors naturally through tour packages, travel experiences, and booking options."
+      },
+      {
+        "name": "VISUAL STORYTELLING STRATEGY",
+        "detail": "Leveraged high-quality visuals and rewritten compelling content to help visitors imagine their Dubai experience before booking, fostering an emotional connection."
+      },
+      {
+        "name": "TECHNICAL SEO & OPTIMIZATION",
+        "detail": "Implemented strategic keyword research, technical SEO improvements, and blog content to improve discoverability and rank higher in global travel searches."
+      }
+    ],
+    "results": [
+      {
+        "img": "/Travel/result.png",
+        "title": "Increased Organic ",
+        "highlight": "Search Visibility",
+        "data": "Strategic SEO and content optimization led to a surge in international search traffic and organic leads."
+      },
+      {
+        "img": "/Travel/overview.png",
+        "title": "Higher Visitor ",
+        "highlight": "Engagement",
+        "data": "The improved structure and storytelling helped visitors engage more deeply with the content for longer durations."
+      },
+      {
+        "img": "/Travel/result2.png",
+        "title": "Boost in Tour ",
+        "highlight": "Bookings",
+        "data": "A streamlined booking system significantly reduced friction, resulting in a steady increase in inquiry-to-booking rates."
+      },
+      {
+        "img": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&auto=format&fit=crop&q=60",
+
+        "title": "Strengthened ",
+        "highlight": "Brand Presence",
+        "data": "Positioned the agency as a trusted Dubai tour provider through professional design and authoritative blog content."
+      }
+    ],
+    "impacts": [
+      {
+        "name": "Lead-Generation Powerhouse",
+        "detail": "Transformed the website from a static brochure into a high-performing digital platform capable of generating consistent inquiries."
+      },
+      {
+        "name": "Emotional Customer Connection",
+        "detail": "Established a storytelling framework that effectively communicates the excitement of Dubai’s unique travel experiences."
+      },
+      {
+        "name": "Competitive Market Edge",
+        "detail": "Equipped the agency with a scalable, SEO-optimized platform to compete effectively in the global tourism market."
+      }
+    ],
+    "detail": "By combining smart design, compelling storytelling, and strategic SEO optimization, the project successfully transformed the website into a high-performing digital platform. The new layout guides visitors through a clear journey from interest to confirmed bookings, while the optimized content ensures consistent organic growth and a strengthened brand presence in Dubai's competitive tourism industry.",
+    "pageType": "template"
+  },
+
+  {
+    "id": "heavy_machinery_manufacturer",
+    "name": "Heavy Machinery Manufacturer",
+    "slug": "heavy-machinery-b2b-lead-generation",
+    "category": "B2B Marketing",
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
+    ],
+    "twoImage": {
+      "leftPanel": {
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "topLabel": "Industrial",
+        "bottomLabel": "Build Quality"
+      },
+      "rightPanel": {
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
-
-    details:
-      "Revolutionized B2B lead generation for an industrial giant, achieving a 10x increase in qualified leads and a 30% faster sales cycle through precision targeting.",
-    image:
-      "https://images.unsplash.com/photo-1562577309-2592ab84b1bc?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    tags: ["B2B Lead Generation", "LinkedIn Marketing", "Marketing Automation"],
-    heroImage:
-      "https://plus.unsplash.com/premium_photo-1726804880693-8fcdd773ce80?q=80&w=1126&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    caseSection: {
-      data: "Revolutionizing B2B Lead Generation for",
-      highlight: "Heavy Machinery Manufacturer",
+    "details": "Revolutionized B2B lead generation for an industrial giant, achieving a 10x increase in qualified leads and a 30% faster sales cycle through precision targeting.",
+    "image": "https://images.unsplash.com/photo-1562577309-2592ab84b1bc?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": [
+      "B2B Lead Generation",
+      "LinkedIn Marketing",
+      "Marketing Automation"
+    ],
+    "heroImage": "https://plus.unsplash.com/premium_photo-1726804880693-8fcdd773ce80?q=80&w=1126&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "heroVideo": "",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
+    "caseSection": {
+      "data": "Revolutionizing B2B Lead Generation for",
+      "highlight": "Heavy Machinery Manufacturer"
     },
-
-    overview:
-      "A leading heavy machinery and industrial infrastructure manufacturer in India specialized in pre-engineered buildings and heavy engineering solutions. Despite a strong portfolio, their digital presence failed to attract modern procurement teams. We implemented a data-driven strategy to align their digital footprint with the research habits of industrial buyers.",
-
-    challenge: {
-      data: "The client faced specific B2B hurdles that limited their visibility and lead quality in the industrial market:",
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
-      point: [
+    "overview": "A leading heavy machinery and industrial infrastructure manufacturer in India specialized in pre-engineered buildings and heavy engineering solutions. Despite a strong portfolio, their digital presence failed to attract modern procurement teams. We implemented a data-driven strategy to align their digital footprint with the research habits of industrial buyers.",
+    "challenge": {
+      "data": "The client faced specific B2B hurdles that limited their visibility and lead quality in the industrial market:",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "point": [
         {
-          name: "Low-Quality Leads",
-          detail:
-            "High volume of irrelevant inquiries from students and job seekers rather than high-intent industrial buyers.",
+          "name": "Low-Quality Leads",
+          "detail": "High volume of irrelevant inquiries from students and job seekers rather than high-intent industrial buyers."
         },
         {
-          name: "Minimal Social Media Impact",
-          detail:
-            "Content was not optimized for LinkedIn or Facebook, failing to reach procurement managers and project heads.",
+          "name": "Minimal Social Media Impact",
+          "detail": "Content was not optimized for LinkedIn or Facebook, failing to reach procurement managers and project heads."
         },
         {
-          name: "No Structured B2B Sales Funnel",
-          detail:
-            "Lack of a defined lead journey resulted in uneducated prospects and longer decision-making cycles.",
+          "name": "No Structured B2B Sales Funnel",
+          "detail": "Lack of a defined lead journey resulted in uneducated prospects and longer decision-making cycles."
         },
         {
-          name: "Ineffective Digital Campaigns",
-          detail:
-            "Previous campaigns lacked audience segmentation and conversion tracking, resulting in inconsistent ROI.",
-        },
-      ],
+          "name": "Ineffective Digital Campaigns",
+          "detail": "Previous campaigns lacked audience segmentation and conversion tracking, resulting in inconsistent ROI."
+        }
+      ]
     },
-
-    approaches: [
+    "approaches": [
       {
-        name: "STRATEGIC B2B FUNNEL DEVELOPMENT",
-        detail:
-          "Designed a multi-stage lead funnel focused on awareness, consideration, and conversion to move prospects toward consultations.",
+        "name": "STRATEGIC B2B FUNNEL DEVELOPMENT",
+        "detail": "Designed a multi-stage lead funnel focused on awareness, consideration, and conversion to move prospects toward consultations."
       },
       {
-        name: "PRECISION TARGETING STRATEGY",
-        detail:
-          "Used LinkedIn job title and industry-level targeting to reach plant managers, EPC firms, and infrastructure consultants.",
+        "name": "PRECISION TARGETING STRATEGY",
+        "detail": "Used LinkedIn job title and industry-level targeting to reach plant managers, EPC firms, and infrastructure consultants."
       },
       {
-        name: "AUTHORITY-DRIVEN CONTENT",
-        detail:
-          "Developed technical blogs, project showcases, and explainer videos to position the brand as a trusted industrial partner.",
-      },
+        "name": "AUTHORITY-DRIVEN CONTENT",
+        "detail": "Developed technical blogs, project showcases, and explainer videos to position the brand as a trusted industrial partner."
+      }
     ],
-
-    results: [
+    "results": [
       {
-        img: "https://plus.unsplash.com/premium_photo-1683980578016-a1f980719ec2?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        title: "10x Increase in ",
-        highlight: "Qualified Leads",
-        data: "Generated a massive surge in high-quality inquiries from factory owners and EPC contractors.",
+        "img": "https://plus.unsplash.com/premium_photo-1683980578016-a1f980719ec2?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "title": "10x Increase in ",
+        "highlight": "Qualified Leads",
+        "data": "Generated a massive surge in high-quality inquiries from factory owners and EPC contractors."
       },
       {
-        img: "https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        title: "30% Faster ",
-        highlight: "Sales Cycle",
-        data: "A structured lead funnel improved conversion efficiency and reduced the time taken for final decision-making.",
+        "img": "https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "title": "30% Faster ",
+        "highlight": "Sales Cycle",
+        "data": "A structured lead funnel improved conversion efficiency and reduced the time taken for final decision-making."
       },
       {
-        img: "https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        title: "75% Growth in ",
-        highlight: "LinkedIn Engagement",
-        data: "Strengthened brand credibility on LinkedIn, generating significant inbound interest from decision-makers.",
+        "img": "https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "title": "75% Growth in ",
+        "highlight": "LinkedIn Engagement",
+        "data": "Strengthened brand credibility on LinkedIn, generating significant inbound interest from decision-makers."
       },
       {
-        img: "https://plus.unsplash.com/premium_photo-1683980578016-a1f980719ec2?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        title: "40% Less ",
-        highlight: "Manual Handling",
-        data: "Automation reduced lead filtering efforts, allowing the sales team to focus on high-value closing opportunities.",
-      },
+        "img": "https://plus.unsplash.com/premium_photo-1683980578016-a1f980719ec2?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "title": "40% Less ",
+        "highlight": "Manual Handling",
+        "data": "Automation reduced lead filtering efforts, allowing the sales team to focus on high-value closing opportunities."
+      }
     ],
-
-    impacts: [
+    "impacts": [
       {
-        name: "Scalable Growth Engine",
-        detail:
-          "Transformed digital marketing from a passive presence into a measurable, scalable industrial growth driver.",
+        "name": "Scalable Growth Engine",
+        "detail": "Transformed digital marketing from a passive presence into a measurable, scalable industrial growth driver."
       },
       {
-        name: "Enhanced Industry Authority",
-        detail:
-          "Established the brand as a thought leader in pre-engineered buildings and heavy engineering across India.",
+        "name": "Enhanced Industry Authority",
+        "detail": "Established the brand as a thought leader in pre-engineered buildings and heavy engineering across India."
       },
       {
-        name: "Optimized Demand Generation",
-        detail:
-          "Replaced traditional cold outreach with a high-intent digital funnel that delivers consistent revenue opportunities.",
-      },
+        "name": "Optimized Demand Generation",
+        "detail": "Replaced traditional cold outreach with a high-intent digital funnel that delivers consistent revenue opportunities."
+      }
     ],
-
-    detail:
-      "By implementing precision B2B targeting and automated lead nurturing, we transformed the company's digital approach into a scalable industrial growth engine. This data-driven optimization resulted in 10x better lead quality and a significantly accelerated sales cycle, proving that even traditional heavy industries can thrive with a modern, high-intent demand generation strategy.",
-    pageType: "template",
+    "detail": "By implementing precision B2B targeting and automated lead nurturing, we transformed the company's digital approach into a scalable industrial growth engine. This data-driven optimization resulted in 10x better lead quality and a significantly accelerated sales cycle, proving that even traditional heavy industries can thrive with a modern, high-intent demand generation strategy.",
+    "pageType": "template"
   },
   {
     id: "ab_capital",
     name: "AB Capital",
     slug: "ab-capital-lead-generation",
     category: "Lead Generation",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
-      { "img": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4", "text": "Authority-driven content creation for industrial buyers." },
-      { "img": "https://images.unsplash.com/photo-1551288049-bbbda536ad37", "text": "Reducing manual handling of leads by 40% via CRM integration." },
-      { "img": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122", "text": "Establishing long-term digital authority in heavy engineering." }
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
     ],
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
+
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
-        "topLabel": "Platform",
-        "bottomLabel": "Token Vault"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "topLabel": "Brand",
+        "bottomLabel": "Showcase"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
 
@@ -308,6 +443,11 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     tags: ["Performance Marketing", "Website Recovery", "SEO", "Lead Generation"],
     heroImage:
       "https://plus.unsplash.com/premium_photo-1733306503329-7a8c701fa9ad?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "heroVideo": "",
+  "overviewVideo":"",
+  "ChallengeVideo" :"",
+  "ApproachVideo" : "",
+  "ResultVideo":"",
     caseSection: {
       data: "Transforming Lead Generation for",
       highlight: "AB Capital Dubai",
@@ -318,8 +458,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "The client faced several critical hurdles that halted their digital growth and lead flow:",
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
       point: [
         {
           name: "Compromised Digital Assets",
@@ -414,24 +554,37 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     name: "Sant Hirdaram Institute of Management (SHIM)",
     slug: "shim-bhopal-mba-admissions",
     category: "Digital Strategy",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
-      { "img": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4", "text": "Authority-driven content creation for industrial buyers." },
-      { "img": "https://images.unsplash.com/photo-1551288049-bbbda536ad37", "text": "Reducing manual handling of leads by 40% via CRM integration." },
-      { "img": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122", "text": "Establishing long-term digital authority in heavy engineering." }
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
     ],
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
+
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
         "topLabel": "Platform",
         "bottomLabel": "Token Vault"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
 
@@ -442,6 +595,13 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     tags: ["Performance Marketing", "Lead Generation", "Admission Strategy"],
     heroImage:
       "https://images.unsplash.com/photo-1474314243412-cd4a79f02c6a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "heroVideo": "",
+  "overviewVideo":"",
+  "ChallengeVideo" :"",
+  "ApproachVideo" : "",
+  "ResultVideo":"",
+
+
     caseSection: {
       data: "Transforming SHIM into a",
       highlight: "Premier Choice for MBA Aspirants",
@@ -452,8 +612,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "SHIM faced critical hurdles that prevented them from reaching their enrollment potential:",
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
       point: [
         {
           name: "Insufficient Candidate Enrollment",
@@ -547,33 +707,52 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     name: "Tathyabaan",
     slug: "tathyabaan-publishing",
     category: "Content Strategy",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
-      { "img": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4", "text": "Authority-driven content creation for industrial buyers." },
-      { "img": "https://images.unsplash.com/photo-1551288049-bbbda536ad37", "text": "Reducing manual handling of leads by 40% via CRM integration." },
-      { "img": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122", "text": "Establishing long-term digital authority in heavy engineering." }
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
     ],
     details:
       "Scaled a traditional offline book publisher into a digital brand, achieving over 8M+ engagement and a viral reach of 7M+ views.",
     image: "/tathyabaan/tathyabaan_publishing.png",
     tags: ["Social Media Marketing", "Content Strategy", "Website Development"],
     heroImage: "/tathyabaan/tathyabaan_publishing.png",
+    "heroVideo": "",
+  "overviewVideo":"",
+  "ChallengeVideo" :"",
+  "ApproachVideo" : "",
+  "ResultVideo":"",
+
+
     caseSection: {
       data: "Scaling Tathyabaan's",
       highlight: "Online Presence & Sales",
     },
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
         "topLabel": "Platform",
         "bottomLabel": "Token Vault"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
 
@@ -582,8 +761,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "Tathyabaan is a popular publisher of competitive exam books with a strong offline presence in Madhya Pradesh. However, their online presence was almost negligible, causing them to miss massive opportunities to connect with students. Our team stepped in to transform their digital footprint with professional web development and a viral content strategy.",
 
     challenge: {
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
       data: "Tathyabaan faced several digital hurdles that prevented them from reaching the modern student demographic:",
       point: [
         {
@@ -678,24 +857,37 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     name: "Educational Institute",
     slug: "educational-institute",
     category: "Education",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
-      { "img": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4", "text": "Authority-driven content creation for industrial buyers." },
-      { "img": "https://images.unsplash.com/photo-1551288049-bbbda536ad37", "text": "Reducing manual handling of leads by 40% via CRM integration." },
-      { "img": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122", "text": "Establishing long-term digital authority in heavy engineering." }
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
     ],
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
+
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
         "topLabel": "Platform",
         "bottomLabel": "Token Vault"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
 
@@ -706,6 +898,13 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     tags: ["Website", "SEO", "UI/UX"],
     heroImage:
       "https://storage.googleapis.com/a1aa/image/T_kWvK97-hQhiFsMJMEb_8cUyB7ANVyRZ8LC0_H3BS4.jpg",
+   "heroVideo": "",
+  "overviewVideo":"",
+  "ChallengeVideo" :"",
+  "ApproachVideo" : "",
+  "ResultVideo":"",
+
+
     caseSection: {
       data: "Transforming an Educational Institute’s",
       highlight: "Digital Presence",
@@ -715,8 +914,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "A leading educational institute was struggling with low traffic, ineffective landing pages, and a slow, outdated website that failed to convert visitors into student inquiries. Our goal was to rebuild their digital presence with a structured, fast, and conversion-driven website.",
 
     challenge: {
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
       data: "The institute faced major digital challenges that hindered student enrollment:",
       point: [
         {
@@ -813,24 +1012,38 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     name: "Pachmarhi Ayurveda",
     slug: "pachmarhi-ayurveda",
     category: "Healthcare",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
-      { "img": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4", "text": "Authority-driven content creation for industrial buyers." },
-      { "img": "https://images.unsplash.com/photo-1551288049-bbbda536ad37", "text": "Reducing manual handling of leads by 40% via CRM integration." },
-      { "img": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122", "text": "Establishing long-term digital authority in heavy engineering." }
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
     ],
+    
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
+
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
         "topLabel": "Platform",
         "bottomLabel": "Token Vault"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
 
@@ -840,6 +1053,13 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fportfolio-images%2F02.png&w=1920&q=75",
     tags: ["Website", "Branding", "Marketing"],
     heroImage: "/images/case-study/pach.png",
+   "heroVideo": "",
+  "overviewVideo":"",
+  "ChallengeVideo" :"",
+  "ApproachVideo" : "",
+  "ResultVideo":"",
+
+
     caseSection: {
       data: "How We Transformed a Legacy Ayurveda Brand into a",
       highlight: "Digital Success",
@@ -848,8 +1068,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     overview:
       "Pachmarhi Ayurveda is a well-established Ayurvedic brand rooted in the heart of Madhya Pradesh. Known for its pure and effective natural oils and remedies, the brand has built a loyal customer base through offline sales and word-of-mouth marketing. However, in an increasingly digital world, their lack of an online presence limited their growth potential. In 2022, we partnered with them to take their brand digital, establish a strong online identity, and unlock nationwide sales opportunities.",
     challenge: {
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
       data: "Despite their strong offline reputation, Pachmarhi Ayurveda faced several hurdles in the digital space:",
       point: [
         {
@@ -956,24 +1176,37 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     name: "Rezmytour",
     slug: "rezmytour",
     category: "Travel & Tourism",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
-      { "img": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4", "text": "Authority-driven content creation for industrial buyers." },
-      { "img": "https://images.unsplash.com/photo-1551288049-bbbda536ad37", "text": "Reducing manual handling of leads by 40% via CRM integration." },
-      { "img": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122", "text": "Establishing long-term digital authority in heavy engineering." }
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
     ],
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
+
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
         "topLabel": "Platform",
         "bottomLabel": "Token Vault"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
 
@@ -984,6 +1217,13 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     tags: ["Website", "SEO", "Marketing"],
     heroImage:
       "https://storage.googleapis.com/a1aa/image/ebNaUVVjFent5hUWT8vuppFa_Zl8q_zOTINs2w2Z9cc.jpg",
+    "heroVideo": "",
+  "overviewVideo":"",
+  "ChallengeVideo" :"",
+  "ApproachVideo" : "",
+  "ResultVideo":"",
+
+
     caseSection: {
       data: "How We Boosted Bookings & Visibility for a",
       highlight: "Dubai Travel Agency",
@@ -993,8 +1233,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "Rezmytour, a Dubai-based travel agency, needed a simple yet high-impact website to attract tourists and increase bookings. Their existing platform lacked structure, clear storytelling, and effective SEO, which resulted in low inquiries and poor engagement. Our team stepped in to transform their digital presence with a streamlined website, strategic branding, and SEO-driven content.",
 
     challenge: {
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
       data: "Rezmytour faced multiple digital challenges that hindered its growth:",
       point: [
         {
@@ -1089,24 +1329,37 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     name: "USA-Based NGO",
     slug: "usa-based-ngo",
     category: "Non-Profit",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
-      { "img": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4", "text": "Authority-driven content creation for industrial buyers." },
-      { "img": "https://images.unsplash.com/photo-1551288049-bbbda536ad37", "text": "Reducing manual handling of leads by 40% via CRM integration." },
-      { "img": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122", "text": "Establishing long-term digital authority in heavy engineering." }
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
     ],
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
+
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
         "topLabel": "Platform",
         "bottomLabel": "Token Vault"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
 
@@ -1117,6 +1370,13 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     tags: ["Website", "Fundraising", "Digital Strategy"],
     heroImage:
       "https://storage.googleapis.com/a1aa/image/T_kWvK97-hQhiFsMJMEb_8cUyB7ANVyRZ8LC0_H3BS4.jpg",
+    "heroVideo": "",
+  "overviewVideo":"",
+  "ChallengeVideo" :"",
+  "ApproachVideo" : "",
+  "ResultVideo":"",
+
+
     caseSection: {
       data: "Transforming a USA-Based NGO’s",
       highlight: "Digital Presence",
@@ -1126,8 +1386,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "A USA-based NGO approached us for a modern, impactful website that would strengthen their digital presence, engage supporters, and drive donations. The NGO lacked a clear digital direction and needed a site that reflected their mission while improving outreach and fundraising efforts.",
 
     challenge: {
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
       data: "The NGO faced multiple digital hurdles that limited its impact:",
       point: [
         {
@@ -1230,24 +1490,37 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     name: "Ten On Ten Stays",
     slug: "ten-on-ten-stays",
     category: "Hospitality & Marketing",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
-      { "img": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4", "text": "Authority-driven content creation for industrial buyers." },
-      { "img": "https://images.unsplash.com/photo-1551288049-bbbda536ad37", "text": "Reducing manual handling of leads by 40% via CRM integration." },
-      { "img": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122", "text": "Establishing long-term digital authority in heavy engineering." }
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
     ],
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
+
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
         "topLabel": "Platform",
         "bottomLabel": "Token Vault"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
 
@@ -1257,6 +1530,13 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     tags: ["Website", "Branding", "SEO", "UI/UX"],
     heroImage:
       "https://img.freepik.com/free-photo/beautiful-castle-architecture_23-2150754875.jpg?t=st=1743222693~exp=1743226293~hmac=69bb516d07c39aaf4f09a4b6fb7508f3360a038fa9b7d098e6dc996be7687f8b&w=1380",
+    "heroVideo": "",
+  "overviewVideo":"",
+  "ChallengeVideo" :"",
+  "ApproachVideo" : "",
+  "ResultVideo":"",
+
+
     caseSection: {
       data: "How We Built a Strong Brand Presence for",
       highlight: "Ten On Ten Stays",
@@ -1267,8 +1547,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "The company faced key branding and digital challenges:",
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
       point: [
         {
           name: "Unclear Brand Positioning",
@@ -1371,24 +1651,37 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     name: "Sportsxcoin",
     slug: "sportsxcoin",
     category: "Cryptocurrency",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158", "text": "Strategic analysis of industrial lead generation funnels." },
-      { "img": "https://images.unsplash.com/photo-1504307651254-35680f356dfd", "text": "Implementing precision targeting for plant managers and EPC firms." },
-      { "img": "https://images.unsplash.com/photo-1460925895917-afdab827c52f", "text": "Data-driven dashboard tracking a 10x increase in qualified leads." },
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
     ],
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
+
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
         "topLabel": "Platform",
         "bottomLabel": "Token Vault"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
 
@@ -1399,6 +1692,13 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     tags: ["Website", "Crypto Wallet", "Branding", "UI/UX"],
     heroImage:
       "https://sportxcoins.com/wp-content/uploads/2024/11/ripple-prediction-main-3.jpg",
+    "heroVideo": "",
+  "overviewVideo":"",
+  "ChallengeVideo" :"",
+  "ApproachVideo" : "",
+  "ResultVideo":"",
+
+
     caseSection: {
       data: "How We Built a High-Impact Platform for",
       highlight: "Sportsxcoin",
@@ -1409,8 +1709,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "Sportsxcoin faced key digital and strategic challenges:",
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
       point: [
         {
           name: "Undefined Scope",
@@ -1507,24 +1807,36 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     slug: "fourth-dimension-general-construction",
     name: "Fourth Dimension General Construction",
     category: "Real Estate & Construction",
-    gallery: [
-      { "img": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158", "text": "Strategic analysis of industrial lead generation funnels." },
-      { "img": "https://images.unsplash.com/photo-1504307651254-35680f356dfd", "text": "Implementing precision targeting for plant managers and EPC firms." },
-      { "img": "https://images.unsplash.com/photo-1460925895917-afdab827c52f", "text": "Data-driven dashboard tracking a 10x increase in qualified leads." },
-      { "img": "https://images.unsplash.com/photo-1553877522-43269d4ea984", "text": "LinkedIn engagement strategies targeting project heads." },
-      { "img": "https://images.unsplash.com/photo-1521791136064-7986c2959210", "text": "Streamlining the B2B sales cycle by 30% through automation." },
+    "gallery": [
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      },
+      {
+        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+        "text": "Establishing long-term digital authority in heavy engineering."
+      }
     ],
     "twoImage": {
-      "brandName": "Eurotech",
-      "logoText": "ETX",
-      "accentColor": "#5A00EC",
       "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
         "topLabel": "Platform",
         "bottomLabel": "Token Vault"
       },
       "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
       }
     },
 
@@ -1535,6 +1847,13 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     tags: ["Website", "Bilingual", "SEO", "UI/UX", "Animation"],
     heroImage:
       "https://www.4dgcc.com/_next/image?url=%2Fassets%2Fimages%2Fhero-img.jpg&w=1920&q=75",
+    "heroVideo": "",
+  "overviewVideo":"",
+  "ChallengeVideo" :"",
+  "ApproachVideo" : "",
+  "ResultVideo":"",
+
+
     caseSection: {
       data: "Building a Bilingual, High-Impact Digital Presence for",
       highlight: "Fourth Dimension General Construction",
@@ -1545,8 +1864,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     challenge: {
       data: "The company faced several key digital challenges:",
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
       point: [
         {
           name: "Bilingual Website Requirement",

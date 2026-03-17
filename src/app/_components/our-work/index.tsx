@@ -1,87 +1,141 @@
 "use client";
+import { useRef } from "react";
 import { MotionDiv, MotionP } from "@/lib/motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import caseStudiesData from "@/lib/store/case-studies";
 import { GoArrowRight } from "react-icons/go";
 
 const OurWork = () => {
-  const variants = {
-    start: { y: 40, opacity: 0 },
-    end: { y: 0, opacity: 1 },
-  };
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
 
-  // Only take the first 6 items to match the layout request
+  // Subtle parallax for the grid
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
   const displayWorks = caseStudiesData.slice(0, 6);
 
   return (
-    <section id="blogs" className="max-w-7xl mx-auto px-6 md:px-10 py-20">
-      {/* Section Tag */}
-      <h2 className="text-center mb-8 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">
-        Our Work
-      </h2>
+    <section 
+      ref={containerRef} 
+      id="blogs" 
+      className="max-w-7xl mx-auto px-6 md:px-10 py-32 overflow-hidden"
+    >
+      {/* Section Tag with line animation */}
+      <div className="flex flex-col items-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, width: 0 }}
+          whileInView={{ opacity: 1, width: "40px" }}
+          viewport={{ once: false, amount: 0.5 }} // Runs every time 50% is visible
+          className="h-[1px] bg-slate-400 mb-4"
+        />
+        <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400">
+          Our Work
+        </h2>
+      </div>
 
       {/* Main Heading */}
       <MotionP
-        variants={variants}
-        initial="start"
-        whileInView="end"
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="text-4xl md:text-6xl text-slate-900 max-w-4xl mx-auto text-center font-normal leading-tight mb-20 tracking-tight"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }} // Repeat animation
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="text-5xl md:text-7xl text-slate-900 max-w-5xl mx-auto text-center font-normal leading-[1.1] mb-24 tracking-tighter"
       >
-        We empowered many ambitious businesses to achieve and surpass their
-        <span className="italic font-serif"> growth </span> objectives.
+        Empowering ambitious brands to <br className="hidden md:block" />
+        surpass their <span className="italic font-serif text-[#5A00EC]">growth</span> objectives.
       </MotionP>
 
-      {/* Responsive Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+      {/* Grid Layout */}
+      <motion.div style={{ y }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24">
         {displayWorks.map((caseStudy, index) => (
-          <MotionDiv
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="group cursor-pointer"
-          >
-            <Link href={`/case-studies/${caseStudy.slug}`}>
-              {/* Image Container with Hover Zoom */}
-              <div className="overflow-hidden bg-gray-100 mb-6">
-                <Image
-                  src={caseStudy.image}
-                  className="w-full aspect-[4/5] md:aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
-                  alt={caseStudy.name}
-                  width={600}
-                  height={600}
-                />
-              </div>
-
-              {/* Category */}
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
-                {caseStudy.category}
-              </p>
-
-              {/* Title / Description */}
-              <h3 className="text-lg md:text-xl font-normal text-slate-900 leading-snug group-hover:text-[#5A00EC] transition-colors duration-300">
-                <span className="font-bold">{caseStudy.name}:</span> {caseStudy.details.split('.')[0]}
-              </h3>
-            </Link>
-          </MotionDiv>
+          <WorkCard key={index} caseStudy={caseStudy} index={index} />
         ))}
-      </div>
+      </motion.div>
 
       {/* Action Button */}
-      <div className="flex justify-center mt-20">
+      <MotionDiv 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }} // Repeat animation
+        transition={{ delay: 0.1 }}
+        className="flex justify-center mt-32"
+      >
         <Link
           href="/case-studies"
-          className="inline-flex items-center gap-3 px-10 py-4 border border-slate-900 text-slate-900 text-sm font-medium hover:bg-slate-900 hover:text-white transition-all duration-300 group"
+          className="relative inline-flex items-center gap-4 px-12 py-5 overflow-hidden group border border-slate-900 transition-all duration-500 rounded-full"
         >
-          View all works 
-          <GoArrowRight className="text-xl transition-transform group-hover:translate-x-1" />
+          <span className="relative z-10 text-slate-900 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors duration-500">
+            View all works
+          </span>
+          <GoArrowRight className="relative z-10 text-xl group-hover:text-white group-hover:translate-x-2 transition-all duration-500" />
+          <div className="absolute inset-0 bg-slate-900 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
         </Link>
-      </div>
+      </MotionDiv>
     </section>
+  );
+};
+
+const WorkCard = ({ caseStudy, index }: { caseStudy: any; index: number }) => {
+  return (
+    <div className="group flex flex-col">
+      <Link href={`/case-studies/${caseStudy.slug}`}>
+        {/* Image Mask Reveal */}
+        <div className="relative overflow-hidden bg-slate-200 rounded-sm">
+          <motion.div
+            initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+            whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+            viewport={{ once: false, margin: "-5%" }} // Trigger slightly before full view
+            transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: (index % 3) * 0.1 }}
+          >
+            <Image
+              src={caseStudy.image}
+              className="w-full aspect-[4/5] md:aspect-square object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+              alt={caseStudy.name}
+              width={600}
+              height={600}
+            />
+          </motion.div>
+          
+          <div className="absolute top-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+             <span className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-[9px] font-bold uppercase tracking-tighter shadow-xl">
+               Explore Case
+             </span>
+          </div>
+        </div>
+
+        {/* Text Content */}
+        <div className="mt-8 space-y-3">
+          <motion.div
+             initial={{ opacity: 0, x: -10 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: false }}
+             transition={{ duration: 0.5, delay: 0.3 + (index % 3) * 0.1 }}
+             className="flex items-center gap-2"
+          >
+            <span className="w-6 h-[1px] bg-[#5A00EC]" />
+            <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+              {caseStudy.category}
+            </p>
+          </motion.div>
+
+          <motion.div
+             initial={{ opacity: 0, y: 15 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: false }}
+             transition={{ duration: 0.5, delay: 0.4 + (index % 3) * 0.1 }}
+          >
+            <h3 className="text-xl md:text-2xl font-light text-slate-900 leading-tight">
+              <span className="font-bold">{caseStudy.name}</span> — {caseStudy.details.split('.')[0]}
+            </h3>
+          </motion.div>
+        </div>
+      </Link>
+    </div>
   );
 };
 

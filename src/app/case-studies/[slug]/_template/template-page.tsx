@@ -16,7 +16,7 @@ export default function TemplatePage({
     <>
       <HeroCase ele={caseStudy} />
 
-      <ChallengeSection challenge={caseStudy.challenge} />
+      <ChallengeSection data={caseStudy} />
       {caseStudy.twoImage && <TwoImageSection data={caseStudy.twoImage as any} />}
 
       <ApproachSection approaches={caseStudy.approaches} />
@@ -29,8 +29,8 @@ export default function TemplatePage({
       )}
 
       <TheResult ele={caseStudy} />
-
       <TheImpact ele={caseStudy} />
+
     </>
   );
 }

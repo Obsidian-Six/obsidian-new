@@ -1,23 +1,27 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image"; // Ensure you import Image for the new section
+import Image from "next/image";
 import type {
-  CaseStudyChallenge,
+  TemplateCaseStudy,
   CaseStudyChallengePoint,
 } from "@/lib/models/case-study.types";
 
 export default function ChallengeSection({
-  challenge,
+  data,
 }: {
-  challenge: CaseStudyChallenge;
+  data: TemplateCaseStudy; // This is the full case study object from your JSON
 }) {
+  // Safety check to prevent the destructure error
+  if (!data || !data.challenge) return null;
+
+  const { challenge, ChallengeVideo } = data;
+
   return (
     <section className="relative bg-white overflow-hidden py-32 md:py-48">
       {/* Subtle Architectural Grid Line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-black/[0.03] hidden lg:block" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16">
-
         {/* Header Section */}
         <div className="grid lg:grid-cols-12 gap-8 mb-16">
           <motion.div
@@ -40,26 +44,23 @@ export default function ChallengeSection({
           </motion.div>
         </div>
 
+        {/* Images Grid */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="grid md:grid-cols-2 gap-4 md:gap-8 mb-24 items-center"
+          className="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 items-center"
         >
-
-          {/* Left Image */}
           <div className="flex justify-center">
             <Image
               src={challenge.image1}
-              alt="Industry Problems and Solutions Chart"
+              alt="Industry Problems"
               width={1200}
               height={800}
               className="w-full h-auto object-contain"
             />
           </div>
-
-          {/* Right Image */}
           <div className="flex justify-center">
             <Image
               src={challenge.image2}
@@ -69,8 +70,28 @@ export default function ChallengeSection({
               className="w-full h-auto object-contain shadow-2xl"
             />
           </div>
-
         </motion.div>
+
+        {/* Full Screen Video Section */}
+        {ChallengeVideo && ChallengeVideo.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full mb-24 overflow-hidden rounded-sm"
+          >
+            <video
+              src={ChallengeVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto max-h-[80vh] object-cover shadow-2xl"
+            />
+          </motion.div>
+        )}
+
         {/* Challenge Points */}
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-10 lg:col-start-2 space-y-4">
@@ -84,7 +105,6 @@ export default function ChallengeSection({
                 className="group relative"
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between p-10 bg-[#fafafa] hover:bg-black transition-all duration-500 border border-black/5 rounded-sm overflow-hidden">
-
                   <div className="flex items-center gap-12 lg:col-span-5">
                     <span className="text-black/20 font-serif italic text-2xl group-hover:text-white/20 transition-colors">
                       0{index + 1}
