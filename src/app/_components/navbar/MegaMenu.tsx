@@ -26,8 +26,6 @@ const categories = [
       { name: "Mobile App Development", href: "/services" },
       { name: "E-commerce", href: "/services" },
       { name: "Quality Assurance & Testing", href: "/services" },
-      { name: "Cloud Services", href: "/services" },
-      { name: "Cyber Security", href: "/services" },
     ],
   },
   {
@@ -43,6 +41,7 @@ const categories = [
     ],
   },
 ];
+
 // const categories = [
 //   {
 //     title: "Branding",

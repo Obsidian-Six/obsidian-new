@@ -2,6 +2,7 @@ import type { TemplateCaseStudy } from "@/lib/models/case-study.types";
 
 const templateCaseStudiesData: TemplateCaseStudy[] = [
 
+  
   {
     "id": "luxury_car_investment",
     "name": "Luxury Car Investment",
@@ -118,6 +119,122 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       }
     ],
     "detail": "By integrating a sophisticated blockchain tokenization engine with a high-performance luxury marketplace, we transformed rare vehicles into accessible digital investments. The platform successfully combined TypeScript, Next.js, and secure smart contract logic to deliver a 200% boost in engagement and a scalable growth engine that bridges the gap between traditional collectors and modern crypto investors.",
+    "pageType": "template"
+  },
+  {
+    "id": "sweet_protection_ecommerce",
+    "name": "Sweet Protection",
+    "slug": "sweet-protection-custom-tech-ecommerce-performance-gear",
+    "category": "E-commerce & Sports Technology",
+    "gallery": [
+      { "img": "/SweetProtection/image3.png", "text": "Custom-built backend infrastructure supporting real-time inventory and global scaling." },
+      { "img": "/SweetProtection/image1.png", "text": "Premium product discovery interface for high-performance sports helmets and gear." },
+      { "img": "/SweetProtection/image4.png", "text": "Advanced filtering systems for navigating complex product catalogs and variants." },
+      { "img": "/SweetProtection/image2.png", "text": "Seamless mobile-first shopping experience optimized for global cycling enthusiasts." },
+      { "img": "/SweetProtection/image5.png", "text": "Integrated CRM and CMS dashboard giving internal teams full operational control." }
+    ],
+    "details": "Transformed Sweet Protection's digital presence by building a custom ReactJS-driven ecosystem that combines high-speed performance with a premium brand experience, significantly increasing conversion rates and global accessibility.",
+    "image": "/SweetProtection/image2.png",
+    "tags": ["ReactJS", "AWS Cloud", "Custom CMS", "Mobile-First", "SEO Optimization"],
+    "heroImage": "/SweetProtection/image2.png",
+    "heroVideo": "/SweetProtection/topVideo.mp4",
+    "overviewVideo": "/SweetProtection/ProductQualityVideo.mp4",
+    "ChallengeVideo": "/SweetProtection/productsSectionVideo.mp4",
+    "ApproachVideo": "/SweetProtection/EndOfCaseVideo.mp4",
+    "ResultVideo": "/SweetProtection/results.mp4",
+    "caseSection": {
+      "data": "Building a Tech-Driven E-commerce Experience for",
+      "highlight": "High-Performance Gear"
+    },
+    "overview": "Sweet Protection is a globally recognized brand specializing in high-performance helmets and technical apparel. To support its international growth, we built a powerful digital ecosystem. By combining a ReactJS frontend with a custom-built backend on AWS, the platform delivers fast performance, seamless product discovery, and a premium brand experience that supports both operational efficiency and global customer expectations.",
+    "twoImage": {
+      "leftPanel": {
+        "bgImage": "/SweetProtection/image6.png",
+        "topLabel": "Commerce",
+        "bottomLabel": "Performance Hub"
+      },
+      "rightPanel": {
+        "bgImage": "/SweetProtection/image2.png"
+      }
+    },
+    "challenge": {
+      "data": "Managing a complex product ecosystem while maintaining speed and premium brand identity presented several key obstacles:",
+      "image1": "/SweetProtection/image8.png",
+      "image2": "/SweetProtection/image3.png",
+      "point": [
+        {
+          "name": "Catalog Complexity",
+          "detail": "Managing multiple categories (helmets, cycling, apparel) with numerous variants and high-res visuals without sacrificing speed."
+        },
+        {
+          "name": "Global Performance",
+          "detail": "Ensuring smooth user experiences across multiple regions and devices while handling high-resolution media delivery."
+        },
+        {
+          "name": "Operational Bottlenecks",
+          "detail": "Internal teams lacked the ability to manage products and content easily without constant technical assistance."
+        },
+        {
+          "name": "Brand Identity Tension",
+          "detail": "The need to balance functional e-commerce features with a high-end, premium lifestyle brand aesthetic."
+        }
+      ]
+    },
+    "approaches": [
+      {
+        "name": "DYNAMIC FRONTEND & CUSTOM BACKEND",
+        "detail": "Developed a responsive ReactJS frontend paired with a custom backend infrastructure designed specifically to match Sweet Protection’s internal workflows."
+      },
+      {
+        "name": "BESPOKE CMS & CRM SYSTEMS",
+        "detail": "Built an intuitive management dashboard giving the internal team complete control over product listings, real-time inventory, and content updates."
+      },
+      {
+        "name": "AWS INFRASTRUCTURE & MEDIA OPTIMIZATION",
+        "detail": "Hosted the platform on AWS for high availability and implemented image optimization techniques to ensure rapid loading of premium visual content."
+      }
+    ],
+    "results": [
+      {
+        "img": "/SweetProtection/result1.png",
+        "title": "Improved ",
+        "highlight": "Conversion Rates",
+        "data": "Streamlined navigation and a friction-free checkout process led to a significant increase in customer purchases."
+      },
+      {
+        "img": "/SweetProtection/result2.png",
+        "title": "Operational ",
+        "highlight": "Autonomy",
+        "data": "The custom CRM/CMS reduced dependency on developers, allowing marketing teams to update content in real-time."
+      },
+      {
+        "img": "/SweetProtection/image1.png",
+        "title": "Seamless Global ",
+        "highlight": "Scalability",
+        "data": "Multi-currency and location-based settings allowed the brand to easily expand its reach into new international markets."
+      },
+      {
+        "img": "/SweetProtection/result1.png",
+        "title": "Search & Mobile ",
+        "highlight": "Dominance",
+        "data": "An SEO-friendly architecture and mobile-first design improved search visibility and cross-device engagement."
+      }
+    ],
+    "impacts": [
+      {
+        "name": "Strengthened Digital Presence",
+        "detail": "Transitioned from a traditional store to a powerful commerce hub that reflects the brand's premium market position."
+      },
+      {
+        "name": "Effortless Catalog Expansion",
+        "detail": "Created a scalable foundation that allows the brand to onboard new product innovations and categories without technical friction."
+      },
+      {
+        "name": "Direct-to-Consumer Growth",
+        "detail": "Empowered the brand to grow its D2C business alongside retail partnerships through a superior online customer journey."
+      }
+    ],
+    "detail": "By integrating a dynamic ReactJS frontend with a custom backend and specialized CMS, we built a digital foundation that supports Sweet Protection's global ambitions. The platform successfully balanced high-resolution media with lightning-fast performance, delivering an optimized buyer journey that bridges the gap between technical sports performance and premium e-commerce.",
     "pageType": "template"
   },
   {
