@@ -34,7 +34,7 @@ const Map = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl lg:text-6xl font-light text-[#1a1a1a] mb-2 tracking-tighter uppercase poppins"
+          className="text-4xl md:text-5xl lg:text-6xl font-lato text-[#1a1a1a] mb-2 tracking-tighter uppercase"
         >
           Powering Businesses <span className="italic font-serif normal-case">Worldwide</span>
         </motion.h2>

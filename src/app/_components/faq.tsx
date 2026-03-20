@@ -31,46 +31,45 @@ export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-[#fafafa] font-[family-name:var(--font-poppins)] overflow-hidden">
+    <section className="py-24 bg-white font-sans overflow-hidden">
       <div className="max-w-3xl mx-auto px-6">
         
-        {/* Compact Header */}
-        <div className="mb-12 border-l-2 border-black pl-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1a1b2e] tracking-tight font-[family-name:var(--font-playfair)]">
-            Frequently Asked Questions
+        {/* Bold Header - White Layout */}
+        <div className="mb-14 border-l-4 border-[#5A00EC] pl-6">
+          <h2 className="text-4xl md:text-6xl  text-black tracking-tighter leading-none">
+            FAQ<span className="text-[#5A00EC]">.</span>
           </h2>
-          <p className="text-gray-500 text-sm mt-2 uppercase tracking-widest">
-            Answers for the ambitious
+          <p className="text-gray-500 text-sm mt-2 uppercase tracking-[0.2em] font-bold">
+            Support Center
           </p>
         </div>
 
-        {/* Accordion List */}
-        <div className="divide-y divide-gray-200">
+        {/* High-Contrast Accordion */}
+        <div className="divide-y divide-gray-100">
           {faqs.map((faq, index) => {
             const isOpen = activeIndex === index;
             
             return (
-              <motion.div 
-                key={index} 
-                className="group py-2"
-                initial={false}
-              >
+              <motion.div key={index} className="group" initial={false}>
                 <button
                   onClick={() => setActiveIndex(isOpen ? null : index)}
-                  className="w-full flex items-center justify-between py-5 text-left group"
+                  className="w-full flex items-center justify-between py-8 text-left transition-all"
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-5">
                     <motion.div
                       animate={{ 
                         rotate: isOpen ? 90 : 0,
-                        color: isOpen ? "#000" : "#9ca3af" 
+                        scale: isOpen ? 1.1 : 1,
+                        color: isOpen ? "#5A00EC" : "#111" 
                       }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
-                      <ChevronRight size={18} />
+                      {/* Bolder Icon */}
+                      <ChevronRight size={22} strokeWidth={3} />
                     </motion.div>
-                    <span className={`text-base md:text-lg font-medium transition-all duration-300 ${
-                      isOpen ? "text-black translate-x-2" : "text-gray-600 group-hover:text-black"
+                    
+                    {/* Bold Question Text */}
+                    <span className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${
+                      isOpen ? "text-[#5A00EC]" : "text-black group-hover:text-[#5A00EC]"
                     }`}>
                       {faq.question}
                     </span>
@@ -81,15 +80,13 @@ export default function FAQ() {
                   {isOpen && (
                     <motion.div
                       key="content"
-                      initial={{ height: 0, opacity: 0, y: -10 }}
+                      initial={{ height: 0, opacity: 0, y: -5 }}
                       animate={{ height: "auto", opacity: 1, y: 0 }}
-                      exit={{ height: 0, opacity: 0, y: -10 }}
-                      transition={{ 
-                        height: { duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] },
-                        opacity: { duration: 0.25, delay: 0.1 }
-                      }}
+                      exit={{ height: 0, opacity: 0, y: -5 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
                     >
-                      <div className="pl-9 pb-6 pr-4 text-sm md:text-base text-gray-500 leading-relaxed max-w-2xl font-light">
+                      {/* Readable Answer Text */}
+                      <div className="pl-12 pb-10 pr-4 text-lg text-gray-600 font-normal leading-relaxed max-w-2xl">
                         {faq.answer}
                       </div>
                     </motion.div>

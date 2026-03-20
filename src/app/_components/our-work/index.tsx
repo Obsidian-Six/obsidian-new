@@ -130,7 +130,7 @@ const WorkCard = ({ caseStudy, index }: { caseStudy: any; index: number }) => {
              transition={{ duration: 0.5, delay: 0.4 + (index % 3) * 0.1 }}
           >
             <h3 className="text-xl md:text-2xl font-light text-slate-900 leading-tight">
-              <span className="font-bold">{caseStudy.name}</span> — {caseStudy.details.split('.')[0]}
+              <span className="font-bold">{caseStudy.name}</span> - {caseStudy.details.split('.')[0]}
             </h3>
           </motion.div>
         </div>

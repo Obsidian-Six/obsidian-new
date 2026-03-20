@@ -52,7 +52,7 @@
 import FloatingWhatsapp from "./_components/floating-whatsapp";
 import Footer from "./_components/footer";
 import Navbar from "./_components/navbar";
-import { Playfair_Display, Poppins } from "next/font/google";
+import { Playfair_Display, Poppins,Lato } from "next/font/google";
 import "./globals.css";
 import type { ReactNode } from "react";
 
@@ -72,19 +72,10 @@ export const metadata = {
     canonical: "https://obsidiansix.com/",
   },
 };
-
-const playfair = Playfair_Display({
+const lato = Lato({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-playfair',
-  style: ['italic', 'normal'],
-  weight: ['400', '500', '700'],
-});
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-poppins',
+  weight: ['300', '400', '700'], // 300 is the "Light" weight
+  variable: '--font-lato',
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -135,7 +126,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   };
 
   return (
-    <html lang="en" className={`${playfair.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${lato.variable}`}>
       <head>
         {/* Injecting Organization Schema sitewide */}
         <script
