@@ -12,7 +12,7 @@ export default function FloatingWhatsapp() {
         className="group block"
       >
         {/* Large high-quality container */}
-        <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-[#25D366] rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.4)] transition-transform duration-300 group-hover:scale-110 active:scale-95">
+        <div className="flex items-center justify-center w-16 h-16 md:w-16 md:h-16 bg-[#25D366] rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.4)] transition-transform duration-300 group-hover:scale-110 active:scale-95">
           {/* Large sharp icon */}
           <FaWhatsapp className="text-white text-4xl md:text-5xl" />
         </div>

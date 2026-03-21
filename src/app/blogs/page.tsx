@@ -72,13 +72,7 @@ return (
 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
       <header className="relative z-10 mb-8 md:mb-12">
-        {/* Subtitle - centered on mobile, left on desktop */}
-        <div className="flex items-center justify-center md:justify-start gap-3 mb-4 md:mb-6">
-          <span className="w-6 md:w-8 h-[2px] bg-[#5A00EC]"></span>
-          <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-[#5A00EC]">
-            Obsidian Six Journal
-          </span>
-        </div>
+       
 
         {/* Heading - Fluid typography and tighter leading for mobile */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-slate-900 leading-[0.95] md:leading-[0.9] mb-8 text-center md:text-left">

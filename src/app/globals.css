@@ -1,6 +1,9 @@
 @import "tailwindcss";
+
 :root {
-  --header-height: 72px; /* adjust if your header is taller/shorter */
+  /* Match your Tailwind h-20 (80px) and md:h-24 (96px) */
+  --nav-height-mobile: 80px;
+  --nav-height-desktop: 96px;
 }
 * {
   scroll-behavior: smooth;
@@ -79,6 +82,8 @@
 }
 
 
+
+
 @layer base {
   body {
     @apply font-lato font-light; /* Sets weight 300 as the global default */
@@ -93,9 +98,7 @@
   }
 
   /* push page content below the fixed header to avoid overlap */
-  main {
-    padding-top: var(--header-height);
-  }
+
 }
 
 .font-lato {
@@ -121,7 +124,10 @@
 /* Styles After Migration - To be overrode */
 @layer base {
   header {
-    @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-5;
+    @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
   }
   nav {
     @apply flex items-center justify-between max-w-7xl mx-auto px-4;

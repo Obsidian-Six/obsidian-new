@@ -46,27 +46,29 @@ export default function MegaMenu({ isOpen }: { isOpen: boolean }) {
   return (
     <AnimatePresence>
       {isOpen && (
+        // Inside MegaMenu.tsx
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -5 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed left-0 top-[80px] md:top-[96px] w-screen bg-black text-white z-50 overflow-hidden border-t border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.9)]"
+          exit={{ opacity: 0, y: -5 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          /* Change 'fixed' to 'absolute' so it pins to the bottom of the header */
+          /* Keep top-full or use the exact pixel height like top-[80px] */
+          className="absolute left-0 top-full w-screen bg-black text-white z-50 overflow-hidden border-t border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.9)]"
         >
-          {/* Bridge: Prevents menu closing on mouse move down */}
-          <div className="absolute -top-6 left-0 w-full h-6 bg-transparent" />
+          <div className="absolute -top-4 left-0 w-full h-4 bg-transparent" />
 
-          <div className="container mx-auto px-8 md:px-16 py-16 lg:py-20">
+          <div className="container mx-auto px-8 md:px-16 py-12 lg:py-16">
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-              
+
               {/* Left Branding Section */}
               <div className="lg:w-1/3">
-                <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter leading-none mb-10 text-white">
+                <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter leading-none mb-8 text-white">
                   Strong Capabilities <br />
                   To <span className="text-[#FD7B28]">Empower</span> Your Brand
                 </h2>
-                <Link 
-                  href="/services" 
+                <Link
+                  href="/overview"
                   className="group text-xs uppercase tracking-[0.3em] font-bold text-gray-400 hover:text-white transition-colors flex items-center gap-3"
                 >
                   Explore All Services
@@ -77,20 +79,20 @@ export default function MegaMenu({ isOpen }: { isOpen: boolean }) {
               {/* Right Categories Grid */}
               <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-12">
                 {categories.map((cat, i) => (
-                  <div key={i} className="flex flex-col gap-8">
-                    <Link 
+                  <div key={i} className="flex flex-col gap-6">
+                    <Link
                       href={cat.href}
-                      className="text-xl font-black uppercase tracking-tight flex items-center justify-between group text-white border-b border-white/10 pb-4"
+                      className="text-lg font-black uppercase tracking-tight flex items-center justify-between group text-white border-b border-white/10 pb-3"
                     >
                       {cat.title}
                       <span className="translate-x-[-10px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all text-[#FD7B28]">→</span>
                     </Link>
-                    <ul className="flex flex-col gap-4">
+                    <ul className="flex flex-col gap-3">
                       {cat.items.map((item, index) => (
                         <li key={index}>
                           <Link
                             href={item.href}
-                            className="text-[15px] font-medium text-gray-300 hover:text-[#FD7B28] hover:translate-x-1 transition-all inline-block"
+                            className="text-[14px] font-medium text-gray-400 hover:text-[#FD7B28] hover:translate-x-1 transition-all inline-block"
                           >
                             {item.name}
                           </Link>
@@ -100,7 +102,7 @@ export default function MegaMenu({ isOpen }: { isOpen: boolean }) {
                   </div>
                 ))}
               </div>
-              
+
             </div>
           </div>
         </motion.div>

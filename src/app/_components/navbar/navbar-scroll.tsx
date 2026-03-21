@@ -3,43 +3,44 @@
 import { MotionDiv } from "@/lib/motion";
 import { useScroll } from "framer-motion";
 import { useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 
 export default function NavbarScroll() {
   const { scrollYProgress } = useScroll();
+  const pathname = usePathname();
 
   const handleScroll = useCallback(() => {
     const isScrolled = window.scrollY > 0;
-
+    const onOverview = pathname?.includes("overview");
+    
     const header = document.querySelector("header");
-    const navLogo = document.getElementById("nav-logo");
+    const navLinks = header?.querySelectorAll("a");
     const menuIcon = document.getElementById("menu-btn");
-    const navLinks = document.querySelectorAll("nav a");
 
-    // 1. Force Black Text immediately (Removes white dependency)
+    // --- 1. ALWAYS BLACK TEXT LOGIC ---
+    // We add text-black and remove text-white immediately every time
     menuIcon?.classList.add("text-black");
     menuIcon?.classList.remove("text-white");
     
-    navLinks.forEach((link) => {
-      link.classList.add("text-black");
-      link.classList.remove("text-white");
+    navLinks?.forEach(a => {
+      a.classList.add("text-black");
+      a.classList.remove("text-white");
     });
 
-    // 2. Handle Header Background & Logo
-    if (isScrolled) {
-      header?.classList.add("bg-white", "shadow-md", "py-3");
-      header?.classList.remove("bg-transparent", "py-5");
-      navLogo?.setAttribute("src", "/images/logo/logo2.png");
+    // --- 2. BACKGROUND LOGIC ---
+    if (onOverview || isScrolled) {
+      // White background with shadow
+      header?.classList.add("bg-white", "shadow-md");
+      header?.classList.remove("bg-transparent");
     } else {
-      header?.classList.add("bg-transparent", "py-5");
-      header?.classList.remove("bg-white", "shadow-md", "py-3");
-      navLogo?.setAttribute("src", "/images/logo/logo2.png");
+      // Transparent background (at top of other pages), but text stays black
+      header?.classList.add("bg-transparent");
+      header?.classList.remove("bg-white", "shadow-md");
     }
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
-    // Run immediately to snap colors to black before user even scrolls
     handleScroll();
-    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
@@ -50,7 +51,7 @@ export default function NavbarScroll() {
       style={{
         scaleX: scrollYProgress,
         position: "fixed",
-        top: 0, // Adjusted to top 0 if header is sticky
+        top: 0,
         left: 0,
         right: 0,
         height: 4,

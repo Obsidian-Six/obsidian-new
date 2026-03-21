@@ -88,10 +88,14 @@ export default function Hero() {
            Contact Us
          </span>
          <div className="w-[1px] h-12 bg-slate-900/40 mb-4" />
-         <a href="#" className="hover:text-indigo-700 transition-colors duration-300"><FaInstagram size={20} /></a>
-         <a href="#" className="hover:text-indigo-700 transition-colors duration-300"><FaLinkedin size={20} /></a>
-         <a href="#" className="hover:text-indigo-700 transition-colors duration-300"><FaWhatsapp size={20} /></a>
+         <a href="https://www.instagram.com/obsidiansixofficial?igsh=dWNoenEwZXR3dGlj'" className="hover:text-indigo-700 transition-colors duration-300"><FaInstagram size={20} /></a>
+         <a href="https://www.linkedin.com/company/obsidian-six/" className="hover:text-indigo-700 transition-colors duration-300"><FaLinkedin size={20} /></a>
+         <a href="https://wa.me/918085652729" className="hover:text-indigo-700 transition-colors duration-300"><FaWhatsapp size={20} /></a>
       </div>
     </section>
   );
 }
+
+                  // { name: 'LinkedIn', href: 'https://www.linkedin.com/company/obsidian-six/' },
+                  // { name: 'Instagram', href: 'https://www.instagram.com/obsidiansixofficial?igsh=dWNoenEwZXR3dGlj' },
+                  // { name: 'Telegram', href: 'https://t.me/aadarsh11' }
