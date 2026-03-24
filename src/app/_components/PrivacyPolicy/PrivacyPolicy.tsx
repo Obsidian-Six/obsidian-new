@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { MoveLeft, ShieldCheck, Mail, Globe, Lock, Cookie, UserCheck, ArrowRight } from "lucide-react";
+import { ShieldCheck, Mail, Globe, Lock, Cookie, UserCheck, ArrowRight } from "lucide-react";
 
 const sections = [
     { id: "intro", title: "1. Introduction" },

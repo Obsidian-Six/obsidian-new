@@ -43,8 +43,8 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     },
     "challenge": {
       "data": "Building a digital asset ecosystem for the luxury automotive market involved overcoming high barriers to entry and technical complexity:",
-      "image1": "/Eurotech/image2.png",
-      "image2": "/Eurotech/image3.png",
+      "image1": "https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "image2": "https://images.unsplash.com/photo-1554223090-7e482851df45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fGNhcnN8ZW58MHx8MHx8fDA%3D",
       "point": [
         {
           "name": "Complex Payment Integration",
@@ -80,26 +80,25 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     ],
     "results": [
       {
-        "img": "/Eurotech/result1.png",
+        "img": "https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGNhcnN8ZW58MHx8MHx8fDA%3D",
         "title": "200% Increase in ",
         "highlight": "User Engagement",
         "data": "The customization tool and tokenization model led to a massive surge in time spent on the platform."
       },
       {
-        "img": "/Eurotech/image5.png",
+        "img": "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "title": "Global Market ",
         "highlight": "Expansion",
         "data": "Offering crypto payments removed cross-border barriers, significantly broadening the investor pool."
       },
       {
-        
-        "img": "/Eurotech/result2.png",
+        "img": "https://images.unsplash.com/photo-1593544340816-93d84a106415?q=80&w=1195&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "title": "Frictionless ",
         "highlight": "Buyer Journey",
         "data": "AI interactions and a custom CRM reduced support response times and improved retention rates."
       },
       {
-        "img": "/Eurotech/result3.png",
+        "img": "https://plus.unsplash.com/premium_photo-1736592234354-9b9b5807d801?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTd8fGNhcnN8ZW58MHx8MHx8fDA%3D",
         "title": "New Asset ",
         "highlight": "Liquidity",
         "data": "Tokenization lowered entry barriers, turning multi-million dollar cars into accessible, liquid digital assets."

@@ -142,44 +142,48 @@ export default function AboutUs() {
             <h2 className="text-4xl md:text-5xl font-bold mt-2 text-slate-900">The Minds Behind</h2>
           </MotionDiv>
 
-          <div className="divide-y divide-slate-900/5 border-b border-slate-900/5">
-            {teamCategories.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                className="group flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-8 py-10 md:py-12 items-start md:items-center hover:bg-white transition-all duration-500"
-              >
-                <div className="hidden md:block md:col-span-1 text-slate-200 font-mono text-xl group-hover:text-blue-600 transition-colors">
-                  0{idx + 1}
-                </div>
-                <div className="w-full md:col-span-4 relative overflow-hidden rounded-2xl bg-slate-100 group-hover:shadow-lg transition-all duration-500 aspect-video md:aspect-[4/3]">
-                  {/* - aspect-video (16:9) on mobile makes it wide but not too tall
-      - md:aspect-[4/3] makes it slightly taller/squarer on desktop where space is tighter 
-  */}
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw" // Optimization for Next.js
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
+         <div className="divide-y divide-slate-900/5 border-b border-slate-900/5">
+  {teamCategories.map((item, idx) => (
+    <motion.div
+      key={idx}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: idx * 0.1 }}
+      viewport={{ once: true }}
+      className="group flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-8 py-10 md:py-12 items-start md:items-center hover:bg-white transition-all duration-500"
+    >
+      <div className="hidden md:block md:col-span-1 text-slate-200 font-mono text-xl group-hover:text-blue-600 transition-colors">
+        0{idx + 1}
+      </div>
 
-                  <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-700`} />
-                </div>
-                <div className="md:col-span-7">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-blue-600 md:group-hover:translate-x-2 transition-all duration-300 text-slate-900">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-500 text-base md:text-lg leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      {/* --- IMAGE CONTAINER --- */}
+      <div className="w-full md:col-span-4 relative overflow-hidden rounded-2xl bg-slate-50 group-hover:shadow-lg transition-all duration-500">
+        {/* Changed from 'fill' with 'aspect-video' to a standard <img> or 
+            Next.js Image with 'responsive' behavior to prevent any cropping.
+        */}
+        <div className="relative w-full h-full flex items-center justify-center">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-auto max-h-[300px] object-contain group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+
+        {/* Gradient overlay adjusted to match contain behavior */}
+        <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} to-transparent opacity-10 group-hover:opacity-5 transition-opacity duration-700 pointer-events-none`} />
+      </div>
+
+      <div className="md:col-span-7">
+        <h3 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-blue-600 md:group-hover:translate-x-2 transition-all duration-300 text-slate-900">
+          {item.title}
+        </h3>
+        <p className="text-slate-500 text-base md:text-lg leading-relaxed">
+          {item.desc}
+        </p>
+      </div>
+    </motion.div>
+  ))}
+</div>
         </div>
 
         {/* --- COMPACT FOUNDER SECTION (MODERN CARD) --- */}
@@ -196,32 +200,32 @@ export default function AboutUs() {
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-1000 ease-out  transition-all"
+                className="object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-1000 ease-out transition-all"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent lg:hidden" />
             </div>
 
             <div className="lg:col-span-7 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
               <span className="text-blue-600 font-mono tracking-widest mb-3 block text-xs uppercase font-bold">
-                Chief Visionary
+                Founder & Growth Strategist
               </span>
               <h3 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-slate-900">Meet Aadarsh.</h3>
 
               <div className="relative mb-8">
                 <span className="absolute -left-6 top-0 text-6xl text-slate-100 font-serif">“</span>
                 <p className="text-xl md:text-2xl font-light text-slate-700 leading-relaxed italic font-serif relative z-10">
-                  Our philosophy is simple: we don’t build websites, we build <span className="text-slate-900 font-bold not-italic border-b-2 border-blue-600/20">revenue engines</span>.
+                  Our philosophy is simple: we don’t just build digital presence, we build <span className="text-slate-900 font-bold not-italic border-b-2 border-blue-600/20">long-term partnerships</span> that help businesses grow with clarity and confidence.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-500 text-sm md:text-base mb-10 border-t border-slate-100 pt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-black font-medium md:text-base mb-10 border-t border-slate-100 pt-8">
                 <p className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-blue-600 rounded-full" />
-                  6+ years digital strategy
+                  7+ years digital media consulting
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-blue-600 rounded-full" />
-                  E-commerce & ROI expert
+                  Digital growth & revenue strategy
                 </p>
               </div>
 
