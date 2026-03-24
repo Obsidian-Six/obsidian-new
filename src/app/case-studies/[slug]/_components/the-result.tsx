@@ -9,9 +9,9 @@ export default function TheResult({ ele }: { ele: TemplateCaseStudy }) {
   return (
     <section className="bg-[#fafafa] py-24 md:py-32 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        
+
         {/* --- 1. REFINED HEADER --- */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -45,7 +45,7 @@ export default function TheResult({ ele }: { ele: TemplateCaseStudy }) {
                   className="w-full md:w-1/2 relative group"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden rounded-2xl shadow-2xl shadow-black/5 bg-white p-2">
-                    <motion.div 
+                    <motion.div
                       className="relative w-full h-full overflow-hidden rounded-xl"
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.6 }}
@@ -54,12 +54,12 @@ export default function TheResult({ ele }: { ele: TemplateCaseStudy }) {
                         alt={result.title}
                         src={result.img}
                         fill
-                        className="object-cover transition-transform duration-700"
+                        className="object-contain transition-transform duration-700"
                         unoptimized
                       />
                     </motion.div>
                   </div>
-                  
+
                   {/* Floating Result Badge (Glassmorphism) */}
                   <div className={`absolute -top-6 ${isEven ? "-left-6" : "-right-6"} z-20`}>
                     <div className="bg-white/80 backdrop-blur-md border border-white shadow-xl w-16 h-16 rounded-2xl flex items-center justify-center">
@@ -82,19 +82,19 @@ export default function TheResult({ ele }: { ele: TemplateCaseStudy }) {
                         Milestone
                       </span>
                     </div>
-                    
+
                     <h3 className="text-3xl md:text-4xl font-light text-[#19183A] mb-6 leading-tight tracking-tight">
                       {result.title} <br />
                       <span className="text-purple-600 font-medium italic text-2xl md:text-3xl">
                         {result.highlight}
                       </span>
                     </h3>
-                    
+
                     <p className="text-lg text-slate-500 font-light leading-relaxed max-w-md">
                       {result.data}
                     </p>
 
-                    <motion.div 
+                    <motion.div
                       className="mt-8 flex gap-2"
                       initial={{ width: 0 }}
                       whileInView={{ width: "auto" }}

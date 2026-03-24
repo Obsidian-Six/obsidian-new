@@ -137,10 +137,6 @@ const Footer = () => {
             </p>
             <div className="flex justify-center items-center gap-4 mt-2">
                 <Link href="/terms" className="text-[12px] font-black text-black/50 hover:text-[#5A00EC] uppercase tracking-widest">
-                Terms
-                </Link>
-                <span className="text-black/10 text-xs">|</span>
-                <Link href="/terms" className="text-[12px] font-black text-black/50 hover:text-[#5A00EC] uppercase tracking-widest">
                 Privacy
                 </Link>
             </div>

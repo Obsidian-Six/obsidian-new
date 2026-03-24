@@ -170,15 +170,7 @@ export default function PrivacyPolicy() {
                             <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-[#5A00EC] rounded-full blur-[120px] opacity-20"></div>
                         </section>
 
-                        {/* BIG LEGAL NAV AT THE BOTTOM */}
-                        <div className="flex flex-col md:flex-row gap-6 mt-12 mb-20">
-                            <Link href="/terms" className="flex-1 p-10 bg-gray-50 rounded-[2.5rem] hover:bg-[#5A00EC]/5 transition-all group border border-gray-100">
-                                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 mb-2">Legal Documents</p>
-                                <h4 className="text-2xl font-black text-black flex items-center gap-3">
-                                    Review Terms <MoveLeft className="rotate-180 w-6 h-6 group-hover:translate-x-2 transition-transform text-[#5A00EC]" />
-                                </h4>
-                            </Link>
-                        </div>
+                      
                     </main>
                 </div>
             </div>

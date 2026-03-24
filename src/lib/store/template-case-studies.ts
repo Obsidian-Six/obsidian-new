@@ -86,19 +86,20 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
         "data": "The customization tool and tokenization model led to a massive surge in time spent on the platform."
       },
       {
-        "img": "/Eurotech/result2.png",
+        "img": "/Eurotech/image5.png",
         "title": "Global Market ",
         "highlight": "Expansion",
         "data": "Offering crypto payments removed cross-border barriers, significantly broadening the investor pool."
       },
       {
-        "img": "/Eurotech/result3.png",
+        
+        "img": "/Eurotech/result2.png",
         "title": "Frictionless ",
         "highlight": "Buyer Journey",
         "data": "AI interactions and a custom CRM reduced support response times and improved retention rates."
       },
       {
-        "img": "/Eurotech/image5.png",
+        "img": "/Eurotech/result3.png",
         "title": "New Asset ",
         "highlight": "Liquidity",
         "data": "Tokenization lowered entry barriers, turning multi-million dollar cars into accessible, liquid digital assets."
