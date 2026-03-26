@@ -78,7 +78,7 @@ export default function Navbar() {
                     This ensures clicking any link INSIDE the MegaMenu also closes it.
                   */}
                   {isServices && (
-                    <div onClick={(e) => {
+                    <div onClick={() => {
                       // Stop propagation if you want to handle internal clicks differently, 
                       // but for closing, we just call closeMenu.
                       closeMenu();
