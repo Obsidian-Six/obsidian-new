@@ -66,7 +66,7 @@ const ContactForm = () => {
             First Name
           </label>
           <input
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#5A00EC] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-colors"
             id="first-name"
             placeholder="First Name"
             type="text"
@@ -79,7 +79,7 @@ const ContactForm = () => {
             Last Name
           </label>
           <input
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#5A00EC] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-colors"
             id="last-name"
             placeholder="Last Name"
             type="text"
@@ -94,7 +94,7 @@ const ContactForm = () => {
           Email
         </label>
         <input
-          className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#5A00EC] transition-colors"
+          className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-colors"
           id="email"
           placeholder="abc@company.com"
           type="email"
@@ -115,7 +115,7 @@ const ContactForm = () => {
           onChange={(value: string) => setPhone(value)}
           enableSearch={true}
           searchPlaceholder="Search country..."
-          inputClass="!border !border-[#C3C3C3] p-2.5 !text-xs !outline-none !w-full !rounded-none focus:!border-[#5A00EC]"
+          inputClass="!border !border-[#C3C3C3] p-2.5 !text-xs !outline-none !w-full !rounded-none focus:!border-[#024787]"
           containerClass="!w-full"
           buttonClass="!rounded-none !border-[#C3C3C3]"
           dropdownClass="!rounded-none"
@@ -135,8 +135,8 @@ const ContactForm = () => {
                 key={index}
                 className={`flex items-center px-4 py-2 text-xs cursor-pointer transition-all duration-300 border ${
                   isSelected 
-                    ? "bg-[#5A00EC] border-[#5A00EC] text-white shadow-md" 
-                    : "bg-white border-[#C3C3C3] text-gray-600 hover:border-[#5A00EC]"
+                    ? "bg-[#024787] border-[#024787] text-white shadow-md" 
+                    : "bg-white border-[#C3C3C3] text-gray-600 hover:border-[#024787]"
                 }`}
               >
                 <input
@@ -164,7 +164,7 @@ const ContactForm = () => {
             Company Name
           </label>
           <input
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#5A00EC] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-colors"
             id="company-name"
             placeholder="abc pvt ltd"
             type="text"
@@ -177,7 +177,7 @@ const ContactForm = () => {
             Company Website
           </label>
           <input
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#5A00EC] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-colors"
             id="company-website"
             placeholder="www.abc.com"
             type="text"
@@ -196,7 +196,7 @@ const ContactForm = () => {
       <div className="flex justify-end">
         <button
           disabled={isSubmitting}
-          className={`font-medium text-sm px-6 py-3 text-white flex items-center gap-3 bg-[#5A00EC] transition-all active:scale-95 group ${
+          className={`font-medium text-sm px-6 py-3 text-white flex items-center gap-3 bg-[#024787] transition-all active:scale-95 group ${
             isSubmitting ? "opacity-50 cursor-progress" : "opacity-100 cursor-pointer hover:bg-[#4800cc]"
           }`}
           type="submit"

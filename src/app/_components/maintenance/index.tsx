@@ -22,7 +22,7 @@ export default function Maintenance() {
         viewport={{ once: false }}
         className="text-6xl mt-28 textmain font-medium  leading-[1.1] max-md:text-4xl max-md:leading-snug tracking-tighter"
       >
-        We Exist To Convert Your <span className="italic font-serif font-light text-[#5A00EC]">Imagination</span> Into Achievements.
+        We Exist To Convert Your <span className="italic font-serif font-light text-[#024787]">Imagination</span> Into Achievements.
       </MotionH2>
 
       {/* Subtitle */}
@@ -39,8 +39,8 @@ export default function Maintenance() {
       
       {/* CTA Button */}
       <Link
-        href={"/#contactUs"}
-        className="font-bold text-sm px-8 py-4 text-white flex items-center gap-2 bg-[#5A00EC] my-6 w-fit rounded-full hover:bg-[#4800bd] transition-all"
+        href={"/"}
+        className="font-bold text-sm px-8 py-4 text-white flex items-center gap-2 bg-[#024787] my-6 w-fit rounded-full hover:bg-[#0864b9] transition-all"
       >
         Start Growing <GoArrowUpRight className="text-2xl" />
       </Link>

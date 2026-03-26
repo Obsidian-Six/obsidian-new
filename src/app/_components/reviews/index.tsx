@@ -3,7 +3,7 @@ import Slider from "./slider";
 
 const Reviews = () => {
   return (
-    <section className="bg-[#5A00EC]/10 font-sans">
+    <section className="bg-[#024787]/10 font-sans">
       <div className="max-w-6xl mx-auto pb-32 px-4">
         <MotionH2
           initial={{ opacity: 0, y: 50 }}

@@ -15,7 +15,7 @@ const ClientTicker = () => {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[#5A00EC] font-mono text-[10px] md:text-xs tracking-[0.4em] uppercase block font-bold mb-4"
+          className="text-[#024787] font-mono text-[10px] md:text-xs tracking-[0.4em] uppercase block font-bold mb-4"
         >
           [ Trusted Partners ]
         </motion.span>
@@ -25,8 +25,8 @@ const ClientTicker = () => {
           viewport={{ once: true }}
           className="text-3xl md:text-6xl font-light tracking-tight text-slate-900 leading-tight"
         >
-          Behind Every Great <span className="italic font-serif text-[#5A00EC]">Strategy</span>, <br className="hidden md:block" />
-          There’s a Great <span className="italic font-serif text-[#5A00EC]">Team</span>.
+          Behind Every Great <span className="italic font-serif text-[#024787]">Strategy</span>, <br className="hidden md:block" />
+          There’s a Great <span className="italic font-serif text-[#024787]">Team</span>.
         </motion.h2>
       </div>
 
@@ -56,7 +56,7 @@ const ClientTicker = () => {
               className="flex-shrink-0 group"
             >
               {/* Responsive container: smaller on mobile, large on desktop */}
-              <div className="relative h-20 md:h-32 w-36 md:w-60 flex items-center justify-center bg-gray-50/40 rounded-xl md:rounded-2xl border border-gray-100 transition-all duration-500 hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(90,0,236,0.1)] hover:border-[#5A00EC]/20">
+              <div className="relative h-20 md:h-32 w-36 md:w-60 flex items-center justify-center bg-gray-50/40 rounded-xl md:rounded-2xl border border-gray-100 transition-all duration-500 hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(90,0,236,0.1)] hover:border-[#024787]/20">
                 <div className="relative w-24 md:w-40 h-10 md:h-16">
                   <Image
                     src={logo.url}

@@ -61,8 +61,8 @@ export default function BlogPostClient({ slug }: { slug: string }) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-10 h-10 border-4 border-slate-100 border-t-[#5A00EC] rounded-full animate-spin"></div>
-          <div className="text-[#5A00EC] font-bold">Loading Story...</div>
+          <div className="w-10 h-10 border-4 border-slate-100 border-t-[#024787] rounded-full animate-spin"></div>
+          <div className="text-[#024787] font-bold">Loading Story...</div>
         </div>
       </div>
     );
@@ -90,10 +90,10 @@ export default function BlogPostClient({ slug }: { slug: string }) {
             />
             
             <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 md:gap-6 text-slate-600 text-sm md:text-base font-bold">
-               <span className="text-[#5A00EC] italic underline decoration-[#5A00EC] underline-offset-4">By Obsidian Six</span>
+               <span className="text-[#024787] italic underline decoration-[#024787] underline-offset-4">By Obsidian Six</span>
                <span className="opacity-70">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                <span className="hidden sm:flex items-center gap-2 opacity-70">
-                 <span className="w-1.5 h-1.5 bg-[#5A00EC] rounded-full"></span> 
+                 <span className="w-1.5 h-1.5 bg-[#024787] rounded-full"></span> 
                  10 min read
                </span>
             </div>
@@ -133,7 +133,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
       prose-strong:text-black prose-strong:font-black
       
       /* Links */
-      prose-a:text-[#5A00EC] prose-a:font-black prose-a:underline
+      prose-a:text-[#024787] prose-a:font-black prose-a:underline
       
       /* Blockquotes */
       prose-blockquote:text-black prose-blockquote:border-l-black prose-blockquote:font-bold"
@@ -146,7 +146,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
 
           <aside className="lg:col-span-4 order-2">
             <div className="lg:sticky lg:top-28 bg-[#F9F9FB] p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
-              <h3 className="text-2xl md:text-3xl font-extrabold text-[#5A00EC] mb-4 md:mb-6 tracking-tight">Book Free Consultation</h3>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-[#024787] mb-4 md:mb-6 tracking-tight">Book Free Consultation</h3>
               <div className="overflow-visible">
                  <BlogSidebarForm />
               </div>
@@ -160,7 +160,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">More Blogs</h2>
-            <Link href="/blogs" className="text-[#5A00EC] font-black text-sm uppercase tracking-widest hover:underline">View All</Link>
+            <Link href="/blogs" className="text-[#024787] font-black text-sm uppercase tracking-widest hover:underline">View All</Link>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
@@ -178,7 +178,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
                     />
                   </div>
                   <p 
-                    className="font-extrabold text-slate-900 text-xl md:text-2xl group-hover:text-[#5A00EC] transition-colors line-clamp-2 leading-tight tracking-tight"
+                    className="font-extrabold text-slate-900 text-xl md:text-2xl group-hover:text-[#024787] transition-colors line-clamp-2 leading-tight tracking-tight"
                     dangerouslySetInnerHTML={{ __html: p.title.rendered }}
                   />
                 </Link>

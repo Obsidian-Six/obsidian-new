@@ -76,7 +76,7 @@ const Map = () => {
               priority
             />
           </div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-[#5A00EC]/5 blur-[80px] -z-10 rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-[#024787]/5 blur-[80px] -z-10 rounded-full" />
         </motion.div>
       </div>
     </section>

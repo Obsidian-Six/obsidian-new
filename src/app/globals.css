@@ -11,7 +11,7 @@
 
 /* Sidebar Input Styles */
 .sidebar-input {
-  @apply w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#5A00EC] transition-all;
+  @apply w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#024787] transition-all;
 }
 
 
@@ -39,7 +39,7 @@
 }
 
 .wp-content-styled strong {
-  @apply text-[#5A00EC] font-bold;
+  @apply text-[#024787] font-bold;
 }
 
 .wp-content-styled img {
@@ -73,7 +73,7 @@
   }
 
   .prose-custom strong {
-    @apply font-bold text-[#5A00EC];
+    @apply font-bold text-[#024787];
   }
 
   .prose-custom img {
@@ -144,7 +144,7 @@
     @apply relative overflow-hidden transition-all duration-300 z-10 hover:text-white;
   }
   button[data-variant="opener"]::before {
-    @apply content-[''] w-0 h-[300%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-[#5a00ec] transition-all duration-500 ease-in-out block -z-10;
+    @apply content-[''] w-0 h-[300%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-[#024787] transition-all duration-500 ease-in-out block -z-10;
   }
   button[data-variant="opener"]:hover::before {
     @apply w-[105%];
@@ -177,7 +177,7 @@
     @apply bg-[#19183a];
   }
   .head-main {
-    @apply text-[#5a00ec];
+    @apply text-[#024787];
   }
   .border-main {
     @apply border border-[#19183a];
@@ -203,7 +203,7 @@
     @apply translate-y-6;
   }
   .group:hover .span-mother2 span {
-    @apply translate-y-0 text-[#5a00ec];
+    @apply translate-y-0 text-[#024787];
   }
 
   /* UI Verse io - Adapted for Navbar */
@@ -278,7 +278,7 @@ body.modal-open {
 }
 
 .headmain {
-  color: #5a00ec;
+  color: #024787;
 }
 
 
@@ -334,7 +334,7 @@ body.modal-open {
 
 .group:hover .span-mother2 span {
   transform: translateY(0);
-  color: #5a00ec;
+  color: #024787;
 }
 
 /* From Uiverse.io - Adapted for Navbar */

@@ -36,7 +36,7 @@ const HomeService = () => {
         <div>
           <div className="text-4xl max-md:text-2xl font-medium poppins uppercase tracking-tight text-[#19183A]">
             {service.name}
-            <div className="h-[2px] bg-[#5A00EC] w-16 mt-3" />
+            <div className="h-[2px] bg-[#024787] w-16 mt-3" />
           </div>
           
           <button
@@ -44,7 +44,7 @@ const HomeService = () => {
               e.stopPropagation(); // Prevent trigger parent clicks
               setIsPopupOpen(true);
             }}
-            className="mt-8 group inline-flex items-center gap-3 px-6 py-3 bg-[#19183A] text-white rounded-full text-sm font-semibold uppercase tracking-widest hover:bg-[#5A00EC] transition-all duration-300 shadow-lg"
+            className="mt-8 group inline-flex items-center gap-3 px-6 py-3 bg-[#19183A] text-white rounded-full text-sm font-semibold uppercase tracking-widest hover:bg-[#024787] transition-all duration-300 shadow-lg"
           >
             Inquire Now
             <GoArrowUpRight className="text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -76,7 +76,7 @@ const HomeService = () => {
                 type="button"
                 className={`w-full text-left flex items-center justify-between text-2xl max-md:text-xl uppercase poppins py-6 transition-colors duration-300 ${
                   selectedService.name === service.name
-                    ? "text-[#5A00EC]"
+                    ? "text-[#024787]"
                     : "text-main opacity-60 hover:opacity-100"
                 }`}
                 onClick={() => setSelectedService(service)}

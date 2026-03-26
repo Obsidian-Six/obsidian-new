@@ -97,7 +97,7 @@ export default function AboutUs() {
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] lg:leading-[0.95] tracking-tighter text-slate-900">
               Creating Digital <br className="hidden md:block" />
               Experiences That <br className="hidden md:block" />
-              Promote The Actual <span className="italic font-serif font-light text-blue-600"> Growth.</span>
+              Promote The Actual <span className="italic font-serif font-light text-[#024787]"> Growth.</span>
             </h1>
           </MotionDiv>
 
@@ -114,7 +114,7 @@ export default function AboutUs() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsPopupOpen(true)}
-              className="mt-8 md:mt-12 group flex items-center gap-4 bg-slate-900 text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-sm transition-all hover:bg-blue-600 shadow-lg shadow-blue-900/10"
+              className="mt-8 md:mt-12 group flex items-center gap-4 bg-slate-900 text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-sm transition-all hover:bg-[#024787] shadow-lg shadow-blue-900/10"
             >
               Start Your Journey <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform" />
             </motion.button>
@@ -152,7 +152,7 @@ export default function AboutUs() {
       viewport={{ once: true }}
       className="group flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-8 py-10 md:py-12 items-start md:items-center hover:bg-white transition-all duration-500"
     >
-      <div className="hidden md:block md:col-span-1 text-slate-200 font-mono text-xl group-hover:text-blue-600 transition-colors">
+      <div className="hidden md:block md:col-span-1 text-slate-200 font-mono text-xl group-hover:text-[#024787] transition-colors">
         0{idx + 1}
       </div>
 
@@ -174,7 +174,7 @@ export default function AboutUs() {
       </div>
 
       <div className="md:col-span-7">
-        <h3 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-blue-600 md:group-hover:translate-x-2 transition-all duration-300 text-slate-900">
+        <h3 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-[#024787] md:group-hover:translate-x-2 transition-all duration-300 text-slate-900">
           {item.title}
         </h3>
         <p className="text-slate-500 text-base md:text-lg leading-relaxed">

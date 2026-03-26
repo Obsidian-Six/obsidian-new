@@ -21,14 +21,14 @@ const Footer = () => {
   return (
     <>
       {/* CTA Section */}
-      <div className="bg-[#5A00EC] text-white py-10 px-8 flex flex-col md:flex-row justify-evenly items-center text-center md:text-left">
+      <div className="bg-[#024787] text-white py-10 px-8 flex flex-col md:flex-row justify-evenly items-center text-center md:text-left">
         <div className="text-3xl md:text-5xl font-light leading-tight">
           Start your journey towards
           <span className="font-bold underline decoration-wavy ml-2">growth</span>
         </div>
         <Link
           href="/#contactUs"
-          className="p-4 md:p-5 text-[#19183a] hover:text-[#5A00EC] hover:bg-gray-100 transition-all rounded-full bg-white flex items-center justify-center mt-6 md:mt-0"
+          className="p-4 md:p-5 text-[#19183a] hover:text-[#024787] hover:bg-gray-100 transition-all rounded-full bg-white flex items-center justify-center mt-6 md:mt-0"
         >
           <HiArrowSmallRight className="text-3xl md:text-5xl" />
         </Link>
@@ -52,7 +52,7 @@ const Footer = () => {
               Your growth partner in the digital age — we design brands, build
               websites, and market businesses for success.
             </p>
-            <p className="mt-4 text-[10px] font-black text-[#5A00EC] uppercase tracking-widest">
+            <p className="mt-4 text-[10px] font-black text-[#024787] uppercase tracking-widest">
               Mumbai | Bhopal | Indore | Delhi
             </p>
           </div>
@@ -62,11 +62,11 @@ const Footer = () => {
             <h4 className="font-black text-black uppercase tracking-widest text-[10px]">Our Offices</h4>
             <div className="space-y-3">
               <div>
-                <p className="text-[9px] font-black text-[#5A00EC] uppercase">Mumbai Office</p>
+                <p className="text-[9px] font-black text-[#024787] uppercase">Mumbai Office</p>
                 <p className="text-xs text-black font-bold">Platinum BKC, 3rd Floor, Bandra, Mumbai 400051</p>
               </div>
               <div>
-                <p className="text-[9px] font-black text-[#5A00EC] uppercase">Bhopal Office</p>
+                <p className="text-[9px] font-black text-[#024787] uppercase">Bhopal Office</p>
                 <p className="text-xs text-black font-bold">Danish Nagar, Hoshangabad Road, Bhopal 462026</p>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-sm font-bold text-black hover:text-[#5A00EC] transition-colors block py-1"
+                    className="text-sm font-bold text-black hover:text-[#024787] transition-colors block py-1"
                   >
                     {link.name}
                   </Link>
@@ -96,21 +96,21 @@ const Footer = () => {
             
             <div className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-y-4 gap-x-10 text-center md:text-left">
               <div>
-                <p className="text-[9px] font-black text-[#5A00EC] uppercase mb-1">Business Inquiry</p>
-                <Link href="tel:+918085652729" className="text-sm font-black text-black hover:text-[#5A00EC] block">
+                <p className="text-[9px] font-black text-[#024787] uppercase mb-1">Business Inquiry</p>
+                <Link href="tel:+918085652729" className="text-sm font-black text-black hover:text-[#024787] block">
                   +91 80856 52729
                 </Link>
-                <Link href="mailto:info@obsidiansix.com" className="text-[11px] font-bold text-black/60 hover:text-[#5A00EC]">
+                <Link href="mailto:info@obsidiansix.com" className="text-[11px] font-bold text-black/60 hover:text-[#024787]">
                   info@obsidiansix.com
                 </Link>
               </div>
 
               <div>
-                <p className="text-[9px] font-black text-[#5A00EC] uppercase mb-1">HR or Careers</p>
-                <Link href="tel:+918982992729" className="text-sm font-black text-black hover:text-[#5A00EC] block">
+                <p className="text-[9px] font-black text-[#024787] uppercase mb-1">HR or Careers</p>
+                <Link href="tel:+918982992729" className="text-sm font-black text-black hover:text-[#024787] block">
                   +91 89829 92729
                 </Link>
-                <Link href="mailto:hr@obsidiansix.com" className="text-[11px] font-bold text-black/60 hover:text-[#5A00EC]">
+                <Link href="mailto:hr@obsidiansix.com" className="text-[11px] font-bold text-black/60 hover:text-[#024787]">
                   hr@obsidiansix.com
                 </Link>
               </div>
@@ -118,13 +118,13 @@ const Footer = () => {
 
             {/* Social Icons - Telegram Added Here */}
             <div className="flex justify-center md:justify-end space-x-5">
-              <a href="https://t.me/aadarsh11" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#5A00EC] transition-all">
+              <a href="https://t.me/aadarsh11" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#024787] transition-all">
                 <FaTelegramPlane className="text-2xl" />
               </a>
-              <a href="https://www.linkedin.com/company/obsidian-six/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#5A00EC] transition-all">
+              <a href="https://www.linkedin.com/company/obsidian-six/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#024787] transition-all">
                 <FaLinkedin className="text-2xl" />
               </a>
-              <a href="https://www.instagram.com/obsidiansixofficial?igsh=dWNoenEwZXR3dGlj" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#5A00EC] transition-all">
+              <a href="https://www.instagram.com/obsidiansixofficial?igsh=dWNoenEwZXR3dGlj" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#024787] transition-all">
                 <FaInstagram className="text-2xl" />
               </a>
             </div>
@@ -136,7 +136,7 @@ const Footer = () => {
               © Copyright 2026 Obsidian Six.
             </p>
             <div className="flex justify-center items-center gap-4 mt-2">
-                <Link href="/terms" className="text-[12px] font-black text-black/50 hover:text-[#5A00EC] uppercase tracking-widest">
+                <Link href="/terms" className="text-[12px] font-black text-black/50 hover:text-[#024787] uppercase tracking-widest">
                 Privacy
                 </Link>
             </div>

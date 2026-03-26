@@ -47,7 +47,7 @@ const OurWork = () => {
         className="text-5xl md:text-7xl text-slate-900 max-w-5xl mx-auto text-center font-normal leading-[1.1] mb-24 tracking-tighter"
       >
         Empowering ambitious brands to <br className="hidden md:block" />
-        surpass their <span className="italic font-serif text-[#5A00EC]">growth</span> objectives.
+        surpass their <span className="italic font-serif text-[#024787]">growth</span> objectives.
       </MotionP>
 
       {/* Grid Layout */}
@@ -117,7 +117,7 @@ const WorkCard = ({ caseStudy, index }: { caseStudy: any; index: number }) => {
              transition={{ duration: 0.5, delay: 0.3 + (index % 3) * 0.1 }}
              className="flex items-center gap-2"
           >
-            <span className="w-6 h-[1px] bg-[#5A00EC]" />
+            <span className="w-6 h-[1px] bg-[#024787]" />
             <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
               {caseStudy.category}
             </p>

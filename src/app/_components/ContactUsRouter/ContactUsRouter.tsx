@@ -6,7 +6,8 @@ import type Contact from "@/lib/models/contact.types";
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
 import { handleContactUsFormSubmission } from "@/lib/services/contact.api";
-import { Phone, Mail, MapPin, ArrowRight, Linkedin, CheckCircle2, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, Linkedin,Instagram , CheckCircle2, Loader2 } from "lucide-react";
+import {FaTelegramPlane} from "react-icons/fa";
 
 const whyContactUs = [
   {
@@ -106,12 +107,12 @@ const ContactUsRouter = () => {
 
                 {isSubmitted ? (
                   <div className="py-20 text-center animate-in fade-in zoom-in duration-500">
-                    <CheckCircle2 className="w-20 h-20 text-[#5A00EC] mx-auto mb-6" />
+                    <CheckCircle2 className="w-20 h-20 text-[#024787] mx-auto mb-6" />
                     <h2 className="text-4xl font-bold mb-4">Message Received.</h2>
                     <p className="text-slate-500 text-lg mb-8">Our strategy team will reach out within 24 hours.</p>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="text-[#5A00EC] font-bold uppercase tracking-widest text-sm hover:underline"
+                      className="text-[#024787] font-bold uppercase tracking-widest text-sm hover:underline"
                     >
                       Send another message
                     </button>
@@ -133,9 +134,9 @@ const ContactUsRouter = () => {
                             onChange={(e) => setFirstName(e.target.value)}
                             type="text"
                             placeholder="First Name"
-                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#5A00EC] transition-all text-xl font-medium placeholder:text-slate-300"
+                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#024787] transition-all text-xl font-medium placeholder:text-slate-300"
                           />
-                          <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#5A00EC] group-focus-within:w-full transition-all duration-500" />
+                          <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#024787] group-focus-within:w-full transition-all duration-500" />
                         </div>
                         <div className="relative group">
                           <input
@@ -144,9 +145,9 @@ const ContactUsRouter = () => {
                             onChange={(e) => setLastName(e.target.value)}
                             type="text"
                             placeholder="Last Name"
-                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#5A00EC] transition-all text-xl font-medium placeholder:text-slate-300"
+                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#024787] transition-all text-xl font-medium placeholder:text-slate-300"
                           />
-                          <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#5A00EC] group-focus-within:w-full transition-all duration-500" />
+                          <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#024787] group-focus-within:w-full transition-all duration-500" />
                         </div>
                       </div>
                     </div>
@@ -165,13 +166,13 @@ const ContactUsRouter = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             type="email"
                             placeholder="Email Address"
-                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#5A00EC] transition-all text-xl font-medium placeholder:text-slate-300"
+                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#024787] transition-all text-xl font-medium placeholder:text-slate-300"
                           />
-                          <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#5A00EC] group-focus-within:w-full transition-all duration-500" />
+                          <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#024787] group-focus-within:w-full transition-all duration-500" />
                         </div>
 
                         {/* PHONE INPUT WITH FIXES */}
-                        <div className="relative group border-b border-slate-200 focus-within:border-[#5A00EC] transition-all">
+                        <div className="relative group border-b border-slate-200 focus-within:border-[#024787] transition-all">
                           <PhoneInput
                             country={"in"}
                             value={phone}
@@ -201,7 +202,7 @@ const ContactUsRouter = () => {
                             type="button"
                             onClick={() => toggleService(tag)}
                             className={`px-6 py-3 rounded-full border text-[13px] font-bold transition-all duration-300 ${selectedServices.includes(tag)
-                                ? "bg-[#5A00EC] border-[#5A00EC] text-white shadow-xl shadow-purple-200 scale-105"
+                                ? "bg-[#024787] border-[#024787] text-white shadow-xl shadow-purple-200 scale-105"
                                 : "border-slate-100 text-slate-500 hover:border-slate-900 hover:text-slate-900"
                               }`}
                           >
@@ -224,7 +225,7 @@ const ContactUsRouter = () => {
                             onChange={(e) => setCompanyName(e.target.value)}
                             type="text"
                             placeholder="Company Name"
-                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#5A00EC] transition-all text-xl font-medium placeholder:text-slate-300"
+                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#024787] transition-all text-xl font-medium placeholder:text-slate-300"
                           />
                         </div>
                         <div className="relative group">
@@ -233,7 +234,7 @@ const ContactUsRouter = () => {
                             onChange={(e) => setCompanyWebsite(e.target.value)}
                             type="text"
                             placeholder="Website URL (Optional)"
-                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#5A00EC] transition-all text-xl font-medium placeholder:text-slate-300"
+                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#024787] transition-all text-xl font-medium placeholder:text-slate-300"
                           />
                         </div>
                       </div>
@@ -243,7 +244,7 @@ const ContactUsRouter = () => {
                     <div className="pt-10">
                       <button
                         disabled={isSubmitting}
-                        className="group relative w-full flex items-center justify-between bg-[#5A00EC] text-white p-7 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm hover:bg-slate-900 transition-all shadow-2xl shadow-purple-200 disabled:opacity-50"
+                        className="group relative w-full flex items-center justify-between bg-[#024787] text-white p-7 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm hover:bg-slate-900 transition-all shadow-2xl shadow-purple-200 disabled:opacity-50"
                       >
                         {isSubmitting ? "Initiating Sync..." : "Claim Your Free Strategy"}
                         {isSubmitting ? <Loader2 className="animate-spin" /> : <ArrowRight className="group-hover:translate-x-2 transition-transform" />}
@@ -257,7 +258,7 @@ const ContactUsRouter = () => {
             {/* RIGHT: CONTACT INFO */}
             <div className="lg:col-span-5 space-y-12 py-8">
               <div>
-                <h3 className="text-sm font-bold text-[#5A00EC] uppercase tracking-[0.3em] mb-8">Reach Out</h3>
+                <h3 className="text-sm font-bold text-[#024787] uppercase tracking-[0.3em] mb-8">Reach Out</h3>
                 <div className="space-y-10">
                   <ContactItem icon={<Mail size={24} />} label="Email Us" value="info@obsidiansix.io" />
                   <ContactItem icon={<Phone size={24} />} label="Call Us" value="+91 80856 52729" />
@@ -270,15 +271,39 @@ const ContactUsRouter = () => {
                   Ready for a technical edge? Join 50+ brands that scaled their revenue through our digital systems.
                 </p>
                 <div className="flex items-center gap-6 group">
-                  <div className="p-3 bg-slate-50 rounded-full group-hover:bg-[#5A00EC] group-hover:text-white transition-all">
+                  <div className="p-3 bg-slate-50 rounded-full group-hover:bg-[#024787] group-hover:text-white transition-all">
                     <Linkedin size={20} className="cursor-pointer" />
                   </div>
                   <a
                     href="https://www.linkedin.com/company/obsidian-six/"
                     target="_blank"
-                    className="text-slate-900 font-bold text-sm tracking-[0.2em] cursor-pointer hover:text-[#5A00EC] transition-colors"
+                    className="text-slate-900 font-bold text-sm tracking-[0.2em] cursor-pointer hover:text-[#024787] transition-colors"
                   >
                     LINKEDIN
+                  </a>
+                </div>
+                <div className="flex items-center gap-6 group">
+                  <div className="p-3 bg-slate-50 rounded-full group-hover:bg-[#024787] group-hover:text-white transition-all">
+                    <Instagram size={20} className="cursor-pointer" />
+                  </div>
+                  <a
+                    href="https://www.instagram.com/obsidiansixofficial?igsh=dWNoenEwZXR3dGlj"
+                    target="_blank"
+                    className="text-slate-900 font-bold text-sm tracking-[0.2em] cursor-pointer hover:text-[#024787] transition-colors"
+                  >
+                    INSTAGRAM
+                  </a>
+                </div>
+                <div className="flex items-center gap-6 group">
+                  <div className="p-3 bg-slate-50 rounded-full group-hover:bg-[#024787] group-hover:text-white transition-all">
+                    <FaTelegramPlane size={20} className="cursor-pointer" />
+                  </div>
+                  <a
+                    href="https://t.me/aadarsh11"
+                    target="_blank"
+                    className="text-slate-900 font-bold text-sm tracking-[0.2em] cursor-pointer hover:text-[#024787] transition-colors"
+                  >
+                    TELEGRAM
                   </a>
                 </div>
               </div>

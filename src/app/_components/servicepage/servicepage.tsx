@@ -44,7 +44,7 @@ const ServicePage = () => {
             >
               {/* Column 1: Label & Title */}
               <div className="lg:col-span-4 space-y-3">
-                <span className="inline-block bg-[#5A00EC] text-white text-[9px] font-black px-2.5 py-1 rounded-sm uppercase tracking-[0.2em]">
+                <span className="inline-block bg-[#024787] text-white text-[9px] font-black px-2.5 py-1 rounded-sm uppercase tracking-[0.2em]">
                   {getTagline(service.name)}
                 </span>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-black tracking-tight leading-tight">
@@ -61,7 +61,7 @@ const ServicePage = () => {
 
               {/* Column 3: Image Wrapper */}
               <div className="lg:col-span-3">
-                {/* Removed group-hover:shadow-[#5A00EC]/5 to stop shadow change on hover */}
+                {/* Removed group-hover:shadow-[#024787]/5 to stop shadow change on hover */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md shadow-lg transition-all duration-500">
                   <Image
                     src={service.image}

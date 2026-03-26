@@ -35,9 +35,9 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto px-6">
         
         {/* Bold Header - White Layout */}
-        <div className="mb-14 border-l-4 border-[#5A00EC] pl-6">
+        <div className="mb-14 border-l-4 border-[#024787] pl-6">
           <h2 className="text-4xl md:text-6xl  text-black tracking-tighter leading-none">
-            FAQ<span className="text-[#5A00EC]">.</span>
+            FAQ<span className="text-[#024787]">.</span>
           </h2>
           <p className="text-gray-500 text-sm mt-2 uppercase tracking-[0.2em] font-bold">
             Support Center
@@ -60,7 +60,7 @@ export default function FAQ() {
                       animate={{ 
                         rotate: isOpen ? 90 : 0,
                         scale: isOpen ? 1.1 : 1,
-                        color: isOpen ? "#5A00EC" : "#111" 
+                        color: isOpen ? "#024787" : "#111" 
                       }}
                     >
                       {/* Bolder Icon */}
@@ -69,7 +69,7 @@ export default function FAQ() {
                     
                     {/* Bold Question Text */}
                     <span className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${
-                      isOpen ? "text-[#5A00EC]" : "text-black group-hover:text-[#5A00EC]"
+                      isOpen ? "text-[#024787]" : "text-black group-hover:text-[#024787]"
                     }`}>
                       {faq.question}
                     </span>

@@ -20,8 +20,8 @@ export default function Page() {
             className="text-main cursor-pointer"
           >
             <Link href={`/case-studies/${caseStudy.slug}`}>
-              <div className="text-xs text-[#5A00EC] flex items-center gap-2 uppercase">
-                <p className="h-2.5 w-2.5 bg-[#5A00EC]" /> {caseStudy.name}
+              <div className="text-xs text-[#024787] flex items-center gap-2 uppercase">
+                <p className="h-2.5 w-2.5 bg-[#024787]" /> {caseStudy.name}
               </div>
               <p className="my-1.5 text-xl max-md:text-lg">
                 {caseStudy.category}

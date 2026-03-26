@@ -33,7 +33,7 @@ export default function Hero() {
       
       {/* Hand-drawn Purple Underline from Figma */}
       <svg 
-        className="absolute -bottom-1 -right-1 w-[110%] h-4 text-[#5A00EC] opacity-80" 
+        className="absolute -bottom-1 -right-1 w-[110%] h-4 text-[#024787] opacity-80" 
         viewBox="0 0 100 10" 
         preserveAspectRatio="none"
         style={{ transform: 'rotate(-1deg)' }}

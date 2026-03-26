@@ -19,13 +19,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Function to force close the menu
+  const closeMenu = () => setIsMegaMenuOpen(false);
+
   const navItems = [
     { name: "Home", link: "/#home" },
-    { name: "About Us", link: "/aboutus" },
+    { name: "About", link: "/aboutus" },
     { name: "Works", link: "/case-studies" },
     { name: "Services", link: "/services" },
     { name: "Blogs", link: "/blogs" },
-    { name: "Contact Us", link: "/contactus" },
+    { name: "Contact", link: "/contactus" },
   ];
 
   const isWhiteBg = isScrolled || isMegaMenuOpen;
@@ -34,12 +37,12 @@ export default function Navbar() {
     <>
       <header 
         className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
-          isWhiteBg ? "bg-white shadow-md py-0" : "bg-transparent py-0" 
-        }`} // Removed py-3/py-5 from header to let the nav control height
+          isWhiteBg ? "bg-white shadow-md" : "bg-transparent" 
+        }`} 
       >
         <nav className="container mx-auto flex items-center justify-between px-6 h-20 md:h-24"> 
           {/* Logo */}
-          <Link href="/" className="z-50">
+          <Link href="/" className="z-50" onClick={closeMenu}>
             <Image
               id="nav-logo"
               src="/images/logo/logo2.png"
@@ -52,7 +55,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <ul className="hidden lg:flex items-center gap-6 xl:gap-8 h-full"> {/* Added h-full */}
+          <ul className="hidden lg:flex items-center gap-6 xl:gap-8 h-full">
             {navItems.map((ele, i) => {
               const isServices = ele.name === "Services";
               return (
@@ -60,7 +63,8 @@ export default function Navbar() {
                   key={i}
                   onMouseEnter={() => isServices && setIsMegaMenuOpen(true)}
                   onMouseLeave={() => isServices && setIsMegaMenuOpen(false)}
-                  // Added h-full and flex to make the hover area touch the MegaMenu
+                  // Added onClick here to close if any main nav item is clicked
+                  onClick={closeMenu}
                   className={`h-full flex items-center ${isServices ? "static" : "relative"}`}
                 >
                   <Link
@@ -70,7 +74,18 @@ export default function Navbar() {
                     {ele.name}
                   </Link>
 
-                  {isServices && <MegaMenu isOpen={isMegaMenuOpen} />}
+                  {/* Wrap MegaMenu in a div with onClick={closeMenu}. 
+                    This ensures clicking any link INSIDE the MegaMenu also closes it.
+                  */}
+                  {isServices && (
+                    <div onClick={(e) => {
+                      // Stop propagation if you want to handle internal clicks differently, 
+                      // but for closing, we just call closeMenu.
+                      closeMenu();
+                    }}>
+                      <MegaMenu isOpen={isMegaMenuOpen} />
+                    </div>
+                  )}
                 </li>
               );
             })}

@@ -67,7 +67,7 @@ return (
   <section className="relative min-h-screen bg-white pt-20 md:pt-32 lg:pt-40 pb-12 md:pb-24 overflow-hidden">
     {/* Background Decor - Reduced height for mobile to prevent weird scrolling */}
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-80 md:h-200 -z-10 pointer-events-none">
-      <div className="absolute top-[-5%] left-[-5%] w-[80%] md:w-[40%] h-[40%] rounded-full bg-[#5A00EC]/5 blur-[60px] md:blur-[120px]" />
+      <div className="absolute top-[-5%] left-[-5%] w-[80%] md:w-[40%] h-[40%] rounded-full bg-[#024787]/5 blur-[60px] md:blur-[120px]" />
     </div>
 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
@@ -77,7 +77,7 @@ return (
         {/* Heading - Fluid typography and tighter leading for mobile */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-slate-900 leading-[0.95] md:leading-[0.9] mb-8 text-center md:text-left">
           Stories & <br className="block md:hidden" />
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-[#5A00EC] to-blue-400">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-[#024787] to-blue-400">
             Perspectives.
           </span>
         </h1>
@@ -90,9 +90,9 @@ return (
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             // Adjusting padding and font size for touch friendliness (16px prevents iOS zoom on focus)
-            className="w-full px-5 py-3.5 md:px-6 md:py-4 bg-slate-50 border border-slate-200 rounded-xl md:rounded-2xl focus:outline-none focus:ring-4 focus:ring-[#5A00EC]/10 focus:border-[#5A00EC] transition-all text-base text-slate-800 placeholder:text-slate-400"
+            className="w-full px-5 py-3.5 md:px-6 md:py-4 bg-slate-50 border border-slate-200 rounded-xl md:rounded-2xl focus:outline-none focus:ring-4 focus:ring-[#024787]/10 focus:border-[#024787] transition-all text-base text-slate-800 placeholder:text-slate-400"
           />
-          <div className="absolute right-4 md:right-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#5A00EC]">
+          <div className="absolute right-4 md:right-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#024787]">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -103,7 +103,7 @@ return (
       <div className="relative z-10">
         {loading ? (
           <div className="py-20 md:py-24 text-center flex flex-col items-center gap-4">
-            <div className="w-8 h-8 md:w-10 md:h-10 border-4 border-slate-100 border-t-[#5A00EC] rounded-full animate-spin"></div>
+            <div className="w-8 h-8 md:w-10 md:h-10 border-4 border-slate-100 border-t-[#024787] rounded-full animate-spin"></div>
             <p className="text-sm md:text-base text-slate-400 font-medium">Loading stories...</p>
           </div>
         ) : filteredPosts.length > 0 ? (
@@ -115,7 +115,7 @@ return (
             </h2>
             <button 
               onClick={() => {setSearchQuery(""); setActiveCategory("All")}}
-              className="mt-4 text-[#5A00EC] font-bold underline decoration-2 underline-offset-4"
+              className="mt-4 text-[#024787] font-bold underline decoration-2 underline-offset-4"
             >
               Reset all filters
             </button>

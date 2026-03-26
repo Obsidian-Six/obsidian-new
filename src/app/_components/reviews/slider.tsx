@@ -75,14 +75,14 @@ const Slider: React.FC = () => {
           <div className="absolute md:top-1/3 top-[115%] -right-10  max-md:left-1/2 max-md:-translate-x-1/4 transform -translate-y-1/2 flex space-x-2">
             <button
               data-variant="opener"
-              className="p-2.5 bg-[#5A00EC] cursor-pointer border border-[#5A00EC] hover:bg-white hover:text-[#5A00EC]"
+              className="p-2.5 bg-[#024787] cursor-pointer border border-[#024787] hover:bg-white hover:text-[#024787]"
               onClick={prevSlide}
             >
               <BsArrowLeft className="text-2xl text-white" />
             </button>
             <button
               data-variant="opener"
-              className="p-2.5 bg-[#5A00EC] cursor-pointer border border-[#5A00EC] hover:bg-white hover:text-[#5A00EC]"
+              className="p-2.5 bg-[#024787] cursor-pointer border border-[#024787] hover:bg-white hover:text-[#024787]"
               onClick={nextSlide}
             >
               <BsArrowRight className="text-2xl text-white" />
