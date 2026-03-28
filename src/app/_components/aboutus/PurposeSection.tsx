@@ -13,8 +13,8 @@ export default function PurposeSection() {
 
   return (
     <div className="relative w-full">
-      {/* Targeted Ambient Glow - positioned to feel like part of the main page flow */}
-      <div className="absolute top-0 -right-[10%] w-[500px] h-[500px] bg-[#6000FF]/15 blur-[120px] rounded-full z-0 pointer-events-none" />
+      {/* Targeted Ambient Glow - updated to #024787 */}
+      <div className="absolute top-0 -right-[10%] w-[500px] h-[500px] bg-[#024787]/10 blur-[120px] rounded-full z-0 pointer-events-none" />
 
       <div className="relative z-10">
         {/* --- TOP GRID SECTION --- */}
@@ -35,13 +35,13 @@ export default function PurposeSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative mb-6">
-              <div className="w-14 h-14 rounded-full border border-white/20 p-1 bg-black overflow-hidden mb-4 ring-4 ring-[#6000FF]/10">
-                <div className="w-full h-full bg-gradient-to-tr from-[#6000FF] to-purple-400 rounded-full flex items-center justify-center text-lg">
+              <div className="w-14 h-14 rounded-full border border-black/5 p-1 bg-black overflow-hidden mb-4 ring-4 ring-[#024787]/10">
+                <div className="w-full h-full bg-gradient-to-tr from-[#024787] to-[#024787]/60 rounded-full flex items-center justify-center text-lg">
                   🚀
                 </div>
               </div>
-              <div className="bg-[#6000FF] px-4 py-1 inline-block">
-                <span className="text-[11px] font-bold tracking-wider uppercase block">
+              <div className="bg-[#024787] px-4 py-1 inline-block">
+                <span className="text-[11px] font-bold text-white tracking-wider uppercase block">
                   Purposeful Creativity
                 </span>
               </div>
@@ -61,23 +61,15 @@ export default function PurposeSection() {
         >
           <h3 className="text-3xl md:text-5xl lg:text-6xl font-light italic font-serif leading-tight text-black/90">
             “We exist to turn vision into{" "}
-            <span className="bg-[#6000FF] px-3 py-1 not-italic font-sans font-bold text-white tracking-tighter">
+            <span className="bg-[#024787] px-3 py-1 not-italic font-sans font-bold text-white tracking-tighter">
               results
             </span>
-            —<br className="hidden md:block" />
+            {" "}—<br className="hidden md:block" />
             and brands into{" "}
-            <span className="bg-[#6000FF] px-3 py-1 not-italic font-sans font-bold text-white tracking-tighter">
+            <span className="bg-[#024787] px-3 py-1 not-italic font-sans font-bold text-white tracking-tighter">
               experiences
             </span>.”
           </h3>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-12 group inline-flex items-center gap-3 bg-white text-black px-8 py-3 rounded-full text-xs font-bold uppercase tracking-[0.2em] transition-all hover:bg-[#6000FF] hover:text-white"
-          >
-            Lets Grow <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
-          </motion.button>
         </motion.div>
       </div>
     </div>

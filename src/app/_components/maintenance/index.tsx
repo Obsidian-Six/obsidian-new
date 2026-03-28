@@ -89,7 +89,7 @@ export default function Maintenance() {
         >
           <figure className="w-full">
             <Image
-              src="https://boxxinsurance.com/ca/wp-content/uploads/sites/3/2022/09/BOXX-Blog-2102288.jpg"
+              src="/images/ProactiveImage.jpeg"
               alt="Security"
               width={400}
               height={256}

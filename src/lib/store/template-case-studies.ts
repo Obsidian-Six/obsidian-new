@@ -3,124 +3,124 @@ import type { TemplateCaseStudy } from "@/lib/models/case-study.types";
 const templateCaseStudiesData: TemplateCaseStudy[] = [
 
   
-  {
-    "id": "luxury_car_investment",
-    "name": "Luxury Car Investment",
-    "slug": "luxury-car-tokenization-blockchain-marketplace",
-    "category": "Fintech & Automotive",
-    "gallery": [
-      { "img": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D", "text": "The Vault: Secure blockchain-based tokenization of rare collectible vehicles." },
-      { "img": "https://plus.unsplash.com/premium_photo-1682125845754-9a4b0d77a66a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D", "text": "Interactive 3D car customization tool blending digital and physical sales." },
-      { "img": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D", "text": "Blockchain infrastructure for transparent fractional ownership and profit distribution." },
-      { "img": "https://images.unsplash.com/photo-1542362567-b07e54358753?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D", "text": "Advanced microservices architecture for global scalability and secure transactions." },
-      { "img": "https://images.unsplash.com/photo-1513036191774-b2badb8fcb76?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhcnN8ZW58MHx8MHx8fDA%3D", "text": "AI-powered real-time assistance and investment monitoring dashboard." }
-    ],
-    "details": "Revolutionized luxury automotive investment by combining blockchain tokenization with a high-end marketplace, enabling fractional ownership and increasing user engagement by 200%.",
-    "image": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1170&auto=format&fit=crop",
-    "tags": ["Blockchain", "Tokenization", "Fintech", "Next.js", "AI Integration"],
-    "heroImage": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1170&auto=format&fit=crop",
-    "heroVideo": "/videos/Eurotech/eurotech.mp4",
-    "overviewVideo": "/videos/Eurotech/eurotech2.mp4",
-    "ChallengeVideo": "/videos/Eurotech/Video2.mp4",
-    "ApproachVideo": "",
-    "ResultVideo": "",
+  // {
+  //   "id": "luxury_car_investment",
+  //   "name": "Luxury Car Investment",
+  //   "slug": "luxury-car-tokenization-blockchain-marketplace",
+  //   "category": "Fintech & Automotive",
+  //   "gallery": [
+  //     { "img": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D", "text": "The Vault: Secure blockchain-based tokenization of rare collectible vehicles." },
+  //     { "img": "https://plus.unsplash.com/premium_photo-1682125845754-9a4b0d77a66a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D", "text": "Interactive 3D car customization tool blending digital and physical sales." },
+  //     { "img": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D", "text": "Blockchain infrastructure for transparent fractional ownership and profit distribution." },
+  //     { "img": "https://images.unsplash.com/photo-1542362567-b07e54358753?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D", "text": "Advanced microservices architecture for global scalability and secure transactions." },
+  //     { "img": "https://images.unsplash.com/photo-1513036191774-b2badb8fcb76?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhcnN8ZW58MHx8MHx8fDA%3D", "text": "AI-powered real-time assistance and investment monitoring dashboard." }
+  //   ],
+  //   "details": "Revolutionized luxury automotive investment by combining blockchain tokenization with a high-end marketplace, enabling fractional ownership and increasing user engagement by 200%.",
+  //   "image": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1170&auto=format&fit=crop",
+  //   "tags": ["Blockchain", "Tokenization", "Fintech", "Next.js", "AI Integration"],
+  //   "heroImage": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1170&auto=format&fit=crop",
+  //   "heroVideo": "/videos/Eurotech/eurotech.mp4",
+  //   "overviewVideo": "/videos/Eurotech/eurotech2.mp4",
+  //   "ChallengeVideo": "/videos/Eurotech/Video2.mp4",
+  //   "ApproachVideo": "",
+  //   "ResultVideo": "",
 
 
-    "caseSection": {
-      "data": "Luxury Car Ownership Through Blockchain &",
-      "highlight": "Tokenization"
-    },
-    "overview": "Luxury Car Investment is a digital ecosystem combining automotive excellence and financial innovation. It allows collectors and investors to buy, sell, and customize luxury vehicles while introducing a fractional ownership model through tokenized auctions. By utilizing blockchain for transparency and AI for support, the platform opens access to premium automotive assets for a global audience.",
-    "twoImage": {
-      "leftPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
-        "topLabel": "Platform",
-        "bottomLabel": "Token Vault"
-      },
-      "rightPanel": {
-        "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
-      }
-    },
-    "challenge": {
-      "data": "Building a digital asset ecosystem for the luxury automotive market involved overcoming high barriers to entry and technical complexity:",
-      "image1": "https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "image2": "https://images.unsplash.com/photo-1554223090-7e482851df45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fGNhcnN8ZW58MHx8MHx8fDA%3D",
-      "point": [
-        {
-          "name": "Complex Payment Integration",
-          "detail": "Integrating secure infrastructure to handle both fiat and cryptocurrency transactions in real time for high-value assets."
-        },
-        {
-          "name": "Fractional Ownership Hurdles",
-          "detail": "Enabling tokenization required secure backend systems for token minting, distribution, and automated profit sharing."
-        },
-        {
-          "name": "Dual Audience Engagement",
-          "detail": "Catering simultaneously to traditional luxury car buyers and modern crypto investors within a unified user experience."
-        },
-        {
-          "name": "Technical Scalability",
-          "detail": "Developing a microservices architecture capable of global scaling with integrated AI support and deep CRM functionality."
-        }
-      ]
-    },
-    "approaches": [
-      {
-        "name": "MICROSERVICES & HYBRID PAYMENTS",
-        "detail": "Built a TypeScript/Next.js architecture separating marketplace operations from crypto processing to ensure stability and secure hybrid payment gateways."
-      },
-      {
-        "name": "BLOCKCHAIN-BASED 'THE VAULT'",
-        "detail": "Developed a system for tokenizing collectible vehicles, allowing users to buy participation tokens and receive automated profit distributions."
-      },
-      {
-        "name": "AI & INTERACTIVE CUSTOMIZATION",
-        "detail": "Implemented an AI-powered chatbot for real-time support and an interactive configuration tool to increase emotional investment and engagement."
-      }
-    ],
-    "results": [
-      {
-        "img": "https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGNhcnN8ZW58MHx8MHx8fDA%3D",
-        "title": "200% Increase in ",
-        "highlight": "User Engagement",
-        "data": "The customization tool and tokenization model led to a massive surge in time spent on the platform."
-      },
-      {
-        "img": "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "title": "Global Market ",
-        "highlight": "Expansion",
-        "data": "Offering crypto payments removed cross-border barriers, significantly broadening the investor pool."
-      },
-      {
-        "img": "https://images.unsplash.com/photo-1593544340816-93d84a106415?q=80&w=1195&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "title": "Frictionless ",
-        "highlight": "Buyer Journey",
-        "data": "AI interactions and a custom CRM reduced support response times and improved retention rates."
-      },
-      {
-        "img": "https://plus.unsplash.com/premium_photo-1736592234354-9b9b5807d801?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTd8fGNhcnN8ZW58MHx8MHx8fDA%3D",
-        "title": "New Asset ",
-        "highlight": "Liquidity",
-        "data": "Tokenization lowered entry barriers, turning multi-million dollar cars into accessible, liquid digital assets."
-      }
-    ],
-    "impacts": [
-      {
-        "name": "Pioneering Fintech Innovation",
-        "detail": "Successfully merged luxury automotive assets with blockchain, creating a new digitally tradable asset class."
-      },
-      {
-        "name": "Automated Investment Cycles",
-        "detail": "Established transparent, automated profit distribution systems that build trust in high-stakes investments."
-      },
-      {
-        "name": "Scalable Future-Ready Platform",
-        "detail": "Created a path for global expansion with a stack ready to onboard manufacturers and dealers worldwide."
-      }
-    ],
-    "detail": "By integrating a sophisticated blockchain tokenization engine with a high-performance luxury marketplace, we transformed rare vehicles into accessible digital investments. The platform successfully combined TypeScript, Next.js, and secure smart contract logic to deliver a 200% boost in engagement and a scalable growth engine that bridges the gap between traditional collectors and modern crypto investors.",
-    "pageType": "template"
-  },
+  //   "caseSection": {
+  //     "data": "Luxury Car Ownership Through Blockchain &",
+  //     "highlight": "Tokenization"
+  //   },
+  //   "overview": "Luxury Car Investment is a digital ecosystem combining automotive excellence and financial innovation. It allows collectors and investors to buy, sell, and customize luxury vehicles while introducing a fractional ownership model through tokenized auctions. By utilizing blockchain for transparency and AI for support, the platform opens access to premium automotive assets for a global audience.",
+  //   "twoImage": {
+  //     "leftPanel": {
+  //       "bgImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400",
+  //       "topLabel": "Platform",
+  //       "bottomLabel": "Token Vault"
+  //     },
+  //     "rightPanel": {
+  //       "bgImage": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1400"
+  //     }
+  //   },
+  //   "challenge": {
+  //     "data": "Building a digital asset ecosystem for the luxury automotive market involved overcoming high barriers to entry and technical complexity:",
+  //     "image1": "https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //     "image2": "https://images.unsplash.com/photo-1554223090-7e482851df45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fGNhcnN8ZW58MHx8MHx8fDA%3D",
+  //     "point": [
+  //       {
+  //         "name": "Complex Payment Integration",
+  //         "detail": "Integrating secure infrastructure to handle both fiat and cryptocurrency transactions in real time for high-value assets."
+  //       },
+  //       {
+  //         "name": "Fractional Ownership Hurdles",
+  //         "detail": "Enabling tokenization required secure backend systems for token minting, distribution, and automated profit sharing."
+  //       },
+  //       {
+  //         "name": "Dual Audience Engagement",
+  //         "detail": "Catering simultaneously to traditional luxury car buyers and modern crypto investors within a unified user experience."
+  //       },
+  //       {
+  //         "name": "Technical Scalability",
+  //         "detail": "Developing a microservices architecture capable of global scaling with integrated AI support and deep CRM functionality."
+  //       }
+  //     ]
+  //   },
+  //   "approaches": [
+  //     {
+  //       "name": "MICROSERVICES & HYBRID PAYMENTS",
+  //       "detail": "Built a TypeScript/Next.js architecture separating marketplace operations from crypto processing to ensure stability and secure hybrid payment gateways."
+  //     },
+  //     {
+  //       "name": "BLOCKCHAIN-BASED 'THE VAULT'",
+  //       "detail": "Developed a system for tokenizing collectible vehicles, allowing users to buy participation tokens and receive automated profit distributions."
+  //     },
+  //     {
+  //       "name": "AI & INTERACTIVE CUSTOMIZATION",
+  //       "detail": "Implemented an AI-powered chatbot for real-time support and an interactive configuration tool to increase emotional investment and engagement."
+  //     }
+  //   ],
+  //   "results": [
+  //     {
+  //       "img": "https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGNhcnN8ZW58MHx8MHx8fDA%3D",
+  //       "title": "200% Increase in ",
+  //       "highlight": "User Engagement",
+  //       "data": "The customization tool and tokenization model led to a massive surge in time spent on the platform."
+  //     },
+  //     {
+  //       "img": "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //       "title": "Global Market ",
+  //       "highlight": "Expansion",
+  //       "data": "Offering crypto payments removed cross-border barriers, significantly broadening the investor pool."
+  //     },
+  //     {
+  //       "img": "https://images.unsplash.com/photo-1593544340816-93d84a106415?q=80&w=1195&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //       "title": "Frictionless ",
+  //       "highlight": "Buyer Journey",
+  //       "data": "AI interactions and a custom CRM reduced support response times and improved retention rates."
+  //     },
+  //     {
+  //       "img": "https://plus.unsplash.com/premium_photo-1736592234354-9b9b5807d801?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTd8fGNhcnN8ZW58MHx8MHx8fDA%3D",
+  //       "title": "New Asset ",
+  //       "highlight": "Liquidity",
+  //       "data": "Tokenization lowered entry barriers, turning multi-million dollar cars into accessible, liquid digital assets."
+  //     }
+  //   ],
+  //   "impacts": [
+  //     {
+  //       "name": "Pioneering Fintech Innovation",
+  //       "detail": "Successfully merged luxury automotive assets with blockchain, creating a new digitally tradable asset class."
+  //     },
+  //     {
+  //       "name": "Automated Investment Cycles",
+  //       "detail": "Established transparent, automated profit distribution systems that build trust in high-stakes investments."
+  //     },
+  //     {
+  //       "name": "Scalable Future-Ready Platform",
+  //       "detail": "Created a path for global expansion with a stack ready to onboard manufacturers and dealers worldwide."
+  //     }
+  //   ],
+  //   "detail": "By integrating a sophisticated blockchain tokenization engine with a high-performance luxury marketplace, we transformed rare vehicles into accessible digital investments. The platform successfully combined TypeScript, Next.js, and secure smart contract logic to deliver a 200% boost in engagement and a scalable growth engine that bridges the gap between traditional collectors and modern crypto investors.",
+  //   "pageType": "template"
+  // },
   {
     "id": "sweet_protection_ecommerce",
     "name": "Sweet Protection",
@@ -265,7 +265,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       }
     ],
     "details": "Transformed a Dubai-based travel agency's digital presence by combining modern web design, strategic storytelling, and SEO optimization to convert global visitors into confirmed tour bookings.",
-    "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1170&auto=format&fit=crop",
+    "image": "/Travel/thumbnail.jpeg",
     "tags": [
       "Travel Technology",
       "SEO Strategy",
@@ -417,7 +417,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       }
     },
     "details": "Revolutionized B2B lead generation for an industrial giant, achieving a 10x increase in qualified leads and a 30% faster sales cycle through precision targeting.",
-    "image": "https://images.unsplash.com/photo-1562577309-2592ab84b1bc?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/heavyMachinery/thumbnail.jpg",
     "tags": [
       "B2B Lead Generation",
       "LinkedIn Marketing",
@@ -556,7 +556,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     details:
       "Transformed a compromised digital presence into a lead-generation powerhouse, generating 1.8M AED revenue with 30,000+ qualified leads.",
     image:
-      "https://plus.unsplash.com/premium_photo-1733306503329-7a8c701fa9ad?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/ab/thumbnail.jpeg",
     tags: ["Performance Marketing", "Website Recovery", "SEO", "Lead Generation"],
     heroImage:
       "https://plus.unsplash.com/premium_photo-1733306503329-7a8c701fa9ad?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -708,7 +708,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     details:
       "Transformed a premier women's MBA college by filling 100% of seats, generating ₹60 Lakh+ in revenue with a 20x ROAS.",
     image:
-      "https://images.unsplash.com/photo-1644088379091-d574269d422f?q=80&w=1393&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/shim/thumbnail.jpeg",
     tags: ["Performance Marketing", "Lead Generation", "Admission Strategy"],
     heroImage:
       "https://images.unsplash.com/photo-1474314243412-cd4a79f02c6a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -1483,7 +1483,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     details:
       "Revamped a USA-based NGO’s digital presence to enhance engagement, drive donations, and improve outreach.",
     image:
-      "https://storage.googleapis.com/a1aa/image/T_kWvK97-hQhiFsMJMEb_8cUyB7ANVyRZ8LC0_H3BS4.jpg",
+      "/USANGOCaseStudy/Thumbnail.jpeg",
     tags: ["Website", "Fundraising", "Digital Strategy"],
     heroImage:
       "https://storage.googleapis.com/a1aa/image/T_kWvK97-hQhiFsMJMEb_8cUyB7ANVyRZ8LC0_H3BS4.jpg",
@@ -1643,7 +1643,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     details:
       "Developed a high-converting digital presence for Ten On Ten Stays, positioning them as a 360° revenue growth partner for hotels and resorts.",
-    image: "http://tenontenstays.com/assests/01.png",
+    image: "/HospitalityCaseStudy/Thumbnai.jpeg",
     tags: ["Website", "Branding", "SEO", "UI/UX"],
     heroImage:
       "https://img.freepik.com/free-photo/beautiful-castle-architecture_23-2150754875.jpg?t=st=1743222693~exp=1743226293~hmac=69bb516d07c39aaf4f09a4b6fb7508f3360a038fa9b7d098e6dc996be7687f8b&w=1380",
@@ -1805,10 +1805,10 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     details:
       "Developed a bold, engaging website for Sportsxcoin, driving pre-sales and establishing a strong digital presence in the crypto-sports market.",
     image:
-      "https://sportxcoins.com/wp-content/uploads/2024/11/ripple-prediction-main-3.jpg",
+      "/SportXcoinCaseStudy/thumbnail.jpeg",
     tags: ["Website", "Crypto Wallet", "Branding", "UI/UX"],
     heroImage:
-      "https://sportxcoins.com/wp-content/uploads/2024/11/ripple-prediction-main-3.jpg",
+      "https://images.unsplash.com/photo-1628151015968-3a4429e9ef04?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "heroVideo": "",
   "overviewVideo":"",
   "ChallengeVideo" :"",
@@ -1960,7 +1960,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     details:
       "Developed a bilingual, high-impact website for Fourth Dimension General Construction, enhancing engagement and boosting visibility.",
     image:
-      "https://www.4dgcc.com/_next/image?url=%2Fassets%2Fimages%2Fhome-about-img.jpg&w=1920&q=75",
+      "/DubaiRealEstateCaseStudy/thumbnail.jpeg",
     tags: ["Website", "Bilingual", "SEO", "UI/UX", "Animation"],
     heroImage:
       "https://www.4dgcc.com/_next/image?url=%2Fassets%2Fimages%2Fhero-img.jpg&w=1920&q=75",
