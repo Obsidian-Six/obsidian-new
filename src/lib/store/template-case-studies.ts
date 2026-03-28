@@ -1488,6 +1488,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     heroImage:
       "https://storage.googleapis.com/a1aa/image/T_kWvK97-hQhiFsMJMEb_8cUyB7ANVyRZ8LC0_H3BS4.jpg",
     "heroVideo": "",
+
   "overviewVideo":"",
   "ChallengeVideo" :"",
   "ApproachVideo" : "",

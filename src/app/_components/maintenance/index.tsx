@@ -119,7 +119,7 @@ export default function Maintenance() {
         >
           <figure className="w-full">
             <Image
-              src="https://associationoflearning.com/wp-content/uploads/2020/06/83130279_s-300x300.jpg"
+              src="/images/ProactiveImage3.jpeg"
               alt="SEO"
               width={400}
               height={256}
@@ -148,7 +148,7 @@ export default function Maintenance() {
         >
           <figure className="w-full">
             <Image
-              src="https://5.imimg.com/data5/SELLER/Default/2023/8/337404133/KG/EI/QM/1951268/network-security-assessment.jpg"
+              src="/images/ProactiveImage2.jpeg"
               alt="Updates"
               width={400}
               height={256}
