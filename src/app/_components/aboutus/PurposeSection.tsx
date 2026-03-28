@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { GoArrowUpRight } from "react-icons/go";
 
 export default function PurposeSection() {
   const fadeInUp = {
