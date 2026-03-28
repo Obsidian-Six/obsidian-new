@@ -1483,7 +1483,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     details:
       "Revamped a USA-based NGO’s digital presence to enhance engagement, drive donations, and improve outreach.",
     image:
-      "/USANGOCaseStudy/Thumbnail.jpeg",
+      "/USANGOCaseStudy/thumbnail.jpeg",
     tags: ["Website", "Fundraising", "Digital Strategy"],
     heroImage:
       "https://storage.googleapis.com/a1aa/image/T_kWvK97-hQhiFsMJMEb_8cUyB7ANVyRZ8LC0_H3BS4.jpg",
