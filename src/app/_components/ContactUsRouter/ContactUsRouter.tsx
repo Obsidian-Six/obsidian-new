@@ -17,7 +17,7 @@ const whyContactUs = [
   },
   {
     title: "FAST REPLIES",
-    desc: "We respond within 24 hours to ensure your project momentum never stalls.",
+    desc: "Because every minute counts- We respond within 24 hours to keep your ideas flowing",
     img: "https://plus.unsplash.com/premium_photo-1661963874418-df1110ee39c1?q=80&w=1086&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
@@ -90,7 +90,7 @@ const ContactUsRouter = () => {
             Contact Obsidian Six
           </span>
           <h1 className="text-6xl md:text-[120px] font-bold tracking-tighter leading-[0.85] text-slate-950 mb-12">
-            Let&apos;s Build <br />
+            Let&apos;s Recreate  <br />
             <span className="text-slate-300 italic font-serif font-light">The Future.</span>
           </h1>
         </div>

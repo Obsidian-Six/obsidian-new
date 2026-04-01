@@ -265,7 +265,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       }
     ],
     "details": "Transformed a Dubai-based travel agency's digital presence by combining modern web design, strategic storytelling, and SEO optimization to convert global visitors into confirmed tour bookings.",
-    "image": "/Travel/thumbnail.jpeg",
+    "image": "/Travel/Thumbnail.jpeg",
     "tags": [
       "Travel Technology",
       "SEO Strategy",

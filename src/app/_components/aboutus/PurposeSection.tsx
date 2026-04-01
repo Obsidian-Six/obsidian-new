@@ -23,7 +23,7 @@ export default function PurposeSection() {
               [ Our Purpose ]
             </span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight max-w-3xl">
-              What Defines Our Approach to Growth and Digital Innovation
+              Obsidian Six: Crafting the digital edge your brand deserves
             </h2>
           </motion.div>
 

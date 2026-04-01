@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import PurposeSection from "./PurposeSection";
 import { useState } from "react";
 import ContactPopup from "../ContactPopup/ContactPopup";
+import OurStory from "../OurStory";
 
 export default function AboutUs() {
   const { scrollYProgress } = useScroll();
@@ -67,13 +68,13 @@ export default function AboutUs() {
         {/* --- HEADER SECTION --- */}
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12">
           <MotionDiv className="lg:col-span-8" {...fadeInUp}>
-            <span className="inline-block px-3 py-1 border border-slate-900/10 rounded-full text-[10px] tracking-[0.2em] uppercase font-bold text-slate-500 mb-6 bg-white shadow-sm">
+            <span className="inline-block px-3 py-1 border border-slate-900/10 rounded-full text-[10px] tracking-[0.2em] uppercase  text-slate-500 mb-6 bg-white shadow-sm">
               [ About the Agency ]
             </span>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] lg:leading-[0.95] tracking-tighter text-slate-900">
-              Creating Digital <br className="hidden md:block" />
-              Experiences That <br className="hidden md:block" />
-              Promote The Actual <span className="italic font-serif font-light text-[#024787]"> Growth.</span>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium  tracking-tighter text-slate-950 font-lato">
+              Digital experiences <br className="hidden md:block" />
+              carved for the <br className="hidden md:block" />
+              <span className="italic font-serif font-light text-[#024787]">real-world results.</span>
             </h1>
           </MotionDiv>
 
@@ -100,8 +101,8 @@ export default function AboutUs() {
         {/* --- PURPOSE STATEMENT --- */}
         <div className="my-32">
           <MotionDiv {...fadeInUp} className="relative">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium max-w-5xl leading-tight text-slate-800">
-              “We exist to turn <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#024787] to-[#024787]/80 font-serif italic">vision</span> into results—creating digital expertise that <span className="underline decoration-[#024787]/30 underline-offset-8">elevates your growth</span>.”
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium max-w-5xl leading-tight text-slate-800 font-lato">
+             We transform <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#024787] to-[#024787]/80 italic">ambition</span> into performance through powerful <span className="underline decoration-[#024787]/30 underline-offset-8">digital innovation.</span>
             </h2>
           </MotionDiv>
         </div>
@@ -217,7 +218,10 @@ export default function AboutUs() {
           </div>
         </MotionDiv>
 
+
       </div>
+
+      <OurStory />
 
       <AnimatePresence>
         {isPopupOpen && (

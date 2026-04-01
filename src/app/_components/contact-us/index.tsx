@@ -24,7 +24,7 @@ const ContactUs = () => {
 
       {/* Header Section */}
       <div className="max-w-6xl mx-auto px-6 mb-8 md:mb-12 text-left">
-        <h2 className="text-5xl md:text-7xl leading-[0.85] text-slate-950">
+        <h2 className="text-5xl md:text-7xl leading-[0.85] font-medium text-slate-950">
           Let&apos;s Construct <span className="text-[#024787] font-medium"> Future</span>
         </h2>
         <p className="text-gray-400 mt-3 max-w-md uppercase tracking-[0.2em] text-[9px] md:text-[10px] font-bold">

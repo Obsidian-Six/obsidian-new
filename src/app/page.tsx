@@ -96,6 +96,7 @@ export default function Home() {
 
       {/* Hero Section - Above the fold */}
       <Hero />
+
   
       {/* Portfolio / Case Studies */}
       <OurWork />

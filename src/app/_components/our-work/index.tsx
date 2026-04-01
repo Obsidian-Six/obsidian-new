@@ -20,9 +20,9 @@ const OurWork = () => {
   const displayWorks = caseStudiesData.slice(0, 6);
 
   return (
-    <section 
-      ref={containerRef} 
-      id="blogs" 
+    <section
+      ref={containerRef}
+      id="blogs"
       className="max-w-7xl mx-auto px-6 md:px-10 py-32 overflow-hidden"
     >
       {/* Section Tag with line animation */}
@@ -46,10 +46,9 @@ const OurWork = () => {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="text-5xl md:text-7xl text-slate-900 max-w-5xl mx-auto text-center font-normal leading-[1.1] mb-24 tracking-tighter"
       >
-        Empowering ambitious brands to <br className="hidden md:block" />
-        surpass their <span className="italic font-serif text-[#024787]">growth</span> objectives.
+        Carving digital dominance for <br className="hidden md:block" />
+        brands that <span className="italic font-serif text-[#024787]">refuse to settle.</span>
       </MotionP>
-
       {/* Grid Layout */}
       <motion.div style={{ y }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24">
         {displayWorks.map((caseStudy, index) => (
@@ -58,7 +57,7 @@ const OurWork = () => {
       </motion.div>
 
       {/* Action Button */}
-      <MotionDiv 
+      <MotionDiv
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }} // Repeat animation
@@ -100,22 +99,22 @@ const WorkCard = ({ caseStudy, index }: { caseStudy: any; index: number }) => {
               height={600}
             />
           </motion.div>
-          
+
           <div className="absolute top-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-             <span className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-[9px] font-bold uppercase tracking-tighter shadow-xl">
-               Explore Case
-             </span>
+            <span className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-[9px] font-bold uppercase tracking-tighter shadow-xl">
+              Explore Case
+            </span>
           </div>
         </div>
 
         {/* Text Content */}
         <div className="mt-8 space-y-3">
           <motion.div
-             initial={{ opacity: 0, x: -10 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: false }}
-             transition={{ duration: 0.5, delay: 0.3 + (index % 3) * 0.1 }}
-             className="flex items-center gap-2"
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5, delay: 0.3 + (index % 3) * 0.1 }}
+            className="flex items-center gap-2"
           >
             <span className="w-6 h-[1px] bg-[#024787]" />
             <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
@@ -124,10 +123,10 @@ const WorkCard = ({ caseStudy, index }: { caseStudy: any; index: number }) => {
           </motion.div>
 
           <motion.div
-             initial={{ opacity: 0, y: 15 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: false }}
-             transition={{ duration: 0.5, delay: 0.4 + (index % 3) * 0.1 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5, delay: 0.4 + (index % 3) * 0.1 }}
           >
             <h3 className="text-xl md:text-2xl font-light text-slate-900 leading-tight">
               <span className="font-bold">{caseStudy.name}</span> - {caseStudy.details.split('.')[0]}

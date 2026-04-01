@@ -23,8 +23,8 @@ const Footer = () => {
       {/* CTA Section */}
       <div className="bg-[#024787] text-white py-10 px-8 flex flex-col md:flex-row justify-evenly items-center text-center md:text-left">
         <div className="text-3xl md:text-5xl font-light leading-tight">
-          Start your journey towards
-          <span className="font-bold underline decoration-wavy ml-2">growth</span>
+          Your path to progress
+          <span className="font-bold underline decoration-wavy ml-2">starts here</span>
         </div>
         <Link
           href="/#contactUs"
