@@ -135,10 +135,18 @@ const Footer = () => {
             <p className="text-[9px] font-black text-black/30 uppercase tracking-[0.2em]">
               © Copyright 2026 Obsidian Six.
             </p>
-            <div className="flex justify-center items-center gap-4 mt-2">
+            <div className="flex justify-center items-center gap-4 mt-2 flex-wrap">
                 <Link href="/terms" className="text-[12px] font-black text-black/50 hover:text-[#024787] uppercase tracking-widest">
-                Privacy
+                  Privacy
                 </Link>
+                <span className="text-black/20 text-[10px]">·</span>
+                <a href="/akobsidiansix-exit-policy.html" target="_blank" rel="noopener noreferrer" className="text-[12px] font-black text-black/50 hover:text-[#024787] uppercase tracking-widest">
+                  Exit Policy
+                </a>
+                <span className="text-black/20 text-[10px]">·</span>
+                <a href="/obsidiansix-team-policy.html" target="_blank" rel="noopener noreferrer" className="text-[12px] font-black text-black/50 hover:text-[#024787] uppercase tracking-widest">
+                  Team Policy
+                </a>
             </div>
           </div>
         </div>

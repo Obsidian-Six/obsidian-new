@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
@@ -68,26 +68,26 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className={`absolute z-0 pointer-events-none opacity-90 ${slides[currentSlide].imgStyles}`}
+              className={`absolute z-0 pointer-events-none opacity-90 ${slides[currentSlide]?.imgStyles}`}
             >
               <img 
-                src={slides[currentSlide].imgUrl} 
+                src={slides[currentSlide]?.imgUrl} 
                 alt="3D element" 
                 className="w-full h-full object-cover rounded-full shadow-2xl grayscale-[20%]"
               />
             </motion.div>
 
             <h1 className="relative z-10 text-7xl md:text-[160px] font-normal text-slate-900 leading-none tracking-tighter mb-4">
-              {slides[currentSlide].title}
+              {slides[currentSlide]?.title}
             </h1>
 
             <div className="space-y-4 max-w-2xl mx-auto">
                 {/* Premium Italic look for tagline */}
                 <h2 className="text-xl md:text-3xl font-light italic text-[#024787] tracking-tight">
-                    {slides[currentSlide].tagline}
+                    {slides[currentSlide]?.tagline}
                 </h2>
                 <p className="text-sm md:text-xl text-slate-700 leading-relaxed tracking-wide font-light">
-                    {slides[currentSlide].subtitle}
+                    {slides[currentSlide]?.subtitle}
                 </p>
             </div>
 

@@ -1,8 +1,5 @@
 "use client";
-import React from "react";
 import { motion } from "framer-motion";
-import { GoArrowRight } from "react-icons/go";
-import Link from "next/link";
 // Import Lato for strict font application
 import { Lato } from "next/font/google";
 
