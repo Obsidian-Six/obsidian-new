@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Exit & Handover Policy — Obsidian Six</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #0e0e0e;
+      --white: #fafaf8;
+      --off-white: #f2f0eb;
+      --stone: #e8e5de;
+      --mid: #b0aca2;
+      --muted: #7a776f;
+      --text: #1c1b18;
+      --accent: #2a2a2a;
+      --red-bg: #fdf0ed;
+      --red-border: #f0c4b8;
+      --red-text: #8b2a14;
+      --red-icon: #c94124;
+      --green-bg: #edf5ee;
+      --green-border: #b8debb;
+      --green-text: #1f5c26;
+      --green-icon: #2d7a38;
+      --blue-bg: #edf1f9;
+      --blue-border: #b8c9ee;
+      --blue-text: #1a2f6b;
+      --blue-mid: #2a4da0;
+      --radius: 10px;
+      --radius-sm: 6px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header,
+    section,
+    footer {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    header.visible,
+    section.visible,
+    footer.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      background: var(--black);
+      color: #fff;
+      padding: 13px 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .topbar-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: .02em;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .topbar-logo span {
+      color: #aaa;
+      font-weight: 400;
+    }
+
+    .topbar-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #888;
+      border: 0.5px solid #333;
+      border-radius: 4px;
+      padding: 3px 9px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--black);
+      color: #fff;
+      padding: 5rem 2rem 4rem;
+      text-align: left;
+      border-bottom: 1px solid #222;
+    }
+
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: #555;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -.01em;
+      color: #fff;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: #888;
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      color: #999;
+      max-width: 580px;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #aaa;
+      background: #1a1a1a;
+      border: 0.5px solid #333;
+      border-radius: 5px;
+      padding: 5px 12px;
+    }
+
+    .meta-chip svg {
+      flex-shrink: 0;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.25rem;
+      padding-bottom: .75rem;
+      border-bottom: 1px solid var(--stone);
+    }
+
+    .section-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--off-white);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--muted);
+    }
+
+    .section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: .01em;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #fff;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: .75rem;
+    }
+
+    /* ── Steps ── */
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--stone);
+      transition: background .15s;
+    }
+
+    .step:last-child {
+      border-bottom: none;
+    }
+
+    .step:hover {
+      background: var(--off-white);
+    }
+
+    .step-num {
+      min-width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--black);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-body {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .step-body strong {
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    /* ── Rule rows ── */
+    .rule {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: .9rem 1.25rem;
+      border-bottom: 1px solid var(--stone);
+      transition: background .15s;
+    }
+
+    .rule:last-child {
+      border-bottom: none;
+    }
+
+    .rule:hover {
+      background: var(--off-white);
+    }
+
+    .rule-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .rule-body {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .rule-body strong {
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+      margin-bottom: .75rem;
+    }
+
+    .callout.red {
+      background: var(--red-bg);
+      border: 1px solid var(--red-border);
+    }
+
+    .callout.blue {
+      background: var(--blue-bg);
+      border: 1px solid var(--blue-border);
+    }
+
+    .callout.green {
+      background: var(--green-bg);
+      border: 1px solid var(--green-border);
+    }
+
+    .callout p {
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .callout.red p {
+      color: var(--red-text);
+    }
+
+    .callout.blue p {
+      color: var(--blue-text);
+    }
+
+    .callout.green p {
+      color: var(--green-text);
+    }
+
+    .callout strong {
+      font-weight: 500;
+    }
+
+    .callout.red strong {
+      color: var(--red-icon);
+    }
+
+    .callout.blue strong {
+      color: var(--blue-mid);
+    }
+
+    .email-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid var(--blue-border);
+      border-radius: 5px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--blue-mid);
+      font-family: 'DM Sans', sans-serif;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    .email-chip svg {
+      stroke: var(--blue-mid);
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+    }
+
+    .t-card {
+      background: #fff;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .t-card::before {
+      content: '';
+      display: block;
+      height: 3px;
+      background: var(--black);
+      border-radius: 2px 2px 0 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .t-day {
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .t-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Consequence grid ── */
+    .con-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+    }
+
+    .con-card {
+      background: #fff;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .con-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--red-bg);
+      border: 1px solid var(--red-border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .con-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--red-icon);
+    }
+
+    .con-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .con-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Divider ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--stone);
+      margin: 3rem 0;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+      padding: 2rem;
+      background: var(--off-white);
+      border-top: 1px solid var(--stone);
+    }
+
+    .footer strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: .5rem;
+      display: block;
+    }
+
+    /* ── SVG icons helpers ── */
+    svg.ic {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      vertical-align: middle;
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── Acknowledgment form ── */
+    .ack-section {
+      background: var(--black);
+      color: #fff;
+      padding: 3.5rem 2rem 4rem;
+    }
+
+    .ack-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .ack-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ack-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: #444;
+    }
+
+    .ack-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: .6rem;
+      letter-spacing: -.01em;
+    }
+
+    .ack-desc {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+
+    .ack-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ack-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .ack-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ack-field label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    .ack-field input,
+    .ack-field select {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 14px;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .ack-field input:focus,
+    .ack-field select:focus {
+      border-color: #555;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.03);
+    }
+
+    font-family: 'DM Sans',
+    sans-serif;
+    outline: none;
+    transition: border-color .15s;
+    width: 100%;
+    }
+
+    .ack-field input::placeholder {
+      color: #555;
+    }
+
+    .ack-field input:focus,
+    .ack-field select:focus {
+      border-color: #666;
+    }
+
+    .ack-field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    .ack-field select option {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .ack-checks {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      margin: .5rem 0;
+    }
+
+    .ack-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: var(--radius-sm);
+      padding: .85rem 1rem;
+      cursor: pointer;
+      transition: border-color .15s;
+    }
+
+    .ack-check:hover {
+      border-color: #444;
+    }
+
+    .ack-check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      accent-color: #fff;
+      margin-top: 1px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .ack-check-text {
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.55;
+    }
+
+    .ack-check-text strong {
+      color: #ddd;
+      font-weight: 500;
+    }
+
+    .ack-signature-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ack-signature-wrap label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    #sig-preview {
+      font-family: 'Georgia', serif;
+      font-size: 28px;
+      font-style: italic;
+      color: #fff;
+      min-height: 52px;
+      padding: 8px 14px;
+      background: #0d0d0d;
+      border: 1px solid #2a2a2a;
+      border-radius: var(--radius-sm);
+      letter-spacing: .02em;
+      transition: color .2s;
+      display: flex;
+      align-items: center;
+    }
+
+    #sig-preview.empty {
+      color: #333;
+      font-size: 14px;
+      font-style: normal;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .ack-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--black);
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .03em;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 13px 28px;
+      cursor: pointer;
+      transition: background .15s, transform .1s;
+      align-self: flex-start;
+      margin-top: .5rem;
+    }
+
+    .ack-submit:hover {
+      background: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .ack-submit:active {
+      transform: translateY(0) scale(.98);
+    }
+
+    .ack-submit:disabled {
+      background: #333;
+      color: #666;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .ack-submit svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ack-note {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.6;
+      margin-top: .5rem;
+    }
+
+    .ack-note strong {
+      color: #888;
+      font-weight: 500;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ack-success {
+      display: none;
+      background: #0d1f12;
+      border: 1px solid #1f4a28;
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      margin-top: 1rem;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .ack-success.show {
+      display: block;
+    }
+
+    .ack-success-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #4caf6e;
+      margin-bottom: .4rem;
+    }
+
+    .ack-success-body {
+      font-size: 13px;
+      color: #5a9e70;
+      line-height: 1.65;
+    }
+
+    .ack-error {
+      display: none;
+      background: #1f0d0d;
+      border: 1px solid #4a1f1f;
+      border-radius: var(--radius-sm);
+      padding: .85rem 1rem;
+      font-size: 13px;
+      color: #e07070;
+      margin-top: .5rem;
+    }
+
+    .ack-error.show {
+      display: block;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 3rem 1.25rem 2.5rem;
+      }
+
+      .container {
+        padding: 2.5rem 1.25rem 4rem;
+      }
+
+      .topbar {
+        padding: 12px 1.25rem;
+      }
+
+      .timeline {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ack-row {
+        grid-template-columns: 1fr;
+      }
+
+      .ack-section {
+        padding: 2.5rem 1.25rem 3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top bar -->
+  <nav class="topbar" role="navigation" aria-label="Site navigation">
+    <a class="topbar-logo" href="#">Obsidian Six <span>/ HR</span></a>
+    <span class="topbar-tag">Internal Policy</span>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" role="banner">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Obsidian Six — Internal Policy</p>
+      <h1>Employee Exit &amp; <em>Handover</em> Policy</h1>
+      <p class="hero-desc">This page outlines all mandatory steps, obligations, and conditions every team member must
+        complete before their last working day. Please read carefully — non-compliance has serious consequences.</p>
+      <div class="hero-meta">
+        <span class="meta-chip">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          Effective immediately
+        </span>
+        <span class="meta-chip">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          All employees
+        </span>
+        <span class="meta-chip">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          Last updated: May 2026
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Section 1: Checklist -->
+    <section class="section" aria-labelledby="sec-checklist">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <path d="M9 11l3 3L22 4" />
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+          </svg>
+        </div>
+        <h2 id="sec-checklist">Mandatory handover checklist</h2>
+      </div>
+      <div class="card">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body"><strong>Submit full handover document</strong> — A comprehensive written document
+            covering all ongoing projects, task status, pending deliverables, and key contacts must be prepared and
+            submitted to your reporting manager.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body"><strong>Transfer all credentials</strong> — All work-related login IDs, passwords,
+            access tokens, API keys, and system credentials must be handed over securely to your manager or the IT team.
+            No exceptions.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body"><strong>Hand over all project files &amp; documents</strong> — Every file, design
+            asset, codebase, database, spreadsheet, or document created during your employment must be transferred to
+            the designated Obsidian Six repository. Nothing is to be retained personally.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body"><strong>Briefing session</strong> — Conduct a live briefing (minimum 1 session) with
+            the team member or manager taking over your responsibilities. Ensure complete knowledge transfer.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body"><strong>Return all company property</strong> — Devices, access cards, SIM cards,
+            hardware, and any other Obsidian Six-issued equipment must be returned before your last working day.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-body"><strong>Send the official exit email</strong> — A formal email confirming completion of
+            all handover items must be sent to <strong>hr@obsidiansix.com</strong> with your manager in copy, at least 3
+            days before your last working day.</div>
+        </div>
+      </div>
+      <div class="callout blue">
+        <p>
+          Send your handover confirmation email to:
+          <span class="email-chip">
+            <svg class="ic" viewBox="0 0 24 24" stroke="#2a4da0" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            hr@obsidiansix.com
+          </span>
+          <br><br>
+          <strong>Subject line format:</strong> [Your Name] – Handover Completion – [Last Working Date]<br>
+          Attach your handover document, project status sheet, and manager acknowledgment in the same email.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: Timeline -->
+    <section class="section" aria-labelledby="sec-timeline">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+            stroke="var(--muted)" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+        </div>
+        <h2 id="sec-timeline">Exit timeline</h2>
+      </div>
+      <div class="timeline">
+        <div class="t-card">
+          <p class="t-day">Notice period</p>
+          <p class="t-desc">Begin preparing handover document immediately</p>
+        </div>
+        <div class="t-card">
+          <p class="t-day">7 days before</p>
+          <p class="t-desc">Submit draft handover document to your manager</p>
+        </div>
+        <div class="t-card">
+          <p class="t-day">3 days before</p>
+          <p class="t-desc">Send official exit email to hr@obsidiansix.com</p>
+        </div>
+        <div class="t-card">
+          <p class="t-day">1 day before</p>
+          <p class="t-desc">All files transferred &amp; credentials submitted</p>
+        </div>
+        <div class="t-card">
+          <p class="t-day">Last day</p>
+          <p class="t-desc">Return all company property &amp; receive clearance</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Data & IP -->
+    <section class="section" aria-labelledby="sec-ip">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+            stroke="var(--muted)" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+        </div>
+        <h2 id="sec-ip">Data, IP &amp; confidentiality rules</h2>
+      </div>
+      <div class="card">
+        <div class="rule">
+          <div class="rule-icon">
+            <svg class="ic" viewBox="0 0 24 24" stroke="var(--red-icon)" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="15" y1="9" x2="9" y2="15" />
+              <line x1="9" y1="9" x2="15" y2="15" />
+            </svg>
+          </div>
+          <div class="rule-body"><strong>No personal use of company data</strong> — Any data, client information,
+            project details, codebase, or internal documents created during your employment is the sole intellectual
+            property of Obsidian Six. You may not use, copy, or store this for any personal purpose.</div>
+        </div>
+        <div class="rule">
+          <div class="rule-icon">
+            <svg class="ic" viewBox="0 0 24 24" stroke="var(--red-icon)" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="15" y1="9" x2="9" y2="15" />
+              <line x1="9" y1="9" x2="15" y2="15" />
+            </svg>
+          </div>
+          <div class="rule-body"><strong>No use in personal portfolio without written permission</strong> — Work
+            completed under Obsidian Six cannot be showcased in personal portfolios, social media, freelance profiles,
+            or any external platform without prior written approval from management. Submit a written request to
+            hr@obsidiansix.com before your last day if approval is needed.</div>
+        </div>
+        <div class="rule">
+          <div class="rule-icon">
+            <svg class="ic" viewBox="0 0 24 24" stroke="var(--red-icon)" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="15" y1="9" x2="9" y2="15" />
+              <line x1="9" y1="9" x2="15" y2="15" />
+            </svg>
+          </div>
+          <div class="rule-body"><strong>No sharing with third parties</strong> — Client data, internal strategies,
+            pricing, employee information, or any confidential business information must not be shared with any external
+            person, company, or platform — during or after employment.</div>
+        </div>
+        <div class="rule">
+          <div class="rule-icon">
+            <svg class="ic" viewBox="0 0 24 24" stroke="var(--red-icon)" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="15" y1="9" x2="9" y2="15" />
+              <line x1="9" y1="9" x2="15" y2="15" />
+            </svg>
+          </div>
+          <div class="rule-body"><strong>No retention of credentials</strong> — You are strictly prohibited from
+            retaining, storing, or using any Obsidian Six system credentials, IDs, or passwords after your last working
+            day.</div>
+        </div>
+        <div class="rule">
+          <div class="rule-icon">
+            <svg class="ic" viewBox="0 0 24 24" stroke="var(--red-icon)" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="15" y1="9" x2="9" y2="15" />
+              <line x1="9" y1="9" x2="15" y2="15" />
+            </svg>
+          </div>
+          <div class="rule-body"><strong>No access to company systems after exit</strong> — Any unauthorised access to
+            Obsidian Six systems, accounts, tools, or platforms after your exit date will be treated as a serious breach
+            and reported to appropriate legal authorities.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Salary -->
+    <section class="section" aria-labelledby="sec-salary">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+            stroke="var(--muted)" aria-hidden="true">
+            <line x1="12" y1="1" x2="12" y2="23" />
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          </svg>
+        </div>
+        <h2 id="sec-salary">Salary, dues &amp; final settlement</h2>
+      </div>
+      <div class="card">
+        <div class="rule">
+          <div class="rule-icon">
+            <svg class="ic" viewBox="0 0 24 24" stroke="var(--green-icon)" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
+          <div class="rule-body">Full salary and dues will be processed <strong>only after</strong> the complete
+            handover is verified and approved by your manager and HR.</div>
+        </div>
+        <div class="rule">
+          <div class="rule-icon">
+            <svg class="ic" viewBox="0 0 24 24" stroke="var(--green-icon)" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
+          <div class="rule-body">Experience letters, relieving letters, and all reference documentation will be issued
+            <strong>only upon successful completion</strong> of all exit obligations listed on this page.
+          </div>
+        </div>
+        <div class="rule">
+          <div class="rule-icon">
+            <svg class="ic" viewBox="0 0 24 24" stroke="var(--green-icon)" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
+          <div class="rule-body">Incomplete handover will result in a hold on final settlement until all pending items
+            are fully resolved. This is contractually binding and cannot be waived.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Consequences -->
+    <section class="section" aria-labelledby="sec-consequences">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+            stroke="var(--muted)" aria-hidden="true">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+        </div>
+        <h2 id="sec-consequences">Consequences of non-compliance</h2>
+      </div>
+      <div class="callout red">
+        <p><strong>Important:</strong> Leaving Obsidian Six without completing the mandatory handover process is a
+          breach of your employment contract. Obsidian Six reserves the right to take the following actions against any
+          employee who fails to comply. If handover is not completed within one week of your exit date, you will not be
+          eligible for final salary release, relieving letters, or any other company-issued documents, and legal action
+          may be initiated.</p>
+      </div>
+      <div class="con-grid">
+        <div class="con-card">
+          <div class="con-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <p class="con-title">Legal action</p>
+          <p class="con-desc">Contractual breach may result in formal legal proceedings</p>
+        </div>
+        <div class="con-card">
+          <div class="con-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+            </svg>
+          </div>
+          <p class="con-title">Salary withheld</p>
+          <p class="con-desc">Final pay and all dues held until full compliance is confirmed</p>
+        </div>
+        <div class="con-card">
+          <div class="con-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <line x1="9" y1="15" x2="15" y2="15" />
+              <line x1="9" y1="18" x2="11" y2="18" />
+            </svg>
+          </div>
+          <p class="con-title">No relieving letter</p>
+          <p class="con-desc">Experience &amp; relieving documents will not be issued without clearance</p>
+        </div>
+        <div class="con-card">
+          <div class="con-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+            </svg>
+          </div>
+          <p class="con-title">Data misuse action</p>
+          <p class="con-desc">Unauthorised use of company IP or data will be prosecuted</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Portfolio permission -->
+    <section class="section" aria-labelledby="sec-portfolio">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+            stroke="var(--muted)" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+        </div>
+        <h2 id="sec-portfolio">How to request portfolio permission</h2>
+      </div>
+      <div class="card">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">Send a written request to <strong>hr@obsidiansix.com</strong> specifying exactly which
+            project(s) or work you wish to reference, and the platform or context it will be used in.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">HR will review with management and respond within 5 working days with a written
+            approval or rejection.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">No work may be shared externally until <strong>written approval is received</strong>.
+            Verbal approvals are not valid and will not be honoured.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+  </main>
+
+  <!-- Acknowledgment Form -->
+  <section class="ack-section" aria-labelledby="ack-heading">
+    <div class="ack-inner">
+      <p class="ack-eyebrow">Official acknowledgment</p>
+      <h2 id="ack-heading">I have read &amp; understood this policy</h2>
+      <p class="ack-desc">By completing this form, you confirm that you have read the full Obsidian Six Exit &amp;
+        Handover Policy and agree to comply with all conditions. A confirmation email will open in your email app —
+        please send it as-is to complete your acknowledgment.</p>
+
+      <div class="ack-form" id="ackForm">
+
+        <div class="ack-row">
+          <div class="ack-field">
+            <label for="emp-name">Full name <span style="color:#c94124">*</span></label>
+            <input type="text" id="emp-name" placeholder="e.g. Rahul Sharma" autocomplete="name">
+          </div>
+          <div class="ack-field">
+            <label for="emp-id">Employee ID <span style="color:#c94124">*</span></label>
+            <input type="text" id="emp-id" placeholder="e.g. OS-0042">
+          </div>
+        </div>
+
+        <div class="ack-row">
+          <div class="ack-field">
+            <label for="emp-email">Your work email <span style="color:#c94124">*</span></label>
+            <input type="email" id="emp-email" placeholder="you@obsidiansix.com" autocomplete="email">
+          </div>
+          <div class="ack-field">
+            <label for="emp-dept">Department <span style="color:#c94124">*</span></label>
+            <select id="emp-dept">
+              <option value="" disabled selected>Select department</option>
+              <option>Design</option>
+              <option>Engineering</option>
+              <option>Marketing</option>
+              <option>Operations</option>
+              <option>Sales</option>
+              <option>Finance</option>
+              <option>HR</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ack-field">
+          <label for="emp-last-day">Last working date <span style="color:#c94124">*</span></label>
+          <input type="date" id="emp-last-day" style="color-scheme: dark;">
+        </div>
+
+        <div class="ack-checks">
+          <label class="ack-check">
+            <input type="checkbox" id="chk1">
+            <span class="ack-check-text"><strong>Handover obligation</strong> — I understand I must submit a complete
+              handover document, transfer all credentials, and hand over all project files before my last working
+              day.</span>
+          </label>
+          <label class="ack-check">
+            <input type="checkbox" id="chk2">
+            <span class="ack-check-text"><strong>IP &amp; confidentiality</strong> — I acknowledge that all work, data,
+              and documents created during my employment belong to Obsidian Six and I will not use them for personal
+              purposes or share them externally.</span>
+          </label>
+          <label class="ack-check">
+            <input type="checkbox" id="chk3">
+            <span class="ack-check-text"><strong>Portfolio restriction</strong> — I will not showcase any Obsidian Six
+              work in my personal portfolio or on any public platform without prior written approval from
+              management.</span>
+          </label>
+          <label class="ack-check">
+            <input type="checkbox" id="chk4">
+            <span class="ack-check-text"><strong>Settlement conditions</strong> — I understand that my final salary,
+              experience letter, and relieving letter will only be issued after full handover is verified, and that
+              legal action may be taken in case of non-compliance.</span>
+          </label>
+        </div>
+
+        <div class="ack-signature-wrap">
+          <label>Your signature (type your full name)</label>
+          <input type="text" id="sig-input" placeholder="Type your full name to sign"
+            style="background:#1a1a1a; border:1px solid #333; border-radius:6px; padding:10px 14px; font-size:14px; color:#fff; font-family:'DM Sans',sans-serif; outline:none; width:100%;"
+            oninput="updateSig(this.value)">
+          <div id="sig-preview" class="empty">Your signature will appear here</div>
+        </div>
+
+        <div id="ackError" class="ack-error">Please fill in all required fields, check all acknowledgment boxes, and
+          sign before submitting.</div>
+
+        <button class="ack-submit" id="ackBtn" onclick="submitAck()">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 2L11 13" />
+            <path d="M22 2L15 22 11 13 2 9l20-7z" />
+          </svg>
+          Send acknowledgment email
+        </button>
+
+        <p class="ack-note">
+        <div class="ack-success" id="ackOk">
+          <p class="ack-success-title">✓ Sent & PDF Downloaded</p>
+          <p class="ack-success-body">Your acknowledgment has been sent to <strong>hr@obsidiansix.com</strong> and
+            your signed PDF has been downloaded for your records. No further action is needed.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <span class="footer-logo">Obsidian Six</span>
+    <p>Questions about this policy? Contact us at <strong>hr@obsidiansix.com</strong></p>
+    <p style="margin-top:.4rem">This policy is part of your employment agreement with <strong>Obsidian
+        Six</strong>.<br>By being employed here, you agree to all terms outlined above.</p>
+    <p style="margin-top:.75rem; font-size:12px; opacity:.6">© 2026 Obsidian Six. All rights reserved. &nbsp;·&nbsp;
+      Last updated: May 2026</p>
+  </footer>
+
+  <script>
+    // Intersection Observer for section animations
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('header, section, footer').forEach(el => {
+      observer.observe(el);
+    });
+
+    function updateSig(val) {
+      var el = document.getElementById('sig-preview');
+      if (val.trim()) {
+        el.textContent = val;
+        el.classList.remove('empty');
+        el.style.color = '#fff';
+      } else {
+        el.textContent = 'Your signature will appear here';
+        el.classList.add('empty');
+      }
+    }
+
+    function submitAck() {
+      var name = document.getElementById('emp-name').value.trim();
+      var empId = document.getElementById('emp-id').value.trim();
+      var email = document.getElementById('emp-email').value.trim();
+      var dept = document.getElementById('emp-dept').value;
+      var lastDay = document.getElementById('emp-last-day').value;
+      var sig = document.getElementById('sig-input').value.trim();
+      var chk1 = document.getElementById('chk1').checked;
+      var chk2 = document.getElementById('chk2').checked;
+      var chk3 = document.getElementById('chk3').checked;
+      var chk4 = document.getElementById('chk4').checked;
+      var errEl = document.getElementById('ackError');
+
+      if (!name || !empId || !email || !dept || !lastDay || !sig || !chk1 || !chk2 || !chk3 || !chk4) {
+        errEl.classList.add('show');
+        errEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+      errEl.classList.remove('show');
+
+      var now = new Date();
+      var timestamp = now.toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' });
+
+      var formattedLastDay = lastDay
+        ? new Date(lastDay).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
+        : 'Not specified';
+
+      // UI Feedback
+      var btnEl = document.getElementById('ackBtn');
+      btnEl.disabled = true;
+      btnEl.textContent = 'Sending...';
+
+      // 1. Generate PDF
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.setFontSize(20);
+      doc.text("OFFICIAL EXIT & HANDOVER ACKNOWLEDGMENT", 20, 20);
+      doc.setFontSize(12);
+      doc.text("Generated on: " + timestamp, 20, 30);
+      doc.setFontSize(14);
+      doc.text("EMPLOYEE DETAILS", 20, 45);
+      doc.setFontSize(11);
+      doc.text("Full Name: " + name, 25, 55);
+      doc.text("Employee ID: " + empId, 25, 62);
+      doc.text("Work Email: " + email, 25, 69);
+      doc.text("Department: " + dept, 25, 76);
+      doc.text("Last Working Day: " + formattedLastDay, 25, 83);
+      doc.setFontSize(14);
+      doc.text("ACKNOWLEDGMENT & AGREEMENT", 20, 100);
+      doc.setFontSize(10);
+      const splitText = doc.splitTextToSize("I, " + name + ", have read, understood, and agree to comply with the Obsidian Six Employee Exit & Handover Policy. I acknowledge my obligations regarding handover documentation, transfer of credentials, return of company property, and strict confidentiality of company data and intellectual property.", 160);
+      doc.text(splitText, 25, 110);
+      doc.setFontSize(14);
+      doc.text("DIGITAL SIGNATURE", 20, 145);
+      doc.setFontSize(11);
+      doc.text("Signed by: " + sig, 25, 155);
+      doc.text("Date & Time: " + timestamp, 25, 162);
+      doc.setFontSize(9);
+      doc.setTextColor(100);
+      doc.text("This document forms part of the official exit records for Obsidian Six.", 20, 280);
+
+      // 1. Generate & Download PDF (User's Copy)
+      try {
+        doc.save("Exit_Acknowledgment_" + name.replace(/\s+/g, '_') + ".pdf");
+      } catch (e) { console.error("Download failed", e); }
+
+      // 2. Prepare Form Data for AJAX (HR's Record)
+      var formData = new FormData();
+      formData.append('_subject', '[Exit Policy Acknowledgment] ' + name + ' — ' + empId);
+      formData.append('_cc', email);
+      
+      var emailBody = 'OFFICIAL POLICY ACKNOWLEDGMENT\n' +
+                      '================================\n\n' +
+                      'This email serves as an official record of exit acknowledgment.\n\n' +
+                      'EMPLOYEE DETAILS\n' +
+                      '----------------\n' +
+                      'Full Name       : ' + name + '\n' +
+                      'Employee ID     : ' + empId + '\n' +
+                      'Work Email      : ' + email + '\n' +
+                      'Department      : ' + dept + '\n' +
+                      'Last Working Day: ' + formattedLastDay + '\n' +
+                      'Submitted on    : ' + timestamp + '\n\n' +
+                      'DIGITAL SIGNATURE\n' +
+                      '-----------------\n' +
+                      'Signed by: ' + sig + '\n' +
+                      'Date     : ' + timestamp + '\n\n' +
+                      '================================\n' +
+                      'Note: The employee has downloaded a signed PDF copy of this acknowledgment.\n' +
+                      'Policy URL: ' + window.location.href;
+      
+      formData.append('message', emailBody);
+
+      // 3. Submit via AJAX
+      fetch('https://formsubmit.co/ajax/hr@obsidiansix.com', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
+        })
+        .then(data => {
+          console.log('Success:', data);
+          document.getElementById('ackOk').classList.add('show');
+          btnEl.textContent = '✓ Acknowledgment Sent';
+          document.getElementById('ackOk').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        })
+        .catch(error => {
+          console.error('Submission Error:', error);
+          btnEl.disabled = false;
+          btnEl.textContent = 'Send acknowledgment email';
+          var errEl = document.getElementById('ackError');
+          if (errEl) {
+            errEl.textContent = 'Submission failed. Please check your internet or try again. Error: ' + error.message;
+            errEl.classList.add('show');
+          } else {
+            alert('Submission failed. Error: ' + error.message);
+          }
+        });
+    }
+  </script>
+
+</body>
+
+</html>
