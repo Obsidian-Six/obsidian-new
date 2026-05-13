@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import caseStudiesData from "@/lib/store/case-studies";
-import { GoArrowRight, GoArrowUpRight } from "react-icons/go";
+import { GoArrowUpRight } from "react-icons/go";
 
 const OurWork = () => {
   const containerRef = useRef(null);

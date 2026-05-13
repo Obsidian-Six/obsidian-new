@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import type { ReactNode, Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 
 const OverviewPage = () => {
@@ -45,7 +46,19 @@ const OverviewPage = () => {
     const [brandingHover, setBrandHover] = useState(0);
 
     // Reusable Component to ensure identical Left Alignment for all sections
-    const ServiceSection = ({ title, list, hoverIndex, setHoverIndex, isFlipped = false }) => (
+    const ServiceSection = ({
+        title,
+        list,
+        hoverIndex,
+        setHoverIndex,
+        isFlipped = false,
+    }: {
+        title: ReactNode;
+        list: { id: number; title: string; img: string }[];
+        hoverIndex: number;
+        setHoverIndex: Dispatch<SetStateAction<number>>;
+        isFlipped?: boolean;
+    }) => (
         <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-24 bg-white border-b border-gray-50 last:border-0">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 
