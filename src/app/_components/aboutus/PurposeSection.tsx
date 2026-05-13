@@ -1,75 +1,68 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
-export default function PurposeSection() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    // Cast `ease` to `any` because framer-motion's TypeScript definitions may not accept named easing strings
-    transition: { duration: 0.8, ease: "easeInOut" as any },
-  };
+const purposeItems = [
+  { icon: "🚀", title: "Purposeful Creativity", desc: "Design driven by intention, not just aesthetics." },
+  { icon: "📈", title: "Strategic Growth", desc: "Scaling businesses with data-driven precision." },
+  { icon: "💡", title: "Digital Innovation", desc: "Building future-proof tech solutions." },
+  { icon: "🎯", title: "Brand Dominance", desc: "Securing your position as a market leader." }
+];
+
+export function PurposeContent() {
+  const containerRef = useRef(null);
+  
+  // We use a smaller scroll range so the items rotate quickly as you pass the section
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const yTransform = useTransform(scrollYProgress, [0.3, 0.7], ["0%", "-75%"]);
 
   return (
-    <div className="relative w-full">
-      {/* Targeted Ambient Glow - updated to #024787 */}
-      <div className="absolute top-0 -right-[10%] w-[500px] h-[500px] bg-[#024787]/10 blur-[120px] rounded-full z-0 pointer-events-none" />
-
-      <div className="relative z-10">
-        {/* --- TOP GRID SECTION --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24 md:mb-32">
-          <motion.div className="lg:col-span-8" {...fadeInUp}>
-            <span className="text-[10px] md:text-xs tracking-[0.4em] uppercase opacity-60 font-mono block mb-6">
-              [ Our Purpose ]
-            </span>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight max-w-3xl">
-              Obsidian Six: Crafting the digital edge your brand deserves
-            </h2>
-          </motion.div>
-
-          <motion.div 
-            className="lg:col-span-4 flex flex-col items-start lg:pt-24"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="relative mb-6">
-              <div className="w-14 h-14 rounded-full border border-black/5 p-1 bg-black overflow-hidden mb-4 ring-4 ring-[#024787]/10">
-                <div className="w-full h-full bg-gradient-to-tr from-[#024787] to-[#024787]/60 rounded-full flex items-center justify-center text-lg">
-                  🚀
-                </div>
-              </div>
-              <div className="bg-[#024787] px-4 py-1 inline-block">
-                <span className="text-[11px] font-bold text-white tracking-wider uppercase block">
-                  Purposeful Creativity
-                </span>
-              </div>
-            </div>
-            <p className="text-sm opacity-40 leading-relaxed max-w-[200px]">
-              Design driven by intention, not just aesthetics.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* --- CENTERED QUOTE --- */}
+    <div ref={containerRef} className="relative w-full py-20 md:py-32 overflow-hidden bg-transparent">
+      {/* Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#024787]/5 blur-[120px] rounded-full z-0 pointer-events-none" />
+      
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center px-6 max-w-7xl mx-auto w-full">
         <motion.div 
-          className="text-center pb-20"
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
+          className="lg:col-span-7"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-light italic font-serif leading-tight text-black/90">
-            “We exist to turn vision into{" "}
-            <span className="bg-[#024787] px-3 py-1 not-italic font-sans font-bold text-white tracking-tighter">
-              results
-            </span>
-            {" "}—<br className="hidden md:block" />
-            and brands into{" "}
-            <span className="bg-[#024787] px-3 py-1 not-italic font-sans font-bold text-white tracking-tighter">
-              experiences
-            </span>.”
-          </h3>
+          <span className="text-[10px] md:text-xs tracking-[0.4em] uppercase opacity-60 font-mono block mb-6 text-[#024787] font-bold">
+            [ Our Purpose ]
+          </span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight text-slate-900">
+            Obsidian Six: Crafting the <span className="italic font-serif">digital edge</span> your brand deserves
+          </h2>
         </motion.div>
+
+        <div className="lg:col-span-5 flex flex-col items-start lg:pl-12">
+          {/* Masked Scroll Area - Adjusted height to fit exactly one item at a time */}
+          <div className="h-[200px] overflow-hidden relative w-full" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)' }}>
+            <motion.div style={{ y: yTransform }} className="flex flex-col w-full">
+              {purposeItems.map((item, idx) => (
+                <div key={idx} className="h-[200px] flex flex-col justify-center shrink-0">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center text-lg bg-[#024787] text-white shadow-lg shadow-[#024787]/20">
+                      {item.icon}
+                    </div>
+                    <div className="bg-[#024787] px-3 py-1">
+                      <span className="text-[11px] font-bold text-white tracking-wider uppercase">{item.title}</span>
+                    </div>
+                  </div>
+                  <p className="text-base text-slate-500 max-w-[280px] leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
       </div>
     </div>
   );

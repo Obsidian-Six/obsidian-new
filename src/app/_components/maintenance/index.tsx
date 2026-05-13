@@ -1,3 +1,4 @@
+"use client";
 import { GoArrowUpRight } from "react-icons/go";
 import { MotionDiv, MotionH2, MotionP } from "@/lib/motion";
 import Link from "next/link";
@@ -14,16 +15,26 @@ export default function Maintenance() {
   return (
     <section className="max-w-7xl mx-auto px-4 overflow-hidden font-sans" id="maintenance">
       {/* Heading */}
-      <MotionH2
-        variants={variants}
-        initial="start"
-        whileInView="end"
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: false }}
-        className="text-6xl mt-28 textmain font-medium  leading-[1.1] max-md:text-4xl max-md:leading-snug tracking-tighter"
-      >
-        We Exist To Convert Your <span className="italic font-serif font-light text-[#024787]">Imagination</span> Into Achievements.
-      </MotionH2>
+      <div className="mb-12 mt-28">
+        <MotionDiv
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-bold"
+        >
+          [ Our Mission ]
+        </MotionDiv>
+        <MotionH2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-4xl md:text-5xl lg:text-6xl text-slate-950 font-light tracking-tighter leading-[1.1]"
+        >
+          We Exist To Convert Your <br className="hidden md:block" />
+          <span className="italic font-serif text-[#024787]">Imagination</span> Into Achievements.
+        </MotionH2>
+      </div>
 
       {/* Subtitle */}
       <MotionP
@@ -39,10 +50,10 @@ export default function Maintenance() {
       
       {/* CTA Button */}
       <Link
-        href={"/"}
-        className="font-bold text-sm px-8 py-4 text-white flex items-center gap-2 bg-[#024787] my-6 w-fit rounded-full hover:bg-[#0864b9] transition-all"
+        href={"/#contactUs"}
+        className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10 w-fit my-6"
       >
-        Start Growing <GoArrowUpRight className="text-2xl" />
+        Start Growing <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
       </Link>
 
       {/* Maintenance Service Cards */}

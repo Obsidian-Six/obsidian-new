@@ -32,16 +32,21 @@ export default function FAQ() {
 
   return (
     <section className="py-24 bg-white font-sans overflow-hidden">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         
-        {/* Bold Header - White Layout */}
-        <div className="mb-14 border-l-4 border-[#024787] pl-6">
-          <h2 className="text-4xl md:text-6xl  text-black tracking-tighter leading-none">
-            FAQ<span className="text-[#024787]">.</span>
+        {/* Header */}
+        <div className="mb-14">
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-bold"
+          >
+            [ FAQ ]
+          </motion.span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-slate-950 font-light tracking-tighter leading-none">
+            Questions<span className="text-[#024787]">.</span>
           </h2>
-          <p className="text-gray-500 text-sm mt-2 uppercase tracking-[0.2em] font-bold">
-            Support Center
-          </p>
         </div>
 
         {/* High-Contrast Accordion */}

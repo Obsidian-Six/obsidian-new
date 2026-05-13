@@ -1,4 +1,5 @@
-import ServicePage from "../_components/servicepage/servicepage";
+import OverviewPage from "../_components/overview/page";
+
 export const metadata = {
   title: "Services | Obsidian Six",
   description: "Learn more about the minds behind building digital experiences that lead to real growth.",
@@ -7,7 +8,7 @@ export const metadata = {
 export default function Services() {
   return (
     <main>
-      <ServicePage />
+      <OverviewPage />
     </main>
   );
 }

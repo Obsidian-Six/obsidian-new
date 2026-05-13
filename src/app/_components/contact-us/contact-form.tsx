@@ -196,14 +196,14 @@ const ContactForm = () => {
       <div className="flex justify-end">
         <button
           disabled={isSubmitting}
-          className={`font-medium text-sm px-6 py-3 text-white flex items-center gap-3 bg-[#024787] transition-all active:scale-95 group ${
-            isSubmitting ? "opacity-50 cursor-progress" : "opacity-100 cursor-pointer hover:bg-[#4800cc]"
+          className={`group inline-flex items-center justify-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-lg shadow-[#024787]/10 ${
+            isSubmitting ? "opacity-50 cursor-progress" : "opacity-100 cursor-pointer hover:bg-[#024787]"
           }`}
           type="submit"
         >
           {isSubmitting ? "Sending..." : (
             <>
-              Send Enquiry <GoArrowUpRight className="text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              Send Enquiry <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
             </>
           )}
         </button>

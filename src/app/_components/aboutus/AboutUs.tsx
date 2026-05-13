@@ -3,8 +3,10 @@ import Image from "next/image";
 import { GoArrowUpRight } from "react-icons/go";
 import { MotionDiv } from "@/lib/motion";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import PurposeSection from "./PurposeSection";
 import { useState } from "react";
+
+import { PurposeContent } from "./PurposeSection";
+import { VisionQuote } from "./VisionQuote";
 import ContactPopup from "../ContactPopup/ContactPopup";
 import OurStory from "../OurStory";
 
@@ -12,7 +14,6 @@ export default function AboutUs() {
   const { scrollYProgress } = useScroll();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  // Parallax for background glows
   const yGlow1 = useTransform(scrollYProgress, [0, 1], [0, -200]);
   const yGlow2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
@@ -28,30 +29,34 @@ export default function AboutUs() {
       title: "Strategy & Leadership",
       desc: "Our strategic thinkers bring clarity and a growth-driven mindset to guide every project toward impactful results.",
       image: "/StratergyTeamcrop1.jpeg",
-      gradient: "from-[#024787]/20" // Updated color
+      gradient: "from-[#024787]/20"
     },
     {
       title: "Creative & Design",
       desc: "Designers specializing in branding, UI/UX, and motion graphics craft visuals that are purposeful.",
       image: "/creativecrop.jpeg",
-      gradient: "from-[#024787]/20" // Updated color
+      gradient: "from-[#024787]/20"
     },
     {
       title: "Technology & Dev",
       desc: "Our developers build fast, reliable, and scalable digital experiences from websites to custom apps.",
       image: "/developerscrop.jpeg",
-      gradient: "from-[#024787]/20" // Updated color
+      gradient: "from-[#024787]/20"
     },
     {
       title: "Marketing & Growth",
       desc: "Digital marketers and SEO specialists work together to drive visibility and measurable results.",
       image: "/marketing&seoCrop.jpeg",
-      gradient: "from-[#024787]/20" // Updated color
+      gradient: "from-[#024787]/20"
     },
   ];
 
   return (
-    <section id="aboutus" className="relative bg-[#F8F9FA] text-slate-900 py-16 md:py-24 overflow-hidden">
+    /* 
+       ADDED: pt-28 (mobile) and md:pt-36 (desktop) 
+       This pushes the entire page content down so it doesn't collide with the Header.
+    */
+    <section id="aboutus" className="relative bg-[#F8F9FA] text-slate-900 pt-28 md:pt-36 pb-12 md:pb-16 overflow-hidden">
 
       {/* --- AMBIENT BACKGROUND --- */}
       <motion.div
@@ -68,10 +73,10 @@ export default function AboutUs() {
         {/* --- HEADER SECTION --- */}
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12">
           <MotionDiv className="lg:col-span-8" {...fadeInUp}>
-            <span className="inline-block px-3 py-1 border border-slate-900/10 rounded-full text-[10px] tracking-[0.2em] uppercase  text-slate-500 mb-6 bg-white shadow-sm">
+            <span className="inline-block px-3 py-1 border border-slate-900/10 rounded-full text-[10px] tracking-[0.2em] uppercase text-slate-500 mb-6 bg-white shadow-sm">
               [ About the Agency ]
             </span>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium  tracking-tighter text-slate-950 font-lato">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tighter text-slate-950">
               Digital experiences <br className="hidden md:block" />
               carved for the <br className="hidden md:block" />
               <span className="italic font-serif font-light text-[#024787]">real-world results.</span>
@@ -79,7 +84,7 @@ export default function AboutUs() {
           </MotionDiv>
 
           <MotionDiv
-            className="lg:col-span-4 lg:pt-32"
+            className="lg:col-span-4 lg:pt-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -98,22 +103,18 @@ export default function AboutUs() {
           </MotionDiv>
         </div>
 
-        {/* --- PURPOSE STATEMENT --- */}
-        <div className="my-32">
-          <MotionDiv {...fadeInUp} className="relative">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium max-w-5xl leading-tight text-slate-800 font-lato">
-             We transform <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#024787] to-[#024787]/80 italic">ambition</span> into performance through powerful <span className="underline decoration-[#024787]/30 underline-offset-8">digital innovation.</span>
-            </h2>
-          </MotionDiv>
+        {/* --- PURPOSE CONTENT --- */}
+        <div className="mt-12 md:mt-16">
+          <PurposeContent />
         </div>
 
-        {/* --- PURPOSE SECTION COMPONENT --- */}
-        <div className="mt-24 mb-32 md:mt-32 md:mb-40 border-t border-slate-900/5 pt-24 md:pt-32">
-          <PurposeSection />
+        {/* --- VISION QUOTE --- */}
+        <div className="-mt-32 md:-mt-48 relative z-20">
+          <VisionQuote />
         </div>
 
         {/* --- TEAM SECTION --- */}
-        <div className="mt-20 md:mt-32">
+        <div className="mt-16 md:mt-24">
           <MotionDiv {...fadeInUp} className="mb-10 md:mb-16">
             <span className="text-xs tracking-[0.3em] uppercase text-[#024787] font-bold">01 // Our Squad</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-2 text-slate-900">The Minds Behind</h2>
@@ -160,10 +161,9 @@ export default function AboutUs() {
         {/* --- COMPACT FOUNDER SECTION --- */}
         <MotionDiv
           {...fadeInUp}
-          className="mt-24 md:mt-32 relative group p-[1px] bg-white shadow-2xl shadow-slate-200 rounded-[32px] overflow-hidden"
+          className="mt-20 md:mt-32 relative group p-[1px] bg-white shadow-2xl shadow-slate-200 rounded-[32px] overflow-hidden"
         >
           <div className="bg-white rounded-[31px] flex flex-col lg:grid lg:grid-cols-12 overflow-hidden items-stretch">
-
             <div className="lg:col-span-5 relative overflow-hidden aspect-[4/5] lg:aspect-auto">
               <Image
                 src="/founder.jpeg"
@@ -208,6 +208,8 @@ export default function AboutUs() {
                   <a
                     key={social.name}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-xs uppercase tracking-widest font-black text-slate-400 hover:text-[#024787] transition-all duration-300"
                   >
                     {social.name}
@@ -217,8 +219,6 @@ export default function AboutUs() {
             </div>
           </div>
         </MotionDiv>
-
-
       </div>
 
       <OurStory />

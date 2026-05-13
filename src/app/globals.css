@@ -86,12 +86,12 @@
 
 @layer base {
   body {
-    @apply font-lato font-light; /* Sets weight 300 as the global default */
-    font-family: var(--font-lato);
+    @apply font-poppins font-normal; /* Poppins 400 as the global default */
+    font-family: var(--font-poppins);
   }
 
   header {
-    @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent;
+    @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent font-poppins font-normal;
     height: var(--header-height);
     display: flex;
     align-items: center;
@@ -111,20 +111,20 @@
   --color-foreground: var(--foreground);
 
   /* Fonts - THIS TELLS TAILWIND THE UTILITIES EXIST */
-  --font-lato: "Lato", sans-serif;
+  --font-lato: var(--font-lato), sans-serif;
   --font-times: "Times New Roman", serif;
+  --font-poppins: var(--font-poppins), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
   
-  /* Force all default sans and display to be Lato */
-  --font-sans: var(--font-lato);
-  --font-display: var(--font-lato);
-  --font-poppins: var(--font-lato);
-  --font-inter: var(--font-lato);
+  /* Force all default sans and display to be Poppins */
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-poppins);
 }
 
 /* Styles After Migration - To be overrode */
 @layer base {
   header {
-    @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent;
+    @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent font-poppins font-normal;
     height: var(--header-height);
     display: flex;
     align-items: center;

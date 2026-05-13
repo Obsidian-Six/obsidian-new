@@ -27,17 +27,29 @@ const Map = () => {
   return (
     // Changed pb-24 to pb-4 to remove bottom gap
     <section className="pt-16 pb-4 md:pt-24 md:pb-8 bg-white overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4 text-center">
+      <div className="max-w-7xl mx-auto px-6 text-left">
         
         {/* Title Section */}
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl lg:text-6xl font-lato text-[#1a1a1a] mb-2 tracking-tighter uppercase"
-        >
-          Powering Businesses <span className="italic font-serif normal-case">Worldwide</span>
-        </motion.h2>
+        <div className="mb-12">
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-bold"
+          >
+            [ Global Presence ]
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-4xl md:text-5xl lg:text-6xl text-slate-950 font-light tracking-tighter leading-[1.1]"
+          >
+            Powering Businesses <br className="hidden md:block" />
+            <span className="italic font-serif text-[#024787]">Worldwide.</span>
+          </motion.h2>
+        </div>
 
         {/* Ticker Tape */}
         <div className="relative mt-8 md:mt-10 flex overflow-hidden whitespace-nowrap py-4 border-y border-gray-100 bg-transparent">

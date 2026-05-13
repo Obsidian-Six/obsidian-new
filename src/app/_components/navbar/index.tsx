@@ -19,7 +19,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Function to force close the menu
   const closeMenu = () => setIsMegaMenuOpen(false);
 
   const navItems = [
@@ -35,13 +34,13 @@ export default function Navbar() {
 
   return (
     <>
-      <header 
-        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
-          isWhiteBg ? "bg-white shadow-md" : "bg-transparent" 
-        }`} 
+      <header
+        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${isWhiteBg ? "bg-white shadow-md" : "bg-transparent"
+          }`}
       >
-        <nav className="container mx-auto flex items-center justify-between px-6 h-20 md:h-24"> 
-          {/* Logo */}
+        <nav className="container mx-auto flex items-center justify-between px-6 h-20 md:h-24">
+
+          {/* Logo Section */}
           <Link href="/" className="z-50" onClick={closeMenu}>
             <Image
               id="nav-logo"
@@ -59,30 +58,22 @@ export default function Navbar() {
             {navItems.map((ele, i) => {
               const isServices = ele.name === "Services";
               return (
-                <li 
+                <li
                   key={i}
                   onMouseEnter={() => isServices && setIsMegaMenuOpen(true)}
                   onMouseLeave={() => isServices && setIsMegaMenuOpen(false)}
-                  // Added onClick here to close if any main nav item is clicked
                   onClick={closeMenu}
                   className={`h-full flex items-center ${isServices ? "static" : "relative"}`}
                 >
                   <Link
-                    className="px-2 py-1 text-black text-lg font-medium hover:text-[#FD7B28] transition-colors whitespace-nowrap"
+                    className="px-2 py-1 text-black text-lg font-poppins font-normal hover:text-[#FD7B28] transition-colors whitespace-nowrap"
                     href={ele.link}
                   >
                     {ele.name}
                   </Link>
 
-                  {/* Wrap MegaMenu in a div with onClick={closeMenu}. 
-                    This ensures clicking any link INSIDE the MegaMenu also closes it.
-                  */}
                   {isServices && (
-                    <div onClick={() => {
-                      // Stop propagation if you want to handle internal clicks differently, 
-                      // but for closing, we just call closeMenu.
-                      closeMenu();
-                    }}>
+                    <div onClick={() => closeMenu()}>
                       <MegaMenu isOpen={isMegaMenuOpen} />
                     </div>
                   )}

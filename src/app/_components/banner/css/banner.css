@@ -43,24 +43,12 @@
 -- Start BackGround Animation 
 */
 .area {
-    background-image: url('https://www.monster.com.vn/career-advice/wp-content/uploads/2021/08/PCM-Students-After-Class-12th.jpg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     width: 100%;
     height: 100%; /* Take up 100% of the React wrapper's height */
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
-}
-
-/* Fix for mobile browsers where 'fixed' attachment causes glitching */
-@media (max-width: 768px) {
-    .area {
-        background-attachment: scroll;
-    }
 }
 
 @media (max-width: 1024px) {

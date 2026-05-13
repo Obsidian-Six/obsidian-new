@@ -2,7 +2,7 @@
 import FloatingWhatsapp from "./_components/floating-whatsapp";
 import Footer from "./_components/footer";
 import Navbar from "./_components/navbar";
-import { Lato } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import type { ReactNode } from "react";
 
@@ -22,11 +22,20 @@ export const metadata = {
     canonical: "https://obsidiansix.com/",
   },
 };
-const lato = Lato({
+
+
+const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['300', '400', '700'], // 300 is the "Light" weight
-  variable: '--font-lato',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
 });
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
+
+
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   // --- ADDED ORGANIZATION SCHEMA ---
@@ -76,7 +85,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   };
 
   return (
-    <html lang="en" className={`${lato.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
       <head>
         {/* Injecting Organization Schema sitewide */}
         <script

@@ -45,7 +45,7 @@ export default function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClo
                   <Link
                     href={item.link}
                     onClick={onClose}
-                    className="text-2xl font-light tracking-tight text-[#19183A] hover:text-[#024787] transition-colors"
+                    className="text-2xl font-poppins font-normal tracking-tight text-[#19183A] hover:text-[#024787] transition-colors"
                   >
                     {item.name}
                   </Link>

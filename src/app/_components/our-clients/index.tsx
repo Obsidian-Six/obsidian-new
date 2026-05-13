@@ -12,14 +12,15 @@ export default function OurClients() {
         {/* --- Header Section --- */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-12 md:mb-16">
           <div className="w-full md:w-1/2">
-            <motion.span
+            <motion.span 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
+              viewport={{ once: true }}
+              className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-bold"
             >
               [ Trusted Partners ]
             </motion.span>
-            <h2 className="text-6xl sm:text-7xl md:text-8xl text-black font-light tracking-tighter leading-none">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl text-slate-950 font-light tracking-tighter leading-none">
               Clients
             </h2>
           </div>

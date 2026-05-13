@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import caseStudiesData from "@/lib/store/case-studies";
-import { GoArrowRight } from "react-icons/go";
+import { GoArrowRight, GoArrowUpRight } from "react-icons/go";
 
 const OurWork = () => {
   const containerRef = useRef(null);
@@ -25,30 +25,29 @@ const OurWork = () => {
       id="blogs"
       className="max-w-7xl mx-auto px-6 md:px-10 py-32 overflow-hidden"
     >
-      {/* Section Tag with line animation */}
-      <div className="flex flex-col items-center mb-12">
-        <motion.div
-          initial={{ opacity: 0, width: 0 }}
-          whileInView={{ opacity: 1, width: "40px" }}
-          viewport={{ once: false, amount: 0.5 }} // Runs every time 50% is visible
-          className="h-[1px] bg-slate-400 mb-4"
-        />
-        <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400">
-          Our Work
-        </h2>
+      {/* Section Tag */}
+      <div className="mb-12">
+        <motion.span
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-bold"
+        >
+          [ Our Work ]
+        </motion.span>
+        
+        {/* Main Heading */}
+        <MotionP
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-4xl md:text-5xl lg:text-6xl text-slate-950 font-light tracking-tighter leading-[1.1] mb-12"
+        >
+          Carving digital dominance for <br className="hidden md:block" />
+          brands that <span className="italic font-serif text-[#024787]">refuse to settle.</span>
+        </MotionP>
       </div>
-
-      {/* Main Heading */}
-      <MotionP
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }} // Repeat animation
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="text-5xl md:text-7xl text-slate-900 max-w-5xl mx-auto text-center font-normal leading-[1.1] mb-24 tracking-tighter"
-      >
-        Carving digital dominance for <br className="hidden md:block" />
-        brands that <span className="italic font-serif text-[#024787]">refuse to settle.</span>
-      </MotionP>
       {/* Grid Layout */}
       <motion.div style={{ y }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24">
         {displayWorks.map((caseStudy, index) => (
@@ -66,13 +65,9 @@ const OurWork = () => {
       >
         <Link
           href="/case-studies"
-          className="relative inline-flex items-center gap-4 px-12 py-5 overflow-hidden group border border-slate-900 transition-all duration-500 rounded-full"
+          className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10"
         >
-          <span className="relative z-10 text-slate-900 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors duration-500">
-            View all works
-          </span>
-          <GoArrowRight className="relative z-10 text-xl group-hover:text-white group-hover:translate-x-2 transition-all duration-500" />
-          <div className="absolute inset-0 bg-slate-900 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+          View all works <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
         </Link>
       </MotionDiv>
     </section>

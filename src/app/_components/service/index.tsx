@@ -34,7 +34,7 @@ const HomeService = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-8 mt-10 items-start pb-8 lg:pb-0">
         <div>
-          <div className="text-4xl max-md:text-2xl font-medium poppins uppercase tracking-tight text-[#19183A]">
+          <div className="text-4xl max-md:text-2xl font-medium font-poppins uppercase tracking-tight text-[#19183A]">
             {service.name}
             <div className="h-[2px] bg-[#024787] w-16 mt-3" />
           </div>
@@ -44,14 +44,14 @@ const HomeService = () => {
               e.stopPropagation(); // Prevent trigger parent clicks
               setIsPopupOpen(true);
             }}
-            className="mt-8 group inline-flex items-center gap-3 px-6 py-3 bg-[#19183A] text-white rounded-full text-sm font-semibold uppercase tracking-widest hover:bg-[#024787] transition-all duration-300 shadow-lg"
+            className="mt-8 group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10"
           >
             Inquire Now
-            <GoArrowUpRight className="text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
           </button>
         </div>
         
-        <p className="text-main inter text-lg opacity-80 max-md:text-base leading-snug">
+        <p className="text-main font-inter text-lg opacity-80 max-md:text-base leading-snug">
           {service.description}
         </p>
       </div>
@@ -61,7 +61,15 @@ const HomeService = () => {
   return (
     <section id="services" className="max-w-7xl mx-auto my-24 px-4 overflow-hidden">
       <div className="mb-12">
-        <h2 className="text-6xl font-light poppins uppercase max-md:text-4xl tracking-tighter">
+        <MotionDiv
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="text-[#024787] font-poppins text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-bold"
+        >
+          [ Our Services ]
+        </MotionDiv>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl text-slate-950 font-light tracking-tighter leading-none">
           Services
         </h2>
       </div>
@@ -74,7 +82,7 @@ const HomeService = () => {
             <div key={service.name} className="border-b border-b-[#19183A]/10">
               <button
                 type="button"
-                className={`w-full text-left flex items-center justify-between text-2xl max-md:text-xl uppercase poppins py-6 transition-colors duration-300 ${
+                className={`w-full text-left flex items-center justify-between text-2xl max-md:text-xl uppercase font-poppins py-6 transition-colors duration-300 ${
                   selectedService.name === service.name
                     ? "text-[#024787]"
                     : "text-main opacity-60 hover:opacity-100"

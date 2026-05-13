@@ -4,9 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
-// Import Lato from Google Fonts
-
-// Configure Lato
 
 
 const slides = [
@@ -49,8 +46,7 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      // Apply Lato class to the entire section
-      className={`font-lato relative pt-15 w-full h-screen overflow-hidden flex flex-col justify-center items-center px-6  bg-white text-black`}
+      className="relative pt-15 w-full h-screen overflow-hidden flex flex-col justify-center items-center px-6 bg-white text-black"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-50 via-white to-white pointer-events-none" />
 
@@ -99,9 +95,9 @@ export default function Hero() {
             >
               <Link
                 href="/#contactUs"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white border border-black rounded-full text-[12px] font-bold uppercase tracking-[0.25em] hover:bg-transparent hover:text-black transition-all duration-500 shadow-xl hover:shadow-none"
+                className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10"
               >
-                Start Journey <GoArrowUpRight className="text-xl" />
+                Start Journey <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
               </Link>
             </motion.div>
           </motion.div>
