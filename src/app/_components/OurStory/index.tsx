@@ -42,7 +42,7 @@ export default function OurStory() {
           transition={{ duration: 0.8 }}
           className="mb-20 md:mb-24"
         >
-          <span className="text-[10px] tracking-[0.4em] uppercase text-[#024787] font-bold block mb-6">
+          <span className="text-[10px] tracking-[0.4em] uppercase text-[#024787] font-medium block mb-6">
             02 // Background
           </span>
           <h2 className="text-4xl md:text-5xl font-medium text-slate-950 mb-8 tracking-tight leading-tight">

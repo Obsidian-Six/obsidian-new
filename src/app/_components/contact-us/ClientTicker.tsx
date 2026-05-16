@@ -9,7 +9,7 @@ const ClientTicker = () => {
   const tickerLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
-    <div className="w-full bg-white py-12 md:py-24 overflow-hidden">
+    <div className="w-full bg-white py-6 md:py-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-12 md:mb-20 text-center">
         <motion.span 
           initial={{ opacity: 0, y: 10 }}

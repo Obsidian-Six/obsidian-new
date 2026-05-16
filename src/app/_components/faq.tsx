@@ -40,7 +40,7 @@ export default function FAQ() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-bold"
+            className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
           >
             [ FAQ ]
           </motion.span>
@@ -73,7 +73,7 @@ export default function FAQ() {
                     </motion.div>
                     
                     {/* Bold Question Text */}
-                    <span className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${
+                    <span className={`text-xl md:text-2xl font-medium tracking-tight transition-colors duration-300 ${
                       isOpen ? "text-[#024787]" : "text-black group-hover:text-[#024787]"
                     }`}>
                       {faq.question}

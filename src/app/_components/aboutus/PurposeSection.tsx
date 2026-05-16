@@ -33,7 +33,7 @@ export function PurposeContent() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-[10px] md:text-xs tracking-[0.4em] uppercase opacity-60 font-mono block mb-6 text-[#024787] font-bold">
+          <span className="text-[10px] md:text-xs tracking-[0.4em] uppercase opacity-60 font-mono block mb-6 text-[#024787] font-medium">
             [ Our Purpose ]
           </span>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight text-slate-900">

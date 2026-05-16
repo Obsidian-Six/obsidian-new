@@ -4,14 +4,16 @@ import Slider from "./slider";
 
 const Reviews = () => {
   return (
-    <section className="bg-[#024787]/10 font-sans">
+    <section className=" font-sans">
       <div className="max-w-7xl mx-auto pb-32 px-4">
-        <div className="mb-12 pt-14">
+        {/* CHANGED: Added flex, items-center, and text-center to align everything to the middle */}
+        <div className="mb-12 pt-14 flex flex-col items-center text-center">
           <MotionDiv
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            /* CHANGED: Swapped x: -20 to y: 20 so it animates upwards instead of from the left, which looks better centered */
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-bold"
+            className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
           >
             [ Testimonials ]
           </MotionDiv>
