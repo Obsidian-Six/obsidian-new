@@ -1,0 +1,28 @@
+# Root .gitignore
+# Ignore all uploaded media directories
+uploads/
+Backend/uploads/
+Frontend/uploads/
+
+# Node dependencies (if any global install)
+node_modules/
+
+# Environment files – keep secrets out of VCS
+*.env
+*.env.*
+
+# Build artifacts
+.next/
+out/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
