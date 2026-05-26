@@ -4,15 +4,15 @@ import CaseStudyManager from "./CaseStudyManager";
 
 type CaseStudiesTabProps = {
   token: string | null;
-  onOpenCreate: () => void; // not used directly, manager handles create
   onOpenEdit: (caseData: any) => void;
+  onOpenCreate: () => void;
 };
 
-export default function CaseStudiesTab({ token, onOpenCreate, onOpenEdit }: CaseStudiesTabProps) {
+export default function CaseStudiesTab({ token, onOpenEdit, onOpenCreate }: CaseStudiesTabProps) {
   return (
     <div className="space-y-6">
       {/* The manager includes a button to add new case study which calls onOpenEdit(null) */}
-      <CaseStudyManager token={token} onEdit={onOpenEdit} />
+      <CaseStudyManager token={token} onEdit={onOpenEdit} onCreate={onOpenCreate} />
     </div>
   );
 }

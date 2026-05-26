@@ -8,6 +8,9 @@ import type { TemplateCaseStudy } from "@/lib/models/case-study.types";
 import ContactUs from "@/app/_components/contact-us";
 import { normalizeMediaUrls } from "@/lib/utils";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   return caseStudiesData.map((caseStudy) => ({
     slug: caseStudy.slug,
@@ -38,7 +41,7 @@ export default async function Page({
     const staticCases: CaseStudy[] = caseStudiesData.filter(
       (cs) => cs.slug === slug
     );
-    caseStudy = staticCases.length ? staticCases[0] : null;
+    caseStudy = staticCases.length ? staticCases[0]! : null;
   }
 
   if (!caseStudy) {

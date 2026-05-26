@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
 
-export default function CaseStudyManager({ token, onEdit }: { token: string | null, onEdit: (c: any) => void }) {
+export default function CaseStudyManager({ token, onEdit, onCreate }: { token: string | null, onEdit: (c: any) => void, onCreate: () => void }) {
     const [studies, setStudies] = useState([]);
 
     useEffect(() => { fetchStudies(); }, []);
@@ -26,7 +26,7 @@ export default function CaseStudyManager({ token, onEdit }: { token: string | nu
         <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
             <div className="flex justify-between items-center mb-6">
                 <h2 className="text-lg font-bold">Manage Case Studies</h2>
-                <button onClick={() => onEdit(null)} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                <button onClick={() => onCreate()} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
                     <FaPlus /> Add New
                 </button>
             </div>

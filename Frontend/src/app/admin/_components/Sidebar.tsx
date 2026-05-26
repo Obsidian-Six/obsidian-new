@@ -1,7 +1,7 @@
 "use client";
 
 import { FaFolderOpen, FaPlus } from "react-icons/fa";
-import React from "react";
+
 
 // Expanded TabKey to allow both list and form views smoothly without compiler errors
 type TabKey = "overview" | "case-studies" | "create-case-study";

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaSpinner, FaPlus, FaTrash, FaUpload } from "react-icons/fa";
+import { FaSpinner, FaPlus, FaTrash } from "react-icons/fa";
 
 interface CaseStudyFormProps {
   token: string | null;
@@ -125,23 +125,17 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
       if (data.success || data.path) {
         setFormSuccess("Asset uploaded successfully.");
         setFormData((prev: any) => {
-          const updated = { ...prev };
-          if (uploadKeyPath.length === 1) {
-            updated[uploadKeyPath[0]] = data.path;
-          } else if (uploadKeyPath.length === 2) {
-            updated[uploadKeyPath[0]] = {
-              ...updated[uploadKeyPath[0]],
-              [uploadKeyPath[1]]: data.path
-            };
-          } else if (uploadKeyPath.length === 3) {
-            updated[uploadKeyPath[0]] = {
-              ...updated[uploadKeyPath[0]],
-              [uploadKeyPath[1]]: {
-                ...updated[uploadKeyPath[0]][uploadKeyPath[1]],
-                [uploadKeyPath[2]]: data.path
-              }
-            };
+          // Use a typed any object for flexible nested updates
+          const updated: any = { ...prev };
+          // Walk through the uploadKeyPath to set the final value
+          let target = updated;
+          for (let i = 0; i < uploadKeyPath.length - 1; i++) {
+            const key = uploadKeyPath[i] as any;
+            if (!target[key]) target[key] = {};
+            target = target[key];
           }
+          const finalKey = uploadKeyPath[uploadKeyPath.length - 1] as any;
+          target[finalKey] = data.path;
           return updated;
         });
       }
