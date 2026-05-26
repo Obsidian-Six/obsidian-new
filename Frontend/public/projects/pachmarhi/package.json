@@ -1,0 +1,31 @@
+{
+  "name": "pachmarhiayurveda",
+  "version": "1.0.0",
+  "description": "A website to showcase detailed casestudy How Obsidian transformed a legacy ayurveda brand into a digital success.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "ayurveda",
+    "brand",
+    "case-study",
+    "website"
+  ],
+  "author": "Abhisek Mohanty",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "vite": "^5.4.20"
+  }
+}

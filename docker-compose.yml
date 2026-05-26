@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   obsidiansix-beta:
-    build: .
+    build: ./Frontend
     image: obsidian-app:v1
     container_name: obsidiansix-beta
     restart: unless-stopped
@@ -11,7 +11,7 @@ services:
       TRUST_PROXY: "true"
       NODE_ENV: "production"
     env_file:
-      - .env
+      - ./Frontend/.env
     
     deploy:
       resources:
@@ -29,6 +29,27 @@ services:
       - "traefik.http.routers.obsidiansix-beta.tls=true"
       - "traefik.http.routers.obsidiansix-beta.tls.certresolver=myresolver"
       - "traefik.http.services.obsidiansix-beta.loadbalancer.server.port=3000"
+
+  backend:
+    build: ./Backend
+    image: obsidian-backend:v1
+    container_name: obsidian-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: "production"
+    env_file:
+      - ./Backend/.env
+    volumes:
+      - /opt/obsidiansix/uploads:/app/uploads
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`api.obsidiansix.com`)"
+      - "traefik.http.routers.backend.entrypoints=websecure"
+      - "traefik.http.routers.backend.tls=true"
+      - "traefik.http.routers.backend.tls.certresolver=myresolver"
+      - "traefik.http.services.backend.loadbalancer.server.port=5000"
 
 networks:
   traefik:
