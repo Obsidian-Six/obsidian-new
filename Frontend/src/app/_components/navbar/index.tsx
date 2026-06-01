@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const pathname = usePathname();
   const isAdminRoute = pathname?.startsWith("/admin");
+  const isHiddenDocument = pathname?.startsWith("/hidden-document");
 
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +37,7 @@ export default function Navbar() {
 
   const isWhiteBg = isScrolled || isMegaMenuOpen;
 
-  if (isAdminRoute) return null;
+  if (isAdminRoute || isHiddenDocument) return null;
 
   return (
     <>

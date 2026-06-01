@@ -10,8 +10,9 @@ import { usePathname } from "next/navigation";
 const Footer = () => {
   const pathname = usePathname();
   const isAdminRoute = pathname?.startsWith("/admin");
+  const isHiddenDocument = pathname?.startsWith("/hidden-document");
 
-  if (isAdminRoute) return null;
+  if (isAdminRoute || isHiddenDocument) return null;
 
   const quickLinks = [
     { name: "Home", href: "/#home" },

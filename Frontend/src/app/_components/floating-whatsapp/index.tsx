@@ -7,8 +7,9 @@ import { usePathname } from "next/navigation";
 export default function FloatingWhatsapp() {
   const pathname = usePathname();
   const isAdminRoute = pathname?.startsWith("/admin");
+  const isHiddenDocument = pathname?.startsWith("/hidden-document");
 
-  if (isAdminRoute) return null;
+  if (isAdminRoute || isHiddenDocument) return null;
 
   return (
     <div className="fixed bottom-8 right-8 z-[99999]">

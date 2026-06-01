@@ -2,7 +2,7 @@ import type { TemplateCaseStudy } from "@/lib/models/case-study.types";
 
 const templateCaseStudiesData: TemplateCaseStudy[] = [
 
-  
+
   // {
   //   "id": "luxury_car_investment",
   //   "name": "Luxury Car Investment",
@@ -561,10 +561,10 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     heroImage:
       "https://plus.unsplash.com/premium_photo-1733306503329-7a8c701fa9ad?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "heroVideo": "",
-  "overviewVideo":"",
-  "ChallengeVideo" :"",
-  "ApproachVideo" : "",
-  "ResultVideo":"",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
     caseSection: {
       data: "Transforming Lead Generation for",
       highlight: "AB Capital Dubai",
@@ -713,10 +713,10 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     heroImage:
       "https://images.unsplash.com/photo-1474314243412-cd4a79f02c6a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "heroVideo": "",
-  "overviewVideo":"",
-  "ChallengeVideo" :"",
-  "ApproachVideo" : "",
-  "ResultVideo":"",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
 
 
     caseSection: {
@@ -852,10 +852,10 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     tags: ["Social Media Marketing", "Content Strategy", "Website Development"],
     heroImage: "/tathyabaan/tathyabaan_publishing.png",
     "heroVideo": "",
-  "overviewVideo":"",
-  "ChallengeVideo" :"",
-  "ApproachVideo" : "",
-  "ResultVideo":"",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
 
 
     caseSection: {
@@ -1011,15 +1011,15 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     details:
       "Revamped an educational institute’s website to improve student inquiries, boost search visibility, and enhance user experience.",
     image:
-      "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fportfolio-images%2F04.png&w=1920&q=75",
+      "/education.jpeg",
     tags: ["Website", "SEO", "UI/UX"],
     heroImage:
       "https://storage.googleapis.com/a1aa/image/T_kWvK97-hQhiFsMJMEb_8cUyB7ANVyRZ8LC0_H3BS4.jpg",
-   "heroVideo": "",
-  "overviewVideo":"",
-  "ChallengeVideo" :"",
-  "ApproachVideo" : "",
-  "ResultVideo":"",
+    "heroVideo": "",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
 
 
     caseSection: {
@@ -1151,7 +1151,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
         "text": "Establishing long-term digital authority in heavy engineering."
       }
     ],
-    
+
     "twoImage": {
 
       "leftPanel": {
@@ -1167,14 +1167,14 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     details:
       "A comprehensive digital marketing strategy that increased organic traffic by 150% and boosted online sales by 80% within six months.",
     image:
-      "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fportfolio-images%2F02.png&w=1920&q=75",
+      `"/case-studies/custom/pachmarhi-ayurveda/images/brand.png"`,
     tags: ["Website", "Branding", "Marketing"],
     heroImage: "/images/case-study/pach.png",
-   "heroVideo": "",
-  "overviewVideo":"",
-  "ChallengeVideo" :"",
-  "ApproachVideo" : "",
-  "ResultVideo":"",
+    "heroVideo": "",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
 
 
     caseSection: {
@@ -1335,10 +1335,10 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     heroImage:
       "https://storage.googleapis.com/a1aa/image/ebNaUVVjFent5hUWT8vuppFa_Zl8q_zOTINs2w2Z9cc.jpg",
     "heroVideo": "",
-  "overviewVideo":"",
-  "ChallengeVideo" :"",
-  "ApproachVideo" : "",
-  "ResultVideo":"",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
 
 
     caseSection: {
@@ -1489,10 +1489,10 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
       "https://storage.googleapis.com/a1aa/image/T_kWvK97-hQhiFsMJMEb_8cUyB7ANVyRZ8LC0_H3BS4.jpg",
     "heroVideo": "",
 
-  "overviewVideo":"",
-  "ChallengeVideo" :"",
-  "ApproachVideo" : "",
-  "ResultVideo":"",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
 
 
     caseSection: {
@@ -1649,10 +1649,10 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     heroImage:
       "https://img.freepik.com/free-photo/beautiful-castle-architecture_23-2150754875.jpg?t=st=1743222693~exp=1743226293~hmac=69bb516d07c39aaf4f09a4b6fb7508f3360a038fa9b7d098e6dc996be7687f8b&w=1380",
     "heroVideo": "",
-  "overviewVideo":"",
-  "ChallengeVideo" :"",
-  "ApproachVideo" : "",
-  "ResultVideo":"",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
 
 
     caseSection: {
@@ -1811,10 +1811,10 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     heroImage:
       "https://images.unsplash.com/photo-1628151015968-3a4429e9ef04?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "heroVideo": "",
-  "overviewVideo":"",
-  "ChallengeVideo" :"",
-  "ApproachVideo" : "",
-  "ResultVideo":"",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
 
 
     caseSection: {
@@ -1966,10 +1966,10 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     heroImage:
       "https://www.4dgcc.com/_next/image?url=%2Fassets%2Fimages%2Fhero-img.jpg&w=1920&q=75",
     "heroVideo": "",
-  "overviewVideo":"",
-  "ChallengeVideo" :"",
-  "ApproachVideo" : "",
-  "ResultVideo":"",
+    "overviewVideo": "",
+    "ChallengeVideo": "",
+    "ApproachVideo": "",
+    "ResultVideo": "",
 
 
     caseSection: {

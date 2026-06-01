@@ -71,3 +71,31 @@ async function sendContactUsToGAS(contactUs: Contact): Promise<void> {
     }),
   });
 }
+
+/**
+ * Sends a POST request to log gated document access in the Express Backend and trigger email alerts.
+ * @param email - User's email address.
+ * @param documentName - Name of the document accessed (e.g., 'task1.pdf').
+ */
+export async function recordDocumentAccess(
+  email: string,
+  documentName: string
+): Promise<any> {
+  const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const response = await fetch(`${apiBase}/api/documents/access`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({ email, documentName }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    const errMsg = errorData.message || errorData.error || `HTTP error! status: ${response.status}`;
+    throw new Error(errMsg);
+  }
+
+  return response.json();
+}

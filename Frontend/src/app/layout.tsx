@@ -5,6 +5,7 @@ import Navbar from "./_components/navbar";
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import type { ReactNode } from "react";
+import TabBlurProtection from "./_components/tab-blur-protection";
 
 export const metadata = {
   title: "Obsidian Six",
@@ -84,6 +85,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     ]
   };
 
+
   return (
     <html lang="en" className={`${poppins.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
@@ -102,6 +104,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Footer />
         </footer>
         <FloatingWhatsapp />
+        <TabBlurProtection />
       </body>
     </html>
   );

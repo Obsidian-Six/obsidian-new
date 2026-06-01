@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const GalleryItemSchema = new mongoose.Schema({
-  img: { type: String, required: true },
+  img: { type: String, default: '' },
   text: { type: String, default: '' }
 }, { _id: false });
 
