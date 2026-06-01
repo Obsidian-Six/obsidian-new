@@ -8,7 +8,7 @@ export default function CaseStudyManager({ token, onEdit, onCreate }: { token: s
 
     useEffect(() => { fetchStudies(); }, []);
 
-    const apiBase = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000";
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
     const fetchStudies = async () => {
         const res = await fetch(`${apiBase}/api/case-studies`, { headers: { Authorization: `Bearer ${token}` } });
