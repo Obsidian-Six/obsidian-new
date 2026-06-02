@@ -74,7 +74,7 @@ const CanvasPage = ({ pdf, pageNum, scale, watermarkEmail }: CanvasPageProps) =>
           if (watermarkEmail) {
             const w = canvas.width;
             const h = canvas.height;
-            const text = `Confidential – Obsidian SIX`;
+            const text = `Confidential – Obsidian Six`;
 
             context.save();
 
@@ -100,7 +100,7 @@ const CanvasPage = ({ pdf, pageNum, scale, watermarkEmail }: CanvasPageProps) =>
 
             // Bold centred stamp
             context.font = `900 ${Math.max(14, scale * 14)}px Arial, sans-serif`;
-            context.fillStyle = "rgba(0,0,0,0.09)";
+            context.fillStyle = "rgba(0,0,0,0.9)";
             context.save();
             context.translate(w / 2, h / 2);
             context.rotate(-Math.PI / 8);
@@ -151,6 +151,7 @@ export default function HiddenDocumentClient() {
   const [isGated, setIsGated] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [activeDoc, setActiveDoc] = useState<"task1" | "google_ads">("task1");
 
   // PDF States
   const [isPdfJsLoaded, setIsPdfJsLoaded] = useState(false);
@@ -245,20 +246,32 @@ export default function HiddenDocumentClient() {
 
     setPdfLoading(true);
     const pdfjsLib = (window as any).pdfjsLib;
-    const loadingTask = pdfjsLib.getDocument("/Task1.pdf");
+    const docPath = activeDoc === "google_ads" ? "/GOOGLE_ADS_X_OBS.pdf" : "/Task1.pdf";
+    const loadingTask = pdfjsLib.getDocument(docPath);
 
     loadingTask.promise
       .then((pdf: any) => {
         setPdfDoc(pdf);
         setNumPages(pdf.numPages);
         setPdfLoading(false);
+        setCurrentPage(1); // Reset page selection on document switch
       })
       .catch((err: any) => {
         console.error("Error loading PDF:", err);
         setErrorMessage("Secure document file not found or corrupted.");
         setPdfLoading(false);
       });
-  }, [isPdfJsLoaded]);
+  }, [isPdfJsLoaded, activeDoc]);
+
+  // 4b. Log document access on switcher change if verified
+  useEffect(() => {
+    if (!isGated && email) {
+      const docName = activeDoc === "google_ads" ? "GOOGLE_ADS_X_OBS.pdf" : "task1.pdf";
+      recordDocumentAccess(email, docName).catch((err) =>
+        console.error("Failed to log document access:", err)
+      );
+    }
+  }, [activeDoc, isGated, email]);
 
   // 5. Handle Gated Form Submission
   const handleVerify = async (e: React.FormEvent) => {
@@ -280,8 +293,9 @@ export default function HiddenDocumentClient() {
     setIsSubmitting(true);
 
     try {
+      const docName = activeDoc === "google_ads" ? "GOOGLE_ADS_X_OBS.pdf" : "task1.pdf";
       // API call to log gated document access in database & trigger email notification
-      await recordDocumentAccess(cleanedEmail, "task1.pdf");
+      await recordDocumentAccess(cleanedEmail, docName);
 
       // Persist in localStorage and state
       localStorage.setItem("obsidian_gated_email", cleanedEmail);
@@ -436,6 +450,32 @@ export default function HiddenDocumentClient() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="w-full flex flex-col items-center gap-6"
             >
+              {/* Document Switcher Tabs */}
+              <div className="flex bg-slate-950/60 p-1.5 rounded-2xl border border-slate-900/80 backdrop-blur-md shadow-inner gap-2">
+                <button
+                  onClick={() => setActiveDoc("task1")}
+                  className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
+                    activeDoc === "task1"
+                      ? "bg-gradient-to-tr from-[#024787] to-[#086ddd] text-white shadow-lg shadow-[#024787]/25"
+                      : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
+                  }`}
+                >
+                  <FileText size={14} />
+                  Task 1 Blueprint
+                </button>
+                <button
+                  onClick={() => setActiveDoc("google_ads")}
+                  className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
+                    activeDoc === "google_ads"
+                      ? "bg-gradient-to-tr from-[#024787] to-[#086ddd] text-white shadow-lg shadow-[#024787]/25"
+                      : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
+                  }`}
+                >
+                  <FileText size={14} />
+                  Google Ads X OBS
+                </button>
+              </div>
+
               {/* Document Info Header */}
               <div className="w-full max-w-4xl bg-slate-950/30 border border-slate-900/80 rounded-2xl p-4.5 px-6 flex flex-col sm:flex-row items-center justify-between gap-4 backdrop-blur-md shadow-lg">
                 <div className="flex items-center gap-3">
@@ -443,9 +483,11 @@ export default function HiddenDocumentClient() {
                     <FileText size={20} />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-slate-200 poppins">task1.pdf</h3>
+                    <h3 className="text-sm font-bold text-slate-200 poppins">
+                      {activeDoc === "google_ads" ? "GOOGLE_ADS_X_OBS.pdf" : "task1.pdf"}
+                    </h3>
                     <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">
-                      Obsidian Six Proprietary Blueprint
+                      {activeDoc === "google_ads" ? "Obsidian Six Marketing Blueprint" : "Obsidian Six Proprietary Blueprint"}
                     </p>
                   </div>
                 </div>
