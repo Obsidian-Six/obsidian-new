@@ -11,7 +11,7 @@ export default async function Page() {
   let dynamicCaseStudies: CaseStudy[] = [];
 
   try {
-    const res = await fetch(`${apiBase}/api/case-studies`, { cache: "no-store" });
+    const res = await fetch(`${apiBase}/api/case-studies`, { next: { revalidate: 3600 } });
     const data = await res.json();
     if (res.ok && data.success && Array.isArray(data.data)) {
       dynamicCaseStudies = normalizeMediaUrls(data.data, apiBase);

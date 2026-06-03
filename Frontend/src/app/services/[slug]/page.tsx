@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import { servicesStore } from "@/lib/store/template-services";
 
 import HeroSection from "../_components/HeroSection";
@@ -15,17 +15,9 @@ import FaqSection from "../_components/FAQSection";
 import WhyUsSection from "../_components/WhyUsSection";
 import CaseStudiesSection from "../_components/CaseStudiesSection";
 
-interface PageProps {
-  params: { slug: string };
-}
-
-export default function DynamicServicePage({ params }: PageProps) {
-  const { slug } = params;
-  const service = servicesStore[slug];
-
-  if (!service) {
-    notFound();
-  }
+export default function DynamicServicePage() {
+  const { slug } = useParams();
+  const service = slug ? servicesStore[slug as string] : null;
 
   const [activeTab, setActiveTab] = useState("Overview");
   const [isSticky, setIsSticky] = useState(false);
@@ -48,7 +40,7 @@ export default function DynamicServicePage({ params }: PageProps) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
-          const matchedItem = service.navItems.find(
+          const matchedItem = service?.navItems.find(
             (item) => item.toLowerCase().replace(/[^a-z0-9]+/g, "-") === id
           );
           if (matchedItem) {
@@ -70,7 +62,12 @@ export default function DynamicServicePage({ params }: PageProps) {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
-  }, [service.navItems]);
+  }, [service?.navItems]);
+
+  if (!service) {
+    notFound();
+    return null;
+  }
 
   return (
     <div className="bg-white min-h-screen text-slate-900 font-inter selection:bg-purple-500/30">
