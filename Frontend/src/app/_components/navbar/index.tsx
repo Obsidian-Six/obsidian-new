@@ -35,6 +35,7 @@ export default function Navbar() {
     { name: "Contact", link: "/contactus" },
   ];
 
+  const isServices = pathname?.includes("/services") || pathname === "/services";
   const isWhiteBg = isScrolled || isMegaMenuOpen;
 
   if (isAdminRoute || isHiddenDocument) return null;
@@ -42,10 +43,9 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${isWhiteBg ? "bg-white shadow-md" : "bg-transparent"
-          }`}
+        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${isWhiteBg ? "bg-white shadow-md" : "bg-transparent"} ${isScrolled ? "hide-on-scroll" : ""}`}
       >
-        <nav className="container mx-auto flex items-center justify-between px-6 h-20 md:h-24">
+        <nav className="container mx-auto flex items-center justify-between px-6 h-20 md:h-24 transition-all duration-300">
 
           {/* Logo Section */}
           <Link href="/" className="z-50" onClick={closeMenu}>

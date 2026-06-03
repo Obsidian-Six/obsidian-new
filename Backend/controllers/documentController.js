@@ -8,8 +8,8 @@ async function sendAccessEmail(userEmail, documentName) {
     port: Number(process.env.SMTP_PORT) || 465,
     secure: true,
     auth: {
-      user: process.env.SMTP_USER || 'admin@obsidiansix.com',
-      pass: process.env.SMTP_PASS || 'ADMIN@1121a',
+      user: process.env.SMTP_USER ,
+      pass: process.env.SMTP_PASS ,
     },
   });
 
@@ -28,9 +28,7 @@ async function sendAccessEmail(userEmail, documentName) {
 }
 
 
-// @desc    Log access to a protected document and notify the admin
-// @route   POST /api/documents/access
-// @access  Public
+
 const logDocumentAccess = async (req, res) => {
   try {
     const { email, documentName } = req.body;

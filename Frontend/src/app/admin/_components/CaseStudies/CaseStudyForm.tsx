@@ -40,11 +40,12 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
         onRefresh();
         onClose();
       } else {
-        const errPayload = await res.json();
-        setFormError(errPayload.message || "Failed to commit case configuration layout data.");
+        const errPayload = await res.json().catch(() => ({}));
+        const detailedError = errPayload.error ? `: ${errPayload.error}` : (errPayload.message ? `: ${errPayload.message}` : "");
+        setFormError(`Failed to commit case study: ${detailedError || "Unknown server validation issue"}`);
       }
-    } catch (err) {
-      setFormError("Database mutations engine pipeline closed down.");
+    } catch (err: any) {
+      setFormError(`Database mutations engine pipeline closed down. Error: ${err.message || err}`);
     } finally {
       setFormSubmitting(false);
     }
@@ -108,6 +109,7 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
     const targetUniqueField = uploadKeyPath.join("-");
     setUploadingField(targetUniqueField);
     setFormError("");
+    setFormSuccess("");
 
     try {
       const uploadData = new FormData();
@@ -119,8 +121,10 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
         body: uploadData,
       });
 
-      if (!res.ok) throw new Error("File transmission breakdown.");
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.message || data.error || `Upload failed with status code ${res.status}`);
+      }
 
       if (data.success || data.path) {
         setFormSuccess("Asset uploaded successfully.");
@@ -139,8 +143,8 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
           return updated;
         });
       }
-    } catch (err) {
-      setFormError("Asset tracking storage failure.");
+    } catch (err: any) {
+      setFormError(`Asset upload failed: ${err.message || err}`);
       setFormSuccess("");
     } finally {
       setUploadingField(null);
@@ -153,6 +157,8 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
     if (!file || !token) return;
 
     setUploadingField(`${arrayKey}-${index}-${fieldKey}`);
+    setFormError("");
+    setFormSuccess("");
     try {
       const uploadData = new FormData();
       uploadData.append("image", file);
@@ -163,16 +169,22 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
         body: uploadData,
       });
 
-      if (res.ok) {
-        const data = await res.json();
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.message || data.error || `Upload failed with status code ${res.status}`);
+      }
+
+      if (data.success || data.path) {
+        setFormSuccess("Asset uploaded successfully.");
         setFormData((prev: any) => {
           const updatedArray = [...prev[arrayKey]];
           updatedArray[index] = { ...updatedArray[index], [fieldKey]: data.path };
           return { ...prev, [arrayKey]: updatedArray };
         });
       }
-    } catch (err) {
-      console.error(err);
+    } catch (err: any) {
+      setFormError(`Asset upload failed: ${err.message || err}`);
+      setFormSuccess("");
     } finally {
       setUploadingField(null);
     }
@@ -220,16 +232,25 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Operational Case Identifier</label>
-                <input type="text" className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl text-gray-900 outline-none focus:border-blue-500 focus:bg-white" placeholder="e.g. Sweet Protection" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+                <div className="flex justify-between items-center mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 uppercase">Operational Case Identifier</label>
+                  <span className="text-[10px] text-gray-400 font-medium">{(formData.name || "").length}/80</span>
+                </div>
+                <input type="text" maxLength={80} className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl text-gray-900 outline-none focus:border-blue-500 focus:bg-white" placeholder="e.g. Sweet Protection" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
               </div>
               <div>
-                <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Index Core Category Vertical</label>
-                <input type="text" className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl text-gray-900 outline-none focus:border-blue-500 focus:bg-white" placeholder="e.g. E-commerce & Sports Technology" value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} />
+                <div className="flex justify-between items-center mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 uppercase">Index Core Category Vertical</label>
+                  <span className="text-[10px] text-gray-400 font-medium">{(formData.category || "").length}/80</span>
+                </div>
+                <input type="text" maxLength={80} className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl text-gray-900 outline-none focus:border-blue-500 focus:bg-white" placeholder="e.g. E-commerce & Sports Technology" value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} />
               </div>
               <div>
-                <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Custom Link Route Handle Slug</label>
-                <input type="text" className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl text-gray-900 outline-none focus:border-blue-500 focus:bg-white" placeholder="sweet-protection-custom-tech-ecommerce" value={formData.slug} onChange={(e) => setFormData({ ...formData, slug: e.target.value })} />
+                <div className="flex justify-between items-center mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 uppercase">Custom Link Route Handle Slug</label>
+                  <span className="text-[10px] text-gray-400 font-medium">{(formData.slug || "").length}/80</span>
+                </div>
+                <input type="text" maxLength={80} className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl text-gray-900 outline-none focus:border-blue-500 focus:bg-white" placeholder="sweet-protection-custom-tech-ecommerce" value={formData.slug} onChange={(e) => setFormData({ ...formData, slug: e.target.value })} />
               </div>
             </div>
 
@@ -242,14 +263,20 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
                 </select>
               </div>
               <div>
-                <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Metadata Tracking Taxonomy Tags (Comma Delimited)</label>
-                <input type="text" className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl text-gray-900 outline-none focus:border-blue-500 focus:bg-white" placeholder="ReactJS, AWS Cloud, Custom CMS" value={formData.tags} onChange={(e) => setFormData({ ...formData, tags: e.target.value })} />
+                <div className="flex justify-between items-center mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 uppercase">Metadata Tracking Taxonomy Tags (Comma Delimited)</label>
+                  <span className="text-[10px] text-gray-400 font-medium">{(formData.tags || "").length}/100</span>
+                </div>
+                <input type="text" maxLength={100} className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl text-gray-900 outline-none focus:border-blue-500 focus:bg-white" placeholder="ReactJS, AWS Cloud, Custom CMS" value={formData.tags} onChange={(e) => setFormData({ ...formData, tags: e.target.value })} />
               </div>
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Brief Details Index Card Subtext Log Summary</label>
-              <textarea className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl text-gray-900 h-20 outline-none focus:border-blue-500 focus:bg-white resize-none" placeholder="Transformed Sweet Protection's digital presence by building a custom ReactJS-driven ecosystem..." value={formData.details} onChange={(e) => setFormData({ ...formData, details: e.target.value })} />
+              <div className="flex justify-between items-center mb-1">
+                <label className="block text-[11px] font-bold text-gray-500 uppercase">Brief Details Index Card Subtext Log Summary</label>
+                <span className="text-[10px] text-gray-400 font-medium">{(formData.details || "").length}/150</span>
+              </div>
+              <textarea maxLength={150} className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl text-gray-900 h-20 outline-none focus:border-blue-500 focus:bg-white resize-none" placeholder="Transformed Sweet Protection's digital presence by building a custom ReactJS-driven ecosystem..." value={formData.details} onChange={(e) => setFormData({ ...formData, details: e.target.value })} />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-gray-200 p-4 rounded-xl bg-gray-50">
@@ -301,19 +328,28 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="md:col-span-2">
-                <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Executive Overview Section Header Subtext Lead</label>
-                <input type="text" className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl" placeholder="e.g. Building a Tech-Driven E-commerce Experience for" value={formData.caseSection.data} onChange={(e) => setFormData({ ...formData, caseSection: { ...formData.caseSection, data: e.target.value } })} />
+                <div className="flex justify-between items-center mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 uppercase">Executive Overview Section Header Subtext Lead</label>
+                  <span className="text-[10px] text-gray-400 font-medium">{(formData.caseSection.data || "").length}/120</span>
+                </div>
+                <input type="text" maxLength={120} className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl" placeholder="e.g. Building a Tech-Driven E-commerce Experience for" value={formData.caseSection.data} onChange={(e) => setFormData({ ...formData, caseSection: { ...formData.caseSection, data: e.target.value } })} />
               </div>
               <div>
-                <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Executive Overview Matrix Accent Color Highlight Title</label>
-                <input type="text" className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl" placeholder="e.g. High-Performance Gear" value={formData.caseSection.highlight} onChange={(e) => setFormData({ ...formData, caseSection: { ...formData.caseSection, highlight: e.target.value } })} />
+                <div className="flex justify-between items-center mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 uppercase">Executive Overview Matrix Accent Color Highlight Title</label>
+                  <span className="text-[10px] text-gray-400 font-medium">{(formData.caseSection.highlight || "").length}/80</span>
+                </div>
+                <input type="text" maxLength={80} className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl" placeholder="e.g. High-Performance Gear" value={formData.caseSection.highlight} onChange={(e) => setFormData({ ...formData, caseSection: { ...formData.caseSection, highlight: e.target.value } })} />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="md:col-span-2">
-                <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Executive Primary Core Overview Long-form Text Narrative</label>
-                <textarea className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl h-24 resize-none" placeholder="Sweet Protection is a globally recognized brand specializing in high-performance helmets..." value={formData.overview} onChange={(e) => setFormData({ ...formData, overview: e.target.value })} />
+                <div className="flex justify-between items-center mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 uppercase">Executive Primary Core Overview Long-form Text Narrative</label>
+                  <span className="text-[10px] text-gray-400 font-medium">{(formData.overview || "").length}/350</span>
+                </div>
+                <textarea maxLength={350} className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl h-24 resize-none" placeholder="Sweet Protection is a globally recognized brand specializing in high-performance helmets..." value={formData.overview} onChange={(e) => setFormData({ ...formData, overview: e.target.value })} />
               </div>
               <div>
                 <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Overview Segment Auxiliary Demonstration Video Stream URL</label>
@@ -345,7 +381,12 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
                       </label>
                       <input type="text" className="w-full mt-1 bg-white border text-[11px] rounded p-1" placeholder="Image Storage Asset URL String pointer" value={el.img} onChange={(e) => { const cp = [...formData.gallery]; cp[i].img = e.target.value; setFormData({ ...formData, gallery: cp }); }} />
                     </div>
-                    <input type="text" className="flex-1 bg-white border border-gray-300 rounded-lg p-2 text-xs" placeholder="Visual confirmation descriptive caption text context annotation..." value={el.text} onChange={(e) => { const cp = [...formData.gallery]; cp[i].text = e.target.value; setFormData({ ...formData, gallery: cp }); }} />
+                    <div className="flex-1 w-full">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-[10px] text-gray-400 font-medium">Caption Limit: {(el.text || "").length}/120</span>
+                      </div>
+                      <input type="text" maxLength={120} className="w-full bg-white border border-gray-300 rounded-lg p-2 text-xs" placeholder="Visual confirmation descriptive caption text context annotation..." value={el.text} onChange={(e) => { const cp = [...formData.gallery]; cp[i].text = e.target.value; setFormData({ ...formData, gallery: cp }); }} />
+                    </div>
                     <button type="button" onClick={() => setFormData({ ...formData, gallery: formData.gallery.filter((_: any, idx: number) => idx !== i) })} className="p-2 text-red-500 hover:bg-red-50 rounded-lg"><FaTrash /></button>
                   </div>
                 ))}
@@ -359,8 +400,11 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="md:col-span-2">
-                <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">System Obstacles / Core Adversity Overview Context Block</label>
-                <textarea className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl h-20 resize-none" placeholder="Managing a complex product ecosystem while maintaining speed and premium brand identity..." value={formData.challenge.data} onChange={(e) => setFormData({ ...formData, challenge: { ...formData.challenge, data: e.target.value } })} />
+                <div className="flex justify-between items-center mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 uppercase">System Obstacles / Core Adversity Overview Context Block</label>
+                  <span className="text-[10px] text-gray-400 font-medium">{(formData.challenge.data || "").length}/120</span>
+                </div>
+                <textarea maxLength={120} className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl h-20 resize-none" placeholder="Managing a complex product ecosystem while maintaining speed and premium brand identity..." value={formData.challenge.data} onChange={(e) => setFormData({ ...formData, challenge: { ...formData.challenge, data: e.target.value } })} />
               </div>
               <div>
                 <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">System Conflict Verification Tracking Video URL Link</label>
@@ -397,13 +441,23 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
 
               <div className="space-y-2">
                 {formData.challenge.point.map((pt: any, i: number) => (
-                  <div key={i} className="flex flex-col md:flex-row gap-3 items-start bg-gray-50 p-2 rounded-xl border border-gray-200">
-                    <input type="text" className="w-full md:w-1/4 bg-white border p-2 text-xs font-bold rounded-lg" placeholder="e.g. Catalog Complexity" value={pt.name} onChange={(e) => {
-                      const updated = [...formData.challenge.point]; updated[i].name = e.target.value; setFormData({ ...formData, challenge: { ...formData.challenge, point: updated } });
-                    }} />
-                    <textarea className="flex-1 bg-white border p-2 text-xs rounded-lg h-11 resize-none" placeholder="Managing multiple categories (helmets, cycling, apparel) with numerous variants..." value={pt.detail} onChange={(e) => {
-                      const updated = [...formData.challenge.point]; updated[i].detail = e.target.value; setFormData({ ...formData, challenge: { ...formData.challenge, point: updated } });
-                    }} />
+                  <div key={i} className="flex flex-col md:flex-row gap-3 items-start bg-gray-50 p-2 rounded-xl border border-gray-200 w-full">
+                    <div className="w-full md:w-1/4">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-[10px] text-gray-400 font-medium">Name: {(pt.name || "").length}/80</span>
+                      </div>
+                      <input type="text" maxLength={80} className="w-full bg-white border p-2 text-xs font-bold rounded-lg" placeholder="e.g. Catalog Complexity" value={pt.name} onChange={(e) => {
+                        const updated = [...formData.challenge.point]; updated[i].name = e.target.value; setFormData({ ...formData, challenge: { ...formData.challenge, point: updated } });
+                      }} />
+                    </div>
+                    <div className="flex-1 w-full">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-[10px] text-gray-400 font-medium">Detail: {(pt.detail || "").length}/150</span>
+                      </div>
+                      <textarea maxLength={150} className="w-full bg-white border p-2 text-xs rounded-lg h-11 resize-none" placeholder="Managing multiple categories (helmets, cycling, apparel) with numerous variants..." value={pt.detail} onChange={(e) => {
+                        const updated = [...formData.challenge.point]; updated[i].detail = e.target.value; setFormData({ ...formData, challenge: { ...formData.challenge, point: updated } });
+                      }} />
+                    </div>
                     <button type="button" onClick={() => {
                       const updated = formData.challenge.point.filter((_: any, idx: number) => idx !== i); setFormData({ ...formData, challenge: { ...formData.challenge, point: updated } });
                     }} className="p-2 text-red-500 hover:bg-red-50 rounded-lg self-center"><FaTrash /></button>
@@ -448,10 +502,16 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
               </div>
               <div className="space-y-2">
                 {formData.approaches.map((ap: any, i: number) => (
-                  <div key={i} className="flex gap-2 items-center bg-white p-2 rounded-lg border">
-                    <input type="text" placeholder="Strategy Label Name" className="w-1/4 bg-gray-50 p-1.5 text-xs rounded font-bold" value={ap.name} onChange={(e) => { const cp = [...formData.approaches]; cp[i].name = e.target.value; setFormData({ ...formData, approaches: cp }); }} />
-                    <input type="text" placeholder="Deep strategic roadmap structural resolution breakdown details context..." className="flex-1 bg-gray-50 p-1.5 text-xs rounded" value={ap.detail} onChange={(e) => { const cp = [...formData.approaches]; cp[i].detail = e.target.value; setFormData({ ...formData, approaches: cp }); }} />
-                    <button type="button" onClick={() => setFormData({ ...formData, approaches: formData.approaches.filter((_: any, idx: number) => idx !== i) })} className="text-red-500 p-1.5 hover:bg-red-50 rounded"><FaTrash /></button>
+                  <div key={i} className="flex gap-2 items-center bg-white p-2 rounded-lg border w-full">
+                    <div className="w-1/4">
+                      <span className="text-[9px] text-gray-400 block mb-0.5">Name: {(ap.name || "").length}/80</span>
+                      <input type="text" maxLength={80} placeholder="Strategy Label Name" className="w-full bg-gray-50 p-1.5 text-xs rounded font-bold" value={ap.name} onChange={(e) => { const cp = [...formData.approaches]; cp[i].name = e.target.value; setFormData({ ...formData, approaches: cp }); }} />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-[9px] text-gray-400 block mb-0.5">Detail: {(ap.detail || "").length}/150</span>
+                      <input type="text" maxLength={150} placeholder="Deep strategic roadmap structural resolution breakdown details context..." className="w-full bg-gray-50 p-1.5 text-xs rounded" value={ap.detail} onChange={(e) => { const cp = [...formData.approaches]; cp[i].detail = e.target.value; setFormData({ ...formData, approaches: cp }); }} />
+                    </div>
+                    <button type="button" onClick={() => setFormData({ ...formData, approaches: formData.approaches.filter((_: any, idx: number) => idx !== i) })} className="text-red-500 p-1.5 hover:bg-red-50 rounded self-end mb-0.5"><FaTrash /></button>
                   </div>
                 ))}
               </div>
@@ -472,17 +532,26 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
                       <input type="text" className="w-full mt-1 bg-gray-50 p-1 text-[11px] rounded border" placeholder="URL Path Link" value={re.img} onChange={(e) => { const cp = [...formData.results]; cp[i].img = e.target.value; setFormData({ ...formData, results: cp }); }} />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold text-gray-400">Title Header Frame Text</label>
-                      <input type="text" className="w-full bg-gray-50 p-1.5 text-xs rounded border" placeholder="e.g. Improved " value={re.title} onChange={(e) => { const cp = [...formData.results]; cp[i].title = e.target.value; setFormData({ ...formData, results: cp }); }} />
+                      <div className="flex justify-between items-center mb-0.5">
+                        <label className="block text-[10px] font-bold text-gray-400">Title Header Frame</label>
+                        <span className="text-[9px] text-gray-400 font-medium">{(re.title || "").length}/80</span>
+                      </div>
+                      <input type="text" maxLength={80} className="w-full bg-gray-50 p-1.5 text-xs rounded border" placeholder="e.g. Improved " value={re.title} onChange={(e) => { const cp = [...formData.results]; cp[i].title = e.target.value; setFormData({ ...formData, results: cp }); }} />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold text-gray-400">Highlight Metric Figure Label</label>
-                      <input type="text" className="w-full bg-gray-50 p-1.5 text-xs rounded border text-blue-600 font-bold" placeholder="e.g. Conversion Rates" value={re.highlight} onChange={(e) => { const cp = [...formData.results]; cp[i].highlight = e.target.value; setFormData({ ...formData, results: cp }); }} />
+                      <div className="flex justify-between items-center mb-0.5">
+                        <label className="block text-[10px] font-bold text-gray-400">Highlight Metric Label</label>
+                        <span className="text-[9px] text-gray-400 font-medium">{(re.highlight || "").length}/80</span>
+                      </div>
+                      <input type="text" maxLength={80} className="w-full bg-gray-50 p-1.5 text-xs rounded border text-blue-600 font-bold" placeholder="e.g. Conversion Rates" value={re.highlight} onChange={(e) => { const cp = [...formData.results]; cp[i].highlight = e.target.value; setFormData({ ...formData, results: cp }); }} />
                     </div>
-                    <div className="flex gap-1 items-center">
+                    <div className="flex gap-1 items-center w-full">
                       <div className="flex-1">
-                        <label className="block text-[10px] font-bold text-gray-400">Supporting Analytics Description Context</label>
-                        <input type="text" className="w-full bg-gray-50 p-1.5 text-xs rounded border" placeholder="Streamlined checkout process led to an increase..." value={re.data} onChange={(e) => { const cp = [...formData.results]; cp[i].data = e.target.value; setFormData({ ...formData, results: cp }); }} />
+                        <div className="flex justify-between items-center mb-0.5">
+                          <label className="block text-[10px] font-bold text-gray-400">Supporting Context</label>
+                          <span className="text-[9px] text-gray-400 font-medium">{(re.data || "").length}/120</span>
+                        </div>
+                        <input type="text" maxLength={120} className="w-full bg-gray-50 p-1.5 text-xs rounded border" placeholder="Streamlined checkout process led to an increase..." value={re.data} onChange={(e) => { const cp = [...formData.results]; cp[i].data = e.target.value; setFormData({ ...formData, results: cp }); }} />
                       </div>
                       <button type="button" onClick={() => setFormData({ ...formData, results: formData.results.filter((_: any, idx: number) => idx !== i) })} className="text-red-500 p-1.5 hover:bg-red-50 rounded mt-4"><FaTrash /></button>
                     </div>
@@ -499,18 +568,27 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
               </div>
               <div className="space-y-2">
                 {formData.impacts.map((im: any, i: number) => (
-                  <div key={i} className="flex gap-2 items-center bg-white p-2 rounded-lg border">
-                    <input type="text" placeholder="Impact Vector Variable Label" className="w-1/4 bg-gray-50 p-1.5 text-xs rounded font-bold" value={im.name} onChange={(e) => { const cp = [...formData.impacts]; cp[i].name = e.target.value; setFormData({ ...formData, impacts: cp }); }} />
-                    <input type="text" placeholder="Quantifiable lifecycle business or fiscal organizational lifecycle outcome shifts..." className="flex-1 bg-gray-50 p-1.5 text-xs rounded" value={im.detail} onChange={(e) => { const cp = [...formData.impacts]; cp[i].detail = e.target.value; setFormData({ ...formData, impacts: cp }); }} />
-                    <button type="button" onClick={() => setFormData({ ...formData, impacts: formData.impacts.filter((_: any, idx: number) => idx !== i) })} className="text-red-500 p-1.5 hover:bg-red-50 rounded"><FaTrash /></button>
+                  <div key={i} className="flex gap-2 items-center bg-white p-2 rounded-lg border w-full">
+                    <div className="w-1/4">
+                      <span className="text-[9px] text-gray-400 block mb-0.5">Name: {(im.name || "").length}/80</span>
+                      <input type="text" maxLength={80} placeholder="Impact Vector Variable Label" className="w-full bg-gray-50 p-1.5 text-xs rounded font-bold" value={im.name} onChange={(e) => { const cp = [...formData.impacts]; cp[i].name = e.target.value; setFormData({ ...formData, impacts: cp }); }} />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-[9px] text-gray-400 block mb-0.5">Detail: {(im.detail || "").length}/150</span>
+                      <input type="text" maxLength={150} placeholder="Quantifiable lifecycle business or fiscal organizational lifecycle outcome shifts..." className="w-full bg-gray-50 p-1.5 text-xs rounded" value={im.detail} onChange={(e) => { const cp = [...formData.impacts]; cp[i].detail = e.target.value; setFormData({ ...formData, impacts: cp }); }} />
+                    </div>
+                    <button type="button" onClick={() => setFormData({ ...formData, impacts: formData.impacts.filter((_: any, idx: number) => idx !== i) })} className="text-red-500 p-1.5 hover:bg-red-50 rounded self-end mb-0.5"><FaTrash /></button>
                   </div>
                 ))}
               </div>
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Final Concluding Technical Architecture Project Summary Notes Block</label>
-              <textarea className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl h-20 resize-none" placeholder="By integrating a dynamic ReactJS frontend with a custom backend and specialized CMS..." value={formData.detail} onChange={(e) => setFormData({ ...formData, detail: e.target.value })} />
+              <div className="flex justify-between items-center mb-1">
+                <label className="block text-[11px] font-bold text-gray-500 uppercase">Final Concluding Technical Architecture Project Summary Notes Block</label>
+                <span className="text-[10px] text-gray-400 font-medium">{(formData.detail || "").length}/300</span>
+              </div>
+              <textarea maxLength={300} className="w-full border border-gray-300 bg-gray-50 p-2.5 text-sm rounded-xl h-20 outline-none focus:border-blue-500 focus:bg-white resize-none" placeholder="By integrating a dynamic ReactJS frontend with a custom backend and specialized CMS..." value={formData.detail} onChange={(e) => setFormData({ ...formData, detail: e.target.value })} />
             </div>
           </div>
         )}
@@ -530,12 +608,18 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-500 mb-1">Upper Section Typography Tag</label>
-                    <input type="text" className="w-full border p-2 text-xs rounded bg-white" placeholder="e.g. Commerce" value={formData.twoImage.leftPanel.topLabel} onChange={(e) => setFormData({ ...formData, twoImage: { ...formData.twoImage, leftPanel: { ...formData.twoImage.leftPanel, topLabel: e.target.value } } })} />
+                    <div className="flex justify-between items-center mb-1">
+                      <label className="block text-[11px] font-bold text-gray-500">Upper Typography Tag</label>
+                      <span className="text-[9px] text-gray-400 font-medium">{(formData.twoImage.leftPanel.topLabel || "").length}/30</span>
+                    </div>
+                    <input type="text" maxLength={30} className="w-full border p-2 text-xs rounded bg-white" placeholder="e.g. Commerce" value={formData.twoImage.leftPanel.topLabel} onChange={(e) => setFormData({ ...formData, twoImage: { ...formData.twoImage, leftPanel: { ...formData.twoImage.leftPanel, topLabel: e.target.value } } })} />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-500 mb-1">Lower Section Typography Tag</label>
-                    <input type="text" className="w-full border p-2 text-xs rounded bg-white" placeholder="e.g. Performance Hub" value={formData.twoImage.leftPanel.bottomLabel} onChange={(e) => setFormData({ ...formData, twoImage: { ...formData.twoImage, leftPanel: { ...formData.twoImage.leftPanel, bottomLabel: e.target.value } } })} />
+                    <div className="flex justify-between items-center mb-1">
+                      <label className="block text-[11px] font-bold text-gray-500">Lower Typography Tag</label>
+                      <span className="text-[9px] text-gray-400 font-medium">{(formData.twoImage.leftPanel.bottomLabel || "").length}/30</span>
+                    </div>
+                    <input type="text" maxLength={30} className="w-full border p-2 text-xs rounded bg-white" placeholder="e.g. Performance Hub" value={formData.twoImage.leftPanel.bottomLabel} onChange={(e) => setFormData({ ...formData, twoImage: { ...formData.twoImage, leftPanel: { ...formData.twoImage.leftPanel, bottomLabel: e.target.value } } })} />
                   </div>
                 </div>
               </div>

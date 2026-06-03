@@ -40,13 +40,13 @@ export default function CaseStudyManager({ token, onEdit, onCreate }: { token: s
                         <div key={s._id} className="flex flex-col border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition bg-white group">
                             <div className="h-40 bg-gray-100 relative overflow-hidden">
                                 {s.image || s.heroImage ? (
-                                    <img 
-                                        src={s.image || s.heroImage} 
-                                        alt={s.name} 
+                                    <img
+                                        src={s.image || s.heroImage}
+                                        alt={s.name}
                                         className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                                        onError={(e) => { 
+                                        onError={(e) => {
                                             const target = e.target as HTMLImageElement;
-                                            target.onerror = null; 
+                                            target.onerror = null;
                                             target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="100%" height="100%" fill="%23f3f4f6"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="14" fill="%239ca3af">No Image</text></svg>';
                                         }}
                                     />

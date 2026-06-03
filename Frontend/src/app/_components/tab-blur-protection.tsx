@@ -2,20 +2,7 @@
 
 import { useEffect } from "react";
 
-/**
- * Tab Blur Protection – Snipping Tool Blocker
- *
- * Strategy: Apply CSS `filter: blur()` directly to <body> so the browser
- * renders the page blurred at paint time. Whatever the OS (Snipping Tool /
- * PrintScreen) captures is already blurred in the GPU render layer.
- *
- * - Page starts unblurred (window is focused on load).
- * - Blurs immediately whenever:
- *   • The window loses focus  (blur event)
- *   • The tab becomes hidden  (visibilitychange)
- *   • PrintScreen / Win+Shift+S key is pressed
- * - Unblurs when the window regains focus.
- */
+
 export default function TabBlurProtection() {
   useEffect(() => {
     // Inject a <style> tag once so the blur class is always available
@@ -64,16 +51,8 @@ export default function TabBlurProtection() {
     shield.id = "tab-blur-shield";
     shield.style.display = "none";
     shield.innerHTML = `
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:32px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <line x1="12" y1="8" x2="12" y2="12"/>
-          <circle cx="12" cy="15" r="0.5" fill="rgba(255,255,255,0.85)" stroke="none"/>
-        </svg>
-        <p style="color:#fff;font-size:22px;font-weight:800;letter-spacing:0.04em;margin:0;font-family:sans-serif;">Confidential – Obsidian SIX</p>
-        <span style="color:rgba(255,255,255,0.5);font-size:13px;font-family:sans-serif;font-weight:500;">Return to this tab to continue viewing the document</span>
-        <div style="margin-top:8px;padding:6px 18px;border:1px solid rgba(255,255,255,0.15);border-radius:999px;color:rgba(255,255,255,0.35);font-size:10px;font-family:sans-serif;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;">Protected Document</div>
-      </div>
+      <p>🔒 Content Protected</p>
+      <span>Return to this tab to continue viewing</span>
     `;
     document.body.appendChild(shield);
 

@@ -18,7 +18,7 @@ export default function AdminDashboard() {
 
   // View states
   const [editingCase, setEditingCase] = useState<any>(null);
-  const apiBase = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000";
+  const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
   // Core trigger to force component data re-fetching across child screens
   const [refreshNonce, setRefreshNonce] = useState(0);

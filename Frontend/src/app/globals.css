@@ -399,6 +399,47 @@ body.modal-open {
   transition-delay: calc(0.045s * 7);
 }
 
+/* Floating Navbar style when scrolled */
+header.scrolled-floating {
+  top: 1rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 90% !important;
+  max-width: 1200px !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  border-radius: 1.25rem !important; /* rounded-2xl */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important; /* border-slate-200 */
+}
+
+/* Shrink height of nav container inside header when scrolled */
+header.scrolled-floating nav {
+  height: 4.5rem !important; /* h-18 equivalent */
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+@media (max-width: 768px) {
+  header.scrolled-floating {
+    top: 0.5rem !important;
+    width: 95% !important;
+    border-radius: 1rem !important;
+  }
+  header.scrolled-floating nav {
+    height: 4rem !important; /* h-16 equivalent */
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Hide header when scrolling on services pages */
+header.hide-on-scroll {
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
 .animated-nav:hover i:nth-child(8) {
   transition-delay: calc(0.045s * 8);
 }

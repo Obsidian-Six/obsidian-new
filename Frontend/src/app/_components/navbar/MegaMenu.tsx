@@ -7,34 +7,34 @@ const categories = [
   {
     title: "Branding",
     items: [
-      { name: "Brand Consulting" },
-      { name: "Logo Design" },
-      { name: "Industrial / Product Design" },
-      { name: "Graphic Design" },
-      { name: "2D / 3D Visualisation" },
+      { name: "Brand Consulting", slug: "brand-consulting" },
+      { name: "Logo Design", slug: "logo-design" },
+      { name: "Industrial / Product Design", slug: "industrial-product-design" },
+      { name: "Graphic Design", slug: "graphic-design" },
+      { name: "2D / 3D Visualisation", slug: "2d-3d-visualisation" },
     ],
   },
   {
     title: "Technology",
     items: [
-      { name: "AI & Machine Learning" },
-      { name: "DevOps Consulting" },
-      { name: "Data & Analytics" },
-      { name: "Web Development" },
-      { name: "Mobile App Development" },
-      { name: "E-commerce" },
-      { name: "Quality Assurance & Testing" },
+      { name: "AI & Machine Learning", slug: "ai-machine-learning" },
+      { name: "DevOps Consulting", slug: "devops-consulting" },
+      { name: "Data & Analytics", slug: "data-analytics" },
+      { name: "Web Development", slug: "web-development" },
+      { name: "Mobile App Development", slug: "mobile-app-development" },
+      { name: "E-commerce", slug: "e-commerce" },
+      { name: "Quality Assurance & Testing", slug: "quality-assurance-testing" },
     ],
   },
   {
     title: "Digital Marketing",
     items: [
-      { name: "Search Engine Optimisation" },
-      { name: "Social Media Management" },
-      { name: "Performance Marketing" },
-      { name: "Content Marketing" },
-      { name: "Marketing Automation" },
-      { name: "Analytics" },
+      { name: "Search Engine Optimisation", slug: "search-engine-optimisation" },
+      { name: "Social Media Management", slug: "social-media-management" },
+      { name: "Performance Marketing", slug: "performance-marketing" },
+      { name: "Content Marketing", slug: "content-marketing" },
+      { name: "Marketing Automation", slug: "marketing-automation" },
+      { name: "Analytics", slug: "analytics" },
     ],
   },
 ];
@@ -86,12 +86,12 @@ export default function MegaMenu({ isOpen }: { isOpen: boolean }) {
                     <ul className="flex flex-col gap-4">
                       {cat.items.map((item, index) => (
                         <li key={index}>
-                          <span
-                            /* UPDATED: Adjusted text colors for better readability */
-                            className="text-[15px] font-medium text-slate-500 hover:text-black transition-colors cursor-default block"
+                          <Link
+                            href={`/services/${item.slug}`}
+                            className="text-[15px] font-medium text-slate-500 hover:text-black transition-colors block"
                           >
                             {item.name}
-                          </span>
+                          </Link>
                         </li>
                       ))}
                     </ul>

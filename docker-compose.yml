@@ -8,16 +8,18 @@ services:
     restart: unless-stopped
     environment:
       HOSTNAME: "0.0.0.0"
+      PORT: "3000"
       TRUST_PROXY: "true"
       NODE_ENV: "production"
+
+      NEXTJS_STANDALONE_ENABLE: "true"
     env_file:
       - ./Frontend/.env
-    
     deploy:
       resources:
         limits:
           memory: 1024M
-          cpus: '0.50' 
+          cpus: '0.50'
 
     networks:
       - traefik
@@ -28,6 +30,7 @@ services:
       - "traefik.http.routers.obsidiansix-beta.entrypoints=websecure"
       - "traefik.http.routers.obsidiansix-beta.tls=true"
       - "traefik.http.routers.obsidiansix-beta.tls.certresolver=myresolver"
+      - "traefik.http.routers.obsidiansix-beta.service=obsidiansix-beta"
       - "traefik.http.services.obsidiansix-beta.loadbalancer.server.port=3000"
 
   backend:
@@ -45,11 +48,12 @@ services:
       - traefik
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=Host(`api.obsidiansix.com`)"
-      - "traefik.http.routers.backend.entrypoints=websecure"
-      - "traefik.http.routers.backend.tls=true"
-      - "traefik.http.routers.backend.tls.certresolver=myresolver"
-      - "traefik.http.services.backend.loadbalancer.server.port=5000"
+      - "traefik.http.routers.obsidian-backend.rule=Host(`api.obsidiansix.com`)"
+      - "traefik.http.routers.obsidian-backend.entrypoints=websecure"
+      - "traefik.http.routers.obsidian-backend.tls=true"
+      - "traefik.http.routers.obsidian-backend.tls.certresolver=myresolver"
+      - "traefik.http.routers.obsidian-backend.service=obsidian-backend"
+      - "traefik.http.services.obsidian-backend.loadbalancer.server.port=5000"
 
 networks:
   traefik:

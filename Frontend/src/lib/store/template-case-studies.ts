@@ -1167,10 +1167,10 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     details:
       "A comprehensive digital marketing strategy that increased organic traffic by 150% and boosted online sales by 80% within six months.",
     image:
-      `"/case-studies/custom/pachmarhi-ayurveda/images/brand.png"`,
+      "https://media.licdn.com/dms/image/v2/D4D0BAQFY3ERjFGMLyg/company-logo_200_200/company-logo_200_200/0/1726910755323?e=2147483647&v=beta&t=1Z34TFiE7gr78QoNN775mJSTCyb7hoxX3bmavObLzCM",
     tags: ["Website", "Branding", "Marketing"],
     heroImage: "/images/case-study/pach.png",
-    "heroVideo": "",
+    "heroVideo": "",  
     "overviewVideo": "",
     "ChallengeVideo": "",
     "ApproachVideo": "",

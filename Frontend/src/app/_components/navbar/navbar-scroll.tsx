@@ -2,7 +2,7 @@
 
 import { MotionDiv } from "@/lib/motion";
 import { useScroll } from "framer-motion";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 export default function NavbarScroll() {
@@ -12,13 +12,13 @@ export default function NavbarScroll() {
   const handleScroll = useCallback(() => {
     const isScrolled = window.scrollY > 0;
     const onOverview = pathname?.includes("overview");
+    const onServices = pathname?.includes("/services") || pathname === "/services";
     
     const header = document.querySelector("header");
     const navLinks = header?.querySelectorAll("a");
     const menuIcon = document.getElementById("menu-btn");
 
     // --- 1. ALWAYS BLACK TEXT LOGIC ---
-    // We add text-black and remove text-white immediately every time
     menuIcon?.classList.add("text-black");
     menuIcon?.classList.remove("text-white");
     
@@ -32,18 +32,29 @@ export default function NavbarScroll() {
       // White background with shadow
       header?.classList.add("bg-white", "shadow-md");
       header?.classList.remove("bg-transparent");
+      
+      const onServices = pathname?.includes("/services") || pathname === "/services";
+      if (onServices && isScrolled) {
+        header?.classList.add("hide-on-scroll");
+      } else {
+        header?.classList.remove("hide-on-scroll");
+      }
     } else {
       // Transparent background (at top of other pages), but text stays black
       header?.classList.add("bg-transparent");
-      header?.classList.remove("bg-white", "shadow-md");
+      header?.classList.remove("bg-white", "shadow-md", "hide-on-scroll");
     }
   }, [pathname]);
 
+  // Timed hide-on-scroll for services pages
   useEffect(() => {
     handleScroll();
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+    // Depend on pathname only so the dependency array size stays constant
+  }, [pathname]);
 
   return (
     <MotionDiv
