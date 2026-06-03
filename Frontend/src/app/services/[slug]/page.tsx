@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { notFound } from "next/navigation";
 import { servicesStore } from "@/lib/store/template-services";
@@ -20,7 +20,7 @@ interface PageProps {
 }
 
 export default function DynamicServicePage({ params }: PageProps) {
-  const { slug } = use(params);
+  const { slug } = params;
   const service = servicesStore[slug];
 
   if (!service) {
@@ -125,7 +125,7 @@ export default function DynamicServicePage({ params }: PageProps) {
 
         {service.navItems.includes("Services") && (
           <div className="scroll-mt-36">
-            <ServicesWeOffer items={service.servicesOffered} />
+            <ServicesWeOffer items={service.servicesOffered || []} />
           </div>
         )}
 
@@ -175,7 +175,7 @@ export default function DynamicServicePage({ params }: PageProps) {
               <WhyUsSection
                 whyUsTitle={service.whyUsTitle}
                 whyUsSubtitle={service.whyUsSubtitle || ""}
-                whyUsStats={service.whyUsStats}
+                whyUsStats={service.whyUsStats || []}
                 whyUsCtaText={service.whyUsCtaText}
                 whyUsCtaLink={service.whyUsCtaLink}
               />
@@ -185,7 +185,7 @@ export default function DynamicServicePage({ params }: PageProps) {
 
         {service.navItems.includes("FAQ") && (
           <section id="faq" className="scroll-mt-36">
-            <FaqSection faqData={service.faq} />
+            <FaqSection faqData={service.faq || []} />
           </section>
         )}
 

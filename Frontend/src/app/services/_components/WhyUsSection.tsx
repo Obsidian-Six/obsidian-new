@@ -3,13 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import type { WhyUsStat } from "@/lib/store/template-services";
 
 interface WhyUsSectionProps {
   whyUsTitle: string;
   whyUsSubtitle: string;
   whyUsStats: WhyUsStat[];
-  whyUsCtaText?: string;
-  whyUsCtaLink?: string;
+  whyUsCtaText?: string | undefined;
+  whyUsCtaLink?: string | undefined;
 }
 
 // Animated counter hook
@@ -35,8 +36,8 @@ function useCounter(target: number, duration = 1800, start = false) {
 // Parse value like "6+", "300+", "50+" into number + suffix
 function parseStatValue(raw: string): { number: number; suffix: string } {
   const match = raw.match(/^(\d+)(.*)$/);
-  if (!match) return { number: 0, suffix: "" };
-  return { number: parseInt(match[1], 10), suffix: match[2] };
+  if (!match || !match[1]) return { number: 0, suffix: "" };
+  return { number: parseInt(match[1], 10), suffix: match[2] ?? "" };
 }
 
 // Highlight keywords in subtitle with alternating colors (blue, red, green, orange)

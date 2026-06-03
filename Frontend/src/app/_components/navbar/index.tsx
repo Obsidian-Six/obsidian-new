@@ -35,7 +35,7 @@ export default function Navbar() {
     { name: "Contact", link: "/contactus" },
   ];
 
-  const isServices = pathname?.includes("/services") || pathname === "/services";
+
   const isWhiteBg = isScrolled || isMegaMenuOpen;
 
   if (isAdminRoute || isHiddenDocument) return null;

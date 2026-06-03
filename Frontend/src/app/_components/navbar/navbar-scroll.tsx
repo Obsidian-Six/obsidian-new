@@ -2,7 +2,7 @@
 
 import { MotionDiv } from "@/lib/motion";
 import { useScroll } from "framer-motion";
-import { useEffect, useCallback, useRef } from "react";
+import { useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 
 export default function NavbarScroll() {
@@ -12,7 +12,7 @@ export default function NavbarScroll() {
   const handleScroll = useCallback(() => {
     const isScrolled = window.scrollY > 0;
     const onOverview = pathname?.includes("overview");
-    const onServices = pathname?.includes("/services") || pathname === "/services";
+
     
     const header = document.querySelector("header");
     const navLinks = header?.querySelectorAll("a");

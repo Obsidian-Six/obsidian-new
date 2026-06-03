@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ProcessStep } from "@/lib/store/template-services";
+import type { ProcessStep } from "@/lib/store/template-services";
 
 interface ProcessSectionProps {
   processTitle: string;

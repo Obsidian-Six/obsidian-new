@@ -1,13 +1,14 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 interface OverviewSectionProps {
   overviewTitle: string;
   overviewParagraphs: string[];
-  ctaText?: string;
-  ctaLink?: string;
+  ctaText?: string | undefined;
+  ctaLink?: string | undefined;
   onTechKeywordClick: () => void;
   hasTechStack: boolean;
 }
@@ -30,10 +31,10 @@ export default function OverviewSection({
   ];
 
   const renderParagraphWithLinks = (text: string) => {
-    let elements: (string | JSX.Element)[] = [text];
+    let elements: (string | React.ReactNode)[] = [text];
 
     linkableKeywords.forEach((kw) => {
-      const nextElements: (string | JSX.Element)[] = [];
+      const nextElements: (string | React.ReactNode)[] = [];
 
       elements.forEach((el) => {
         if (typeof el !== "string") {

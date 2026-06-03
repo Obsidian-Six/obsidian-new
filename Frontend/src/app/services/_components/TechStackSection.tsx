@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { TechTab } from "@/lib/store/template-services";
+import type { TechTab } from "@/lib/store/template-services";
 
 interface TechStackSectionProps {
   techStackTitle: string;
