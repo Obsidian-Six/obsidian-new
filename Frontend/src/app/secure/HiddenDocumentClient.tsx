@@ -6,8 +6,6 @@ import {
   Lock,
   Mail,
   Loader2,
-  ChevronLeft,
-  ChevronRight,
   ZoomIn,
   ZoomOut,
   FileText,
@@ -98,15 +96,6 @@ const CanvasPage = ({ pdf, pageNum, scale, watermarkEmail }: CanvasPageProps) =>
               }
             }
 
-            // Bold centred stamp
-            context.font = `900 ${Math.max(14, scale * 14)}px Arial, sans-serif`;
-            context.fillStyle = "rgba(0,0,0,0.9)";
-            context.save();
-            context.translate(w / 2, h / 2);
-            context.rotate(-Math.PI / 8);
-            context.fillText(`Confidential – Obsidian SIX`, 0, 0);
-            context.restore();
-
             context.restore();
           }
 
@@ -146,29 +135,25 @@ const CanvasPage = ({ pdf, pageNum, scale, watermarkEmail }: CanvasPageProps) =>
   );
 };
 
-export default function HiddenDocumentClient() {
+interface HiddenDocumentClientProps {
+  pdfFilename: "Task1.pdf" | "GOOGLE_ADS_X_OBS.pdf";
+}
+
+export default function HiddenDocumentClient({ pdfFilename }: HiddenDocumentClientProps) {
   const [email, setEmail] = useState("");
   const [isGated, setIsGated] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [activeDoc, setActiveDoc] = useState<"task1" | "google_ads">("task1");
 
   // PDF States
   const [isPdfJsLoaded, setIsPdfJsLoaded] = useState(false);
   const [pdfDoc, setPdfDoc] = useState<any>(null);
   const [numPages, setNumPages] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
+
   const [zoomScale, setZoomScale] = useState(1.2);
   const [pdfLoading, setPdfLoading] = useState(false);
 
-  // 1. Check local storage on mount
-  useEffect(() => {
-    const savedEmail = localStorage.getItem("obsidian_gated_email");
-    if (savedEmail) {
-      setEmail(savedEmail);
-      setIsGated(false);
-    }
-  }, []);
+  // 1. Check local storage on mount (Disabled: Always require email entry on every visit)
 
   // 2. Security Lockouts: Right-Click, Print Screen, Copy shortcuts
   useEffect(() => {
@@ -216,7 +201,7 @@ export default function HiddenDocumentClient() {
 
   // 3. Dynamically load PDF.js from CDN
   useEffect(() => {
-    if (isGated) return; // Load PDF.js only after user is authenticated to keep initial load lightweight
+    if (isGated) return; // Load PDF.js only after user is authenticated
 
     if ((window as any).pdfjsLib) {
       setIsPdfJsLoaded(true);
@@ -240,13 +225,15 @@ export default function HiddenDocumentClient() {
     document.body.appendChild(script);
   }, [isGated]);
 
-  // 4. Load PDF Document from assets when PDF.js is ready
+  // 4. Load PDF Document from assets when PDF.js is ready OR when pdfFilename changes
   useEffect(() => {
     if (!isPdfJsLoaded) return;
 
     setPdfLoading(true);
+    setPdfDoc(null);
+
     const pdfjsLib = (window as any).pdfjsLib;
-    const docPath = activeDoc === "google_ads" ? "/GOOGLE_ADS_X_OBS.pdf" : "/Task1.pdf";
+    const docPath = "/" + pdfFilename;
     const loadingTask = pdfjsLib.getDocument(docPath);
 
     loadingTask.promise
@@ -254,24 +241,22 @@ export default function HiddenDocumentClient() {
         setPdfDoc(pdf);
         setNumPages(pdf.numPages);
         setPdfLoading(false);
-        setCurrentPage(1); // Reset page selection on document switch
       })
       .catch((err: any) => {
         console.error("Error loading PDF:", err);
         setErrorMessage("Secure document file not found or corrupted.");
         setPdfLoading(false);
       });
-  }, [isPdfJsLoaded, activeDoc]);
+  }, [isPdfJsLoaded, pdfFilename]);
 
-  // 4b. Log document access on switcher change if verified
+  // 4b. Log document access when pdfFilename changes (after verified)
   useEffect(() => {
     if (!isGated && email) {
-      const docName = activeDoc === "google_ads" ? "GOOGLE_ADS_X_OBS.pdf" : "task1.pdf";
-      recordDocumentAccess(email, docName).catch((err) =>
+      recordDocumentAccess(email, pdfFilename).catch((err) =>
         console.error("Failed to log document access:", err)
       );
     }
-  }, [activeDoc, isGated, email]);
+  }, [pdfFilename, isGated, email]);
 
   // 5. Handle Gated Form Submission
   const handleVerify = async (e: React.FormEvent) => {
@@ -293,17 +278,10 @@ export default function HiddenDocumentClient() {
     setIsSubmitting(true);
 
     try {
-      const docName = activeDoc === "google_ads" ? "GOOGLE_ADS_X_OBS.pdf" : "task1.pdf";
-      // API call to log gated document access in database & trigger email notification
-      await recordDocumentAccess(cleanedEmail, docName);
-
-      // Persist in localStorage and state
-      localStorage.setItem("obsidian_gated_email", cleanedEmail);
+      await recordDocumentAccess(cleanedEmail, pdfFilename);
       setIsGated(false);
     } catch (error: any) {
       console.error("Verification failed:", error);
-      // Fallback: if server is temporarily offline but email is valid, we can allow viewing to prevent user blocking,
-      // but let's notify the user or log error first
       setErrorMessage("Database logging error. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -424,7 +402,7 @@ export default function HiddenDocumentClient() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="animate-spin size-5" />
-                      Decrypting & Gating...
+                      Decrypting &amp; Gating...
                     </>
                   ) : (
                     <>
@@ -438,7 +416,7 @@ export default function HiddenDocumentClient() {
               {/* Secure Trust Disclaimer */}
               <div className="mt-8 pt-6 border-t border-slate-900 flex items-center justify-center gap-2 text-slate-500 text-[10px] uppercase font-bold tracking-widest relative z-10">
                 <FileText size={12} className="text-slate-500" />
-                <span>Anti-copy & print protection enabled</span>
+                <span>Anti-copy &amp; print protection enabled</span>
               </div>
             </motion.div>
           ) : (
@@ -450,32 +428,6 @@ export default function HiddenDocumentClient() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="w-full flex flex-col items-center gap-6"
             >
-              {/* Document Switcher Tabs */}
-              <div className="flex bg-slate-950/60 p-1.5 rounded-2xl border border-slate-900/80 backdrop-blur-md shadow-inner gap-2">
-                <button
-                  onClick={() => setActiveDoc("task1")}
-                  className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
-                    activeDoc === "task1"
-                      ? "bg-gradient-to-tr from-[#024787] to-[#086ddd] text-white shadow-lg shadow-[#024787]/25"
-                      : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
-                  }`}
-                >
-                  <FileText size={14} />
-                  Task 1 Blueprint
-                </button>
-                <button
-                  onClick={() => setActiveDoc("google_ads")}
-                  className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
-                    activeDoc === "google_ads"
-                      ? "bg-gradient-to-tr from-[#024787] to-[#086ddd] text-white shadow-lg shadow-[#024787]/25"
-                      : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
-                  }`}
-                >
-                  <FileText size={14} />
-                  Google Ads X OBS
-                </button>
-              </div>
-
               {/* Document Info Header */}
               <div className="w-full max-w-4xl bg-slate-950/30 border border-slate-900/80 rounded-2xl p-4.5 px-6 flex flex-col sm:flex-row items-center justify-between gap-4 backdrop-blur-md shadow-lg">
                 <div className="flex items-center gap-3">
@@ -484,10 +436,12 @@ export default function HiddenDocumentClient() {
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-slate-200 poppins">
-                      {activeDoc === "google_ads" ? "GOOGLE_ADS_X_OBS.pdf" : "task1.pdf"}
+                      {pdfFilename}
                     </h3>
                     <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">
-                      {activeDoc === "google_ads" ? "Obsidian Six Marketing Blueprint" : "Obsidian Six Proprietary Blueprint"}
+                      {pdfFilename === "GOOGLE_ADS_X_OBS.pdf"
+                        ? "Obsidian Six Marketing Blueprint"
+                        : "Obsidian Six Proprietary Blueprint"}
                     </p>
                   </div>
                 </div>
@@ -513,27 +467,6 @@ export default function HiddenDocumentClient() {
                       <ZoomIn size={16} />
                     </button>
                   </div>
-
-                  <div className="flex items-center gap-1.5 bg-slate-900/50 p-1 rounded-xl border border-slate-800">
-                    <button
-                      disabled={currentPage <= 1 || pdfLoading}
-                      onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-                      className="p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-slate-100 disabled:opacity-30 disabled:hover:bg-transparent transition-all"
-                    >
-                      <ChevronLeft size={16} />
-                    </button>
-                    <span className="text-xs font-semibold text-slate-300 px-1 select-none">
-                      Page <strong className="font-bold text-white">{currentPage}</strong> of{" "}
-                      {numPages}
-                    </span>
-                    <button
-                      disabled={currentPage >= numPages || pdfLoading}
-                      onClick={() => setCurrentPage((p) => Math.min(p + 1, numPages))}
-                      className="p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-slate-100 disabled:opacity-30 disabled:hover:bg-transparent transition-all"
-                    >
-                      <ChevronRight size={16} />
-                    </button>
-                  </div>
                 </div>
               </div>
 
@@ -557,13 +490,17 @@ export default function HiddenDocumentClient() {
                 ) : (
                   pdfDoc && (
                     <motion.div
-                      key={currentPage}
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      key={pdfFilename}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="w-full shadow-[0_20px_50px_rgba(0,0,0,0.6)] rounded-2xl overflow-hidden"
+                      className="w-full flex flex-col gap-8"
                     >
-                      <CanvasPage pdf={pdfDoc} pageNum={currentPage} scale={zoomScale} watermarkEmail={email} />
+                      {Array.from({ length: numPages }, (_, idx) => idx + 1).map((pageNum) => (
+                        <div key={pageNum} className="w-full shadow-[0_20px_50px_rgba(0,0,0,0.6)] rounded-2xl overflow-hidden">
+                          <CanvasPage pdf={pdfDoc} pageNum={pageNum} scale={zoomScale} watermarkEmail={email} />
+                        </div>
+                      ))}
                     </motion.div>
                   )
                 )}

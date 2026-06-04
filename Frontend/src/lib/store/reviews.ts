@@ -8,7 +8,7 @@ const reviews: Review[] = [
       "Hii Obsidian Team let me take this opportunity to Thank you from the bottom of my Heart. The Campaigns you started running for us gave us recognition and much-needed clients in the form of Leads and my business took off. I got many potential clients and the chain continues even today. All of us have to take different pathways to move ahead in life and let me reaffirm you that the foundation you gave AB Capital social media from the beginning will remain warm in our hearts.",
     company: "AB CAPITAL",
     image:
-      "https://www.igrowmybiz.com/_next/image?url=%2Fassets%2Fimages%2Fbharat-bajaj.jpg&w=1920&q=75",
+      "/bharat_bajaj.jpeg",
     video: "https://www.youtube.com/embed/tgbNymZ7vqY",
   },
   {

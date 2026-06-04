@@ -1,11 +1,14 @@
 
+
 import FloatingWhatsapp from "./_components/floating-whatsapp";
 import Footer from "./_components/footer";
-import Navbar from "./_components/navbar";
+
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import type { ReactNode } from "react";
 import TabBlurProtection from "./_components/tab-blur-protection";
+import HeaderToggle from "./_components/HeaderToggle";
+
 
 export const metadata = {
   title: "Obsidian Six",
@@ -96,9 +99,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className="antialiased" cz-shortcut-listen="true">
-        <header>
-          <Navbar />
-        </header>
+        <HeaderToggle />
         <main>{children}</main>
         <footer>
           <Footer />

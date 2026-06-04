@@ -1,4 +1,4 @@
-import HiddenDocumentClient from "./HiddenDocumentClient";
+import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "Secure Document Vault | Obsidian Six",
@@ -14,9 +14,6 @@ export const metadata = {
 };
 
 export default function HiddenDocumentPage() {
-  return (
-    <main className="bg-[#030712] min-h-screen text-slate-100 selection:bg-indigo-500/30">
-      <HiddenDocumentClient />
-    </main>
-  );
+  // Redirect to the first document by default
+  redirect("/hidden-document/Task1.pdf");
 }
