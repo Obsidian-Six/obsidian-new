@@ -27,13 +27,24 @@ export default function CaseStudyForm({ token, apiBase, onClose, onRefresh, edit
 
     try {
       const isEdit = !!editingCase?._id;
+      
+      // Convert comma-separated tags string back to an array of strings
+      const formattedTags = typeof formData.tags === "string"
+        ? formData.tags.split(",").map((t: string) => t.trim()).filter(Boolean)
+        : formData.tags;
+
+      const payload = {
+        ...formData,
+        tags: formattedTags
+      };
+
       const res = await fetch(isEdit ? `${apiBase}/api/case-studies/${editingCase._id}` : `${apiBase}/api/case-studies`, {
         method: isEdit ? "PUT" : "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {

@@ -41,7 +41,7 @@ export default function CaseStudyManager({ token, onEdit, onCreate }: { token: s
                             <div className="h-40 bg-gray-100 relative overflow-hidden">
                                 {s.image || s.heroImage ? (
                                     <img
-                                        src={s.image || s.heroImage}
+                                        src={(s.image || s.heroImage).startsWith('http') ? (s.image || s.heroImage) : `${apiBase}${s.image || s.heroImage}`}
                                         alt={s.name}
                                         className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                                         onError={(e) => {

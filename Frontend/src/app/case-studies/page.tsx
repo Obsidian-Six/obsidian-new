@@ -6,12 +6,15 @@ import type CaseStudy from "@/lib/models/case-study.types";
 import caseStudiesData from "@/lib/store/case-studies";
 import { normalizeMediaUrls, getSlug } from "@/lib/utils";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function Page() {
   const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
   let dynamicCaseStudies: CaseStudy[] = [];
 
   try {
-    const res = await fetch(`${apiBase}/api/case-studies`, { next: { revalidate: 3600 } });
+    const res = await fetch(`${apiBase}/api/case-studies`, { cache: "no-store" });
     const data = await res.json();
     if (res.ok && data.success && Array.isArray(data.data)) {
       dynamicCaseStudies = normalizeMediaUrls(data.data, apiBase);
