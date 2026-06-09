@@ -33,6 +33,7 @@ export default function Navbar() {
     { name: "Services", link: "/services" },
     { name: "Blogs", link: "/blogs" },
     { name: "Contact", link: "/contactus" },
+    { name: "Ai Audit", link: "/uae-ai-marketing-audit.html" },
   ];
 
 
