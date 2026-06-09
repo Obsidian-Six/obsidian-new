@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>UAE Finance & Business Agency — Free AI Marketing Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C8973A;--gold-lt:#EDD898;--gold-dk:#7A5C10;--gold-bg:#FBF6EC;--gold-mid:#D4A84B;
+  --navy:#07111F;--navy-2:#0B1D33;--navy-3:#132840;--navy-4:#1E3A55;
+  --ink:#0D1A27;--muted:#5C6E7E;--muted-lt:#9BAAB8;
+  --bg:#F5F3EF;--surface:#FFFFFF;--border:#E2D9CC;--border-lt:#EDE8E1;
+  --green:#0A6638;--green-lt:#D6F0E4;--green-bg:#EEF9F4;
+  --amber:#A85E00;--amber-bg:#FFF5E0;--amber-lt:#FFE5B0;
+  --red:#A82020;--red-bg:#FEF2F2;--red-lt:#F5C8C8;
+  --blue:#1450A0;--blue-bg:#EDF3FF;
+  --r:14px;--r-lg:20px;--r-xl:28px;
+  --sh:0 1px 12px rgba(7,17,31,.06);--sh-md:0 4px 24px rgba(7,17,31,.09);--sh-lg:0 12px 48px rgba(7,17,31,.13);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+/* ─────── HERO ─────── */
+.hero{background:var(--navy);min-height:100vh;display:grid;place-items:center;padding:80px 24px 100px;text-align:center;position:relative;overflow:hidden}
+.h-noise{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:.4}
+.h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,151,58,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(200,151,58,.06) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 40%,#000 30%,transparent 100%);mask-image:radial-gradient(ellipse 90% 70% at 50% 40%,#000 30%,transparent 100%)}
+.h-glow{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(200,151,58,.1) 0%,transparent 65%);top:40%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.h-glow2{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(20,80,160,.12) 0%,transparent 65%);top:70%;right:10%;pointer-events:none}
+.h-content{position:relative;z-index:2;max-width:840px}
+.h-pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(200,151,58,.3);background:rgba(200,151,58,.08);backdrop-filter:blur(8px);color:rgba(237,216,152,.85);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;padding:10px 24px;border-radius:100px;margin-bottom:40px}
+.h-pill-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.7)}}
+.h-eyebrow{font-size:12px;font-weight:500;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.h-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7vw,82px);font-weight:600;line-height:1.04;color:#fff;margin-bottom:28px;letter-spacing:-.5px}
+.h-title .accent{color:var(--gold-lt);font-style:italic}
+.h-desc{font-size:17px;color:rgba(255,255,255,.45);max-width:500px;margin:0 auto 52px;line-height:1.85;font-weight:300}
+.h-cta-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn-hero-primary{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);font-family:'Inter',sans-serif;font-size:15px;font-weight:600;padding:17px 38px;border-radius:100px;border:none;cursor:pointer;transition:all .28s;letter-spacing:.2px;box-shadow:0 4px 20px rgba(200,151,58,.3)}
+.btn-hero-primary:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 10px 36px rgba(200,151,58,.4)}
+.btn-hero-ghost{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);font-family:'Inter',sans-serif;font-size:14px;font-weight:400;padding:17px 30px;border-radius:100px;border:1px solid rgba(255,255,255,.12);cursor:pointer;transition:all .25s;letter-spacing:.2px}
+.btn-hero-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.85)}
+.h-stats{display:flex;justify-content:center;flex-wrap:wrap;margin-top:72px;padding-top:48px;border-top:1px solid rgba(255,255,255,.07);gap:0}
+.h-stat{padding:0 40px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.h-stat:last-child{border-right:none}
+.h-stat-val{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:var(--gold-lt);line-height:1}
+.h-stat-lbl{font-size:11px;color:rgba(255,255,255,.28);margin-top:7px;letter-spacing:1px;text-transform:uppercase}
+.h-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(255,255,255,.18);font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.h-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.25));animation:scrollgrow 2s ease-in-out infinite}
+@keyframes scrollgrow{0%,100%{height:20px;opacity:.3}50%{height:40px;opacity:.7}}
+
+/* ─────── AUDIT SHELL ─────── */
+.shell{max-width:740px;margin:0 auto;padding:0 20px 100px}
+
+/* ─────── STICKY PROGRESS ─────── */
+.prog-wrap{background:rgba(245,243,239,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--r-xl);padding:18px 28px;margin-top:-34px;margin-bottom:20px;position:sticky;top:16px;z-index:100;box-shadow:var(--sh-lg)}
+.prog-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.prog-section-lbl{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk)}
+.prog-counter{font-size:11px;color:var(--muted-lt);font-weight:500;background:var(--border-lt);padding:4px 10px;border-radius:100px}
+.prog-bar-track{height:3px;background:var(--border-lt);border-radius:100px;overflow:hidden;margin-bottom:12px}
+.prog-bar-fill{height:100%;background:linear-gradient(90deg,var(--gold-dk),var(--gold-lt));border-radius:100px;transition:width .7s cubic-bezier(.4,0,.2,1)}
+.prog-dots{display:flex;gap:3px}
+.prog-dot{flex:1;height:2px;border-radius:100px;background:var(--border-lt);transition:background .4s}
+.prog-dot.done{background:var(--gold-lt)}.prog-dot.active{background:var(--gold-dk)}
+
+/* ─────── QUESTION CARD ─────── */
+.q-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-md);animation:qslide .45s cubic-bezier(.16,.84,.44,1) both}
+@keyframes qslide{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.q-top-strip{height:3px;background:linear-gradient(90deg,var(--gold-dk),var(--gold-lt),transparent)}
+
+.q-head{padding:36px 40px 0}
+.q-meta{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.q-section-chip{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dk);background:var(--gold-bg);border:1px solid rgba(200,151,58,.2);padding:5px 14px;border-radius:100px}
+.q-num-chip{font-size:11px;color:var(--muted-lt);font-weight:400}
+
+.q-question{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.8vw,34px);font-weight:600;line-height:1.22;color:var(--navy);margin-bottom:12px;letter-spacing:-.3px}
+.q-hint-text{font-size:13px;color:var(--muted);line-height:1.72;padding:14px 18px;background:var(--bg);border-radius:var(--r);border-left:3px solid var(--border);margin-bottom:32px}
+
+.q-body-pad{padding:0 40px}
+
+/* ── OPTION TILES ── */
+.tiles{display:grid;gap:10px}
+.tiles.g2{grid-template-columns:1fr 1fr}
+.tile{display:flex;align-items:flex-start;gap:14px;border:1.5px solid var(--border);border-radius:16px;padding:18px 20px;cursor:pointer;transition:border-color .18s,background .18s,transform .18s,box-shadow .18s;background:var(--bg);position:relative;user-select:none}
+.tile:hover{border-color:var(--gold);background:var(--gold-bg);transform:translateY(-1px);box-shadow:0 6px 20px rgba(200,151,58,.1)}
+.tile.sel{border-color:var(--gold-dk);background:var(--gold-bg);box-shadow:0 0 0 3px rgba(200,151,58,.18),0 6px 24px rgba(200,151,58,.14)}
+.tile-check{position:absolute;top:12px;right:14px;width:22px;height:22px;border-radius:50%;background:var(--border-lt);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.tile.sel .tile-check{background:var(--gold-dk);border-color:var(--gold-dk)}
+.tile-check svg{display:none}
+.tile.sel .tile-check svg{display:block}
+.tile-ico{width:44px;height:44px;border-radius:12px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;transition:all .2s}
+.tile.sel .tile-ico{background:rgba(200,151,58,.15);border-color:rgba(200,151,58,.3)}
+.tile-text{}
+.tile-lbl{font-size:14px;font-weight:600;color:var(--navy);line-height:1.3}
+.tile-sub{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
+
+/* ── SCALE ── */
+.scale-container{padding:4px 0 8px}
+.scale-row{display:flex;gap:6px}
+.scale-num{flex:1;border:1.5px solid var(--border);border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;text-align:center;background:var(--bg);transition:all .2s;color:var(--navy);min-height:52px;display:flex;align-items:center;justify-content:center}
+.scale-num:hover{border-color:var(--gold);background:var(--gold-bg)}
+.scale-num.sel{border-color:var(--gold-dk);background:var(--gold-dk);color:#fff;box-shadow:0 4px 14px rgba(122,92,16,.3);transform:translateY(-1px)}
+.scale-ends{display:flex;justify-content:space-between;margin-top:10px;padding:0 2px}
+.scale-end{font-size:11px;color:var(--muted-lt);font-style:italic}
+
+/* ── TEXTAREA ── */
+.ta-container{}
+.q-ta{width:100%;border:1.5px solid var(--border);border-radius:var(--r);padding:16px 18px;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink);background:var(--bg);resize:none;outline:none;transition:all .22s;line-height:1.72;min-height:140px}
+.q-ta:focus{border-color:var(--gold);background:var(--surface);box-shadow:0 0 0 4px rgba(200,151,58,.08)}
+.q-ta::placeholder{color:var(--muted-lt)}
+.ta-footer{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.ta-hint{font-size:11px;color:var(--muted-lt);display:flex;align-items:center;gap:5px}
+.ta-hint.ok{color:var(--green)}
+.ta-chars{font-size:11px;color:var(--muted-lt)}
+
+/* ── UPLOAD ── */
+.upload-zone{margin-top:16px;border:1.5px dashed var(--border);border-radius:var(--r);padding:24px;text-align:center;cursor:pointer;transition:all .22s;background:var(--bg);position:relative}
+.upload-zone:hover{border-color:var(--gold-mid);background:var(--gold-bg)}
+.upload-zone.has-file{border-style:solid;border-color:var(--green);background:var(--green-bg)}
+.upload-zone-inner{display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
+.upload-icon-wrap{width:40px;height:40px;border-radius:10px;background:var(--border-lt);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:4px;transition:all .2s}
+.upload-zone.has-file .upload-icon-wrap{background:var(--green-lt);color:var(--green)}
+.upload-label{font-size:13px;font-weight:500;color:var(--muted)}
+.upload-zone.has-file .upload-label{color:var(--green);font-weight:600}
+.upload-sub-label{font-size:11px;color:var(--muted-lt)}
+.upload-chip{display:inline-flex;align-items:center;gap:5px;background:var(--green-lt);color:var(--green);font-size:11px;font-weight:500;padding:4px 10px;border-radius:100px;margin-top:4px}
+
+/* ── MULTI HINT ── */
+.multi-hint{font-size:11px;color:var(--muted-lt);margin-bottom:12px;display:flex;align-items:center;gap:5px}
+
+/* ── NAV FOOTER ── */
+.q-footer{padding:24px 40px 36px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-lt);margin-top:28px}
+.btn-back{background:none;border:1.5px solid var(--border);border-radius:100px;padding:12px 26px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px}
+.btn-back:hover{border-color:var(--gold-dk);color:var(--gold-dk)}
+.btn-next,.btn-finish{border:none;border-radius:100px;padding:14px 36px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#fff;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:8px}
+.btn-next{background:var(--navy)}
+.btn-next:hover:not(:disabled){background:var(--navy-4);transform:translateY(-1px);box-shadow:0 6px 20px rgba(7,17,31,.25)}
+.btn-finish{background:var(--gold-dk)}
+.btn-finish:hover:not(:disabled){background:var(--gold);color:var(--navy);transform:translateY(-1px);box-shadow:0 6px 20px rgba(200,151,58,.35)}
+.btn-next:disabled,.btn-finish:disabled{opacity:.3;cursor:not-allowed;transform:none!important;box-shadow:none!important}
+
+/* ─────── LEAD SCREEN ─────── */
+.lead-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg)}
+.lead-hero{background:linear-gradient(135deg,var(--navy-2),var(--navy-3));padding:48px 48px 44px;text-align:center;position:relative;overflow:hidden}
+.lead-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold-dk),var(--gold-lt),var(--gold-dk),transparent)}
+.lead-hero-gfx{position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 50px,rgba(200,151,58,.03) 50px,rgba(200,151,58,.03) 51px)}
+.lead-hero-content{position:relative;z-index:1}
+.lead-icon-circle{width:76px;height:76px;border-radius:50%;background:rgba(200,151,58,.12);border:1px solid rgba(200,151,58,.25);display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 22px}
+.lead-hero h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:#fff;margin-bottom:10px;letter-spacing:-.3px}
+.lead-hero p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.75;max-width:440px;margin:0 auto}
+.lead-body{padding:40px 48px}
+.audit-recap{background:var(--bg);border:1px solid var(--border-lt);border-radius:var(--r);padding:18px 22px;margin-bottom:28px}
+.audit-recap-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:12px}
+.recap-chips{display:flex;flex-wrap:wrap;gap:8px}
+.recap-chip{font-size:12px;font-weight:500;background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:5px 14px;border-radius:100px}
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field-group{display:flex;flex-direction:column;gap:6px}
+.field-group.span2{grid-column:1/-1}
+.field-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.f-inp{border:1.5px solid var(--border);border-radius:var(--r);padding:13px 16px;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink);background:var(--bg);outline:none;transition:all .2s;width:100%}
+.f-inp:focus{border-color:var(--gold);background:var(--surface);box-shadow:0 0 0 3px rgba(200,151,58,.1)}
+.f-inp::placeholder{color:var(--muted-lt)}
+.btn-gen{background:linear-gradient(135deg,var(--gold-dk),var(--gold-mid));border:none;border-radius:100px;padding:17px;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#fff;cursor:pointer;transition:all .28s;width:100%;grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:.2px;box-shadow:0 4px 20px rgba(200,151,58,.3)}
+.btn-gen:hover{transform:translateY(-1px);box-shadow:0 8px 32px rgba(200,151,58,.4);background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:var(--navy)}
+.trust-bar{display:flex;justify-content:center;gap:24px;padding-top:18px;border-top:1px solid var(--border-lt);grid-column:1/-1;flex-wrap:wrap}
+.trust-tag{font-size:12px;color:var(--muted-lt);display:flex;align-items:center;gap:5px}
+
+/* ─────── GENERATING ─────── */
+.gen-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:64px 40px 56px;text-align:center;box-shadow:var(--sh-lg)}
+.gen-orbital{position:relative;width:108px;height:108px;margin:0 auto 36px}
+.orbital-ring{position:absolute;inset:0;border:1.5px solid transparent;border-radius:50%}
+.orbital-ring.r1{border-top-color:var(--gold);border-right-color:rgba(200,151,58,.3);animation:spin 2.8s linear infinite}
+.orbital-ring.r2{inset:12px;border-top-color:var(--gold-dk);border-left-color:rgba(122,92,16,.4);animation:spin 2s linear infinite reverse}
+.orbital-ring.r3{inset:24px;border-bottom-color:var(--gold-lt);animation:spin 3.6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orbital-core{position:absolute;inset:34px;background:var(--gold-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;border:1px solid rgba(200,151,58,.2)}
+.gen-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--navy);margin-bottom:8px;letter-spacing:-.2px}
+.gen-sub{font-size:14px;color:var(--muted);margin-bottom:40px;line-height:1.6}
+.pipeline{display:flex;flex-direction:column;gap:6px;max-width:400px;margin:0 auto;text-align:left}
+.pipe-step{display:flex;align-items:center;gap:12px;padding:11px 16px;border-radius:var(--r);transition:all .45s}
+.pipe-icon{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;font-weight:600;transition:all .4s}
+.pipe-text{font-size:13px;transition:color .4s;line-height:1.4}
+.pipe-step.idle .pipe-icon{background:var(--border-lt);color:var(--muted-lt)}
+.pipe-step.idle .pipe-text{color:var(--muted-lt)}
+.pipe-step.run{background:var(--gold-bg)}
+.pipe-step.run .pipe-icon{background:var(--gold-dk);color:#fff}
+.pipe-step.run .pipe-text{color:var(--gold-dk);font-weight:500}
+.pipe-step.done .pipe-icon{background:var(--green-bg);color:var(--green)}
+.pipe-step.done .pipe-text{color:var(--muted)}
+
+/* ─────── REPORT ─────── */
+.report-shell{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg)}
+
+/* Cover */
+.rpt-cover{background:var(--navy);padding:56px 52px;position:relative;overflow:hidden}
+.rpt-cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,151,58,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(200,151,58,.05) 1px,transparent 1px);background-size:48px 48px}
+.rpt-cover-shine{position:absolute;top:-200px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(200,151,58,.08) 0%,transparent 65%)}
+.rpt-cover-bottom{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-dk),var(--gold-lt),var(--gold-dk),transparent)}
+.rpt-cover-content{position:relative;z-index:1}
+.rpt-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(200,151,58,.28);background:rgba(200,151,58,.09);color:rgba(237,216,152,.8);font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;padding:7px 18px;border-radius:100px;margin-bottom:20px}
+.rpt-company-name{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4.5vw,46px);font-weight:700;color:#fff;line-height:1.12;margin-bottom:12px;letter-spacing:-.4px}
+.rpt-summary-text{font-size:15px;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:28px;max-width:560px}
+.rpt-cover-meta{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.08);padding-top:24px}
+.rpt-cover-meta-item{padding:0 24px 0 0;margin:0 24px 0 0;border-right:1px solid rgba(255,255,255,.1);font-size:12px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:7px}
+.rpt-cover-meta-item:last-child{border-right:none;margin-right:0;padding-right:0}
+.rpt-cover-meta-item strong{color:rgba(255,255,255,.7);font-weight:500}
+
+/* Score rings dashboard */
+.score-dashboard{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bg);border-bottom:1px solid var(--border)}
+.score-tile{padding:28px 16px;text-align:center;border-right:1px solid var(--border);position:relative}
+.score-tile:last-child{border-right:none}
+.score-tile.main-score{background:var(--surface)}
+.ring-wrap{width:80px;height:80px;position:relative;margin:0 auto 12px}
+.ring-svg{transform:rotate(-90deg);display:block}
+.ring-bg{fill:none;stroke:var(--border-lt);stroke-width:5}
+.ring-fill{fill:none;stroke-width:5;stroke-linecap:round;transition:stroke-dashoffset 1.4s .2s cubic-bezier(.4,0,.2,1)}
+.ring-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;line-height:1}
+.score-tile-lbl{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-lt)}
+.score-tile-grade{font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;display:inline-block;margin-top:5px}
+.g-crit{background:var(--red-bg);color:var(--red)}
+.g-low{background:var(--amber-bg);color:var(--amber)}
+.g-avg{background:#F0F0F0;color:#555}
+.g-good{background:var(--green-bg);color:var(--green)}
+.g-ex{background:#E8F5FF;color:var(--blue)}
+
+/* Report body */
+.rpt-body{background:var(--surface);padding:52px}
+
+.email-ok-bar{display:flex;align-items:center;gap:10px;background:var(--green-bg);border:1px solid rgba(10,102,56,.15);border-radius:var(--r);padding:14px 18px;font-size:13px;color:var(--green);margin-bottom:36px}
+.email-ok-bar strong{font-weight:600}
+
+/* Section header */
+.rpt-sec{margin-bottom:56px}
+.rpt-sec-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:28px}
+.rpt-sec-icon{width:50px;height:50px;border-radius:14px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.rpt-sec-text{}
+.rpt-sec-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--navy);letter-spacing:-.2px;margin-bottom:6px}
+.rpt-sec-bar-row{display:flex;align-items:center;gap:10px}
+.rpt-sec-bar{width:160px;height:4px;background:var(--border-lt);border-radius:100px;overflow:hidden}
+.rpt-sec-bar-fill{height:100%;border-radius:100px;transition:width 1s .4s}
+.rpt-sec-score-lbl{font-size:12px;font-weight:600;color:var(--muted)}
+
+/* 3-col insight cards */
+.insight-trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.ins-card{border-radius:var(--r);padding:20px;border:1px solid transparent;position:relative;overflow:hidden}
+.ins-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.ins-card.problem{background:var(--red-bg);border-color:var(--red-lt)}
+.ins-card.problem::before{background:var(--red)}
+.ins-card.insight{background:var(--amber-bg);border-color:var(--amber-lt)}
+.ins-card.insight::before{background:var(--amber)}
+.ins-card.action{background:var(--green-bg);border-color:var(--green-lt)}
+.ins-card.action::before{background:var(--green)}
+.ins-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.ins-card.problem .ins-tag{color:var(--red)}
+.ins-card.insight .ins-tag{color:var(--amber)}
+.ins-card.action .ins-tag{color:var(--green)}
+.ins-tag-pip{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.ins-card.problem .ins-tag-pip{background:var(--red)}
+.ins-card.insight .ins-tag-pip{background:var(--amber)}
+.ins-card.action .ins-tag-pip{background:var(--green)}
+.ins-body{font-size:13px;line-height:1.76;color:var(--ink)}
+
+/* Priorities */
+.pri-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pri-card{border:1px solid var(--border);border-radius:18px;padding:24px 22px;background:var(--bg);position:relative;overflow:hidden;transition:box-shadow .2s}
+.pri-card:hover{box-shadow:var(--sh-md)}
+.pri-card-stripe{position:absolute;top:0;left:0;bottom:0;width:4px;border-radius:4px 0 0 4px}
+.pri-card.h .pri-card-stripe{background:linear-gradient(to bottom,var(--gold-dk),var(--gold-mid))}
+.pri-card.m .pri-card-stripe{background:linear-gradient(to bottom,var(--blue),#4A80C4)}
+.pri-rank-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--border);line-height:1;margin-bottom:8px}
+.pri-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:7px;line-height:1.3}
+.pri-desc{font-size:13px;color:var(--muted);line-height:1.68}
+.pri-impact{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-top:12px}
+.pri-card.h .pri-impact{background:var(--gold-bg);color:var(--gold-dk)}
+.pri-card.m .pri-impact{background:var(--blue-bg);color:var(--blue)}
+
+/* KPI strip */
+.kpi-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border-radius:18px;overflow:hidden;margin:24px 0}
+.kpi-cell{background:var(--surface);padding:24px;text-align:center}
+.kpi-main{display:flex;align-items:baseline;justify-content:center;gap:4px;margin-bottom:6px}
+.kpi-arrow{font-size:20px;line-height:1}
+.kpi-val{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;line-height:1;color:var(--navy)}
+.kpi-lbl{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-lt)}
+
+/* Roadmap timeline */
+.roadmap{margin-top:8px}
+.rm-item{display:flex;gap:18px;padding-bottom:36px;position:relative}
+.rm-item:not(:last-child)::after{content:'';position:absolute;left:24px;top:52px;bottom:0;width:1.5px;background:linear-gradient(to bottom,var(--border),transparent)}
+.rm-node{flex-shrink:0;display:flex;flex-direction:column;align-items:center}
+.rm-icon{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;border:2px solid;transition:all .2s}
+.rm-item:nth-child(1) .rm-icon{background:var(--gold-bg);border-color:var(--gold-mid);color:var(--gold-dk)}
+.rm-item:nth-child(2) .rm-icon{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
+.rm-item:nth-child(3) .rm-icon{background:var(--green-bg);border-color:var(--green);color:var(--green)}
+.rm-content{padding-top:6px;flex:1}
+.rm-phase-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.rm-item:nth-child(1) .rm-phase-label{color:var(--gold-dk)}
+.rm-item:nth-child(2) .rm-phase-label{color:var(--blue)}
+.rm-item:nth-child(3) .rm-phase-label{color:var(--green)}
+.rm-phase-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3}
+.rm-tasks-list{display:flex;flex-direction:column;gap:8px}
+.rm-task{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted);line-height:1.65}
+.rm-task-bullet{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.rm-item:nth-child(1) .rm-task-bullet{background:var(--gold-mid)}
+.rm-item:nth-child(2) .rm-task-bullet{background:var(--blue)}
+.rm-item:nth-child(3) .rm-task-bullet{background:var(--green)}
+
+/* Personal note */
+.personal-note{border-radius:18px;overflow:hidden;border:1px solid var(--border)}
+.pn-top{background:var(--navy-2);padding:18px 24px;display:flex;align-items:center;gap:12px}
+.pn-avatar{width:40px;height:40px;border-radius:50%;background:rgba(200,151,58,.15);border:1px solid rgba(200,151,58,.25);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.pn-meta-name{font-size:13px;font-weight:600;color:rgba(255,255,255,.85)}
+.pn-meta-role{font-size:11px;color:rgba(255,255,255,.3);margin-top:2px}
+.pn-content{background:var(--bg);padding:26px 28px}
+.pn-text{font-size:14px;line-height:1.88;color:var(--ink)}
+
+/* CTA */
+.rpt-cta{background:linear-gradient(135deg,var(--navy-2),var(--navy-3));padding:48px 52px;text-align:center;position:relative;overflow:hidden}
+.rpt-cta::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 40px,rgba(200,151,58,.03) 40px,rgba(200,151,58,.03) 41px)}
+.rpt-cta-content{position:relative;z-index:1}
+.rpt-cta h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#fff;margin-bottom:8px;letter-spacing:-.2px}
+.rpt-cta p{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:28px;line-height:1.7}
+.cta-btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn-gold{background:var(--gold-lt);color:var(--navy);border:none;border-radius:100px;padding:15px 34px;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .25s}
+.cta-btn-gold:hover{background:#fff;transform:translateY(-1px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+.cta-btn-outline{background:none;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.18);border-radius:100px;padding:15px 28px;font-family:'Inter',sans-serif;font-size:14px;cursor:pointer;transition:all .25s}
+.cta-btn-outline:hover{border-color:var(--gold-lt);color:var(--gold-lt)}
+
+.divider{height:1px;background:var(--border-lt);margin:48px 0}
+.sec-title-row{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--navy);letter-spacing:-.2px;margin-bottom:18px}
+
+.hidden{display:none!important}
+@media(max-width:600px){
+  .h-stats{gap:8px}.h-stat{padding:0 16px;font-size:12px}
+  .tiles.g2{grid-template-columns:1fr}
+  .score-dashboard{grid-template-columns:1fr 1fr}
+  .insight-trio{grid-template-columns:1fr}
+  .pri-grid{grid-template-columns:1fr}
+  .lead-grid{grid-template-columns:1fr}
+  .kpi-strip{grid-template-columns:1fr}
+  .rpt-body{padding:28px 20px}
+  .rpt-cover{padding:36px 24px}
+  .rpt-cta{padding:36px 24px}
+  .q-head,.q-body-pad,.q-footer{padding-left:20px;padding-right:20px}
+  .lead-body,.lead-hero{padding-left:24px;padding-right:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="top">
+  <div class="h-noise"></div>
+  <div class="h-grid"></div>
+  <div class="h-glow"></div>
+  <div class="h-glow2"></div>
+  <div class="h-content">
+    <div class="h-pill"><span class="h-pill-dot"></span>AI-Powered Marketing Intelligence</div>
+    <div class="h-eyebrow">Exclusively for UAE Finance & Business Consulting</div>
+    <h1 class="h-title">Discover Why Your<br>Marketing Isn't<br>Converting in <span class="accent">UAE</span></h1>
+    <p class="h-desc">Answer 11 targeted questions. Get a personalised 15-page AI-generated strategy report that shows exactly what to fix — and how.</p>
+    <div class="h-cta-row">
+      <button class="btn-hero-primary" onclick="document.getElementById('auditZone').scrollIntoView({behavior:'smooth'})">
+        Start Free Audit
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="btn-hero-ghost">Takes 5 minutes only</button>
+    </div>
+    <div class="h-stats">
+      <div class="h-stat"><div class="h-stat-val">15+</div><div class="h-stat-lbl">Page Report</div></div>
+      <div class="h-stat"><div class="h-stat-val">5</div><div class="h-stat-lbl">Min to Complete</div></div>
+      <div class="h-stat"><div class="h-stat-val">100%</div><div class="h-stat-lbl">Personalised</div></div>
+      <div class="h-stat"><div class="h-stat-val">Free</div><div class="h-stat-lbl">No Catch</div></div>
+    </div>
+  </div>
+  <div class="h-scroll"><div class="h-scroll-line"></div>Scroll</div>
+</section>
+
+<!-- ══════════ AUDIT ZONE ══════════ -->
+<div class="shell" id="auditZone">
+
+  <!-- progress -->
+  <div class="prog-wrap" id="progCard">
+    <div class="prog-top">
+      <span class="prog-section-lbl" id="progLbl">Section 1 of 4 — Business Foundations</span>
+      <span class="prog-counter" id="progCount">1 / 11</span>
+    </div>
+    <div class="prog-bar-track"><div class="prog-bar-fill" id="progBar" style="width:5%"></div></div>
+    <div class="prog-dots" id="progDots"></div>
+  </div>
+
+  <!-- question -->
+  <div id="qArea"></div>
+
+  <!-- lead -->
+  <div id="leadView" class="lead-wrap hidden">
+    <div class="lead-hero">
+      <div class="lead-hero-gfx"></div>
+      <div class="lead-hero-content">
+        <div class="lead-icon-circle">📊</div>
+        <h2>Your Report Is Ready</h2>
+        <p>Enter your details below. We'll generate your personalised AI report instantly and email you a full copy.</p>
+      </div>
+    </div>
+    <div class="lead-body">
+      <div class="audit-recap">
+        <div class="audit-recap-title">Audit Completed — Your Responses</div>
+        <div class="recap-chips" id="recapChips"></div>
+      </div>
+      <div class="lead-grid">
+        <div class="field-group"><label class="field-label">Your Name</label><input class="f-inp" id="ldName" placeholder="Full name" type="text"></div>
+        <div class="field-group"><label class="field-label">Company Name</label><input class="f-inp" id="ldCompany" placeholder="Agency name" type="text"></div>
+        <div class="field-group"><label class="field-label">Business Email</label><input class="f-inp" id="ldEmail" placeholder="your@company.com" type="email"></div>
+        <div class="field-group"><label class="field-label">WhatsApp (Optional)</label><input class="f-inp" id="ldPhone" placeholder="+971 XX XXX XXXX" type="tel"></div>
+        <button class="btn-gen" onclick="startGen()">
+          Generate My Free AI Report
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9h10M9 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="trust-bar">
+          <span class="trust-tag">🔒 100% Private</span>
+          <span class="trust-tag">⚡ Instant Results</span>
+          <span class="trust-tag">✉️ Emailed to You</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- generating -->
+  <div id="genView" class="gen-wrap hidden">
+    <div class="gen-orbital">
+      <div class="orbital-ring r1"></div>
+      <div class="orbital-ring r2"></div>
+      <div class="orbital-ring r3"></div>
+      <div class="orbital-core">✦</div>
+    </div>
+    <div class="gen-title">Analysing Your Marketing Intelligence</div>
+    <div class="gen-sub">Building your personalised 15-page strategy report…</div>
+    <div class="pipeline" id="pipeline">
+      <div class="pipe-step idle" id="p0"><div class="pipe-icon">1</div><div class="pipe-text">Scanning digital presence & brand authority</div></div>
+      <div class="pipe-step idle" id="p1"><div class="pipe-icon">2</div><div class="pipe-text">Analysing paid advertising performance signals</div></div>
+      <div class="pipe-step idle" id="p2"><div class="pipe-icon">3</div><div class="pipe-text">Benchmarking against UAE finance sector 2026</div></div>
+      <div class="pipe-step idle" id="p3"><div class="pipe-icon">4</div><div class="pipe-text">Mapping content gaps & design opportunities</div></div>
+      <div class="pipe-step idle" id="p4"><div class="pipe-icon">5</div><div class="pipe-text">Calculating ROI improvement potential</div></div>
+      <div class="pipe-step idle" id="p5"><div class="pipe-icon">6</div><div class="pipe-text">Writing your personalised action roadmap</div></div>
+    </div>
+  </div>
+
+  <!-- report -->
+  <div id="reportView" class="report-shell hidden"></div>
+</div>
+
+<script>
+// ═══ QUESTIONS DATA ═══
+const Q=[
+  {id:'q1',sec:'Business Foundations',sn:1,q:'How long has your finance or business setup consulting agency been operating in UAE?',h:'This calibrates every benchmark in your report to your stage of growth.',t:'opts',g:2,
+   opts:[{e:'🌱',l:'Under 1 year',s:'Early stage — building brand awareness'},{e:'📈',l:'1–3 years',s:'Established — scaling operations'},{e:'🏛️',l:'3–7 years',s:'Mature brand — optimising growth'},{e:'👑',l:'7+ years',s:'Market leader — exploring new channels'}]},
+  {id:'q2',sec:'Business Foundations',sn:1,q:'Which services generate the most revenue for your agency right now?',h:'Select all that apply — this shapes your content strategy and ad targeting recommendations.',t:'multi',g:2,
+   opts:[{e:'🏢',l:'Company Formation / Business Setup'},{e:'💰',l:'Financial Advisory & Planning'},{e:'🏦',l:'Banking & Account Opening'},{e:'📜',l:'Visa & PRO Services'},{e:'📊',l:'Accounting & Tax Compliance'},{e:'🔑',l:'Freezone / Mainland Licensing'}]},
+  {id:'q3',sec:'Business Foundations',sn:1,q:'Honestly — how strong is your digital presence vs your top 3 UAE competitors?',h:'1 = We are completely invisible online.  10 = We consistently dominate search and social.',t:'scale',l1:'Invisible online',l10:'Market dominant'},
+  {id:'q4',sec:'Advertising & Paid Media',sn:2,q:'Are you currently running paid advertising campaigns?',h:'This determines which benchmarks and strategies apply directly to your situation.',t:'opts',g:2,
+   opts:[{e:'📘',l:'Facebook & Instagram Ads',s:'Meta advertising currently active'},{e:'🔍',l:'Google Ads',s:'Search or Display campaigns running'},{e:'🔄',l:'Both Meta & Google',s:'Full multi-platform paid strategy'},{e:'🚫',l:'Not running paid ads yet',s:'Organic-only strategy right now'}]},
+  {id:'q5',sec:'Advertising & Paid Media',sn:2,q:'What is your biggest frustration with your current marketing or advertising performance?',h:'The most important question in this audit — the more specific you are, the more specific your report.',t:'ta',ph:"e.g. \"We spend AED 8,000/month on Facebook but only get 2–3 leads. CPL is around AED 2,500 and lead quality is poor. We've changed creatives but nothing improves...\"",ulbl:'Upload an Ads Manager screenshot (Optional — gives us specific data to analyse)',usub:'Meta Ads Manager, Google Ads dashboard, or any performance report'},
+  {id:'q6',sec:'Social Media & Content',sn:3,q:'How consistently does your agency post content on social media?',h:'Consistency compounds reach — we will assess both quantity and quality in your report.',t:'opts',g:2,
+   opts:[{e:'📅',l:'Daily (7+ posts/week)',s:'High-volume posting strategy'},{e:'🗓️',l:'3–5 times per week',s:'Consistent, regular posting'},{e:'📆',l:'1–2 times per week',s:'Low frequency, inconsistent'},{e:'😶',l:'Rarely or never',s:'Social media is being neglected'}]},
+  {id:'q7',sec:'Social Media & Content',sn:3,q:'Describe a typical week of content — what formats do you post and on which platforms?',h:'Walk us through exactly what you post — the more detail, the more targeted your report will be.',t:'ta',ph:"e.g. \"Mainly static graphics with company formation tips. Occasional reels filmed on a phone. No content calendar. Some client testimonials. Mostly English, sometimes Arabic. LinkedIn + Instagram...\"",ulbl:'Upload a sample of your recent posts or feed (Optional)',usub:'Screenshot of your Instagram/LinkedIn feed, or a sample reel thumbnail'},
+  {id:'q8',sec:'Design & Visual Identity',sn:3,q:'How would you rate your agency\'s visual brand quality and consistency right now?',h:'1 = Inconsistent & unprofessional.  10 = World-class premium UAE brand.',t:'scale',l1:'Inconsistent, unprofessional',l10:'Premium, world-class'},
+  {id:'q9',sec:'Design & Visual Identity',sn:3,q:'Tell us about your current design setup — tools, who creates content, and what feels wrong.',h:'Describe your approach. Upload examples if possible — this is where we give the most specific feedback.',t:'ta',ph:"e.g. \"We use Canva. Our designer left 3 months ago so the team makes posts now. The brand looks cheap vs competitors. No consistent colours or fonts across platforms...\"",ulbl:'Upload design samples — Highly Recommended',usub:'Social posts, ad creatives, proposal covers, website screenshot — anything visual'},
+  {id:'q10',sec:'Growth & ROI Goals',sn:4,q:'What is your single most important marketing goal for the next 6 months?',h:'This becomes the lens through which your entire action plan and roadmap is written.',t:'opts',g:2,
+   opts:[{e:'📲',l:'More qualified inbound leads',s:'Volume and quality of enquiries'},{e:'💎',l:'Attract higher-value clients',s:'Premium clients, bigger retainers'},{e:'🌍',l:'Expand to new markets',s:'Geographic growth within UAE'},{e:'🔁',l:'Improve retention & referrals',s:'Lifetime value & word-of-mouth'}]},
+  {id:'q11',sec:'Growth & ROI Goals',sn:4,q:'What is your monthly marketing budget, and what ROI are you currently getting from it?',h:'Confidential — helps us benchmark your spend efficiency against UAE finance sector averages.',t:'ta',ph:"e.g. \"About AED 12,000/month — AED 7,000 on ads, rest on a freelancer. We close 3–4 clients/month at AED 9,000 avg deal. But we feel we should be doing much better for this spend...\""}
+];
+
+// ═══ STATE — single source of truth ═══
+let cur=0;
+const A={}; // q.id → single value (opt index, scale number, or textarea string)
+const M={}; // q.id → array of selected indices (multi-select only)
+const U={}; // q.id → uploaded filename
+
+// ═══ PROGRESS ═══
+function drawProgress(){
+  const q=Q[cur],tot=Q.length;
+  const pct=Math.max(5,Math.round(cur/tot*100));
+  document.getElementById('progBar').style.width=pct+'%';
+  document.getElementById('progLbl').textContent='Section '+q.sn+' of 4 — '+q.sec;
+  document.getElementById('progCount').textContent=(cur+1)+' / '+tot;
+  const dots=document.getElementById('progDots');
+  dots.innerHTML='';
+  Q.forEach((_,i)=>{const d=document.createElement('div');d.className='prog-dot'+(i<cur?' done':i===cur?' active':'');dots.appendChild(d);});
+}
+
+// ═══ VALIDATION — reads only from A/M state, never from DOM ═══
+function valid(){
+  const q=Q[cur];
+  if(q.t==='opts') return A[q.id]!==undefined;
+  if(q.t==='multi') return (M[q.id]||[]).length>0;
+  if(q.t==='scale') return (A[q.id]||0)>0;
+  if(q.t==='ta') return (A[q.id]||'').trim().length>12;
+  return false;
+}
+
+// ═══ RENDER — always builds from state, never patches DOM ═══
+function render(){
+  drawProgress();
+  const q=Q[cur];
+
+  // ── build answer area ──
+  let ans='';
+
+  if(q.t==='opts'){
+    ans=`<div class="tiles${q.g===2?' g2':''}">`;
+    q.opts.forEach((o,i)=>{
+      const sel=A[q.id]===i;
+      ans+=`<div class="tile${sel?' sel':''}" onclick="selOpt(${i})">
+        <div class="tile-check">
+          ${sel?`<svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`:''}
+        </div>
+        <div class="tile-ico">${o.e}</div>
+        <div class="tile-text">
+          <div class="tile-lbl">${o.l}</div>
+          ${o.s?`<div class="tile-sub">${o.s}</div>`:''}
+        </div>
+      </div>`;
+    });
+    ans+=`</div>`;
+
+  }else if(q.t==='multi'){
+    const sel=M[q.id]||[];
+    ans=`<div class="multi-hint">✦ Select all that apply</div>
+    <div class="tiles${q.g===2?' g2':''}">`;
+    q.opts.forEach((o,i)=>{
+      const on=sel.includes(i);
+      ans+=`<div class="tile${on?' sel':''}" onclick="togM(${i})">
+        <div class="tile-check">
+          ${on?`<svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`:''}
+        </div>
+        <div class="tile-ico">${o.e}</div>
+        <div class="tile-text"><div class="tile-lbl">${o.l}</div></div>
+      </div>`;
+    });
+    ans+=`</div>`;
+
+  }else if(q.t==='scale'){
+    const v=A[q.id]||0;
+    ans=`<div class="scale-container">
+      <div class="scale-row">`;
+    for(let i=1;i<=10;i++) ans+=`<div class="scale-num${v===i?' sel':''}" onclick="selScale(${i})">${i}</div>`;
+    ans+=`</div>
+      <div class="scale-ends">
+        <span class="scale-end">${q.l1}</span>
+        <span class="scale-end">${q.l10}</span>
+      </div>
+    </div>`;
+
+  }else if(q.t==='ta'){
+    const v=A[q.id]||'';
+    const len=v.trim().length;
+    const ok=len>12;
+    const hf=U[q.id]||'';
+    ans=`<div class="ta-container">
+      <textarea class="q-ta" id="ta_${q.id}" rows="5" placeholder="${q.ph}" oninput="taInput('${q.id}',this.value)">${esc(v)}</textarea>
+      <div class="ta-footer">
+        <span class="ta-hint${ok?' ok':''}">${ok?'✓ Good level of detail':'More detail = more personalised report'}</span>
+        <span class="ta-chars">${len} chars</span>
+      </div>
+    </div>`;
+    if(q.ulbl){
+      ans+=`<div class="upload-zone${hf?' has-file':''}" onclick="tUp('${q.id}')" id="uz_${q.id}">
+        <div class="upload-zone-inner">
+          <div class="upload-icon-wrap">${hf?'✅':'📎'}</div>
+          <div class="upload-label">${hf?'File attached':q.ulbl}</div>
+          <div class="upload-sub-label">${hf?'Click to replace':'JPG · PNG · PDF — optional'}</div>
+          ${hf?`<div class="upload-chip">✓ ${hf}</div>`:`<div class="upload-sub-label" style="margin-top:4px">${q.usub}</div>`}
+        </div>
+        <input type="file" id="fu_${q.id}" style="display:none;position:absolute" accept="image/*,.pdf" onchange="hdlUp('${q.id}',this)">
+      </div>`;
+    }
+  }
+
+  const first=cur===0,last=cur===Q.length-1,dis=!valid();
+  const html=`<div class="q-card">
+    <div class="q-top-strip"></div>
+    <div class="q-head">
+      <div class="q-meta">
+        <span class="q-section-chip">${q.sec}</span>
+        <span class="q-num-chip">Question ${cur+1} of ${Q.length}</span>
+      </div>
+      <div class="q-question">${q.q}</div>
+      <div class="q-hint-text">${q.h}</div>
+    </div>
+    <div class="q-body-pad">${ans}</div>
+    <div class="q-footer">
+      ${first?`<div></div>`:`<button class="btn-back" onclick="goBack()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L5 7l4 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>`}
+      ${last
+        ?`<button class="btn-finish" id="nBtn" ${dis?'disabled':''} onclick="doFinish()">Complete Audit <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>`
+        :`<button class="btn-next" id="nBtn" ${dis?'disabled':''} onclick="goNext()">Next <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>`
+      }
+    </div>
+  </div>`;
+  document.getElementById('qArea').innerHTML=html;
+}
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+// ─── after state change, just re-render (atomic, no patching) ───
+function selOpt(i){
+  A[Q[cur].id]=i;
+  render(); // re-render immediately with new state
+  // auto-advance after brief visual confirmation
+  setTimeout(advance,320);
+}
+
+function togM(i){
+  const id=Q[cur].id;
+  if(!M[id])M[id]=[];
+  const arr=M[id],idx=arr.indexOf(i);
+  if(idx>-1)arr.splice(idx,1);else arr.push(i);
+  render();
+}
+
+function selScale(v){
+  A[Q[cur].id]=v;
+  render();
+}
+
+function taInput(id,val){
+  A[id]=val;
+  // just update the hint + button without full re-render
+  const ok=val.trim().length>12;
+  const hint=document.getElementById('q-ta-hint-'+id);
+  if(hint)hint.className='ta-hint'+(ok?' ok':'');
+  const btn=document.getElementById('nBtn');
+  if(btn)btn.disabled=!ok;
+  const chars=document.querySelector('.ta-chars');
+  if(chars)chars.textContent=val.length+' chars';
+}
+
+function tUp(id){document.getElementById('fu_'+id)?.click()}
+function hdlUp(id,inp){
+  if(inp.files&&inp.files[0]){
+    U[id]=inp.files[0].name;
+    const uz=document.getElementById('uz_'+id);
+    if(uz){
+      uz.classList.add('has-file');
+      uz.querySelector('.upload-icon-wrap').textContent='✅';
+      uz.querySelector('.upload-label').textContent='File attached';
+      uz.querySelector('.upload-sub-label').textContent='Click to replace';
+    }
+  }
+}
+
+function advance(){
+  if(!valid())return;
+  if(cur<Q.length-1){cur++;render();scrollTop();}
+  else doFinish();
+}
+function goNext(){if(valid())advance();}
+function goBack(){if(cur>0){cur--;render();scrollTop();}}
+function doFinish(){if(valid())showLead();}
+function scrollTop(){document.getElementById('auditZone').scrollIntoView({behavior:'smooth',block:'start'})}
+
+// ═══ LEAD CAPTURE ═══
+function showLead(){
+  document.getElementById('qArea').innerHTML='';
+  document.getElementById('progCard').classList.add('hidden');
+  // build recap chips
+  const chips=document.getElementById('recapChips');
+  chips.innerHTML='';
+  [{id:'q1',opts:Q[0].opts},{id:'q4',opts:Q[3].opts},{id:'q6',opts:Q[5].opts},{id:'q10',opts:Q[9].opts}].forEach(({id,opts})=>{
+    const v=A[id];
+    if(v!==undefined&&opts[v]){
+      const c=document.createElement('div');c.className='recap-chip';c.textContent=opts[v].l;chips.appendChild(c);
+    }
+  });
+  // multi services
+  const svcs=(M['q2']||[]).map(i=>Q[1].opts[i].l);
+  if(svcs.length){const c=document.createElement('div');c.className='recap-chip';c.textContent=svcs.slice(0,2).join(', ')+(svcs.length>2?'…':'');chips.appendChild(c);}
+  document.getElementById('leadView').classList.remove('hidden');
+  scrollTop();
+}
+
+// ═══ GENERATION ═══
+function startGen(){
+  const name=document.getElementById('ldName').value.trim();
+  const co=document.getElementById('ldCompany').value.trim();
+  const email=document.getElementById('ldEmail').value.trim();
+  if(!name||!co||!email){alert('Please fill in your name, company and email to continue.');return;}
+  document.getElementById('leadView').classList.add('hidden');
+  document.getElementById('genView').classList.remove('hidden');
+  scrollTop();
+  const steps=['p0','p1','p2','p3','p4','p5'];
+  const chk=`<svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3L10 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  steps.forEach((id,i)=>{
+    setTimeout(()=>{
+      if(i>0){const p=document.getElementById(steps[i-1]);if(p){p.className='pipe-step done';p.querySelector('.pipe-icon').innerHTML=chk;}}
+      const el=document.getElementById(id);if(el)el.className='pipe-step run';
+    },600+i*900);
+  });
+  setTimeout(()=>{
+    const last=document.getElementById(steps[steps.length-1]);
+    if(last){last.className='pipe-step done';last.querySelector('.pipe-icon').innerHTML=chk;}
+    callAI(name,co,email);
+  },600+steps.length*900+600);
+}
+
+async function callAI(name,co,email){
+  const services=(M['q2']||[]).map(i=>Q[1].opts[i].l).join(', ')||'Not specified';
+  const age=Q[0].opts[A['q1']]?.l||'Not specified';
+  const dig=A['q3']||5;
+  const ads=Q[3].opts[A['q4']]?.l||'Not running ads';
+  const frustration=A['q5']||'Not provided';
+  const freq=Q[5].opts[A['q6']]?.l||'Not specified';
+  const content=A['q7']||'Not provided';
+  const design=A['q8']||5;
+  const designDesc=A['q9']||'Not provided';
+  const goal=Q[9].opts[A['q10']]?.l||'Not specified';
+  const budget=A['q11']||'Not provided';
+
+  const sys=`You are a senior marketing strategist specialising exclusively in UAE finance and business setup consulting agencies. You write hyper-personalised, commercially sharp audit reports where every sentence references the client's specific situation. Never write generic advice. Tone: direct, expert, premium — like a top Dubai marketing consultant. Return ONLY valid JSON, no markdown fences.`;
+
+  const prompt=`Generate a personalised UAE marketing audit for:
+COMPANY: ${co} | CONTACT: ${name}
+AGENCY AGE: ${age} | SERVICES: ${services}
+DIGITAL PRESENCE SCORE (self 1-10): ${dig}/10
+ADVERTISING: ${ads}
+AD FRUSTRATIONS: ${frustration}
+SOCIAL POSTING FREQ: ${freq}
+CONTENT DESCRIPTION: ${content}
+DESIGN SCORE (self 1-10): ${design}/10
+DESIGN DETAILS: ${designDesc}
+PRIMARY GOAL (6 months): ${goal}
+BUDGET & ROI INFO: ${budget}
+
+Return this exact JSON:
+{
+  "score": <integer 18-82>,
+  "grade": <"Critical"|"Below Average"|"Average"|"Good"|"Excellent">,
+  "summary": "<2-3 sentences. Name the company. Reference 2 specific issues from their answers. Never generic.>",
+  "scores": {"digital":<0-100>,"ads":<0-100>,"content":<0-100>,"design":<0-100>},
+  "sections": [
+    {"title":"Digital Presence & Brand Authority","icon":"🌐","score":<0-100>,
+     "problem":"<specific to their digital score + UAE competitive landscape, 1-2 sentences>",
+     "insight":"<UAE-specific data or competitor behaviour in this niche in 2026, 1-2 sentences>",
+     "action":"<3 concrete steps with platform names, timelines, UAE-specific angles, 2-3 sentences>"},
+    {"title":"Paid Advertising Performance","icon":"📣","score":<0-100>,
+     "problem":"<specific to their actual ad situation — if no ads, quantify the opportunity cost>",
+     "insight":"<UAE finance CPL benchmarks, audience structures, what's working on Meta/Google in this niche 2026>",
+     "action":"<targeting structure, creative types, UAE expat angles, specific audience names and budgets>"},
+    {"title":"Content Strategy & Social Media","icon":"📱","score":<0-100>,
+     "problem":"<based on their posting frequency + content description — be direct about what is wrong>",
+     "insight":"<what specific content formats are driving leads for UAE finance agencies in 2026>",
+     "action":"<4-pillar content system, specific topic ideas, posting cadence, platform priorities>"},
+    {"title":"Visual Design & Brand Perception","icon":"🎨","score":<0-100>,
+     "problem":"<link their design score directly to lead conversion loss — be specific>",
+     "insight":"<how premium design drives trust and conversion in UAE finance consulting specifically>",
+     "action":"<specific improvements, style direction for UAE premium finance brand, first things to fix>"},
+    {"title":"Lead Conversion & Revenue","icon":"💹","score":<0-100>,
+     "problem":"<based on budget/ROI — estimate or calculate what they are losing per month>",
+     "insight":"<UAE finance decision cycle, WhatsApp vs email data, touchpoint averages>",
+     "action":"<WhatsApp sequence structure, CRM setup, landing page CRO, specific tools to implement>"}
+  ],
+  "priorities":[
+    {"rank":1,"title":"<short action title>","desc":"<2 sentences — specific to their situation>","impact":"High"},
+    {"rank":2,"title":"<short>","desc":"<2 sentences>","impact":"High"},
+    {"rank":3,"title":"<short>","desc":"<2 sentences>","impact":"Medium"},
+    {"rank":4,"title":"<short>","desc":"<2 sentences>","impact":"Medium"}
+  ],
+  "roadmap":[
+    {"label":"Quick Wins — Days 1–30","icon":"⚡","title":"<specific to their #1 gap>","tasks":["<task>","<task>","<task>"]},
+    {"label":"Momentum — Days 30–90","icon":"🔧","title":"<specific>","tasks":["<task>","<task>","<task>"]},
+    {"label":"Dominate — Days 90–180","icon":"🚀","title":"<specific>","tasks":["<task>","<task>","<task>"]}
+  ],
+  "kpis":{"leads":"<e.g. +40–60%>","cpl":"<e.g. −25–40%>","timeline":"<e.g. 45 days>"},
+  "note":"<One direct paragraph addressed to ${name} at ${co} by name. Reference their specific answers. End with why they should book a strategy call. Never generic.>"
+}`;
+
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:3500,system:sys,messages:[{role:'user',content:prompt}]})});
+    const data=await res.json();
+    const raw=(data.content||[]).map(b=>b.text||'').join('');
+    const rpt=JSON.parse(raw.replace(/```[\s\S]*?```/g,'').trim());
+    buildReport(rpt,name,co,email);
+  }catch(e){
+    buildReport(fallbackReport(name,co),name,co,email);
+  }
+}
+
+// ═══ REPORT BUILDER ═══
+function scoreColor(s){return s>=72?'var(--green)':s>=52?'var(--amber)':'var(--red)'}
+function scoreGrade(s){return s>=72?'Excellent':s>=55?'Good':s>=42?'Average':s>=28?'Below Average':'Critical'}
+function scoreGClass(s){return s>=72?'g-good':s>=55?'g-avg':s>=42?'g-low':'g-crit'}
+
+function svgRing(score,color){
+  const r=36,cx=40,cy=40,circ=2*Math.PI*r;
+  const offset=circ-score/100*circ;
+  return`<svg class="ring-svg" width="80" height="80" viewBox="0 0 80 80">
+    <circle class="ring-bg" cx="${cx}" cy="${cy}" r="${r}"/>
+    <circle class="ring-fill" cx="${cx}" cy="${cy}" r="${r}" stroke="${color}" stroke-dasharray="${circ.toFixed(1)}" stroke-dashoffset="${offset.toFixed(1)}"/>
+  </svg>`;
+}
+
+function buildReport(r,name,co,email){
+  document.getElementById('genView').classList.add('hidden');
+  const date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  const sc=r.scores||{};
+
+  // score dashboard
+  const tiles=[
+    {lbl:'Overall Score',val:r.score,grade:r.grade},
+    {lbl:'Digital & Brand',val:sc.digital||40},
+    {lbl:'Paid Ads',val:sc.ads||38},
+    {lbl:'Content & Design',val:sc.content||42},
+  ].map((t,i)=>{
+    const col=scoreColor(t.val);
+    const gc=scoreGClass(t.val);
+    return`<div class="score-tile${i===0?' main-score':''}">
+      <div class="ring-wrap">${svgRing(t.val,col)}<div class="ring-num" style="color:${col}">${t.val}</div></div>
+      <div class="score-tile-lbl">${t.lbl}</div>
+      <div class="score-tile-grade ${gc}">${t.grade||scoreGrade(t.val)}</div>
+    </div>`;
+  }).join('');
+
+  // sections
+  const secs=(r.sections||[]).map(s=>`
+    <div class="rpt-sec">
+      <div class="rpt-sec-header">
+        <div class="rpt-sec-icon">${s.icon}</div>
+        <div class="rpt-sec-text">
+          <div class="rpt-sec-name">${s.title}</div>
+          <div class="rpt-sec-bar-row">
+            <div class="rpt-sec-bar"><div class="rpt-sec-bar-fill" style="width:${s.score}%;background:${scoreColor(s.score)}"></div></div>
+            <span class="rpt-sec-score-lbl">${s.score}/100</span>
+          </div>
+        </div>
+      </div>
+      <div class="insight-trio">
+        <div class="ins-card problem"><div class="ins-tag"><span class="ins-tag-pip"></span>The Problem</div><div class="ins-body">${s.problem}</div></div>
+        <div class="ins-card insight"><div class="ins-tag"><span class="ins-tag-pip"></span>Market Insight</div><div class="ins-body">${s.insight}</div></div>
+        <div class="ins-card action"><div class="ins-tag"><span class="ins-tag-pip"></span>Your Action</div><div class="ins-body">${s.action}</div></div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  `).join('');
+
+  // priorities
+  const pris=(r.priorities||[]).map(p=>`
+    <div class="pri-card ${p.impact==='High'?'h':'m'}">
+      <div class="pri-card-stripe"></div>
+      <div class="pri-rank-num">0${p.rank}</div>
+      <div class="pri-title">${p.title}</div>
+      <div class="pri-desc">${p.desc}</div>
+      <span class="pri-impact">${p.impact} Impact</span>
+    </div>`).join('');
+
+  // roadmap
+  const road=(r.roadmap||[]).map((ph,i)=>`
+    <div class="rm-item">
+      <div class="rm-node"><div class="rm-icon">${ph.icon}</div></div>
+      <div class="rm-content">
+        <div class="rm-phase-label">${ph.label}</div>
+        <div class="rm-phase-title">${ph.title}</div>
+        <div class="rm-tasks-list">${(ph.tasks||[]).map(t=>`<div class="rm-task"><span class="rm-task-bullet"></span>${t}</div>`).join('')}</div>
+      </div>
+    </div>`).join('');
+
+  const html=`
+  <div class="rpt-cover">
+    <div class="rpt-cover-grid"></div>
+    <div class="rpt-cover-shine"></div>
+    <div class="rpt-cover-bottom"></div>
+    <div class="rpt-cover-content">
+      <div class="rpt-eyebrow">✦ AI Marketing Audit — UAE Finance Sector 2026</div>
+      <div class="rpt-company-name">${co}:<br>Your Personalised Marketing<br>Intelligence Report</div>
+      <div class="rpt-summary-text">${r.summary}</div>
+      <div class="rpt-cover-meta">
+        <span class="rpt-cover-meta-item">📅 <strong>${date}</strong></span>
+        <span class="rpt-cover-meta-item">👤 <strong>${name}</strong></span>
+        <span class="rpt-cover-meta-item">🏆 <strong>${r.grade}</strong></span>
+        <span class="rpt-cover-meta-item">📊 Score: <strong>${r.score}/100</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="score-dashboard">${tiles}</div>
+
+  <div class="rpt-body">
+    <div class="email-ok-bar">✅ <span>A copy of this report is being sent to <strong>${email}</strong></span></div>
+
+    <div class="rpt-sec">
+      <div class="sec-title-row">Your Top 4 Priorities Right Now</div>
+      <div class="pri-grid">${pris}</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="rpt-sec">
+      <div class="sec-title-row">Expected Results If You Act Now</div>
+      <p style="font-size:13px;color:var(--muted-lt);margin-bottom:4px">Based on UAE finance sector averages for agencies at your growth stage</p>
+      <div class="kpi-strip">
+        <div class="kpi-cell">
+          <div class="kpi-main"><span class="kpi-arrow" style="color:var(--green)">↑</span><div class="kpi-val">${r.kpis?.leads||'+40–60%'}</div></div>
+          <div class="kpi-lbl">Lead Volume</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kpi-main"><span class="kpi-arrow" style="color:var(--red)">↓</span><div class="kpi-val">${r.kpis?.cpl||'25–40%'}</div></div>
+          <div class="kpi-lbl">Cost Per Lead</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kpi-main"><div class="kpi-val" style="color:var(--gold-dk)">${r.kpis?.timeline||'45 days'}</div></div>
+          <div class="kpi-lbl">First Results By</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    ${secs}
+
+    <div class="rpt-sec">
+      <div class="sec-title-row">Your 180-Day Growth Roadmap</div>
+      <div class="roadmap">${road}</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="rpt-sec">
+      <div class="personal-note">
+        <div class="pn-top">
+          <div class="pn-avatar">✍️</div>
+          <div>
+            <div class="pn-meta-name">A personal note for ${name}</div>
+            <div class="pn-meta-role">From the AI Marketing Intelligence System</div>
+          </div>
+        </div>
+        <div class="pn-content"><p class="pn-text">${r.note}</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rpt-cta">
+    <div class="rpt-cta-content">
+      <h3>Ready to Turn This Into Real Growth?</h3>
+      <p>Book a free 30-minute strategy call. We'll work through your exact numbers and build a live implementation plan together.</p>
+      <div class="cta-btn-row">
+        <button class="cta-btn-gold" onclick="alert('Replace with your Calendly or booking link')">Book Free Strategy Call →</button>
+        <button class="cta-btn-outline" onclick="window.print()">Save / Print Report</button>
+      </div>
+    </div>
+  </div>`;
+
+  const rv=document.getElementById('reportView');
+  rv.innerHTML=html;
+  rv.classList.remove('hidden');
+  rv.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function fallbackReport(name,co){
+  return{
+    score:44,grade:'Below Average',
+    summary:`${co} shows significant untapped potential in the UAE finance consulting market. Based on your audit responses, the two most pressing issues are paid advertising targeting inefficiency and a lack of systematic content output — both of which are directly costing qualified leads every month.`,
+    scores:{digital:46,ads:38,content:42,design:51},
+    sections:[
+      {title:'Digital Presence & Brand Authority',icon:'🌐',score:46,
+       problem:'A digital presence score below 5/10 signals that competitors are capturing your potential clients before they even discover you — regardless of how good your actual service is.',
+       insight:'UAE finance agencies dominating organic search in 2026 publish two keyword-rich service pages per quarter targeting terms like "company formation Dubai 2026" and "freezone business setup cost UAE", combined with a fully optimised Google Business Profile.',
+       action:'Audit your Google Business Profile today — add 10 recent photos, ensure all 8 service categories are listed, request 5 reviews from recent clients this week. This alone generates 8–15 additional organic enquiries per month within 60 days at zero ad spend.'},
+      {title:'Paid Advertising Performance',icon:'📣',score:38,
+       problem:'Unadjusted Meta campaigns in the UAE finance space waste 35–60% of budget on audiences with no purchase intent — resulting in high impressions, low-quality leads, and frustrated marketing teams.',
+       insight:'The most cost-efficient UAE finance lead strategy on Meta in 2026 uses a 3-tier audience structure: broad interest expansion, client lookalike audience, and website retargeting — each with different creatives, not one ad to all.',
+       action:'Restructure Meta campaigns into 3 ad sets. Test a testimonial creative, a "cost of company formation" educational creative, and a deadline-based freezone offer creative. Adding Arabic copy to your primary Dubai targeting reduces CPL by 20–35% for most UAE finance agencies within 2 weeks.'},
+      {title:'Content Strategy & Social Media',icon:'📱',score:42,
+       problem:'Inconsistent posting without a content system means social media creates noise rather than authority — and algorithm reach compounds downward with every missed week.',
+       insight:'UAE finance agencies growing fastest organically in 2026 use a 4-pillar system: regulatory insight, client results, process transparency, and founder voice. Founder content generates 3× more DMs than any service promotion post.',
+       action:'Start a 4-pillar weekly content calendar immediately: Mon=regulatory insight, Wed=client success story, Fri=service explainer, Sun=founder perspective. Add one 60–90 second reel per week. Run this consistently for 60 days to see compound reach growth.'},
+      {title:'Visual Design & Brand Perception',icon:'🎨',score:51,
+       problem:'Potential clients spending AED 5,000+ judge your credibility in under 3 seconds of seeing your content. Inconsistent or low-quality visuals signal low-quality service — regardless of actual capability.',
+       insight:'The highest-converting UAE finance brands use navy/gold or deep charcoal/bronze visual systems with clean typography. Premium design communicates precision and trust before a single word is read.',
+       action:'Invest in a one-time professional template set: 3 Instagram post templates, 1 story, 1 LinkedIn banner, 1 reel thumbnail. Budget AED 1,500–3,000. Brief the designer on UAE premium finance aesthetics. One additional client conversion pays for this permanently.'},
+      {title:'Lead Conversion & Revenue',icon:'💹',score:40,
+       problem:'UAE finance enquiries have a 7–21 day decision cycle. Without a structured follow-up system, you are losing 60–70% of warm leads to competitors who followed up better — not who offered a better service.',
+       insight:'WhatsApp-based follow-up outperforms email 4:1 for UAE finance leads. The average conversion needs 3–5 touchpoints. Most agencies follow up once, then abandon the lead entirely.',
+       action:'Set up a 5-step WhatsApp sequence: Day 1 (welcome), Day 3 (case study), Day 7 (FAQ video), Day 14 (limited offer), Day 21 (final check-in). Use WhatsApp Business labels to track stages — this reactivates 20–30% of gone-cold leads.'}
+    ],
+    priorities:[
+      {rank:1,title:'Rebuild Meta Ad Targeting Structure',desc:'Restructuring to 3 audience tiers with UAE-specific creatives is the single highest-leverage action. This alone can halve CPL within 30 days.',impact:'High'},
+      {rank:2,title:'Launch a 4-Pillar Content Calendar',desc:'5 posts/week with a structured system compounds organic reach and pre-sells your services to warm audiences before they even contact you.',impact:'High'},
+      {rank:3,title:'Implement WhatsApp Lead Nurture',desc:'A 5-message sequence turns cold leads warm. Most of your lost revenue is still recoverable through the 7–21 day decision cycle.',impact:'Medium'},
+      {rank:4,title:'Standardise Your Visual Brand',desc:'A one-time professional template investment immediately elevates perceived credibility and improves ad CTR — ROI is measurable within 60 days.',impact:'Medium'}
+    ],
+    roadmap:[
+      {label:'Quick Wins — Days 1–30',icon:'⚡',title:'Stop the Bleed: Fix Ads & Launch Content System',tasks:['Rebuild Meta campaign with 3 audience tiers and 3 fresh creatives','Post 5×/week using the 4-pillar content calendar (start this week)','Set up 5-step WhatsApp follow-up for all new leads']},
+      {label:'Momentum — Days 30–90',icon:'🔧',title:'Build Systems That Scale',tasks:['Launch Google Ads targeting high-intent UAE company formation searches','Invest in professional social media template set and visual brand refresh','Collect 10 new Google reviews and film 3 short client testimonial videos']},
+      {label:'Dominate — Days 90–180',icon:'🚀',title:'Authority & Market Leadership',tasks:['Publish 4 SEO-optimised blog posts targeting UAE business setup keywords','Launch retargeting to all website visitors and video viewers','Build a lead magnet: UAE Business Setup Cost Calculator or Free Checklist']}
+    ],
+    kpis:{leads:'+40–60%',cpl:'−25–40%',timeline:'45 days'},
+    note:`${name}, your audit tells a story I see consistently with strong UAE finance agencies: the core business is solid, but the marketing systems haven't kept pace with a market that's become significantly more competitive. Nothing in this report requires a large budget overhaul — it requires sharper targeting structure, content consistency, and two or three systems your competitors are already running. If you implement even the first two priorities in this report, you will see measurable improvement in lead quality within 45 days. I'd genuinely encourage you to book a free 30-minute strategy call — not to sell you anything, but to look at your actual numbers together and map out a specific 30-day implementation plan tailored to your team and budget. The call is free, and you'll leave with a clear plan regardless of what you decide next.`
+  };
+}
+
+// ═══ INIT ═══
+render();
+</script>
+</body>
+</html>

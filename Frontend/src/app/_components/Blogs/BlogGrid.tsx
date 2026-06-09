@@ -44,7 +44,7 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
                                 3. Added md:aspect-[4/3] for tablets/desktop.
                                 4. Added bg-slate-50 to look cleaner if images have transparency.
                             */}
-                            <div className="relative aspect-video md:aspect-4/3 w-full overflow-hidden rounded-2xl md:rounded-3xl mb-6 bg-slate-50 shadow-sm transition-all duration-500 group-hover:shadow-xl">
+                            <div className="relative aspect-video md:aspect-4/3 w-full mb-6 bg-slate-50 shadow-sm transition-all duration-500 group-hover:shadow-xl">
                                 <Image
                                     src={imageUrl} 
                                     alt={post.title.rendered}
@@ -52,14 +52,9 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     // object-cover ensures the container is filled. 
                                     // If you want NO cropping at all, change 'object-cover' to 'object-contain'
-                                    className="object-top object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                    className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
                                     unoptimized 
                                 />
-                                <div className="absolute top-3 left-3 md:top-4 md:left-4">
-                                    <span className="bg-white/90 backdrop-blur-md text-black text-[9px] md:text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-tight">
-                                        New Insight
-                                    </span>
-                                </div>
                             </div>
 
                             <div className="flex flex-col flex-grow px-1 md:px-0">
