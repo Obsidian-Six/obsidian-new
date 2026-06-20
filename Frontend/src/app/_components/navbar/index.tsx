@@ -37,7 +37,7 @@ export default function Navbar() {
   ];
 
 
-  const isWhiteBg = isScrolled || isMegaMenuOpen;
+  const isWhiteBg = isScrolled || isMegaMenuOpen || pathname?.startsWith("/services");
 
   if (isAdminRoute || isHiddenDocument) return null;
 

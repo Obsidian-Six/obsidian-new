@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import type Contact from "@/lib/models/contact.types";
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
 import { handleContactUsFormSubmission } from "@/lib/services/contact.api";
-import { Phone, Mail, MapPin, ArrowRight, Linkedin,Instagram , CheckCircle2, Loader2 } from "lucide-react";
-import {FaTelegramPlane} from "react-icons/fa";
+import { ArrowRight, CheckCircle2, Loader2, Download } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+
+type TabType = "quote" | "partnership" | "general";
 
 const whyContactUs = [
   {
@@ -27,34 +30,57 @@ const whyContactUs = [
   },
 ];
 
-const serviceTags = [
-  "Website Development", "Complete Digital Marketing", "Social Media Marketing",
-  "Content Marketing", "SEO", "PPC Ads", "Email Marketing", "Design Services", "Others",
-];
-
 const ContactUsRouter = () => {
+  const [activeTab, setActiveTab] = useState<TabType>("quote");
+  const [isMounted, setIsMounted] = useState(false);
+
   // --- FORM STATE ---
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [companyName, setCompanyName] = useState("");
-  const [companyWebsite, setCompanyWebsite] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [consent, setConsent] = useState(false);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // --- HANDLERS ---
-  const toggleService = (tag: string) => {
-    setSelectedServices(prev =>
-      prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
-    );
-  };
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Reset tab-specific fields when tab changes
+  useEffect(() => {
+    setCompanyName("");
+    setSubject("");
+    setMessage("");
+    setConsent(false);
+  }, [activeTab]);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    let selectedServices: string[] = [];
+    if (activeTab === "quote") {
+      selectedServices = ["Get a Quote", "Project Details: " + message];
+    } else if (activeTab === "partnership") {
+      if (!consent) {
+        alert("Please accept the privacy consent checkbox to submit.");
+        setIsSubmitting(false);
+        return;
+      }
+      selectedServices = ["Partnership Enquiry", "Details: " + message];
+    } else if (activeTab === "general") {
+      if (!consent) {
+        alert("Please accept the privacy consent checkbox to submit.");
+        setIsSubmitting(false);
+        return;
+      }
+      selectedServices = ["General Enquiry", "Subject: " + subject, "Details: " + message];
+    }
 
     const contactData: Contact = {
       firstName,
@@ -62,16 +88,22 @@ const ContactUsRouter = () => {
       email,
       phone,
       selectedServices,
-      companyName,
-      companyWebsite,
+      companyName: activeTab === "partnership" ? companyName : "",
+      companyWebsite: "",
     };
 
     try {
       await handleContactUsFormSubmission(contactData);
       setIsSubmitted(true);
       // Reset form
-      setFirstName(""); setLastName(""); setEmail(""); setPhone("");
-      setCompanyName(""); setCompanyWebsite(""); setSelectedServices([]);
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setCompanyName("");
+      setSubject("");
+      setMessage("");
+      setConsent(false);
     } catch (error) {
       console.error("Submission failed:", error);
       alert("Something went wrong. Please try again later.");
@@ -80,242 +112,320 @@ const ContactUsRouter = () => {
     }
   };
 
+  // Content configurations based on active tab
+  const leftContent = {
+    quote: {
+      desc: "Please feel free to share your thoughts and we can discuss it over a cup of tea.",
+    },
+    partnership: {
+      desc: "Together, let's get a taste of industry leadership.",
+    },
+    general: {
+      desc: "Shoot anything that pops up in your head. From artificial intelligence to fun memes, we are all ears!",
+    },
+  };
+
+  const currentLeft = leftContent[activeTab];
+
   return (
-    <main className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
+    <main className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white pt-28 pb-20 px-6">
+      <div className="max-w-7xl mx-auto mt-12 md:mt-20">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          
+          {/* LEFT COLUMN: Headings & Brochure */}
+          <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
+            <span className="inline-block px-4 py-1 bg-blue-50 text-[#024787] text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">
+              [ Contact Us ]
+            </span>
 
-      {/* --- HERO SECTION --- */}
-      <section className="relative pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto text-center md:text-left">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase mb-8">
-            Contact Obsidian Six
-          </span>
-          <h1 className="text-6xl md:text-[120px] font-bold tracking-tighter leading-[0.85] text-slate-950 mb-12">
-            Let&apos;s Recreate  <br />
-            <span className="text-slate-300 italic font-serif font-light">The Future.</span>
-          </h1>
-        </div>
-      </section>
-
-      {/* --- FORM & INFO SECTION --- */}
-      <section className="pb-20 px-6 font-sans">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-20">
-
-            {/* LEFT: THE MODERN GUIDED FORM */}
-            <div className="lg:col-span-7">
-              <div className="bg-white rounded-[40px] p-8 md:p-14 border border-slate-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)]">
-
-                {isSubmitted ? (
-                  <div className="py-20 text-center animate-in fade-in zoom-in duration-500">
-                    <CheckCircle2 className="w-20 h-20 text-[#024787] mx-auto mb-6" />
-                    <h2 className="text-4xl font-bold mb-4">Message Received.</h2>
-                    <p className="text-slate-500 text-lg mb-8">Our strategy team will reach out within 24 hours.</p>
-                    <button
-                      onClick={() => setIsSubmitted(false)}
-                      className="text-[#024787] font-bold uppercase tracking-widest text-sm hover:underline"
-                    >
-                      Send another message
-                    </button>
-                  </div>
-                ) : (
-                  <form className="space-y-16" onSubmit={handleFormSubmit}>
-
-                    {/* STEP 01: IDENTITY */}
-                    <div className="space-y-8">
-                      <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-black bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center">01</span>
-                        <p className="text-[14px] font-bold text-slate-400 uppercase tracking-[0.2em]">Personal Details</p>
-                      </div>
-                      <div className="grid md:grid-cols-2 gap-10">
-                        <div className="relative group">
-                          <input
-                            required
-                            value={firstName}
-                            onChange={(e) => setFirstName(e.target.value)}
-                            type="text"
-                            placeholder="First Name"
-                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#024787] transition-all text-xl font-medium placeholder:text-slate-300"
-                          />
-                          <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#024787] group-focus-within:w-full transition-all duration-500" />
-                        </div>
-                        <div className="relative group">
-                          <input
-                            required
-                            value={lastName}
-                            onChange={(e) => setLastName(e.target.value)}
-                            type="text"
-                            placeholder="Last Name"
-                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#024787] transition-all text-xl font-medium placeholder:text-slate-300"
-                          />
-                          <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#024787] group-focus-within:w-full transition-all duration-500" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* STEP 02: CONTACT */}
-                    <div className="space-y-8">
-                      <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-black bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center">02</span>
-                        <p className="text-[14px] font-bold text-slate-400 uppercase tracking-[0.2em]">Reachability</p>
-                      </div>
-                      <div className="grid md:grid-cols-2 gap-10">
-                        <div className="relative group">
-                          <input
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            type="email"
-                            placeholder="Email Address"
-                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#024787] transition-all text-xl font-medium placeholder:text-slate-300"
-                          />
-                          <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#024787] group-focus-within:w-full transition-all duration-500" />
-                        </div>
-
-                        {/* PHONE INPUT WITH FIXES */}
-                        <div className="relative group border-b border-slate-200 focus-within:border-[#024787] transition-all">
-                          <PhoneInput
-                            country={"in"}
-                            value={phone}
-                            onChange={(val : string) => setPhone(val)}
-                            placeholder="Phone Number"
-                            // Fixed styles for dropdown and scrolling
-                            containerClass="!w-full !border-none"
-                            inputClass="!w-full !bg-transparent !border-none !text-xl !font-medium !h-[60px] !pl-14 !outline-none font-sans"
-                            buttonClass="!bg-transparent !border-none !transition-all hover:!bg-transparent"
-                            dropdownClass="!rounded-2xl !border-slate-100 !shadow-2xl !text-base !max-h-[300px] !overflow-y-auto"
-                            searchClass="!font-sans !text-sm !py-2"
-                            enableSearch={true}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {/* STEP 03: SERVICES */}
-                    <div className="space-y-8">
-                      <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-black bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center">03</span>
-                        <p className="text-[14px] font-bold text-slate-400 uppercase tracking-[0.2em]">Inquiry Interest</p>
-                      </div>
-                      <div className="flex flex-wrap gap-4">
-                        {serviceTags.map((tag) => (
-                          <button
-                            key={tag}
-                            type="button"
-                            onClick={() => toggleService(tag)}
-                            className={`px-6 py-3 rounded-full border text-[13px] font-bold transition-all duration-300 ${selectedServices.includes(tag)
-                                ? "bg-[#024787] border-[#024787] text-white shadow-xl shadow-purple-200 scale-105"
-                                : "border-slate-100 text-slate-500 hover:border-slate-900 hover:text-slate-900"
-                              }`}
-                          >
-                            {tag}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* STEP 04: BUSINESS */}
-                    <div className="space-y-8">
-                      <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-black bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center">04</span>
-                        <p className="text-[13px] font-bold text-slate-400 uppercase tracking-[0.2em]">Company Details</p>
-                      </div>
-                      <div className="grid md:grid-cols-2 gap-10">
-                        <div className="relative group">
-                          <input
-                            value={companyName}
-                            onChange={(e) => setCompanyName(e.target.value)}
-                            type="text"
-                            placeholder="Company Name"
-                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#024787] transition-all text-xl font-medium placeholder:text-slate-300"
-                          />
-                        </div>
-                        <div className="relative group">
-                          <input
-                            value={companyWebsite}
-                            onChange={(e) => setCompanyWebsite(e.target.value)}
-                            type="text"
-                            placeholder="Website URL (Optional)"
-                            className="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-[#024787] transition-all text-xl font-medium placeholder:text-slate-300"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* SUBMIT */}
-                    <div className="pt-10">
-                      <button
-                        disabled={isSubmitting}
-                        className="group relative w-full flex items-center justify-between bg-[#024787] text-white p-7 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm hover:bg-slate-900 transition-all shadow-2xl shadow-purple-200 disabled:opacity-50"
-                      >
-                        {isSubmitting ? "Initiating Sync..." : "Claim Your Free Strategy"}
-                        {isSubmitting ? <Loader2 className="animate-spin" /> : <ArrowRight className="group-hover:translate-x-2 transition-transform" />}
-                      </button>
-                    </div>
-                  </form>
-                )}
-              </div>
+            <div className="space-y-4">
+              <h2 className="text-5xl md:text-6xl lg:text-[76px] font-extrabold text-slate-950 tracking-tighter leading-[0.9] font-poppins">
+                Let&apos;s Recreate <br />
+                <span className="text-slate-300 italic font-serif font-light">
+                  The Future.
+                </span>
+              </h2>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <p className="text-slate-500 font-medium mt-6 text-sm md:text-base leading-relaxed max-w-md">
+                    {currentLeft.desc}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
             </div>
 
-            {/* RIGHT: CONTACT INFO */}
-            <div className="lg:col-span-5 space-y-12 py-8">
-              <div>
-                <h3 className="text-sm font-bold text-[#024787] uppercase tracking-[0.3em] mb-8">Reach Out</h3>
-                <div className="space-y-10">
-                  <ContactItem icon={<Mail size={24} />} label="Email Us" value="info@obsidiansix.io" />
-                  <ContactItem icon={<Phone size={24} />} label="Call Us" value="+91 80856 52729" />
-                  <ContactItem icon={<MapPin size={24} />} label="Visit Us" value="Platinum BKC, Bandra, Mumbai" />
+            {/* Brochure Card */}
+            <div className="pt-4">
+              <Link
+                href="/download-brochure"
+                className="group flex items-center gap-6 p-4 bg-white border border-[#E5E7EB] hover:border-slate-300 transition-all shadow-sm max-w-sm"
+              >
+                {/* Obsidian Six Logo Thumbnail */}
+                <div className="relative w-20 h-20 bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100 p-2">
+                  <Image
+                    src="/images/logo/logo2.png"
+                    alt="Obsidian Six"
+                    width={80}
+                    height={24}
+                    className="object-contain"
+                  />
                 </div>
-              </div>
 
-              <div className="pt-12 border-t border-slate-100">
-                <p className="text-slate-400 text-base leading-relaxed mb-8">
-                  Ready for a technical edge? Join 50+ brands that scaled their revenue through our digital systems.
-                </p>
-                <div className="flex items-center gap-6 group">
-                  <div className="p-3 bg-slate-50 rounded-full group-hover:bg-[#024787] group-hover:text-white transition-all">
-                    <Linkedin size={20} className="cursor-pointer" />
-                  </div>
-                  <a
-                    href="https://www.linkedin.com/company/obsidian-six/"
-                    target="_blank"
-                    className="text-slate-900 font-bold text-sm tracking-[0.2em] cursor-pointer hover:text-[#024787] transition-colors"
-                  >
-                    LINKEDIN
-                  </a>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-bold text-slate-800 tracking-tight">
+                    Download Our Brochure
+                  </h3>
+                  <p className="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1.5 uppercase">
+                    PDF 7.1 MB <Download size={12} className="text-slate-400" />
+                  </p>
                 </div>
-                <div className="flex items-center gap-6 group">
-                  <div className="p-3 bg-slate-50 rounded-full group-hover:bg-[#024787] group-hover:text-white transition-all">
-                    <Instagram size={20} className="cursor-pointer" />
-                  </div>
-                  <a
-                    href="https://www.instagram.com/obsidiansixofficial?igsh=dWNoenEwZXR3dGlj"
-                    target="_blank"
-                    className="text-slate-900 font-bold text-sm tracking-[0.2em] cursor-pointer hover:text-[#024787] transition-colors"
-                  >
-                    INSTAGRAM
-                  </a>
-                </div>
-                <div className="flex items-center gap-6 group">
-                  <div className="p-3 bg-slate-50 rounded-full group-hover:bg-[#024787] group-hover:text-white transition-all">
-                    <FaTelegramPlane size={20} className="cursor-pointer" />
-                  </div>
-                  <a
-                    href="https://t.me/aadarsh11"
-                    target="_blank"
-                    className="text-slate-900 font-bold text-sm tracking-[0.2em] cursor-pointer hover:text-[#024787] transition-colors"
-                  >
-                    TELEGRAM
-                  </a>
-                </div>
-              </div>
+              </Link>
             </div>
           </div>
+
+          {/* RIGHT COLUMN: The Form & Tabs */}
+          <div className="lg:col-span-7">
+            <div className="bg-white p-2 md:p-6">
+              
+              {/* Horizontal Tabs - Left Aligned */}
+              <div className="flex items-center space-x-6 md:space-x-10 border-b border-slate-100 pb-0 mb-8 font-poppins">
+                {(["quote", "partnership", "general"] as TabType[]).map((tab) => {
+                  const label =
+                    tab === "quote"
+                      ? "Get a Quote"
+                      : tab === "partnership"
+                      ? "Partnership"
+                      : "General Enquiry";
+                  return (
+                    <button
+                      key={tab}
+                      type="button"
+                      onClick={() => setActiveTab(tab)}
+                      className={`relative pb-4 text-sm md:text-base font-semibold transition-colors duration-300 ${
+                        activeTab === tab
+                          ? "text-slate-900"
+                          : "text-slate-400 hover:text-slate-600"
+                      }`}
+                    >
+                      {label}
+                      {activeTab === tab && (
+                        <motion.div
+                          layoutId="activeTabUnderline"
+                          className="absolute bottom-0 left-0 right-0 h-[2px] bg-blue-600"
+                        />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {isSubmitted ? (
+                <div className="py-16 text-center animate-in fade-in zoom-in duration-500">
+                  <CheckCircle2 className="w-16 h-16 text-[#024787] mx-auto mb-6" />
+                  <h2 className="text-3xl font-bold mb-2">Message Sent!</h2>
+                  <p className="text-slate-500 text-base mb-6">
+                    Our strategy team will review your details and reach out within 24 hours.
+                  </p>
+                  <button
+                    onClick={() => setIsSubmitted(false)}
+                    className="text-[#024787] font-bold uppercase tracking-widest text-xs hover:underline"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form className="space-y-6" onSubmit={handleFormSubmit}>
+                  
+                  {/* First Name & Last Name */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div>
+                      <label className="text-[13px] md:text-sm font-semibold text-slate-900 block mb-2" htmlFor="first-name">
+                        First Name*
+                      </label>
+                      <input
+                        required
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-14 md:h-14 bg-white"
+                        id="first-name"
+                        placeholder="Enter first name"
+                        type="text"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[13px] md:text-sm font-semibold text-slate-900 block mb-2" htmlFor="last-name">
+                        Last Name
+                      </label>
+                      <input
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-14 md:h-14 bg-white"
+                        id="last-name"
+                        placeholder="Enter last name"
+                        type="text"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email & Phone Number */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div>
+                      <label className="text-[13px] md:text-sm font-semibold text-slate-900 block mb-2" htmlFor="email">
+                        Email*
+                      </label>
+                      <input
+                        required
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-14 md:h-14 bg-white"
+                        id="email"
+                        placeholder="Enter email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[13px] md:text-sm font-semibold text-slate-900 block mb-2" htmlFor="phone-number">
+                        Phone Number*
+                      </label>
+                      {isMounted ? (
+                        <PhoneInput
+                          country={"in"}
+                          value={phone}
+                          onChange={(value: string) => setPhone(value)}
+                          enableSearch={true}
+                          searchPlaceholder="Search country..."
+                          inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3.5 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#024787] !font-sans !h-14 bg-white"
+                          containerClass="!w-full !rounded-none"
+                          buttonClass="!rounded-none !border-y-0 !border-l-0 !border-r !border-[#C3C3C3] !bg-white"
+                          dropdownClass="!rounded-none"
+                          searchClass="!text-xs !p-2"
+                        />
+                      ) : (
+                        <div className="w-full h-14 border border-[#C3C3C3] bg-white animate-pulse rounded-none" />
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Tab-specific Company Name */}
+                  {activeTab === "partnership" && (
+                    <div className="animate-in fade-in slide-in-from-top-3 duration-300">
+                      <label className="text-[13px] md:text-sm font-semibold text-slate-900 block mb-2" htmlFor="company-name">
+                        Company Name
+                      </label>
+                      <input
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-14 md:h-14 bg-white"
+                        id="company-name"
+                        placeholder="Enter your company name"
+                        type="text"
+                        value={companyName}
+                        onChange={(e) => setCompanyName(e.target.value)}
+                      />
+                    </div>
+                  )}
+
+                  {/* Tab-specific Subject */}
+                  {activeTab === "general" && (
+                    <div className="animate-in fade-in slide-in-from-top-3 duration-300">
+                      <label className="text-[13px] md:text-sm font-semibold text-slate-900 block mb-2" htmlFor="subject">
+                        Subject
+                      </label>
+                      <input
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-14 md:h-14 bg-white"
+                        id="subject"
+                        placeholder="Enter your subject"
+                        type="text"
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                      />
+                    </div>
+                  )}
+
+                  {/* Tell Us More / Message Textarea */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="text-[13px] md:text-sm font-semibold text-slate-900" htmlFor="tell-us-more">
+                        Tell Us More
+                      </label>
+                      <span className="text-xs text-slate-400 font-medium font-sans">
+                        {message.length}/1000
+                      </span>
+                    </div>
+                    <textarea
+                      required
+                      maxLength={1000}
+                      className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-44 resize-none bg-white"
+                      id="tell-us-more"
+                      placeholder={
+                        activeTab === "quote"
+                          ? "Brief about your project"
+                          : activeTab === "partnership"
+                          ? "We'd love to hear more"
+                          : "Give us a brief about your query"
+                      }
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                    />
+                  </div>
+
+                  {/* Tab-specific Checkboxes */}
+                  {activeTab !== "quote" && (
+                    <div className="flex items-start gap-3 pt-2 animate-in fade-in duration-300">
+                      <input
+                        required
+                        type="checkbox"
+                        id="consent-checkbox"
+                        checked={consent}
+                        onChange={(e) => setConsent(e.target.checked)}
+                        className="mt-1 h-3.5 w-3.5 border-[#C3C3C3] rounded-none focus:ring-[#024787] text-[#024787]"
+                      />
+                      <label htmlFor="consent-checkbox" className="text-xs text-slate-500 leading-tight">
+                        I have read the{" "}
+                        <a href="/terms" target="_blank" className="text-[#024787] font-semibold underline hover:text-blue-700">
+                          privacy policy
+                        </a>{" "}
+                        and consent to the processing of my data for the purpose of handling my enquiry.
+                      </label>
+                    </div>
+                  )}
+
+                  {/* Submit Button - Rectangular, Right-Aligned */}
+                  <div className="flex justify-end pt-4">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="px-10 py-4 bg-black text-white hover:bg-slate-900 transition-colors flex items-center gap-3 font-semibold text-xs uppercase tracking-widest rounded-none disabled:opacity-50 font-poppins"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          Processing... <Loader2 className="animate-spin h-3.5 w-3.5" />
+                        </>
+                      ) : (
+                        <>
+                          {activeTab === "quote" ? "Send Enquiry" : "Submit"}
+                          <ArrowRight size={14} />
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+
         </div>
-      </section>
+      </div>
+
       {/* --- WHY PARTNER SECTION --- */}
-      <section className="bg-slate-50 pt-0 pb-40 px-6 rounded-[60px] mx-4 mb-4">
+      <section className="bg-slate-50 pt-20 pb-40 px-6 rounded-[60px] mx-4 mt-20 mb-4">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-24">
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 mb-8">
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 mb-8 font-poppins">
               Why partner <br /> with us?
             </h2>
             <div className="h-1 w-20 bg-blue-600" />
@@ -325,10 +435,17 @@ const ContactUsRouter = () => {
             {whyContactUs.map((item, idx) => (
               <div key={idx} className="group">
                 <div className="relative h-[400px] w-full rounded-[40px] overflow-hidden mb-8 shadow-lg">
-                  <Image src={item.img} alt={item.title} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <span className="text-blue-600 font-bold text-[10px] tracking-widest uppercase">0{idx + 1} — {item.title}</span>
+                <span className="text-blue-600 font-bold text-[10px] tracking-widest uppercase">
+                  0{idx + 1} — {item.title}
+                </span>
                 <p className="text-slate-600 mt-4 text-lg font-medium leading-relaxed">
                   {item.desc}
                 </p>
@@ -340,17 +457,5 @@ const ContactUsRouter = () => {
     </main>
   );
 };
-
-const ContactItem = ({ icon, label, value }: { icon: React.ReactNode, label: string, value: string }) => (
-  <div className="flex items-start gap-6 group">
-    <div className="p-4 rounded-2xl bg-white shadow-sm border border-slate-50 text-slate-400 group-hover:text-blue-600 transition-colors">
-      {icon}
-    </div>
-    <div>
-      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">{label}</p>
-      <p className="text-xl font-bold text-slate-900 tracking-tight">{value}</p>
-    </div>
-  </div>
-);
 
 export default ContactUsRouter;

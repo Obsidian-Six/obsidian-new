@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import type { ReactNode, Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
+import ServicesHero from "../../services/_components/ServicesHero";
 
 const OverviewPage = () => {
     const services = [
@@ -103,20 +104,7 @@ const OverviewPage = () => {
 
     return (
         <div className="bg-white font-sans text-slate-900">
-            {/* HERO */}
-            <div className="relative h-[45vh] md:h-[55vh] w-full overflow-hidden flex items-center">
-                <Image
-                    src="https://plus.unsplash.com/premium_photo-1706569656430-37be43b900e7?q=80&w=1332"
-                    alt="Hero"
-                    fill
-                    priority
-                    className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black/40"></div>
-                <div className="container mx-auto px-6 md:px-12 relative z-10">
-                    <h1 className="text-5xl md:text-8xl font-light text-white tracking-tight">Our Services</h1>
-                </div>
-            </div>
+            <ServicesHero />
 
             <div className="bg-white">
                 <ServiceSection 

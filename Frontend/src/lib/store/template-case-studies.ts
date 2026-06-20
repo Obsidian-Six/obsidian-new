@@ -1167,7 +1167,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     details:
       "A comprehensive digital marketing strategy that increased organic traffic by 150% and boosted online sales by 80% within six months.",
     image:
-      "https://media.licdn.com/dms/image/v2/D4D0BAQFY3ERjFGMLyg/company-logo_200_200/company-logo_200_200/0/1726910755323?e=2147483647&v=beta&t=1Z34TFiE7gr78QoNN775mJSTCyb7hoxX3bmavObLzCM",
+      "/images/pachmarhi-ayurveda.png",
     tags: ["Website", "Branding", "Marketing"],
     heroImage: "/images/case-study/pach.png",
     "heroVideo": "",  
@@ -1644,7 +1644,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
     details:
       "Developed a high-converting digital presence for Ten On Ten Stays, positioning them as a 360° revenue growth partner for hotels and resorts.",
-    image: "/HospitalityCaseStudy/Thumbnai.jpeg",
+    image: "/images/hospitality-marketing.png",
     tags: ["Website", "Branding", "SEO", "UI/UX"],
     heroImage:
       "https://img.freepik.com/free-photo/beautiful-castle-architecture_23-2150754875.jpg?t=st=1743222693~exp=1743226293~hmac=69bb516d07c39aaf4f09a4b6fb7508f3360a038fa9b7d098e6dc996be7687f8b&w=1380",

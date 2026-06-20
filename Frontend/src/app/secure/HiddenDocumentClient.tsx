@@ -136,7 +136,7 @@ const CanvasPage = ({ pdf, pageNum, scale, watermarkEmail }: CanvasPageProps) =>
 };
 
 interface HiddenDocumentClientProps {
-  pdfFilename: "Task1.pdf" | "GOOGLE_ADS_X_OBS.pdf";
+  pdfFilename: "Task1.pdf" | "GOOGLE_ADS_X_OBS.pdf" | "Task-3.pdf";
 }
 
 export default function HiddenDocumentClient({ pdfFilename }: HiddenDocumentClientProps) {

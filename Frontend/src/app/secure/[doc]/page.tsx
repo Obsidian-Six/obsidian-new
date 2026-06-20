@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import HiddenDocumentClient from "../HiddenDocumentClient";
 
-type PdfFilename = "Task1.pdf" | "GOOGLE_ADS_X_OBS.pdf";
+type PdfFilename = "Task1.pdf" | "GOOGLE_ADS_X_OBS.pdf" | "Task-3.pdf";
 
 const slugMap: Record<string, PdfFilename> = {
   "task1.pdf": "Task1.pdf",
@@ -14,6 +14,14 @@ const slugMap: Record<string, PdfFilename> = {
   "GOOGLE_ADS_X_OBS": "GOOGLE_ADS_X_OBS.pdf",
   "google-ads": "GOOGLE_ADS_X_OBS.pdf",
   "google-ads.pdf": "GOOGLE_ADS_X_OBS.pdf",
+  "task-3": "Task-3.pdf",
+  "task-3.pdf": "Task-3.pdf",
+  "Task-3": "Task-3.pdf",
+  "Task-3.pdf": "Task-3.pdf",
+  "task3": "Task-3.pdf",
+  "task3.pdf": "Task-3.pdf",
+  "Task3": "Task-3.pdf",
+  "Task3.pdf": "Task-3.pdf",
 };
 
 export function generateStaticParams() {
@@ -40,6 +48,13 @@ export async function generateMetadata({
     return {
       title: "GOOGLE_ADS_X_OBS.pdf | Obsidian Six",
       description: "View the secure GOOGLE_ADS_X_OBS.pdf document from Obsidian Six.",
+      robots: noIndex,
+    };
+  }
+  if (pdfFile === "Task-3.pdf") {
+    return {
+      title: "Task-3.pdf | Obsidian Six",
+      description: "View the secure Task-3.pdf document from Obsidian Six.",
       robots: noIndex,
     };
   }

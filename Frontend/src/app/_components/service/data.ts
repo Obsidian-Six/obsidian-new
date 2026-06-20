@@ -27,7 +27,7 @@ const services: Service[] = [
   {
     name: "IT",
     image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8SVR8ZW58MHx8MHx8fDA%3D",
+      "/images/it-section.png",
     description:
       "We integrate AI experience,  data analytics,web,mobile development and deliver seamlessEcommerce solutions.",
   },

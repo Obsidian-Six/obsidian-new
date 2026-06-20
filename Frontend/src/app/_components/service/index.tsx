@@ -23,12 +23,12 @@ const HomeService = () => {
       className={`w-full overflow-hidden ${isDesktop ? "h-full flex flex-col justify-between" : ""}`}
     >
       {/* Constrained Image Box matching vertical limits perfectly */}
-      <div className="relative w-full overflow-hidden rounded-2xl shadow-xl aspect-video">
+      <div className="relative w-full overflow-hidden rounded-2xl shadow-md aspect-video border border-slate-200/60 bg-slate-50 flex items-center justify-center">
         <Image
           src={service.image}
           alt={service.name}
           fill
-          className="object-cover" // This removes the grey space but will cause cropping
+          className="object-contain p-2"
           priority
         />
       </div>

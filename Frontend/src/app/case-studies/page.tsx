@@ -6,6 +6,7 @@ import type CaseStudy from "@/lib/models/case-study.types";
 import caseStudiesData from "@/lib/store/case-studies";
 import { normalizeMediaUrls, getSlug } from "@/lib/utils";
 
+
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 

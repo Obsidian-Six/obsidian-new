@@ -11,7 +11,7 @@ export default function NavbarScroll() {
 
   const handleScroll = useCallback(() => {
     const isScrolled = window.scrollY > 0;
-    const onOverview = pathname?.includes("overview");
+    const forceWhiteBg = pathname?.includes("overview") || pathname?.startsWith("/services");
 
     
     const header = document.querySelector("header");
@@ -28,7 +28,7 @@ export default function NavbarScroll() {
     });
 
     // --- 2. BACKGROUND LOGIC ---
-    if (onOverview || isScrolled) {
+    if (forceWhiteBg || isScrolled) {
       // White background with shadow
       header?.classList.add("bg-white", "shadow-md");
       header?.classList.remove("bg-transparent");
