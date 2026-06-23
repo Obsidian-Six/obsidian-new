@@ -8,6 +8,7 @@ import { ArrowRight, Plus, Minus, CheckCircle2, Loader2, Linkedin } from "lucide
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { handleContactUsFormSubmission } from "@/lib/services/contact.api";
+import caseStudiesData from "@/lib/store/case-studies";
 
 // CountUp Component for stats number animation
 function CountUp({ to, duration = 2, suffix = "" }: { to: number; duration?: number; suffix?: string }) {
@@ -165,16 +166,18 @@ const TagIcon = () => (
 );
 
 export default function ExperienceDesignPage() {
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isPaused = useRef(false);
+  
   const [activeUiux, setActiveUiux] = useState(0);
   const [activeProduct, setActiveProduct] = useState(2); // Human Machine Interface open by default
   const [activeResearch, setActiveResearch] = useState(0);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const scrollSlider = (direction: "left" | "right") => {
-    const container = sliderRef.current;
+    const container = scrollContainerRef.current;
     if (!container) return;
-    const scrollAmount = direction === "left" ? -container.offsetWidth : container.offsetWidth;
+    const scrollAmount = direction === "left" ? -400 : 400;
     container.scrollBy({ left: scrollAmount, behavior: "smooth" });
   };
 
@@ -184,12 +187,75 @@ export default function ExperienceDesignPage() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [caseStudies, setCaseStudies] = useState<any[]>([]);
   const [isMounted, setIsMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let animationFrameId: number;
+    let lastTime = 0;
+    const speed = 25; // Slow, premium auto-scroll speed (25 pixels per second)
+
+    const scroll = (timestamp: number) => {
+      if (!lastTime) lastTime = timestamp;
+      const elapsed = timestamp - lastTime;
+      lastTime = timestamp;
+
+      if (!isPaused.current) {
+        container.scrollLeft += (speed * elapsed) / 1000;
+      }
+
+      // Infinite wrap-around check
+      if (container.scrollLeft >= container.scrollWidth / 2) {
+        container.scrollLeft = 0;
+      } else if (container.scrollLeft <= 0) {
+        container.scrollLeft = container.scrollWidth / 2;
+      }
+
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [caseStudies]);
+
+  useEffect(() => {
     setIsMounted(true);
+    const fetchStudies = async () => {
+      let apiStudies: any[] = [];
+      try {
+        const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+        const res = await fetch(`${apiBase}/api/case-studies`);
+        const data = await res.json();
+        if (res.ok && data.success && Array.isArray(data.data)) {
+          apiStudies = data.data.map((cs: any) => {
+            if (cs.image && !cs.image.startsWith("http") && !cs.image.startsWith("/")) {
+              return { ...cs, image: `${apiBase}${cs.image}` };
+            }
+            return cs;
+          });
+        }
+      } catch (err) {
+        console.error("Failed to fetch dynamic case studies:", err);
+      }
+
+      // Combine with local static store
+      const combined = [...apiStudies];
+      const apiSlugs = new Set(apiStudies.map(cs => cs.slug));
+      
+      for (const cs of caseStudiesData) {
+        if (!apiSlugs.has(cs.slug)) {
+          combined.push(cs);
+        }
+      }
+      setCaseStudies(combined);
+    };
+
+    fetchStudies();
   }, []);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -540,119 +606,73 @@ export default function ExperienceDesignPage() {
               </button>
             </div>
           </div>
+        </div>
 
-          <div
-            ref={sliderRef}
-            className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-6"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {/* IKEA Card */}
-            <div className="w-full lg:w-[850px] shrink-0 snap-start bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row min-h-[400px]">
-              <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-center bg-[#0051ba] px-4 py-2 rounded-sm select-none w-fit h-10">
-                    <div className="bg-[#ffcc00] px-3 py-0.5 rounded-[50%] flex items-center justify-center">
-                      <span className="text-[#0051ba] font-black text-sm tracking-tighter">IKEA</span>
+        {caseStudies.length > 0 && (
+          <div className="relative w-full py-4">
+            <div
+              ref={scrollContainerRef}
+              className="flex gap-8 overflow-x-auto scrollbar-none snap-none px-6 md:px-12 pb-6"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              onMouseEnter={() => { isPaused.current = true; }}
+              onMouseLeave={() => { isPaused.current = false; }}
+              onTouchStart={() => { isPaused.current = true; }}
+              onTouchEnd={() => { isPaused.current = false; }}
+            >
+              {[...caseStudies, ...caseStudies].map((cs, idx) => (
+                <div 
+                  key={idx} 
+                  className="w-[320px] md:w-[450px] shrink-0 bg-slate-900 rounded-2xl overflow-hidden shadow-md relative min-h-[380px] hover:scale-[1.02] transition-transform duration-300 group border border-slate-800"
+                >
+                  {/* Background coverimage */}
+                  <Image
+                    src={cs.image}
+                    alt={cs.name}
+                    fill
+                    className="object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-300"
+                    unoptimized={cs.image.startsWith("/")}
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  
+                  {/* Content (Overlaid) */}
+                  <div className="absolute inset-0 p-6 flex flex-col justify-between text-white z-10">
+                    <div className="space-y-3">
+                      <div className="text-[10px] font-extrabold text-[#FD7B28] uppercase tracking-[0.2em] font-poppins">
+                        {cs.category}
+                      </div>
+                      <h3 className="text-lg md:text-xl font-bold tracking-tight text-white font-poppins leading-snug">
+                        {cs.name}
+                      </h3>
+                      <p className="text-slate-200 text-xs font-semibold font-inter line-clamp-3 leading-relaxed">
+                        {cs.details}
+                      </p>
+                      
+                      {/* Dynamic bullet tags */}
+                      <ul className="space-y-2 pt-2">
+                        {cs.tags.slice(0, 3).map((tag: string, tagIdx: number) => (
+                          <li key={tagIdx} className="flex items-center gap-2 text-xs font-semibold text-slate-200 font-inter">
+                            <span className="text-green-400 shrink-0">✓</span>
+                            <span>{tag}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="pt-4">
+                      <Link
+                        href={`/case-studies/${cs.slug}`}
+                        className="inline-flex items-center gap-1.5 px-5 py-2.5 border border-white/30 text-white hover:border-[#FD7B28] hover:text-[#FD7B28] hover:bg-[#FD7B28]/10 transition-all text-[10px] font-bold uppercase tracking-wider font-poppins rounded-none"
+                      >
+                        Read Case Study <ArrowRight size={12} className="text-white group-hover:text-[#FD7B28]" />
+                      </Link>
                     </div>
                   </div>
-                  
-                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 font-poppins leading-snug">
-                    E-commerce Store for a Fresh Sales Channel Launch
-                  </h3>
-                  
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
-                      <CheckIcon />
-                      <span>Online store created in under 12 weeks</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
-                      <CheckIcon />
-                      <span>Global standards maintained</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
-                      <CheckIcon />
-                      <span>Flawless UI/UX</span>
-                    </li>
-                  </ul>
                 </div>
-                
-                <div className="pt-8">
-                  <Link
-                    href="#"
-                    className="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 text-slate-800 hover:border-[#FD7B28] hover:text-[#FD7B28] hover:bg-orange-50/5 transition-all text-xs font-bold uppercase tracking-wider font-poppins rounded-none"
-                  >
-                    Read Case Study <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </div>
-              
-              <div className="flex-1 relative min-h-[280px] md:min-h-auto">
-                <Image
-                  src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800"
-                  alt="IKEA Case Study"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              ))}
             </div>
-
-            {/* Yala Toys Card */}
-            <div className="w-full lg:w-[850px] shrink-0 snap-start bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row min-h-[400px]">
-              <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-0.5 font-bold text-xl select-none w-fit font-poppins tracking-tight h-10">
-                    <span className="text-[#e74c3c]">y</span>
-                    <span className="text-[#3498db]">a</span>
-                    <span className="text-[#2ecc71]">l</span>
-                    <span className="text-[#f1c40f]">a</span>
-                    <span className="text-[#9b59b6] ml-1">t</span>
-                    <span className="text-[#e67e22]">o</span>
-                    <span className="text-[#1abc9c]">y</span>
-                    <span className="text-[#e74c3c]">s</span>
-                  </div>
-                  
-                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 font-poppins leading-snug">
-                    Seamless Shopping with WAC&apos;s E-commerce Infusion
-                  </h3>
-                  
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
-                      <CheckIcon />
-                      <span>User-centric design</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
-                      <CheckIcon />
-                      <span>Cross-platform consistency</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
-                      <CheckIcon />
-                      <span>Seamless web-mobile experience</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="pt-8">
-                  <Link
-                    href="#"
-                    className="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 text-slate-800 hover:border-[#FD7B28] hover:text-[#FD7B28] hover:bg-orange-50/5 transition-all text-xs font-bold uppercase tracking-wider font-poppins rounded-none"
-                  >
-                    Read Case Study <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </div>
-              
-              <div className="flex-1 relative min-h-[280px] md:min-h-auto">
-                <Image
-                  src="https://images.unsplash.com/photo-1515488042361-404e9250afef?q=80&w=800"
-                  alt="Yala Toys Case Study"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-
           </div>
-        </div>
+        )}
       </section>
 
       {/* 6. ENGAGEMENT MODEL SECTION */}
