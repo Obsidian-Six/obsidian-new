@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import type { ReactNode, Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import ServicesHero from "../../services/_components/ServicesHero";
 
 const OverviewPage = () => {
@@ -73,15 +74,27 @@ const OverviewPage = () => {
 
                     <nav className="flex flex-col border-t border-gray-100 w-full">
                         {list.map((item, index) => (
-                            <button
+                            <div
                                 key={item.id}
-                                onMouseEnter={() => setHoverIndex(index)}
-                                className="group py-6 flex justify-between items-center border-b border-gray-100 text-left transition-all w-full"
+                                className="group py-6 border-b border-gray-100 text-left transition-all w-full flex flex-col items-start"
                             >
-                                <span className={`text-xl font-medium transition-colors duration-300 ${hoverIndex === index ? 'text-black' : 'text-slate-500'}`}>
-                                    {item.title}
-                                </span>
-                            </button>
+                                <button
+                                    onMouseEnter={() => setHoverIndex(index)}
+                                    className="flex justify-between items-center text-left w-full"
+                                >
+                                    <span className={`text-xl font-medium transition-colors duration-300 ${hoverIndex === index ? 'text-black' : 'text-slate-500'}`}>
+                                        {item.title}
+                                    </span>
+                                </button>
+                                {item.id === 6 && id === "experience-design" && (
+                                    <Link
+                                        href="/services/experience-design"
+                                        className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 text-sm font-semibold mt-3 transition-colors"
+                                    >
+                                        Explore experience design &rarr;
+                                    </Link>
+                                )}
+                            </div>
                         ))}
                     </nav>
                 </div>

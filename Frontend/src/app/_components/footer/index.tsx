@@ -108,17 +108,20 @@ const Footer = () => {
           margin: 0;
           font-size: clamp(28px, 3.6vw, 44px);
           line-height: 1.12;
-          font-weight: 800;
+          font-weight: 300;
           color: var(--os-text);
           letter-spacing: -0.01em;
           max-width: 620px;
         }
 
         .os-cta h2 span {
-          background: linear-gradient(90deg, var(--os-orange), #ffb88c);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
+          font-family: var(--font-times), "Times New Roman", serif;
+          font-style: italic;
+          font-weight: 300;
+          color: var(--os-orange);
+          background: none;
+          -webkit-background-clip: initial;
+          background-clip: initial;
         }
 
         .os-cta-btn {
@@ -155,7 +158,7 @@ const Footer = () => {
         .os-main {
           padding: 56px 0 48px;
           display: grid;
-          grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+          grid-template-columns: 1.5fr 0.8fr 1.2fr 1fr 1.2fr;
           gap: 40px;
           border-bottom: 1px solid var(--os-line);
         }
@@ -464,18 +467,19 @@ const Footer = () => {
               <ul>
                 <li><Link href="/#home">Home</Link></li>
                 <li><Link href="/aboutus/">About us</Link></li>
-                <li>
-                  <Link href="/services/">Services</Link>
-                  <ul className="pl-4 mt-2 space-y-2 border-l border-slate-800/80">
-                    <li><Link href="/services/#experience-design" className="text-slate-400 hover:text-[#FD7B28] text-[13px] font-medium transition-colors block">Experience Design</Link></li>
-                    <li><Link href="/services/#technology" className="text-slate-400 hover:text-[#FD7B28] text-[13px] font-medium transition-colors block">Technology</Link></li>
-                    <li><Link href="/services/#digital-marketing" className="text-slate-400 hover:text-[#FD7B28] text-[13px] font-medium transition-colors block">Digital Marketing</Link></li>
-                    <li><Link href="/services/#branding" className="text-slate-400 hover:text-[#FD7B28] text-[13px] font-medium transition-colors block">Branding</Link></li>
-                  </ul>
-                </li>
                 <li><Link href="/case-studies/">Works</Link></li>
                 <li><Link href="/blogs/">Blogs</Link></li>
                 <li><Link href="/contactus/">Contact us</Link></li>
+              </ul>
+            </div>
+
+            <div className="os-col">
+              <h3>Services</h3>
+              <ul>
+                <li><Link href="/services/#experience-design">Experience Design</Link></li>
+                <li><Link href="/services/#technology">Technology</Link></li>
+                <li><Link href="/services/#digital-marketing">Digital Marketing</Link></li>
+                <li><Link href="/services/#branding">Branding</Link></li>
               </ul>
             </div>
 
