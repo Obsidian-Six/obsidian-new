@@ -202,19 +202,24 @@ const renderLogo = (cs: any) => {
 };
 
 export default function ExperienceDesignPage() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const isPaused = useRef(false);
-  
   const [activeUiux, setActiveUiux] = useState(0);
   const [activeProduct, setActiveProduct] = useState(2); // Human Machine Interface open by default
   const [activeResearch, setActiveResearch] = useState(0);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
+  // Scroll Slider References
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isPaused = useRef<boolean>(false);
+
   const scrollSlider = (direction: "left" | "right") => {
+    if (!scrollContainerRef.current) return;
     const container = scrollContainerRef.current;
-    if (!container) return;
-    const scrollAmount = direction === "left" ? -400 : 400;
-    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    const scrollAmount = 600; // width of one card
+    if (direction === "left") {
+      container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    } else {
+      container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
   };
 
   // Form State
@@ -229,37 +234,6 @@ export default function ExperienceDesignPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    let animationFrameId: number;
-    let lastTime = 0;
-    const speed = 25; // Slow, premium auto-scroll speed (25 pixels per second)
-
-    const scroll = (timestamp: number) => {
-      if (!lastTime) lastTime = timestamp;
-      const elapsed = timestamp - lastTime;
-      lastTime = timestamp;
-
-      if (!isPaused.current) {
-        container.scrollLeft += (speed * elapsed) / 1000;
-      }
-
-      // Infinite wrap-around check
-      if (container.scrollLeft >= container.scrollWidth / 2) {
-        container.scrollLeft = 0;
-      } else if (container.scrollLeft <= 0) {
-        container.scrollLeft = container.scrollWidth / 2;
-      }
-
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-
-    animationFrameId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [caseStudies]);
-
-  useEffect(() => {
     setIsMounted(true);
     const fetchStudies = async () => {
       let apiStudies: any[] = [];
@@ -269,8 +243,9 @@ export default function ExperienceDesignPage() {
         const data = await res.json();
         if (res.ok && data.success && Array.isArray(data.data)) {
           apiStudies = data.data.map((cs: any) => {
-            if (cs.image && !cs.image.startsWith("http") && !cs.image.startsWith("/")) {
-              return { ...cs, image: `${apiBase}${cs.image}` };
+            if (cs.image && !cs.image.startsWith("http") && !cs.image.startsWith("/Travel") && !cs.image.startsWith("/SweetProtection") && !cs.image.startsWith("/heavyMachinery")) {
+              const prefix = cs.image.startsWith("/") ? "" : "/";
+              return { ...cs, image: `${apiBase}${prefix}${cs.image}` };
             }
             return cs;
           });
@@ -288,7 +263,24 @@ export default function ExperienceDesignPage() {
           combined.push(cs);
         }
       }
-      setCaseStudies(combined);
+
+      // Filter out invalid/draft case studies (like pachmarhi or missing images)
+      const filtered = combined.filter(cs => {
+        if (!cs.image) return false;
+        const img = cs.image.toLowerCase();
+        const name = cs.name.toLowerCase();
+        const slug = cs.slug.toLowerCase();
+        
+        if (name.includes("pachmarhi") || slug.includes("pachmarhi")) return false;
+        if (img.includes("placeholder") || img.includes("default")) return false;
+        
+        const hasValidExtension = img.endsWith(".jpg") || img.endsWith(".jpeg") || img.endsWith(".png") || img.endsWith(".webp") || img.startsWith("http");
+        if (!hasValidExtension) return false;
+        
+        return true;
+      });
+
+      setCaseStudies(filtered);
     };
 
     fetchStudies();
@@ -427,6 +419,7 @@ export default function ExperienceDesignPage() {
                 return (
                   <div key={item.title} className="border-b border-slate-100 py-5">
                     <button
+                      suppressHydrationWarning={true}
                       onClick={() => setActiveUiux(index)}
                       className="flex justify-between items-center text-left w-full group"
                     >
@@ -495,6 +488,7 @@ export default function ExperienceDesignPage() {
                 return (
                   <div key={item.title} className="border-b border-slate-100 py-5">
                     <button
+                      suppressHydrationWarning={true}
                       onClick={() => setActiveProduct(index)}
                       className="flex justify-between items-center text-left w-full group"
                     >
@@ -563,6 +557,7 @@ export default function ExperienceDesignPage() {
                 return (
                   <div key={item.title} className="border-b border-slate-100 py-5">
                     <button
+                      suppressHydrationWarning={true}
                       onClick={() => setActiveResearch(index)}
                       className="flex justify-between items-center text-left w-full group"
                     >
@@ -627,6 +622,7 @@ export default function ExperienceDesignPage() {
             </div>
             <div className="flex gap-3">
               <button
+                suppressHydrationWarning={true}
                 onClick={() => scrollSlider("left")}
                 className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#FD7B28] hover:text-[#FD7B28] transition-colors shadow-sm"
                 aria-label="Previous case study"
@@ -634,6 +630,7 @@ export default function ExperienceDesignPage() {
                 <ArrowLeftIcon />
               </button>
               <button
+                suppressHydrationWarning={true}
                 onClick={() => scrollSlider("right")}
                 className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#FD7B28] hover:text-[#FD7B28] transition-colors shadow-sm"
                 aria-label="Next case study"
@@ -829,6 +826,7 @@ export default function ExperienceDesignPage() {
               return (
                 <div key={idx} className="border-b border-slate-200 py-6">
                   <button
+                    suppressHydrationWarning={true}
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
                     className="flex justify-between items-center text-left w-full group"
                   >
@@ -858,6 +856,7 @@ export default function ExperienceDesignPage() {
           </div>
           <div className="flex justify-center">
             <button
+              suppressHydrationWarning={true}
               onClick={() => alert("Check back later for more FAQs!")}
               className="px-6 py-2.5 border border-[#FD7B28] text-[#FD7B28] hover:bg-orange-50/40 text-xs font-bold uppercase tracking-wider transition-colors font-poppins"
             >
@@ -941,6 +940,7 @@ export default function ExperienceDesignPage() {
                           First Name*
                         </label>
                         <input
+                          suppressHydrationWarning={true}
                           required
                           className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#FD7B28] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white"
                           id="first-name"
@@ -955,6 +955,7 @@ export default function ExperienceDesignPage() {
                           Last Name
                         </label>
                         <input
+                          suppressHydrationWarning={true}
                           className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#FD7B28] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white"
                           id="last-name"
                           placeholder="Enter last name"
@@ -972,6 +973,7 @@ export default function ExperienceDesignPage() {
                           Email*
                         </label>
                         <input
+                          suppressHydrationWarning={true}
                           required
                           className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#FD7B28] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white"
                           id="email"
@@ -1015,6 +1017,7 @@ export default function ExperienceDesignPage() {
                         </span>
                       </div>
                       <textarea
+                        suppressHydrationWarning={true}
                         required
                         maxLength={1000}
                         className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#FD7B28] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-44 resize-none bg-white"
@@ -1028,6 +1031,7 @@ export default function ExperienceDesignPage() {
                     {/* Send Enquiry Button */}
                     <div className="flex justify-end pt-4">
                       <button
+                        suppressHydrationWarning={true}
                         type="submit"
                         disabled={isSubmitting}
                         className="px-10 py-4 bg-black text-white hover:bg-[#FD7B28] transition-colors flex items-center gap-3 font-semibold text-xs uppercase tracking-widest rounded-none disabled:opacity-50 font-poppins"
