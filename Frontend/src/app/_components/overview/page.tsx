@@ -144,6 +144,14 @@ const OverviewPage = () => {
                     hoverIndex={techHover} 
                     setHoverIndex={setTechHover} 
                     isFlipped={true} 
+                    exploreLink={
+                        <Link
+                            href="/services/technology"
+                            className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 text-sm font-semibold transition-colors mt-3"
+                        >
+                            Explore technology &rarr;
+                        </Link>
+                    }
                 />
                 
                 <ServiceSection 

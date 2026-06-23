@@ -866,6 +866,30 @@ export default function ExperienceDesignPage() {
         </div>
       </section>
 
+      {/* TRANSITION TO TECHNOLOGY SECTION */}
+      <section className="py-20 bg-slate-950 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(253,123,40,0.08)_0%,rgba(0,0,0,0)_70%)] pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10 space-y-6">
+          <span className="text-[#FD7B28] text-xs font-bold uppercase tracking-[0.2em] block font-poppins">
+            Next Capability
+          </span>
+          <h2 className="text-3xl md:text-5xl font-light tracking-tight font-poppins text-slate-100">
+            Empower Your Business With Cutting-Edge <span className="font-normal text-white">Technology</span>
+          </h2>
+          <p className="text-slate-400 text-sm max-w-xl mx-auto font-inter leading-relaxed">
+            From modern cloud architectures to robust DevOps pipelines, high-performance web systems, and custom mobile apps, we design technology built to scale.
+          </p>
+          <div className="pt-4">
+            <Link
+              href="/services/technology"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FD7B28] hover:bg-[#ff914d] text-white rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-md shadow-orange-500/10 font-poppins"
+            >
+              Explore Technology <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 8. BESPOKE CONTACT FORM SECTION */}
       <section id="contact-form-section" className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
