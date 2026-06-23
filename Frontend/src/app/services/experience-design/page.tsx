@@ -1,39 +1,63 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView, animate } from "framer-motion";
 import { ArrowRight, Plus, Minus, CheckCircle2, Loader2, Linkedin } from "lucide-react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { handleContactUsFormSubmission } from "@/lib/services/contact.api";
 
-// Accordion Content Definitions
+// CountUp Component for stats number animation
+function CountUp({ to, duration = 2, suffix = "" }: { to: number; duration?: number; suffix?: string }) {
+  const nodeRef = useRef<HTMLSpanElement>(null);
+  const inView = useInView(nodeRef, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (!inView) return;
+    const node = nodeRef.current;
+    if (!node) return;
+
+    const controls = animate(0, to, {
+      duration,
+      ease: "easeOut",
+      onUpdate(value) {
+        node.textContent = Math.round(value) + suffix;
+      },
+    });
+
+    return () => controls.stop();
+  }, [inView, to, suffix, duration]);
+
+  return <span ref={nodeRef} className="font-poppins font-black">0{suffix}</span>;
+}
+
+// Expanded Accordion Content Definitions
 const uiuxAccordion = [
   {
     title: "UI/UX Design",
-    desc: "We focus on crafting personalised and user-centric designs that align seamlessly with your business’s goals and users’ needs.",
+    desc: "We focus on crafting personalised and user-centric designs that align seamlessly with your business’s goals and users’ needs. By integrating visual balance with behavioral science, we create layouts that guide users naturally, reduce friction, and ensure maximum clarity at every touchpoint.",
     img: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=800"
   },
   {
     title: "Website Design",
-    desc: "Our experts design advanced user-friendly websites that make your business stand out, attract customers and drive results.",
+    desc: "Our experts design advanced, user-friendly websites that make your business stand out, attract high-intent customers, and drive tangible commercial results. We prioritize clean layout hierarchies, performance optimization, and clear calls-to-action to maximize visitor engagement and brand trust across every page.",
     img: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800"
   },
   {
     title: "Mobile Design",
-    desc: "We let you design user interfaces and experiences for mobile devices with a key focus on superior accessibility and efficiency.",
+    desc: "We build intuitive, custom user interfaces and human-centric experiences for mobile devices with a key focus on superior accessibility, touch-target ergonomics, and fast performance. By aligning layouts with modern OS standards (iOS & Android), we ensure that your product feels native, responsive, and seamless.",
     img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800"
   },
   {
     title: "Ecommerce",
-    desc: "Our team creates stunning user experiences for your storefronts with superior UI/UX design tailored to meet your customers’ diverse requirements.",
+    desc: "Our design team creates stunning, frictionless user experiences for online storefronts that are custom-tailored to convert casual browsers into loyal buyers. We optimize product listing grids, shopping carts, checkout forms, and localized payment flows to reduce cart abandonment and drive sales.",
     img: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800"
   },
   {
     title: "Interaction Design",
-    desc: "We build interactive elements to foster meaningful engagement between users and systems, enhance usability, and deliver intuitive experiences.",
+    desc: "We build dynamic interactive elements to foster meaningful engagement between users and software systems. By prototyping micro-interactions, animated states, and hover effects, we ensure that every action feels satisfying, provides clear feedback, and simplifies the user journey.",
     img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800"
   }
 ];
@@ -41,17 +65,17 @@ const uiuxAccordion = [
 const productAccordion = [
   {
     title: "Wearable App Design",
-    desc: "Designing custom visual systems and touch controls for smartwatches and other wearable devices to deliver notifications and fitness metrics seamlessly.",
+    desc: "Designing compact, glanceable interfaces and context-aware touch controls optimized for smartwatches, fitness trackers, and specialized wearable devices. We prioritize high contrast, quick readability, and battery efficiency to deliver notifications, health telemetry, and status widgets seamlessly.",
     img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=800"
   },
   {
     title: "Applications & Dashboards",
-    desc: "Creating complex enterprise software dashboards and analytical CRM tools that simplify large datasets and elevate day-to-day employee performance.",
+    desc: "Crafting robust data-rich dashboards and complex enterprise SaaS portals that simplify complex analytical datasets. We build customized layouts, filter menus, and export systems to help users find insights instantly, streamline daily workflows, and optimize employee productivity.",
     img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800"
   },
   {
     title: "Human Machine Interface",
-    desc: "Our team implements design controls, systems, and displays that make complex machine operations effortless, ensuring seamless interactions between humans and machines.",
+    desc: "Our team implements design controls, systems, and hardware-display layouts that make complex machine operations completely effortless. We focus on industrial ergonomics, safety visual standards, and clear feedback loops to ensure seamless, error-free interactions between human operators and industrial hardware.",
     img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800"
   }
 ];
@@ -59,22 +83,22 @@ const productAccordion = [
 const researchAccordion = [
   {
     title: "User Research",
-    desc: "We understand the needs and attitudes of your audience, and incorporate these insights into the design process, to create an experience that resonates with your potential customers.",
+    desc: "We understand the needs and attitudes of your audience, and incorporate these insights into the design process, to create an experience that resonates with your potential customers. By conducting user interviews, surveys, and persona mapping, we base every layout decision on hard evidence to deliver experiences that resonate with your users.",
     img: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?q=80&w=800"
   },
   {
     title: "Design Audit",
-    desc: "Auditing current digital products against heuristics to find visual inconsistencies, accessibility roadblocks, and performance leaks.",
+    desc: "Evaluating your existing digital products against usability heuristics and industry compliance standards. We identify conversion bottlenecks, navigation friction points, and visual design inconsistencies, providing a detailed optimization roadmap to upgrade your product.",
     img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800"
   },
   {
     title: "Usability Testing",
-    desc: "Conducting user testing panels with functional prototypes to benchmark completion rates and iterate based on direct feedback.",
+    desc: "Running structured testing panels with actual users using interactive prototypes to validate workflows before development begins. We measure task completion times, error rates, and user satisfaction to iterate and optimize the system for absolute clarity.",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800"
   },
   {
     title: "Competitor & Market UX Research",
-    desc: "Examining competitor interfaces and global usability trends to build a strategic feature set that elevates your product's positioning.",
+    desc: "Assessing competitor platforms and current digital standards to uncover strategic opportunities and product differentiators. We map out competitor journeys and feature lists, ensuring your product offers superior UX and stands out in the market.",
     img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800"
   }
 ];
@@ -165,7 +189,15 @@ export default function ExperienceDesignPage() {
             </h1>
           </div>
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-80 h-80 md:w-96 md:h-96">
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="relative w-80 h-80 md:w-96 md:h-96"
+            >
               <Image
                 src="/images/butterfly.png"
                 alt="3D Iridescent Butterfly Render"
@@ -173,37 +205,38 @@ export default function ExperienceDesignPage() {
                 priority
                 className="object-contain"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* 2. STATS SECTION */}
-      <section className="py-20 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left items-end">
-          <div className="space-y-3">
-            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 font-poppins">700+</h3>
-            <p className="text-slate-500 text-sm font-semibold max-w-xs leading-relaxed font-inter">
-              Projects launched successfully across the globe
-            </p>
-          </div>
-          <div className="space-y-3">
-            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 font-poppins">10M</h3>
-            <p className="text-slate-500 text-sm font-semibold max-w-xs leading-relaxed font-inter">
-              Daily customer engagement throughout our projects
-            </p>
-          </div>
-          <div className="space-y-3">
-            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 font-poppins">100+</h3>
-            <p className="text-slate-500 text-sm font-semibold max-w-xs leading-relaxed font-inter">
-              Digital transformation stories that made a difference
-            </p>
-          </div>
+      <section className="py-24 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { value: 700, suffix: "+", label: "Projects launched successfully across the globe" },
+            { value: 10, suffix: "M", label: "Daily customer engagement throughout our projects" },
+            { value: 100, suffix: "+", label: "Digital transformation stories that made a difference" }
+          ].map((stat, idx) => (
+            <div
+              key={idx}
+              className="p-8 border border-slate-100 hover:border-orange-100 bg-white hover:bg-orange-50/10 transition-all duration-300 rounded-2xl group flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <h3 className="text-5xl md:text-6xl font-black text-slate-900 group-hover:text-[#FD7B28] transition-colors duration-300 font-poppins tracking-tight">
+                  <CountUp to={stat.value} suffix={stat.suffix} />
+                </h3>
+                <p className="text-slate-500 text-sm font-semibold max-w-xs leading-relaxed font-inter group-hover:text-slate-700 transition-colors duration-300">
+                  {stat.label}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
         <div className="max-w-7xl mx-auto px-6 mt-16 flex justify-center">
           <Link
             href="#contact-form-section"
-            className="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-md shadow-blue-500/10 flex items-center gap-2 font-poppins"
+            className="px-8 py-3.5 bg-[#FD7B28] hover:bg-[#ff914d] text-white rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-md shadow-orange-500/10 flex items-center gap-2 font-poppins"
           >
             Let&apos;s Talk <ArrowRight size={14} />
           </Link>
@@ -245,10 +278,10 @@ export default function ExperienceDesignPage() {
                       onClick={() => setActiveUiux(index)}
                       className="flex justify-between items-center text-left w-full group"
                     >
-                      <span className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-black' : 'text-slate-400 group-hover:text-slate-700'}`}>
+                      <span className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-[#FD7B28]' : 'text-slate-400 group-hover:text-slate-700'}`}>
                         {item.title}
                       </span>
-                      {isOpen ? <Minus size={18} className="text-slate-600" /> : <Plus size={18} className="text-slate-400" />}
+                      {isOpen ? <Minus size={18} className="text-[#FD7B28]" /> : <Plus size={18} className="text-slate-400 group-hover:text-[#FD7B28]" />}
                     </button>
                     <AnimatePresence initial={false}>
                       {isOpen && (
@@ -313,10 +346,10 @@ export default function ExperienceDesignPage() {
                       onClick={() => setActiveProduct(index)}
                       className="flex justify-between items-center text-left w-full group"
                     >
-                      <span className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-black' : 'text-slate-400 group-hover:text-slate-700'}`}>
+                      <span className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-[#FD7B28]' : 'text-slate-400 group-hover:text-slate-700'}`}>
                         {item.title}
                       </span>
-                      {isOpen ? <Minus size={18} className="text-slate-600" /> : <Plus size={18} className="text-slate-400" />}
+                      {isOpen ? <Minus size={18} className="text-[#FD7B28]" /> : <Plus size={18} className="text-slate-400 group-hover:text-[#FD7B28]" />}
                     </button>
                     <AnimatePresence initial={false}>
                       {isOpen && (
@@ -381,10 +414,10 @@ export default function ExperienceDesignPage() {
                       onClick={() => setActiveResearch(index)}
                       className="flex justify-between items-center text-left w-full group"
                     >
-                      <span className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-black' : 'text-slate-400 group-hover:text-slate-700'}`}>
+                      <span className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-[#FD7B28]' : 'text-slate-400 group-hover:text-slate-700'}`}>
                         {item.title}
                       </span>
-                      {isOpen ? <Minus size={18} className="text-slate-600" /> : <Plus size={18} className="text-slate-400" />}
+                      {isOpen ? <Minus size={18} className="text-[#FD7B28]" /> : <Plus size={18} className="text-slate-400 group-hover:text-[#FD7B28]" />}
                     </button>
                     <AnimatePresence initial={false}>
                       {isOpen && (
@@ -436,7 +469,7 @@ export default function ExperienceDesignPage() {
           <h2 className="text-4xl font-bold tracking-tight text-slate-950 mb-12 font-poppins">
             FAQ
           </h2>
-          <div className="flex flex-col border-t border-slate-200 w-full mb-10">
+          <div className="flex flex-col border-t border-slate-200 w-full mb-10 font-poppins">
             {faqs.map((faq, idx) => {
               const isOpen = activeFaq === idx;
               return (
@@ -445,10 +478,10 @@ export default function ExperienceDesignPage() {
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
                     className="flex justify-between items-center text-left w-full group"
                   >
-                    <span className={`text-base md:text-lg font-bold transition-colors duration-300 ${isOpen ? 'text-blue-600 font-semibold' : 'text-slate-900'}`}>
+                    <span className={`text-base md:text-lg font-bold transition-colors duration-300 ${isOpen ? 'text-[#FD7B28]' : 'text-slate-900 group-hover:text-[#FD7B28]'}`}>
                       {faq.question}
                     </span>
-                    {isOpen ? <Minus size={18} className="text-blue-600" /> : <Plus size={18} className="text-slate-400 group-hover:text-slate-900" />}
+                    {isOpen ? <Minus size={18} className="text-[#FD7B28]" /> : <Plus size={18} className="text-slate-400 group-hover:text-[#FD7B28]" />}
                   </button>
                   <AnimatePresence initial={false}>
                     {isOpen && (
@@ -459,7 +492,7 @@ export default function ExperienceDesignPage() {
                         transition={{ duration: 0.25 }}
                         className="overflow-hidden"
                       >
-                        <p className="text-slate-600 text-sm font-medium font-inter mt-4 leading-relaxed max-w-3xl">
+                        <p className="text-slate-600 text-sm font-medium font-inter mt-4 leading-relaxed max-w-3xl font-inter">
                           {faq.answer}
                         </p>
                       </motion.div>
@@ -472,7 +505,7 @@ export default function ExperienceDesignPage() {
           <div className="flex justify-center">
             <button
               onClick={() => alert("Check back later for more FAQs!")}
-              className="px-6 py-2.5 border border-blue-600 text-blue-600 hover:bg-blue-50 text-xs font-bold uppercase tracking-wider transition-colors font-poppins"
+              className="px-6 py-2.5 border border-[#FD7B28] text-[#FD7B28] hover:bg-orange-50/40 text-xs font-bold uppercase tracking-wider transition-colors font-poppins"
             >
               Show more
             </button>
@@ -500,24 +533,24 @@ export default function ExperienceDesignPage() {
                 <div className="inline-flex items-center gap-4 bg-slate-50 border border-slate-100 p-4 rounded-2xl w-full max-w-sm">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden border border-slate-200">
                     <Image
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
-                      alt="Anoop K Joseph"
+                      src="/founder.jpeg"
+                      alt="Aadarsh K"
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="text-sm font-bold text-slate-800 tracking-tight font-poppins">
-                      Anoop K Joseph
+                      Aadarsh K
                     </h4>
                     <p className="text-xs font-semibold text-slate-400 mt-0.5 font-inter">
-                      Global Sales Head
+                      Founder & Growth Strategist
                     </p>
                     <a
-                      href="https://www.linkedin.com"
+                      href="https://www.linkedin.com/in/aadarsh-k-3b44a1170/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-slate-400 hover:text-blue-600 mt-2 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-slate-400 hover:text-[#FD7B28] mt-2 transition-colors"
                     >
                       <Linkedin size={14} />
                       <span className="text-[10px] font-semibold uppercase tracking-wider">LinkedIn</span>
@@ -532,14 +565,14 @@ export default function ExperienceDesignPage() {
               <div className="bg-white border border-slate-100 p-6 md:p-10 shadow-sm rounded-none">
                 {isSubmitted ? (
                   <div className="py-16 text-center animate-in fade-in zoom-in duration-500">
-                    <CheckCircle2 className="w-16 h-16 text-[#024787] mx-auto mb-6" />
+                    <CheckCircle2 className="w-16 h-16 text-[#FD7B28] mx-auto mb-6" />
                     <h2 className="text-3xl font-bold mb-2 font-poppins">Message Sent!</h2>
                     <p className="text-slate-500 text-base mb-6 font-inter">
                       Our strategy team will review your details and reach out within 24 hours.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="text-[#024787] font-bold uppercase tracking-widest text-xs hover:underline font-poppins"
+                      className="text-[#FD7B28] font-bold uppercase tracking-widest text-xs hover:underline font-poppins"
                     >
                       Send another message
                     </button>
@@ -555,7 +588,7 @@ export default function ExperienceDesignPage() {
                         </label>
                         <input
                           required
-                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white"
+                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#FD7B28] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white"
                           id="first-name"
                           placeholder="Enter first name"
                           type="text"
@@ -568,7 +601,7 @@ export default function ExperienceDesignPage() {
                           Last Name
                         </label>
                         <input
-                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white"
+                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#FD7B28] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white"
                           id="last-name"
                           placeholder="Enter last name"
                           type="text"
@@ -586,7 +619,7 @@ export default function ExperienceDesignPage() {
                         </label>
                         <input
                           required
-                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white"
+                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#FD7B28] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white"
                           id="email"
                           placeholder="Enter email"
                           type="email"
@@ -605,7 +638,7 @@ export default function ExperienceDesignPage() {
                             onChange={(value: string) => setPhone(value)}
                             enableSearch={true}
                             searchPlaceholder="Search country..."
-                            inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#024787] !font-inter !h-14 bg-white"
+                            inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#FD7B28] !font-inter !h-14 bg-white"
                             containerClass="!w-full !rounded-none"
                             buttonClass="!rounded-none !border-y-0 !border-l-0 !border-r !border-[#C3C3C3] !bg-white"
                             dropdownClass="!rounded-none"
@@ -630,7 +663,7 @@ export default function ExperienceDesignPage() {
                       <textarea
                         required
                         maxLength={1000}
-                        className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-44 resize-none bg-white"
+                        className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#FD7B28] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-44 resize-none bg-white"
                         id="tell-us-more"
                         placeholder="Brief about your project"
                         value={message}
@@ -643,7 +676,7 @@ export default function ExperienceDesignPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="px-10 py-4 bg-black text-white hover:bg-slate-900 transition-colors flex items-center gap-3 font-semibold text-xs uppercase tracking-widest rounded-none disabled:opacity-50 font-poppins"
+                        className="px-10 py-4 bg-black text-white hover:bg-[#FD7B28] transition-colors flex items-center gap-3 font-semibold text-xs uppercase tracking-widest rounded-none disabled:opacity-50 font-poppins"
                       >
                         {isSubmitting ? (
                           <>
