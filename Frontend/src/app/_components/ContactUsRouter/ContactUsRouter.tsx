@@ -128,7 +128,7 @@ const ContactUsRouter = () => {
   const currentLeft = leftContent[activeTab];
 
   return (
-    <main className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white pt-28 pb-20 px-6">
+    <main className="min-h-screen bg-white text-slate-900 font-poppins selection:bg-blue-600 selection:text-white pt-28 pb-20 px-6">
       <div className="max-w-7xl mx-auto mt-12 md:mt-20">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           
@@ -153,7 +153,7 @@ const ContactUsRouter = () => {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <p className="text-slate-500 font-medium mt-6 text-sm md:text-base leading-relaxed max-w-md">
+                  <p className="text-slate-500 font-medium mt-6 text-sm md:text-base leading-relaxed max-w-md font-inter">
                     {currentLeft.desc}
                   </p>
                 </motion.div>
@@ -178,10 +178,10 @@ const ContactUsRouter = () => {
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-slate-800 tracking-tight">
+                  <h3 className="text-sm font-bold text-slate-800 tracking-tight font-poppins">
                     Download Our Brochure
                   </h3>
-                  <p className="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1.5 uppercase">
+                  <p className="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1.5 uppercase font-inter">
                     PDF 7.1 MB <Download size={12} className="text-slate-400" />
                   </p>
                 </div>
@@ -228,13 +228,13 @@ const ContactUsRouter = () => {
               {isSubmitted ? (
                 <div className="py-16 text-center animate-in fade-in zoom-in duration-500">
                   <CheckCircle2 className="w-16 h-16 text-[#024787] mx-auto mb-6" />
-                  <h2 className="text-3xl font-bold mb-2">Message Sent!</h2>
-                  <p className="text-slate-500 text-base mb-6">
+                  <h2 className="text-3xl font-bold mb-2 font-poppins">Message Sent!</h2>
+                  <p className="text-slate-500 text-base mb-6 font-inter">
                     Our strategy team will review your details and reach out within 24 hours.
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="text-[#024787] font-bold uppercase tracking-widest text-xs hover:underline"
+                    className="text-[#024787] font-bold uppercase tracking-widest text-xs hover:underline font-poppins"
                   >
                     Send another message
                   </button>
@@ -250,7 +250,7 @@ const ContactUsRouter = () => {
                       </label>
                       <input
                         required
-                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-14 md:h-14 bg-white"
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
                         id="first-name"
                         placeholder="Enter first name"
                         type="text"
@@ -263,7 +263,7 @@ const ContactUsRouter = () => {
                         Last Name
                       </label>
                       <input
-                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-14 md:h-14 bg-white"
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
                         id="last-name"
                         placeholder="Enter last name"
                         type="text"
@@ -281,7 +281,7 @@ const ContactUsRouter = () => {
                       </label>
                       <input
                         required
-                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-14 md:h-14 bg-white"
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
                         id="email"
                         placeholder="Enter email"
                         type="email"
@@ -300,7 +300,7 @@ const ContactUsRouter = () => {
                           onChange={(value: string) => setPhone(value)}
                           enableSearch={true}
                           searchPlaceholder="Search country..."
-                          inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3.5 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#024787] !font-sans !h-14 bg-white"
+                          inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3.5 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#024787] !font-inter !h-14 bg-white"
                           containerClass="!w-full !rounded-none"
                           buttonClass="!rounded-none !border-y-0 !border-l-0 !border-r !border-[#C3C3C3] !bg-white"
                           dropdownClass="!rounded-none"
@@ -319,7 +319,7 @@ const ContactUsRouter = () => {
                         Company Name
                       </label>
                       <input
-                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-14 md:h-14 bg-white"
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
                         id="company-name"
                         placeholder="Enter your company name"
                         type="text"
@@ -336,7 +336,7 @@ const ContactUsRouter = () => {
                         Subject
                       </label>
                       <input
-                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-14 md:h-14 bg-white"
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
                         id="subject"
                         placeholder="Enter your subject"
                         type="text"
@@ -352,14 +352,14 @@ const ContactUsRouter = () => {
                       <label className="text-[13px] md:text-sm font-semibold text-slate-900" htmlFor="tell-us-more">
                         Tell Us More
                       </label>
-                      <span className="text-xs text-slate-400 font-medium font-sans">
+                      <span className="text-xs text-slate-400 font-medium font-inter">
                         {message.length}/1000
                       </span>
                     </div>
                     <textarea
                       required
                       maxLength={1000}
-                      className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-44 resize-none bg-white"
+                      className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-44 resize-none bg-white"
                       id="tell-us-more"
                       placeholder={
                         activeTab === "quote"
@@ -384,7 +384,7 @@ const ContactUsRouter = () => {
                         onChange={(e) => setConsent(e.target.checked)}
                         className="mt-1 h-3.5 w-3.5 border-[#C3C3C3] rounded-none focus:ring-[#024787] text-[#024787]"
                       />
-                      <label htmlFor="consent-checkbox" className="text-xs text-slate-500 leading-tight">
+                      <label htmlFor="consent-checkbox" className="text-xs text-slate-500 leading-tight font-inter">
                         I have read the{" "}
                         <a href="/terms" target="_blank" className="text-[#024787] font-semibold underline hover:text-blue-700">
                           privacy policy
@@ -443,10 +443,10 @@ const ContactUsRouter = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <span className="text-blue-600 font-bold text-[10px] tracking-widest uppercase">
+                <span className="text-blue-600 font-bold text-[10px] tracking-widest uppercase font-poppins">
                   0{idx + 1} — {item.title}
                 </span>
-                <p className="text-slate-600 mt-4 text-lg font-medium leading-relaxed">
+                <p className="text-slate-600 mt-4 text-lg font-medium leading-relaxed font-inter">
                   {item.desc}
                 </p>
               </div>

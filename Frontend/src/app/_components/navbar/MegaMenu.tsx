@@ -46,8 +46,8 @@ export default function MegaMenu({ isOpen }: { isOpen: boolean }) {
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -5 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          exit={{ opacity: 0, y: -5, transition: { duration: 0.1, ease: "easeIn" } }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
           /* UPDATED: Changed bg to white, text to black, and adjusted border/shadow */
           className="absolute left-0 top-full w-screen bg-white text-slate-900 z-50 overflow-hidden border-t border-gray-100 shadow-[0_30px_60px_rgba(0,0,0,0.1)] font-poppins"
         >

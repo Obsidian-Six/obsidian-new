@@ -48,19 +48,21 @@ const OverviewPage = () => {
 
     // Reusable Component to ensure identical Left Alignment for all sections
     const ServiceSection = ({
+        id,
         title,
         list,
         hoverIndex,
         setHoverIndex,
         isFlipped = false,
     }: {
+        id: string;
         title: ReactNode;
         list: { id: number; title: string; img: string }[];
         hoverIndex: number;
         setHoverIndex: Dispatch<SetStateAction<number>>;
         isFlipped?: boolean;
     }) => (
-        <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-24 bg-white border-b border-gray-50 last:border-0">
+        <section id={id} className="max-w-[1400px] mx-auto px-6 md:px-12 py-24 bg-white border-b border-gray-50 last:border-0 scroll-mt-28">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 
                 {/* Text Content Area */}
@@ -108,6 +110,7 @@ const OverviewPage = () => {
 
             <div className="bg-white">
                 <ServiceSection 
+                    id="experience-design"
                     title={<>Experience <br/> Design</>} 
                     list={services} 
                     hoverIndex={expHover} 
@@ -115,6 +118,7 @@ const OverviewPage = () => {
                 />
                 
                 <ServiceSection 
+                    id="technology"
                     title="Technology" 
                     list={technologyServices} 
                     hoverIndex={techHover} 
@@ -123,6 +127,7 @@ const OverviewPage = () => {
                 />
                 
                 <ServiceSection 
+                    id="digital-marketing"
                     title={<>Digital <br/> Marketing</>} 
                     list={digitalServices} 
                     hoverIndex={digitalHover} 
@@ -130,6 +135,7 @@ const OverviewPage = () => {
                 />
                 
                 <ServiceSection 
+                    id="branding"
                     title="Branding" 
                     list={brandingServices} 
                     hoverIndex={brandingHover} 

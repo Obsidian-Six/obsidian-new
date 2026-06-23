@@ -22,19 +22,20 @@ const Footer = () => {
           --os-text: #f4f2f9;
           --os-text-dim: #a39cb8;
           --os-text-faint: #6e6680;
-          --os-violet: #8b5cf6;
-          --os-violet-bright: #a78bfa;
-          --os-violet-deep: #3c3489;
-          --os-violet-glow: rgba(139, 92, 246, 0.35);
+          --os-orange: #FD7B28;
+          --os-orange-bright: #ff914d;
+          --os-orange-deep: #b24b07;
+          --os-orange-glow: rgba(253, 123, 40, 0.25);
 
           position: relative;
           background: var(--os-bg);
           color: var(--os-text-dim);
           overflow: hidden;
           isolation: isolate;
+          font-family: var(--font-poppins), sans-serif;
         }
 
-        /* ambient violet glow, obsidian-glass feel */
+        /* ambient orange glow, obsidian-glass feel */
         .os-footer::before {
           content: "";
           position: absolute;
@@ -43,7 +44,7 @@ const Footer = () => {
           transform: translateX(-50%);
           width: 900px;
           height: 500px;
-          background: radial-gradient(ellipse at center, var(--os-violet-glow) 0%, rgba(139, 92, 246, 0) 70%);
+          background: radial-gradient(ellipse at center, var(--os-orange-glow) 0%, rgba(253, 123, 40, 0) 70%);
           opacity: 0.35;
           pointer-events: none;
           z-index: 0;
@@ -90,7 +91,7 @@ const Footer = () => {
           font-weight: 700;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: var(--os-violet-bright);
+          color: var(--os-orange);
           margin: 0 0 14px;
         }
 
@@ -99,8 +100,8 @@ const Footer = () => {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: var(--os-violet-bright);
-          box-shadow: 0 0 10px var(--os-violet-bright);
+          background: var(--os-orange);
+          box-shadow: 0 0 10px var(--os-orange);
         }
 
         .os-cta h2 {
@@ -114,7 +115,7 @@ const Footer = () => {
         }
 
         .os-cta h2 span {
-          background: linear-gradient(90deg, var(--os-violet-bright), #d8b4fe);
+          background: linear-gradient(90deg, var(--os-orange), #ffb88c);
           -webkit-background-clip: text;
           background-clip: text;
           color: transparent;
@@ -126,22 +127,22 @@ const Footer = () => {
           align-items: center;
           gap: 10px;
           padding: 15px 28px;
-          background: var(--os-violet);
+          background: var(--os-orange);
           color: #fff;
           font-weight: 700;
           font-size: 15px;
           border-radius: 999px;
           text-decoration: none;
-          border: 1px solid var(--os-violet);
+          border: 1px solid var(--os-orange);
           transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-          box-shadow: 0 0 0 0 var(--os-violet-glow);
+          box-shadow: 0 0 0 0 var(--os-orange-glow);
         }
 
         .os-cta-btn:hover {
-          background: var(--os-violet-bright);
-          border-color: var(--os-violet-bright);
+          background: var(--os-orange-bright);
+          border-color: var(--os-orange-bright);
           transform: translateY(-2px);
-          box-shadow: 0 8px 28px -8px var(--os-violet-glow);
+          box-shadow: 0 8px 28px -8px var(--os-orange-glow);
         }
 
         .os-cta-btn svg {
@@ -168,6 +169,7 @@ const Footer = () => {
         }
 
         .os-brand-col p {
+          font-family: var(--font-inter), sans-serif;
           font-size: 14px;
           line-height: 1.7;
           color: var(--os-text-dim);
@@ -176,6 +178,7 @@ const Footer = () => {
         }
 
         .os-locations {
+          font-family: var(--font-inter), sans-serif;
           display: flex;
           flex-wrap: wrap;
           gap: 8px 0;
@@ -224,8 +227,8 @@ const Footer = () => {
         }
 
         .os-social-row a:hover {
-          border-color: var(--os-violet-bright);
-          color: var(--os-violet-bright);
+          border-color: var(--os-orange);
+          color: var(--os-orange);
           transform: translateY(-2px);
         }
 
@@ -261,7 +264,7 @@ const Footer = () => {
         }
 
         .os-col ul a:hover {
-          color: var(--os-violet-bright);
+          color: var(--os-orange);
           padding-left: 6px;
         }
 
@@ -281,6 +284,7 @@ const Footer = () => {
         }
 
         .os-office-addr {
+          font-family: var(--font-inter), sans-serif;
           font-size: 13.5px;
           line-height: 1.6;
           color: var(--os-text-dim);
@@ -296,12 +300,14 @@ const Footer = () => {
         }
 
         .os-contact-label {
+          font-family: var(--font-inter), sans-serif;
           font-size: 12px;
           color: var(--os-text-faint);
           margin: 0 0 4px;
         }
 
         .os-contact-value {
+          font-family: var(--font-inter), sans-serif;
           font-size: 14.5px;
           color: var(--os-text);
           text-decoration: none;
@@ -311,7 +317,7 @@ const Footer = () => {
         }
 
         .os-contact-value:hover {
-          color: var(--os-violet-bright);
+          color: var(--os-orange);
         }
 
         /* ---- bottom bar ---- */
@@ -325,6 +331,7 @@ const Footer = () => {
         }
 
         .os-bottom-left {
+          font-family: var(--font-inter), sans-serif;
           font-size: 13px;
           color: var(--os-text-faint);
           display: flex;
@@ -340,7 +347,7 @@ const Footer = () => {
         }
 
         .os-bottom-left a:hover {
-          color: var(--os-violet-bright);
+          color: var(--os-orange);
         }
 
         .os-divider-dot {
@@ -365,8 +372,8 @@ const Footer = () => {
         }
 
         .os-back-top:hover {
-          border-color: var(--os-violet-bright);
-          color: var(--os-violet-bright);
+          border-color: var(--os-orange);
+          color: var(--os-orange);
           transform: translateY(-3px);
         }
 
@@ -457,7 +464,15 @@ const Footer = () => {
               <ul>
                 <li><Link href="/#home">Home</Link></li>
                 <li><Link href="/aboutus/">About us</Link></li>
-                <li><Link href="/services/">Services</Link></li>
+                <li>
+                  <Link href="/services/">Services</Link>
+                  <ul className="pl-4 mt-2 space-y-2 border-l border-slate-800/80">
+                    <li><Link href="/services/#experience-design" className="text-slate-400 hover:text-[#FD7B28] text-[13px] font-medium transition-colors block">Experience Design</Link></li>
+                    <li><Link href="/services/#technology" className="text-slate-400 hover:text-[#FD7B28] text-[13px] font-medium transition-colors block">Technology</Link></li>
+                    <li><Link href="/services/#digital-marketing" className="text-slate-400 hover:text-[#FD7B28] text-[13px] font-medium transition-colors block">Digital Marketing</Link></li>
+                    <li><Link href="/services/#branding" className="text-slate-400 hover:text-[#FD7B28] text-[13px] font-medium transition-colors block">Branding</Link></li>
+                  </ul>
+                </li>
                 <li><Link href="/case-studies/">Works</Link></li>
                 <li><Link href="/blogs/">Blogs</Link></li>
                 <li><Link href="/contactus/">Contact us</Link></li>
@@ -489,6 +504,22 @@ const Footer = () => {
               <div className="os-contact-block">
                 <p className="os-contact-label">Email us</p>
                 <Link className="os-contact-value" href="mailto:info@obsidiansix.com">info@obsidiansix.com</Link>
+              </div>
+              {/* Square Orange Download Brochure Button */}
+              <div className="mt-6 pt-2">
+                <Link
+                  href="/download-brochure"
+                  className="inline-flex items-center gap-3 px-4 py-3 bg-[#FD7B28] hover:bg-[#ff914d] text-white transition-all duration-300 shadow-md font-bold text-xs uppercase tracking-wider rounded-none w-full justify-center"
+                >
+                  <Image
+                    src="/images/logo/logo2.png"
+                    alt="Logo"
+                    width={40}
+                    height={12}
+                    className="h-3 w-auto object-contain brightness-0 invert"
+                  />
+                  <span>Download Brochure</span>
+                </Link>
               </div>
             </div>
 
