@@ -122,11 +122,61 @@ const faqs = [
   }
 ];
 
+// Helper Icons for case studies and engagement model
+const ArrowLeftIcon = () => (
+  <svg className="w-5 h-5 text-slate-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+  </svg>
+);
+
+const ArrowRightIcon = () => (
+  <svg className="w-5 h-5 text-slate-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg className="w-4 h-4 text-green-500 shrink-0 mt-1" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+  </svg>
+);
+
+const ClockIcon = () => (
+  <svg className="w-8 h-8 text-[#FD7B28]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+    <circle cx="12" cy="12" r="10" />
+    <polyline points="12 6 12 12 16 14" />
+  </svg>
+);
+
+const UsersIcon = () => (
+  <svg className="w-8 h-8 text-[#FD7B28]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+  </svg>
+);
+
+const TagIcon = () => (
+  <svg className="w-8 h-8 text-[#FD7B28]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+    <line x1="7" y1="7" x2="7.01" y2="7" />
+  </svg>
+);
+
 export default function ExperienceDesignPage() {
+  const sliderRef = useRef<HTMLDivElement>(null);
   const [activeUiux, setActiveUiux] = useState(0);
   const [activeProduct, setActiveProduct] = useState(2); // Human Machine Interface open by default
   const [activeResearch, setActiveResearch] = useState(0);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  const scrollSlider = (direction: "left" | "right") => {
+    const container = sliderRef.current;
+    if (!container) return;
+    const scrollAmount = direction === "left" ? -container.offsetWidth : container.offsetWidth;
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  };
 
   // Form State
   const [firstName, setFirstName] = useState("");
@@ -463,7 +513,259 @@ export default function ExperienceDesignPage() {
         </div>
       </section>
 
-      {/* 5. FAQ SECTION */}
+      {/* 5. CASE STUDIES SECTION */}
+      <section className="py-24 bg-slate-50 border-t border-slate-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-955 font-poppins">
+                Our Experience Design Case Studies
+              </h2>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={() => scrollSlider("left")}
+                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#FD7B28] hover:text-[#FD7B28] transition-colors shadow-sm"
+                aria-label="Previous case study"
+              >
+                <ArrowLeftIcon />
+              </button>
+              <button
+                onClick={() => scrollSlider("right")}
+                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#FD7B28] hover:text-[#FD7B28] transition-colors shadow-sm"
+                aria-label="Next case study"
+              >
+                <ArrowRightIcon />
+              </button>
+            </div>
+          </div>
+
+          <div
+            ref={sliderRef}
+            className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-6"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {/* IKEA Card */}
+            <div className="w-full lg:w-[850px] shrink-0 snap-start bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row min-h-[400px]">
+              <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
+                <div className="space-y-6">
+                  <div className="flex items-center justify-center bg-[#0051ba] px-4 py-2 rounded-sm select-none w-fit h-10">
+                    <div className="bg-[#ffcc00] px-3 py-0.5 rounded-[50%] flex items-center justify-center">
+                      <span className="text-[#0051ba] font-black text-sm tracking-tighter">IKEA</span>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 font-poppins leading-snug">
+                    E-commerce Store for a Fresh Sales Channel Launch
+                  </h3>
+                  
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
+                      <CheckIcon />
+                      <span>Online store created in under 12 weeks</span>
+                    </li>
+                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
+                      <CheckIcon />
+                      <span>Global standards maintained</span>
+                    </li>
+                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
+                      <CheckIcon />
+                      <span>Flawless UI/UX</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="pt-8">
+                  <Link
+                    href="#"
+                    className="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 text-slate-800 hover:border-[#FD7B28] hover:text-[#FD7B28] hover:bg-orange-50/5 transition-all text-xs font-bold uppercase tracking-wider font-poppins rounded-none"
+                  >
+                    Read Case Study <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="flex-1 relative min-h-[280px] md:min-h-auto">
+                <Image
+                  src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800"
+                  alt="IKEA Case Study"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Yala Toys Card */}
+            <div className="w-full lg:w-[850px] shrink-0 snap-start bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row min-h-[400px]">
+              <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-0.5 font-bold text-xl select-none w-fit font-poppins tracking-tight h-10">
+                    <span className="text-[#e74c3c]">y</span>
+                    <span className="text-[#3498db]">a</span>
+                    <span className="text-[#2ecc71]">l</span>
+                    <span className="text-[#f1c40f]">a</span>
+                    <span className="text-[#9b59b6] ml-1">t</span>
+                    <span className="text-[#e67e22]">o</span>
+                    <span className="text-[#1abc9c]">y</span>
+                    <span className="text-[#e74c3c]">s</span>
+                  </div>
+                  
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 font-poppins leading-snug">
+                    Seamless Shopping with WAC&apos;s E-commerce Infusion
+                  </h3>
+                  
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
+                      <CheckIcon />
+                      <span>User-centric design</span>
+                    </li>
+                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
+                      <CheckIcon />
+                      <span>Cross-platform consistency</span>
+                    </li>
+                    <li className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 font-inter">
+                      <CheckIcon />
+                      <span>Seamless web-mobile experience</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="pt-8">
+                  <Link
+                    href="#"
+                    className="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 text-slate-800 hover:border-[#FD7B28] hover:text-[#FD7B28] hover:bg-orange-50/5 transition-all text-xs font-bold uppercase tracking-wider font-poppins rounded-none"
+                  >
+                    Read Case Study <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="flex-1 relative min-h-[280px] md:min-h-auto">
+                <Image
+                  src="https://images.unsplash.com/photo-1515488042361-404e9250afef?q=80&w=800"
+                  alt="Yala Toys Case Study"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 6. ENGAGEMENT MODEL SECTION */}
+      <section className="py-24 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-955 font-poppins mb-16 max-w-4xl">
+            Engagement Model for Experience Design Services
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="border border-slate-100 hover:border-orange-100 hover:shadow-md transition-all duration-300 p-8 rounded-2xl bg-white flex flex-col justify-between min-h-[480px] group">
+              <div className="space-y-6">
+                <div className="p-3 bg-slate-50 group-hover:bg-orange-50/50 rounded-xl w-fit transition-colors">
+                  <ClockIcon />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 font-poppins">
+                  Time &amp; Material Model
+                </h3>
+                <p className="text-slate-500 text-sm font-semibold leading-relaxed font-inter">
+                  Ideal for projects that need continuous evolution. Submit an initial scope and let&apos;s build a phased plan.
+                </p>
+              </div>
+              <ul className="space-y-4 pt-8 border-t border-slate-50">
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Change the scope as required</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Pay based on the work done</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Work delivered on a sprint basis</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Great cost control</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 2 */}
+            <div className="border border-slate-100 hover:border-orange-100 hover:shadow-md transition-all duration-300 p-8 rounded-2xl bg-white flex flex-col justify-between min-h-[480px] group">
+              <div className="space-y-6">
+                <div className="p-3 bg-slate-50 group-hover:bg-orange-50/50 rounded-xl w-fit transition-colors">
+                  <UsersIcon />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 font-poppins">
+                  Dedicated Team
+                </h3>
+                <p className="text-slate-500 text-sm font-semibold leading-relaxed font-inter">
+                  Extend your team with remote resources. Get the right matching resource profile based on your needs.
+                </p>
+              </div>
+              <ul className="space-y-4 pt-8 border-t border-slate-50">
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Hour-based payment</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Quick resource replacement</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Daily Commitment</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Guaranteed work hours</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 3 */}
+            <div className="border border-slate-100 hover:border-orange-100 hover:shadow-md transition-all duration-300 p-8 rounded-2xl bg-white flex flex-col justify-between min-h-[480px] group">
+              <div className="space-y-6">
+                <div className="p-3 bg-slate-50 group-hover:bg-orange-50/50 rounded-xl w-fit transition-colors">
+                  <TagIcon />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 font-poppins">
+                  Fixed Price Model
+                </h3>
+                <p className="text-slate-500 text-sm font-semibold leading-relaxed font-inter">
+                  Choose this model if your project has a fixed scope. Submit the project&apos;s initial scope to build a phase plan.
+                </p>
+              </div>
+              <ul className="space-y-4 pt-8 border-t border-slate-50">
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Fixed scope of work</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Work delivered on a milestone basis</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Fixed timeline</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
+                  <CheckIcon />
+                  <span>Pay per target</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FAQ SECTION */}
       <section className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold tracking-tight text-slate-950 mb-12 font-poppins">
@@ -513,7 +815,7 @@ export default function ExperienceDesignPage() {
         </div>
       </section>
 
-      {/* 6. BESPOKE CONTACT FORM SECTION */}
+      {/* 8. BESPOKE CONTACT FORM SECTION */}
       <section id="contact-form-section" className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-16 items-start">

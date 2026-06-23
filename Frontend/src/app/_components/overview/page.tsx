@@ -8,11 +8,10 @@ import ServicesHero from "../../services/_components/ServicesHero";
 
 const OverviewPage = () => {
     const services = [
-        { id: 1, title: 'UI/UX Design', img: 'https://images.unsplash.com/photo-1545235617-9465d2a55698?w=500&auto=format&fit=crop&q=60' },
-        { id: 2, title: 'Website Design', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1000' },
-        { id: 3, title: 'Mobile Experience', img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000' },
-        { id: 4, title: 'Commerce Experience', img: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000' },
-        { id: 6, title: 'Applications and Dashboards', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000' },
+        { id: 1, title: 'Applications and Dashboards', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000' },
+        { id: 2, title: 'Wearable App Design', img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000' },
+        { id: 3, title: 'Cross-Platform Experience Design', img: 'https://images.unsplash.com/photo-1545235617-9465d2a55698?w=500&auto=format&fit=crop&q=60' },
+        { id: 4, title: 'Design Support and Maintenance', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1000' },
     ];
 
     const technologyServices = [
@@ -55,6 +54,7 @@ const OverviewPage = () => {
         hoverIndex,
         setHoverIndex,
         isFlipped = false,
+        exploreLink,
     }: {
         id: string;
         title: ReactNode;
@@ -62,6 +62,7 @@ const OverviewPage = () => {
         hoverIndex: number;
         setHoverIndex: Dispatch<SetStateAction<number>>;
         isFlipped?: boolean;
+        exploreLink?: ReactNode;
     }) => (
         <section id={id} className="max-w-[1400px] mx-auto px-6 md:px-12 py-24 bg-white border-b border-gray-50 last:border-0 scroll-mt-28">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -86,17 +87,15 @@ const OverviewPage = () => {
                                         {item.title}
                                     </span>
                                 </button>
-                                {item.id === 6 && id === "experience-design" && (
-                                    <Link
-                                        href="/services/experience-design"
-                                        className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 text-sm font-semibold mt-3 transition-colors"
-                                    >
-                                        Explore experience design &rarr;
-                                    </Link>
-                                )}
                             </div>
                         ))}
                     </nav>
+                    
+                    {exploreLink && (
+                        <div className="mt-8">
+                            {exploreLink}
+                        </div>
+                    )}
                 </div>
 
                 {/* Image Display Area */}
@@ -128,6 +127,14 @@ const OverviewPage = () => {
                     list={services} 
                     hoverIndex={expHover} 
                     setHoverIndex={setExpHover} 
+                    exploreLink={
+                        <Link
+                            href="/services/experience-design"
+                            className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 text-sm font-semibold transition-colors mt-3"
+                        >
+                            Explore experience design &rarr;
+                        </Link>
+                    }
                 />
                 
                 <ServiceSection 
