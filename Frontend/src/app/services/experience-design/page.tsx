@@ -165,6 +165,42 @@ const TagIcon = () => (
   </svg>
 );
 
+const renderLogo = (cs: any) => {
+  if (cs.id === "sweet_protection_ecommerce") {
+    return (
+      <div className="flex items-center gap-1 font-bold text-lg select-none w-fit font-poppins text-slate-900 tracking-tight h-10">
+        <span className="font-extrabold tracking-wider">SWEET</span>
+        <span className="font-light text-slate-500">PROTECTION</span>
+      </div>
+    );
+  }
+  if (cs.id === "dubai_travel_agency_transformation") {
+    return (
+      <div className="flex items-center gap-1 font-bold text-lg select-none w-fit font-poppins text-slate-900 tracking-tight h-10">
+        <span className="text-[#FD7B28] font-extrabold">DUBAI</span>
+        <span className="font-medium text-slate-800">ELITE</span>
+      </div>
+    );
+  }
+  if (cs.id === "heavy_machinery_manufacturer") {
+    return (
+      <div className="flex items-center gap-1 font-bold text-lg select-none w-fit font-poppins text-slate-900 tracking-tight h-10">
+        <span className="bg-slate-900 text-white px-2 py-0.5 font-black tracking-tighter">HEAVY</span>
+        <span className="font-bold text-slate-900">MACHINERY</span>
+      </div>
+    );
+  }
+  
+  return (
+    <div className="flex items-center gap-1 font-bold text-lg select-none w-fit font-poppins text-slate-900 tracking-tight h-10">
+      <span className="text-[#FD7B28] font-extrabold">{cs.name.split(" ")[0]}</span>
+      {cs.name.split(" ").slice(1).join(" ") && (
+        <span className="font-medium text-slate-800">{cs.name.split(" ").slice(1).join(" ")}</span>
+      )}
+    </div>
+  );
+};
+
 export default function ExperienceDesignPage() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const isPaused = useRef(false);
@@ -622,51 +658,47 @@ export default function ExperienceDesignPage() {
               {[...caseStudies, ...caseStudies].map((cs, idx) => (
                 <div 
                   key={idx} 
-                  className="w-[320px] md:w-[450px] shrink-0 bg-slate-900 rounded-2xl overflow-hidden shadow-md relative min-h-[380px] hover:scale-[1.02] transition-transform duration-300 group border border-slate-800"
+                  className="w-[320px] md:w-[600px] lg:w-[650px] shrink-0 bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row min-h-[340px] hover:border-orange-100 transition-colors"
                 >
-                  {/* Background coverimage */}
-                  <Image
-                    src={cs.image}
-                    alt={cs.name}
-                    fill
-                    className="object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-300"
-                    unoptimized={cs.image.startsWith("/")}
-                  />
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                  
-                  {/* Content (Overlaid) */}
-                  <div className="absolute inset-0 p-6 flex flex-col justify-between text-white z-10">
-                    <div className="space-y-3">
-                      <div className="text-[10px] font-extrabold text-[#FD7B28] uppercase tracking-[0.2em] font-poppins">
-                        {cs.category}
-                      </div>
-                      <h3 className="text-lg md:text-xl font-bold tracking-tight text-white font-poppins leading-snug">
-                        {cs.name}
-                      </h3>
-                      <p className="text-slate-200 text-xs font-semibold font-inter line-clamp-3 leading-relaxed">
-                        {cs.details}
-                      </p>
+                  {/* Left column (Text content) */}
+                  <div className="flex-[1.2] p-6 md:p-8 flex flex-col justify-between bg-white">
+                    <div className="space-y-4">
+                      {/* Brand Logo */}
+                      {renderLogo(cs)}
                       
-                      {/* Dynamic bullet tags */}
-                      <ul className="space-y-2 pt-2">
+                      <h3 className="text-lg md:text-xl font-bold tracking-tight text-slate-900 font-poppins leading-snug">
+                        {cs.details}
+                      </h3>
+                      
+                      <ul className="space-y-2">
                         {cs.tags.slice(0, 3).map((tag: string, tagIdx: number) => (
-                          <li key={tagIdx} className="flex items-center gap-2 text-xs font-semibold text-slate-200 font-inter">
-                            <span className="text-green-400 shrink-0">✓</span>
+                          <li key={tagIdx} className="flex items-start gap-2.5 text-xs md:text-sm font-semibold text-slate-600 font-inter">
+                            <CheckIcon />
                             <span>{tag}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     
-                    <div className="pt-4">
+                    <div className="pt-6">
                       <Link
                         href={`/case-studies/${cs.slug}`}
-                        className="inline-flex items-center gap-1.5 px-5 py-2.5 border border-white/30 text-white hover:border-[#FD7B28] hover:text-[#FD7B28] hover:bg-[#FD7B28]/10 transition-all text-[10px] font-bold uppercase tracking-wider font-poppins rounded-none"
+                        className="inline-flex items-center gap-2 px-6 py-3 border border-slate-900 text-slate-900 hover:border-[#FD7B28] hover:text-[#FD7B28] hover:bg-orange-50/5 transition-all text-xs font-bold uppercase tracking-wider font-poppins rounded-none"
                       >
-                        Read Case Study <ArrowRight size={12} className="text-white group-hover:text-[#FD7B28]" />
+                        Read Case Study <ArrowRight size={14} />
                       </Link>
                     </div>
+                  </div>
+                  
+                  {/* Right column (Image content) */}
+                  <div className="flex-1 relative min-h-[220px] md:min-h-auto bg-slate-50 border-l border-slate-50">
+                    <Image
+                      src={cs.image}
+                      alt={cs.name}
+                      fill
+                      className="object-contain p-4"
+                      unoptimized={cs.image.startsWith("/")}
+                    />
                   </div>
                 </div>
               ))}
