@@ -1,9 +1,8 @@
 "use client";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { FaArrowLeft, FaArrowDown } from "react-icons/fa";
+import { FaArrowDown } from "react-icons/fa";
 import Image from "next/image";
-import Link from "next/link";
 import type { TemplateCaseStudy } from "@/lib/models/case-study.types";
 
 export default function HeroCase({ ele }: { ele: TemplateCaseStudy }) {
@@ -61,41 +60,7 @@ export default function HeroCase({ ele }: { ele: TemplateCaseStudy }) {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-[#0a0a0b]" />
         </motion.div>
 
-        {/* --- 2. FLOATING BACK BUTTON --- */}
-        <motion.div
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          className="absolute top-24 md:left-20 left-6 z-20"
-        >
-          <Link href="/case-studies" className="group flex items-center text-white/70 hover:text-white transition-colors">
-            <div className="p-2 rounded-full border border-white/20 group-hover:border-purple-500 transition-all">
-              <FaArrowLeft className="group-hover:-translate-x-1 transition-transform" />
-            </div>
-            <span className="ml-4 text-xs tracking-[0.2em] font-bold uppercase">Back to Works</span>
-          </Link>
-        </motion.div>
-
-        {/* --- 3. CENTERED TITLE (Glassmorphism) --- */}
-        <div className="relative z-10 text-center px-4">
-          <motion.h1
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-white text-5xl md:text-8xl font-black tracking-tighter"
-          >
-            {ele.name}
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="mt-6 flex justify-center"
-          >
-            <span className="h-[1px] w-20 bg-purple-500 self-center"></span>
-            <span className="mx-4 text-purple-400 uppercase tracking-widest text-sm font-bold">Case Study</span>
-            <span className="h-[1px] w-20 bg-purple-500 self-center"></span>
-          </motion.div>
-        </div>
+        {/* Overlays removed as requested */}
 
         {/* --- 4. SCROLL INDICATOR (Tucked closer to bottom) --- */}
         <motion.button

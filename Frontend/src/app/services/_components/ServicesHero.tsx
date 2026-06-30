@@ -62,16 +62,9 @@ export default function ServicesHero() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-4xl"
         >
-          <span className="text-white text-xs font-bold uppercase tracking-[0.4em] mb-4 block font-poppins drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
-            [ Capabilities ]
-          </span>
           <h1 className="text-5xl md:text-8xl font-normal tracking-tight text-white leading-tight font-poppins drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
             Our Services
           </h1>
-          <p className="text-slate-100 mt-6 text-sm md:text-lg font-light max-w-xl font-inter leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-            Explore our end-to-end capabilities, designed to accelerate growth, elevate brand presence, and deliver engineering excellence.
-          </p>
-          <div className="h-1 w-20 bg-[#FD7B28] mt-8 rounded-full shadow-md" />
         </motion.div>
       </div>
     </div>

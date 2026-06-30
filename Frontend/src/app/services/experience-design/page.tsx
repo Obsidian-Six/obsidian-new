@@ -37,89 +37,89 @@ function CountUp({ to, duration = 2, suffix = "" }: { to: number; duration?: num
 // Expanded Accordion Content Definitions
 const uiuxAccordion = [
   {
-    title: "UI/UX Design",
-    desc: "We focus on crafting personalised and user-centric designs that align seamlessly with your business’s goals and users’ needs. By integrating visual balance with behavioral science, we create layouts that guide users naturally, reduce friction, and ensure maximum clarity at every touchpoint.",
+    title: "Cognitive UI/UX Architectures",
+    desc: "We engineer custom digital interfaces that sync with human psychology and user behavior. By balancing aesthetic weight with interaction logic, we map out clear navigation hierarchies that minimize task times and enhance visual ease at every customer touchpoint.",
     img: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=800"
   },
   {
-    title: "Website Design",
-    desc: "Our experts design advanced, user-friendly websites that make your business stand out, attract high-intent customers, and drive tangible commercial results. We prioritize clean layout hierarchies, performance optimization, and clear calls-to-action to maximize visitor engagement and brand trust across every page.",
+    title: "Stunning Web Experiences",
+    desc: "Our visual strategists develop fast, immersive corporate websites designed to establish category leadership and capture high-intent demand. We refine copy layout, grid symmetry, and scroll-linked micro-animations to cultivate deep user trust and drive key conversions.",
     img: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800"
   },
   {
-    title: "Mobile Design",
-    desc: "We build intuitive, custom user interfaces and human-centric experiences for mobile devices with a key focus on superior accessibility, touch-target ergonomics, and fast performance. By aligning layouts with modern OS standards (iOS & Android), we ensure that your product feels native, responsive, and seamless.",
+    title: "Responsive Mobile Interface Layouts",
+    desc: "We shape clean, finger-friendly layouts for smartphones and tablets, prioritizing native OS design guidelines (iOS & Android). Our mobile interfaces offer seamless touch targets, quick load times, and fluid screen transitions for a delightful on-the-go experience.",
     img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800"
   },
   {
-    title: "Ecommerce",
-    desc: "Our design team creates stunning, frictionless user experiences for online storefronts that are custom-tailored to convert casual browsers into loyal buyers. We optimize product listing grids, shopping carts, checkout forms, and localized payment flows to reduce cart abandonment and drive sales.",
+    title: "High-Performance Commerce Journeys",
+    desc: "We design frictionless shopping loops for online stores, removing checkout barriers to maximize retail conversions. From clear product filter grids to intuitive payment forms, we optimize the complete pipeline to grow average order value.",
     img: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800"
   },
   {
-    title: "Interaction Design",
-    desc: "We build dynamic interactive elements to foster meaningful engagement between users and software systems. By prototyping micro-interactions, animated states, and hover effects, we ensure that every action feels satisfying, provides clear feedback, and simplifies the user journey.",
+    title: "Interactive System Micro-Gestures",
+    desc: "We embed satisfying hover effects, state transitions, and responsive gestures that establish a clear visual dialogue between user and device. These micro-interactions provide subtle feedback and make every click feel intuitive and rewarding.",
     img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800"
   }
 ];
 
 const productAccordion = [
   {
-    title: "Wearable App Design",
-    desc: "Designing compact, glanceable interfaces and context-aware touch controls optimized for smartwatches, fitness trackers, and specialized wearable devices. We prioritize high contrast, quick readability, and battery efficiency to deliver notifications, health telemetry, and status widgets seamlessly.",
+    title: "IoT & Smart Wearable Layouts",
+    desc: "Designing glanceable, high-contrast display templates for smartwatches, fitness trackers, and connected IoT hardware. We prioritize clear status readouts, power-efficient color systems, and compact menus to convey notifications and vital metrics instantly.",
     img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=800"
   },
   {
-    title: "Applications & Dashboards",
-    desc: "Crafting robust data-rich dashboards and complex enterprise SaaS portals that simplify complex analytical datasets. We build customized layouts, filter menus, and export systems to help users find insights instantly, streamline daily workflows, and optimize employee productivity.",
+    title: "SaaS Dashboards & Analytics Panels",
+    desc: "Building robust, grid-aligned web portals that transform complex database queries into clear data visualizations. We craft custom filter layouts, drag-and-drop workspace widgets, and smooth export mechanisms to boost user productivity.",
     img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800"
   },
   {
-    title: "Human Machine Interface",
-    desc: "Our team implements design controls, systems, and hardware-display layouts that make complex machine operations completely effortless. We focus on industrial ergonomics, safety visual standards, and clear feedback loops to ensure seamless, error-free interactions between human operators and industrial hardware.",
+    title: "Industrial Human-Machine Interfaces",
+    desc: "Deploying high-reliability display systems for factory consoles, medical hardware, and complex machinery. We design for absolute safety, error reduction, and rapid troubleshooting, using visual indicators that support operator decision speeds.",
     img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800"
   }
 ];
 
 const researchAccordion = [
   {
-    title: "User Research",
-    desc: "We understand the needs and attitudes of your audience, and incorporate these insights into the design process, to create an experience that resonates with your potential customers. By conducting user interviews, surveys, and persona mapping, we base every layout decision on hard evidence to deliver experiences that resonate with your users.",
+    title: "Evidence-Based User Discovery",
+    desc: "We conduct detailed user interviews, focus groups, and empathy mapping sessions to capture actual customer pain points. These structured insights remove internal bias and anchor design wireframes in concrete behavioral patterns.",
     img: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?q=80&w=800"
   },
   {
-    title: "Design Audit",
-    desc: "Evaluating your existing digital products against usability heuristics and industry compliance standards. We identify conversion bottlenecks, navigation friction points, and visual design inconsistencies, providing a detailed optimization roadmap to upgrade your product.",
+    title: "Usability Heuristics Audits",
+    desc: "Our design experts evaluate your active web properties against 10 core usability heuristics and accessibility standards. We deliver a prioritizing dashboard of conversion leaks, contrast fixes, and layout friction areas.",
     img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800"
   },
   {
-    title: "Usability Testing",
-    desc: "Running structured testing panels with actual users using interactive prototypes to validate workflows before development begins. We measure task completion times, error rates, and user satisfaction to iterate and optimize the system for absolute clarity.",
+    title: "Interactive Prototype Usability Testing",
+    desc: "We test low-fidelity layouts with targeted user groups, measuring heatmaps, task duration, and error frequencies. This scientific testing loops back into the layout cycle to ensure error-free products before coding.",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800"
   },
   {
-    title: "Competitor & Market UX Research",
-    desc: "Assessing competitor platforms and current digital standards to uncover strategic opportunities and product differentiators. We map out competitor journeys and feature lists, ensuring your product offers superior UX and stands out in the market.",
+    title: "Competitive Landscape Analysis",
+    desc: "We audit and map out user experience features and flows of rival products. This competitive analysis uncovers gaps in the market, enabling us to design unique features that elevate your brand's digital presence.",
     img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800"
   }
 ];
 
 const faqs = [
   {
-    question: "What is experience design, and how does it help my business?",
-    answer: "Experience design (XD) is the practice of designing products, processes, and services with a focus on user needs and friction-free interaction. When your system is easy and satisfying to navigate, conversion rates grow, customer support inquiries fall, and brand trust escalates."
+    question: "What does an experience design studio do to help business growth?",
+    answer: "Experience design aligns software capabilities with human patterns. When workflows are simplified, conversion rates naturally grow, user onboarding speed increases, and customer support volumes fall, yielding a tangible return on digital assets."
   },
   {
-    question: "How do you ensure your designs meet my customer’s needs?",
-    answer: "We deploy user research loops, customer journey mappings, and qualitative audits at the start. These data points shape low-fidelity wireframes which we continuously test and validate against real user profiles."
+    question: "How do you align design decisions with actual customer requirements?",
+    answer: "We run deep discovery sprints, mapping user personas, and tracking behavioral journeys first. These data points shape the structure of low-fidelity layout flows, validating choices before visual design begins."
   },
   {
-    question: "Do you offer user research and testing as part of your experience design services?",
-    answer: "Yes, research and usability testing are standard pillars. We combine diagnostic heuristics, A/B prototypes, and observational testing to verify that final designs drive actual commercial results."
+    question: "Is user testing standard in your experience design roadmap?",
+    answer: "Yes, testing is a core phase of our design pipeline. We employ A/B layout experiments, prototype test loops, and heuristic audits to ensure our visual layouts achieve your business-critical goals."
   },
   {
-    question: "How can experience design help differentiate my business from competitors?",
-    answer: "XD creates a competitive moat. If two platforms offer similar services, users consistently choose the one that provides a faster, clearer, and more delightful user interface."
+    question: "How does bespoke product design build a competitive market advantage?",
+    answer: "If two companies offer similar feature lists, customers invariably select the software that is faster, cleaner, and more delightful to operate. Seamless experience design forms a durable product differentiator."
   }
 ];
 
@@ -325,11 +325,11 @@ export default function ExperienceDesignPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           <div className="lg:col-span-7">
             <span className="text-[#FD7B28] text-xs font-bold uppercase tracking-[0.3em] block mb-6 font-poppins">
-              [ Capabilities ]
+              [ Experience Design Studio ]
             </span>
             <h1 className="text-5xl md:text-8xl lg:text-[100px] font-extralight tracking-tight leading-none text-white font-poppins mb-6">
-              Experience <br />
-              <span className="font-normal text-slate-100">Design</span>
+              Bespoke <br />
+              <span className="font-normal text-slate-100">Interfaces</span>
             </h1>
           </div>
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
@@ -391,12 +391,12 @@ export default function ExperienceDesignPage() {
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-950 mb-6 font-poppins">
-            What We Offer
+            Our Design Philosophy
           </h2>
           <p className="text-slate-600 text-base md:text-lg leading-[1.8] font-medium font-inter max-w-3xl mx-auto">
-            We place user experience at the heart of each design to augment your brand’s interactions. 
-            With exceptional attention to detail, an in-depth understanding of user behaviour, 
-            and advanced strategies, we build human-centred experiences across every digital platform.
+            We architect digital journeys that translate customer insights into high-converting products. 
+            By merging graphic balance, user accessibility standards, and custom UI design systems, 
+            we engineer intuitive websites and applications that cultivate brand loyalty.
           </p>
         </div>
       </section>
@@ -708,7 +708,7 @@ export default function ExperienceDesignPage() {
       <section className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-955 font-poppins mb-16 max-w-4xl">
-            Engagement Model for Experience Design Services
+            Flexible Collaboration Models
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -719,28 +719,28 @@ export default function ExperienceDesignPage() {
                   <ClockIcon />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 font-poppins">
-                  Time &amp; Material Model
+                  Agile Sprint Partnerships
                 </h3>
                 <p className="text-slate-500 text-sm font-semibold leading-relaxed font-inter">
-                  Ideal for projects that need continuous evolution. Submit an initial scope and let&apos;s build a phased plan.
+                  Best suited for growing projects requiring continuous feature development and adaptive styling updates. Pay for active sprint hours with total scope agility.
                 </p>
               </div>
               <ul className="space-y-4 pt-8 border-t border-slate-50">
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Change the scope as required</span>
+                  <span>Iterative visual scope adaptions</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Pay based on the work done</span>
+                  <span>Direct hourly resource transparency</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Work delivered on a sprint basis</span>
+                  <span>Delivered on bi-weekly sprints</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Great cost control</span>
+                  <span>Outstanding budget oversight</span>
                 </li>
               </ul>
             </div>
@@ -752,28 +752,28 @@ export default function ExperienceDesignPage() {
                   <UsersIcon />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 font-poppins">
-                  Dedicated Team
+                  Dedicated Product Squads
                 </h3>
                 <p className="text-slate-500 text-sm font-semibold leading-relaxed font-inter">
-                  Extend your team with remote resources. Get the right matching resource profile based on your needs.
+                  A bespoke team of designers and visual engineers integrated into your company. Perfect for long-term growth campaigns and complex SaaS engineering.
                 </p>
               </div>
               <ul className="space-y-4 pt-8 border-t border-slate-50">
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Hour-based payment</span>
+                  <span>Exclusive developer allocation</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Quick resource replacement</span>
+                  <span>Adaptable capacity scale-up</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Daily Commitment</span>
+                  <span>Daily status meetings & standups</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Guaranteed work hours</span>
+                  <span>Continuous system improvement</span>
                 </li>
               </ul>
             </div>
@@ -785,28 +785,28 @@ export default function ExperienceDesignPage() {
                   <TagIcon />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 font-poppins">
-                  Fixed Price Model
+                  Scope-Defined Engagements
                 </h3>
                 <p className="text-slate-500 text-sm font-semibold leading-relaxed font-inter">
-                  Choose this model if your project has a fixed scope. Submit the project&apos;s initial scope to build a phase plan.
+                  Ideal for projects with a fixed scope, clear blueprints, and strict launch timelines. Renders predictable costs and milestone-linked deliveries.
                 </p>
               </div>
               <ul className="space-y-4 pt-8 border-t border-slate-50">
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Fixed scope of work</span>
+                  <span>Locked task schedule and guidelines</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Work delivered on a milestone basis</span>
+                  <span>Milestone-based progress approval</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Fixed timeline</span>
+                  <span>Strict launch timeline guarantees</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm font-semibold text-slate-600 font-inter">
                   <CheckIcon />
-                  <span>Pay per target</span>
+                  <span>Pre-agreed installment plan</span>
                 </li>
               </ul>
             </div>

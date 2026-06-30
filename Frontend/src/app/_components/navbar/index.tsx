@@ -37,7 +37,8 @@ export default function Navbar() {
   ];
 
 
-  const isWhiteBg = isScrolled || isMegaMenuOpen || pathname?.startsWith("/services");
+  const isWhiteBg = isScrolled || isMegaMenuOpen || pathname?.startsWith("/services") || (pathname !== "/" && pathname !== "/digital-marketing-agency-uae" && pathname !== "/branding-agency-uae");
+  const isDarkTheme = !isWhiteBg && (pathname === "/digital-marketing-agency-uae" || pathname === "/branding-agency-uae");
 
   if (isAdminRoute || isHiddenDocument) return null;
 
@@ -55,7 +56,7 @@ export default function Navbar() {
               src="/images/logo/logo2.png"
               width={140}
               height={40}
-              className="h-10 w-auto"
+              className={`h-10 w-auto ${isDarkTheme ? "invert brightness-200" : ""}`}
               alt="Logo"
               priority
             />
@@ -74,7 +75,7 @@ export default function Navbar() {
                   className={`h-full flex items-center ${isServices ? "static" : "relative"}`}
                 >
                   <Link
-                    className="px-2 py-1 text-black text-lg font-poppins font-normal hover:text-[#FD7B28] transition-colors whitespace-nowrap"
+                    className={`px-2 py-1 ${isDarkTheme ? "text-white hover:text-[#FD7B28]" : "text-black hover:text-[#FD7B28]"} text-lg font-poppins font-normal transition-colors whitespace-nowrap`}
                     href={ele.link}
                   >
                     {ele.name}

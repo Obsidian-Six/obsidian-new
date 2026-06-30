@@ -122,21 +122,21 @@ const OverviewPage = () => {
 
             <div className="bg-white">
                 <ServiceSection 
-                    id="experience-design"
-                    title={<>Experience <br/> Design</>} 
-                    list={services} 
-                    hoverIndex={expHover} 
-                    setHoverIndex={setExpHover} 
+                    id="digital-marketing"
+                    title={<>Digital <br/> Marketing</>} 
+                    list={digitalServices} 
+                    hoverIndex={digitalHover} 
+                    setHoverIndex={setDigitalHover} 
                     exploreLink={
                         <Link
-                            href="/services/experience-design"
+                            href="/digital-marketing-agency-uae"
                             className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 text-sm font-semibold transition-colors mt-3"
                         >
-                            Explore experience design &rarr;
+                            Explore digital marketing &rarr;
                         </Link>
                     }
                 />
-                
+
                 <ServiceSection 
                     id="technology"
                     title="Technology" 
@@ -153,22 +153,38 @@ const OverviewPage = () => {
                         </Link>
                     }
                 />
-                
-                <ServiceSection 
-                    id="digital-marketing"
-                    title={<>Digital <br/> Marketing</>} 
-                    list={digitalServices} 
-                    hoverIndex={digitalHover} 
-                    setHoverIndex={setDigitalHover} 
-                />
-                
+
                 <ServiceSection 
                     id="branding"
                     title="Branding" 
                     list={brandingServices} 
                     hoverIndex={brandingHover} 
                     setHoverIndex={setBrandHover} 
-                    isFlipped={true} 
+                    exploreLink={
+                        <Link
+                            href="/branding-agency-uae"
+                            className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 text-sm font-semibold transition-colors mt-3"
+                        >
+                            Explore branding &rarr;
+                        </Link>
+                    }
+                />
+
+                <ServiceSection 
+                    id="experience-design"
+                    title={<>Experience <br/> Design</>} 
+                    list={services} 
+                    hoverIndex={expHover} 
+                    setHoverIndex={setExpHover} 
+                    isFlipped={true}
+                    exploreLink={
+                        <Link
+                            href="/services/experience-design"
+                            className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 text-sm font-semibold transition-colors mt-3"
+                        >
+                            Explore experience design &rarr;
+                        </Link>
+                    }
                 />
             </div>
         </div>

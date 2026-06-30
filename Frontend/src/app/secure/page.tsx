@@ -33,6 +33,12 @@ const documents = [
     slug: "GOOGLE_ADS_X_OBS.pdf",
     size: "16.9 MB",
   },
+  {
+    title: "Google Ads Final Blueprint",
+    description: "Final marketing and advertising strategy blueprint.",
+    slug: "GOOGLE_ADS_FINAL.pdf",
+    size: "3.3 MB",
+  },
 ];
 
 export default function HiddenDocumentPage() {

@@ -12,20 +12,39 @@ export default function NavbarScroll() {
   const handleScroll = useCallback(() => {
     const isScrolled = window.scrollY > 0;
     const forceWhiteBg = pathname?.includes("overview") || pathname?.startsWith("/services");
+    const isDigitalOrBranding = pathname === "/digital-marketing-agency-uae" || pathname === "/branding-agency-uae";
 
-    
     const header = document.querySelector("header");
     const navLinks = header?.querySelectorAll("a");
     const menuIcon = document.getElementById("menu-btn");
 
-    // --- 1. ALWAYS BLACK TEXT LOGIC ---
-    menuIcon?.classList.add("text-black");
-    menuIcon?.classList.remove("text-white");
-    
-    navLinks?.forEach(a => {
-      a.classList.add("text-black");
-      a.classList.remove("text-white");
-    });
+    // --- 1. TEXT COLOR LOGIC ---
+    // If we are on the digital marketing/branding page and NOT scrolled, text should be white.
+    // Otherwise, text should be black.
+    const shouldBeWhiteText = isDigitalOrBranding && !isScrolled;
+
+    if (shouldBeWhiteText) {
+      menuIcon?.classList.add("text-white");
+      menuIcon?.classList.remove("text-black");
+      
+      navLinks?.forEach(a => {
+        // Skip modifying if it is the logo container that has the image
+        if (!a.querySelector("img")) {
+          a.classList.add("text-white");
+          a.classList.remove("text-black");
+        }
+      });
+    } else {
+      menuIcon?.classList.add("text-black");
+      menuIcon?.classList.remove("text-white");
+      
+      navLinks?.forEach(a => {
+        if (!a.querySelector("img")) {
+          a.classList.add("text-black");
+          a.classList.remove("text-white");
+        }
+      });
+    }
 
     // --- 2. BACKGROUND LOGIC ---
     if (forceWhiteBg || isScrolled) {
@@ -40,7 +59,7 @@ export default function NavbarScroll() {
         header?.classList.remove("hide-on-scroll");
       }
     } else {
-      // Transparent background (at top of other pages), but text stays black
+      // Transparent background
       header?.classList.add("bg-transparent");
       header?.classList.remove("bg-white", "shadow-md", "hide-on-scroll");
     }

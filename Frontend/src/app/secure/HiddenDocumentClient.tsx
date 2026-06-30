@@ -136,7 +136,7 @@ const CanvasPage = ({ pdf, pageNum, scale, watermarkEmail }: CanvasPageProps) =>
 };
 
 interface HiddenDocumentClientProps {
-  pdfFilename: "Task1.pdf" | "GOOGLE_ADS_X_OBS.pdf" | "Task-3.pdf";
+  pdfFilename: "Task1.pdf" | "GOOGLE_ADS_X_OBS.pdf" | "Task-3.pdf" | "GOOGLE_ADS_FINAL.pdf";
 }
 
 export default function HiddenDocumentClient({ pdfFilename }: HiddenDocumentClientProps) {
@@ -263,7 +263,7 @@ export default function HiddenDocumentClient({ pdfFilename }: HiddenDocumentClie
     e.preventDefault();
     setErrorMessage("");
 
-    const cleanedEmail = email.trim();
+    const cleanedEmail = email.trim().toLowerCase();
     if (!cleanedEmail) {
       setErrorMessage("Email address is required.");
       return;
@@ -272,6 +272,15 @@ export default function HiddenDocumentClient({ pdfFilename }: HiddenDocumentClie
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!emailRegex.test(cleanedEmail)) {
       setErrorMessage("Please enter a valid business email address.");
+      return;
+    }
+
+    // Security check: restrict access to authorized emails & domains only
+    const domain = cleanedEmail.split("@")[1];
+    const isWhitelisted = domain === "obsidiansix.com" || cleanedEmail === "dev.obsidiansix@gmail.com";
+
+    if (!isWhitelisted) {
+      setErrorMessage("Access Denied: This email address is not authorized to view secure blueprints.");
       return;
     }
 

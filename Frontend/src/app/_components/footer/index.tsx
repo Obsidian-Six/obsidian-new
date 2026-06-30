@@ -476,10 +476,10 @@ const Footer = () => {
             <div className="os-col">
               <h3>Services</h3>
               <ul>
-                <li><Link href="/services/#experience-design">Experience Design</Link></li>
-                <li><Link href="/services/#technology">Technology</Link></li>
-                <li><Link href="/services/#digital-marketing">Digital Marketing</Link></li>
-                <li><Link href="/services/#branding">Branding</Link></li>
+                <li><Link href="/services/experience-design">Experience Design</Link></li>
+                <li><Link href="/services/technology">Technology</Link></li>
+                <li><Link href="/digital-marketing-agency-uae">Digital Marketing</Link></li>
+                <li><Link href="/branding-agency-uae">Branding</Link></li>
               </ul>
             </div>
 
@@ -509,20 +509,13 @@ const Footer = () => {
                 <p className="os-contact-label">Email us</p>
                 <Link className="os-contact-value" href="mailto:info@obsidiansix.com">info@obsidiansix.com</Link>
               </div>
-              {/* Square Orange Download Brochure Button */}
-              <div className="mt-6 pt-2">
+              {/* Minimal Download Brochure Link */}
+              <div className="mt-4">
                 <Link
                   href="/download-brochure"
-                  className="inline-flex items-center gap-3 px-4 py-3 bg-[#FD7B28] hover:bg-[#ff914d] text-white transition-all duration-300 shadow-md font-bold text-xs uppercase tracking-wider rounded-none w-full justify-center"
+                  className="text-slate-400 hover:text-white transition-colors duration-300 text-xs font-bold uppercase tracking-wider underline inline-flex items-center gap-1"
                 >
-                  <Image
-                    src="/images/logo/logo2.png"
-                    alt="Logo"
-                    width={40}
-                    height={12}
-                    className="h-3 w-auto object-contain brightness-0 invert"
-                  />
-                  <span>Download Brochure</span>
+                  Download Brochure &rarr;
                 </Link>
               </div>
             </div>

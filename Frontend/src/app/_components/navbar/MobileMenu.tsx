@@ -1,64 +1,126 @@
 "use client";
 
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
 export default function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  const navItems = [
-    { name: "Home", link: "/" },
-    { name: "About Us", link: "/aboutus" },
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  const mainNavItems = [
     { name: "Works", link: "/case-studies" },
-    { name: "Services", link: "/services" },
+    { name: "About Us", link: "/aboutus" },
     { name: "Blogs", link: "/blogs" },
-    { name: "Contact Us", link: "/contactus" },
+    { name: "AI Audit", link: "/uae-ai-marketing-audit.html" },
+  ];
+
+  const serviceSubItems = [
+    { name: "Explore Services", link: "/services" },
+    { name: "Digital Marketing", link: "/digital-marketing-agency-uae" },
+    { name: "Technology", link: "/services/technology" },
+    { name: "Branding", link: "/branding-agency-uae" },
+    { name: "Experience Design", link: "/services/experience-design" },
   ];
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
-          {/* Dark Overlay/Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 bg-black/60 z-[110] lg:hidden backdrop-blur-sm"
-          />
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
+          className="fixed inset-0 w-full h-screen bg-white z-[115] lg:hidden flex flex-col"
+        >
+          {/* Top Header of Menu Panel to align with standard mobile header */}
+          <div className="flex items-center justify-between px-6 h-20 border-b border-slate-100 shrink-0">
+            <Link href="/" onClick={onClose} className="flex items-center h-full">
+              <Image
+                src="/images/logo/logo2.png"
+                width={120}
+                height={36}
+                className="h-9 w-auto"
+                alt="Logo"
+                priority
+              />
+            </Link>
+            {/* The close button is rendered as an overlay by nav-menu-toggler.tsx */}
+            <div className="w-8 h-8" />
+          </div>
 
-          {/* Sliding Menu Panel */}
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 h-screen w-[80%] max-w-[350px] bg-white z-[115] lg:hidden shadow-2xl flex flex-col p-10 pt-24"
-          >
-            <nav className="flex flex-col gap-8">
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
+          {/* Navigation Options Section */}
+          <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col justify-between">
+            <nav className="flex flex-col">
+              
+              {/* Collapsible Services Item */}
+              <div className="border-b border-slate-100">
+                <button
+                  type="button"
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="w-full py-5 flex items-center justify-between text-base font-poppins font-medium tracking-tight text-[#19183A] hover:text-[#024787] transition-colors focus:outline-none"
                 >
+                  <span>Services</span>
+                  {isServicesOpen ? (
+                    <IoChevronUp className="text-slate-400 text-lg" />
+                  ) : (
+                    <IoChevronDown className="text-slate-400 text-lg" />
+                  )}
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isServicesOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden bg-slate-50/50 rounded-lg px-4 mb-3"
+                    >
+                      {serviceSubItems.map((subItem, index) => (
+                        <Link
+                          key={index}
+                          href={subItem.link}
+                          onClick={onClose}
+                          className="block py-3 text-sm font-poppins font-normal text-slate-600 hover:text-[#024787] border-b border-slate-100/50 last:border-b-0"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Other Navigation Items */}
+              {mainNavItems.map((item, i) => (
+                <div key={i} className="border-b border-slate-100">
                   <Link
                     href={item.link}
                     onClick={onClose}
-                    className="text-2xl font-poppins font-normal tracking-tight text-[#19183A] hover:text-[#024787] transition-colors"
+                    className="block py-5 text-base font-poppins font-medium tracking-tight text-[#19183A] hover:text-[#024787] transition-colors"
                   >
                     {item.name}
                   </Link>
-                </motion.div>
+                </div>
               ))}
+
             </nav>
 
-            <div className="mt-auto pb-10">
-               <p className="text-xs uppercase tracking-widest text-slate-400 font-medium">Get in Touch</p>
-               <p className="text-sm mt-2 text-[#19183A]">hr@obsidiansix.com</p>
+            {/* Bottom Section containing the CTA button */}
+            <div className="pt-8 pb-6">
+              <Link
+                href="/contactus"
+                onClick={onClose}
+                className="w-full bg-[#004cf6] hover:bg-blue-700 text-white font-poppins font-semibold py-4 text-center tracking-wide block transition-colors rounded-none"
+              >
+                Contact Us
+              </Link>
             </div>
-          </motion.div>
-        </>
+
+          </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

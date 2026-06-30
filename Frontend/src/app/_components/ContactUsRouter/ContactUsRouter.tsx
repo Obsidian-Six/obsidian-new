@@ -12,23 +12,7 @@ import Link from "next/link";
 
 type TabType = "quote" | "partnership" | "general";
 
-const whyContactUs = [
-  {
-    title: "CLARITY-FIRST",
-    desc: "Expect transparent, strategy-led guidance before any commitment is made.",
-    img: "https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg",
-  },
-  {
-    title: "FAST REPLIES",
-    desc: "Because every minute counts- We respond within 24 hours to keep your ideas flowing",
-    img: "https://plus.unsplash.com/premium_photo-1661963874418-df1110ee39c1?q=80&w=1086&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    title: "TAILORED SYSTEMS",
-    desc: "Every recommendation is engineered specifically for your commercial objectives.",
-    img: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
-  },
-];
+
 
 const ContactUsRouter = () => {
   const [activeTab, setActiveTab] = useState<TabType>("quote");
@@ -164,7 +148,7 @@ const ContactUsRouter = () => {
             <div className="pt-4">
               <Link
                 href="/download-brochure"
-                className="group flex items-center gap-6 p-4 bg-white border border-[#E5E7EB] hover:border-slate-300 transition-all shadow-sm max-w-sm"
+                className="group flex items-center gap-6 p-4 bg-white border border-[#E5E7EB] hover:border-[#024787] hover:-translate-y-1 hover:shadow-md transition-all duration-300 max-w-sm cursor-pointer"
               >
                 {/* Obsidian Six Logo Thumbnail */}
                 <div className="relative w-20 h-20 bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100 p-2">
@@ -178,11 +162,11 @@ const ContactUsRouter = () => {
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-slate-800 tracking-tight font-poppins">
+                  <h3 className="text-sm font-bold text-slate-800 tracking-tight font-poppins group-hover:text-[#024787] transition-colors">
                     Download Our Brochure
                   </h3>
                   <p className="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1.5 uppercase font-inter">
-                    PDF 7.1 MB <Download size={12} className="text-slate-400" />
+                    PDF 7.1 MB <Download size={12} className="text-slate-400 group-hover:text-[#024787] group-hover:translate-y-0.5 transition-all" />
                   </p>
                 </div>
               </Link>
@@ -421,36 +405,143 @@ const ContactUsRouter = () => {
         </div>
       </div>
 
-      {/* --- WHY PARTNER SECTION --- */}
-      <section className="bg-slate-50 pt-20 pb-40 px-6 rounded-[60px] mx-4 mt-20 mb-4">
+      {/* --- OUR LOCATIONS SECTION --- */}
+      <section className="bg-slate-50 pt-20 pb-28 px-6 rounded-[60px] mx-4 mt-20 mb-4">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-2xl mb-24">
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 mb-8 font-poppins">
-              Why partner <br /> with us?
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-950 mb-4 font-poppins">
+              Our Locations
             </h2>
-            <div className="h-1 w-20 bg-blue-600" />
+            <p className="text-slate-500 text-sm md:text-base font-normal font-inter">
+              We work in all corners of the world. Find an Obsidian Six location near you.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
-            {whyContactUs.map((item, idx) => (
-              <div key={idx} className="group">
-                <div className="relative h-[400px] w-full rounded-[40px] overflow-hidden mb-8 shadow-lg">
-                  <Image
-                    src={item.img}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <span className="text-blue-600 font-bold text-[10px] tracking-widest uppercase font-poppins">
-                  0{idx + 1} — {item.title}
-                </span>
-                <p className="text-slate-600 mt-4 text-lg font-medium leading-relaxed font-inter">
-                  {item.desc}
-                </p>
+          {/* Two Office Locations Side-by-Side */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            
+            {/* Mumbai Location */}
+            <div className="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm space-y-6 text-left">
+              <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden shadow-sm">
+                <Image
+                  src="/images/locations/mumbai.png"
+                  alt="Mumbai BKC Office"
+                  fill
+                  className="object-cover"
+                />
               </div>
-            ))}
+              <div className="space-y-3">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-2xl">🇮🇳</span>
+                  <h3 className="text-lg font-bold text-slate-900 font-poppins uppercase tracking-wide">Mumbai Office</h3>
+                </div>
+                <div className="text-slate-600 font-inter text-sm md:text-base leading-relaxed space-y-1">
+                  <p className="font-semibold text-slate-800">Obsidian Six Technology Solutions Pvt. Ltd.</p>
+                  <p>Platinum BKC, 3rd Floor,</p>
+                  <p>Bandra, Mumbai 400051</p>
+                </div>
+                <div className="pt-2">
+                  <a
+                    href="https://maps.google.com/?q=Platinum+BKC+Bandra+Mumbai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#024787] hover:underline font-poppins"
+                  >
+                    <span>📍 Google Map</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Bhopal Location */}
+            <div className="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm space-y-6 text-left">
+              <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden shadow-sm">
+                <Image
+                  src="/images/locations/bhopal.png"
+                  alt="Bhopal Office"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-2xl">🇮🇳</span>
+                  <h3 className="text-lg font-bold text-slate-900 font-poppins uppercase tracking-wide">Bhopal Office</h3>
+                </div>
+                <div className="text-slate-600 font-inter text-sm md:text-base leading-relaxed space-y-1">
+                  <p className="font-semibold text-slate-800">Obsidian Six Technology Solutions Pvt. Ltd.</p>
+                  <p>Danish Nagar, Hoshangabad Road,</p>
+                  <p>Bhopal 462026</p>
+                </div>
+                <div className="pt-2">
+                  <a
+                    href="https://maps.google.com/?q=Danish+Nagar+Hoshangabad+Road+Bhopal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#024787] hover:underline font-poppins"
+                  >
+                    <span>📍 Google Map</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Contact Details Grid below */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            
+            {/* Card 1: General Enquiry */}
+            <div className="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 text-left">
+              <div className="p-3 bg-blue-50 text-blue-600 rounded-xl shrink-0">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div className="min-w-0">
+                <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-widest font-poppins">General Enquiry</h4>
+                <a href="tel:+918085652729" className="text-sm font-bold text-slate-800 hover:text-blue-600 mt-1 block font-inter truncate">+91 80856 52729</a>
+              </div>
+            </div>
+
+            {/* Card 2: Sales Enquiry */}
+            <div className="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 text-left">
+              <div className="p-3 bg-purple-50 text-purple-600 rounded-xl shrink-0">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <div className="min-w-0">
+                <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-widest font-poppins">Sales Enquiry</h4>
+                <a href="tel:+918085652729" className="text-sm font-bold text-slate-800 hover:text-blue-600 mt-1 block font-inter truncate">+91 80856 52729</a>
+              </div>
+            </div>
+
+            {/* Card 3: Email */}
+            <div className="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 text-left">
+              <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl shrink-0">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div className="min-w-0">
+                <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-widest font-poppins">Email</h4>
+                <a href="mailto:info@obsidiansix.com" className="text-sm font-bold text-slate-800 hover:text-blue-600 mt-1 block font-inter break-all">info@obsidiansix.com</a>
+              </div>
+            </div>
+
+            {/* Card 4: HR Enquiry */}
+            <div className="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 text-left">
+              <div className="p-3 bg-teal-50 text-teal-600 rounded-xl shrink-0">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="min-w-0">
+                <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-widest font-poppins">HR Enquiry</h4>
+                <a href="mailto:hr@obsidiansix.com" className="text-sm font-bold text-slate-800 hover:text-blue-600 mt-1 block font-inter break-all">hr@obsidiansix.com</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
