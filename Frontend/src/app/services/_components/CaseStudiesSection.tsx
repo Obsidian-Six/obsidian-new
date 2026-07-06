@@ -122,7 +122,7 @@ export default function CaseStudiesSection() {
       <div className="flex justify-center mt-12">
         <Link
           href="/case-studies"
-          className="inline-flex items-center gap-2.5 px-8 py-3 border border-slate-900 text-slate-900 text-sm font-medium rounded-full hover:bg-slate-900 hover:text-white transition-all duration-300 group"
+          className="inline-flex items-center gap-2.5 px-8 py-3 border border-slate-900 text-slate-900 text-sm font-medium rounded-full hover:bg-slate-900 hover:text-white transition-all duration-300 group os-btn-slide"
         >
           View all works
           <ArrowRight

@@ -53,6 +53,9 @@ export default function ServicesHero() {
         </motion.div>
       </motion.div>
 
+      {/* Dark overlay gradient behind text area for readability against busy background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent z-10 pointer-events-none" />
+
       {/* Content Stream */}
       <div className="container mx-auto px-6 md:px-12 xl:px-20 z-20 relative mt-16">
         <motion.div
@@ -62,7 +65,10 @@ export default function ServicesHero() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-4xl"
         >
-          <h1 className="text-5xl md:text-8xl font-normal tracking-tight text-white leading-tight font-poppins drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+          <h1
+            style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.25)" }}
+            className="text-[clamp(2.5rem,5vw,4.5rem)] font-semibold tracking-[-0.5px] text-white leading-[1.1] font-poppins"
+          >
             Our Services
           </h1>
         </motion.div>

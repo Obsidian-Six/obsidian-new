@@ -48,8 +48,10 @@ export default function OurClients() {
                   alt={logo.name || `client-logo-${index}`}
                   width={180}
                   height={90}
-                  className="w-auto h-auto max-w-[80px] sm:max-w-[100px] md:max-w-[150px] max-h-[35px] sm:max-h-[45px] md:max-h-[65px] object-contain transition-all duration-500 
-                  grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+                  className={`w-auto h-auto max-w-[80px] sm:max-w-[100px] md:max-w-[150px] max-h-[35px] sm:max-h-[45px] md:max-h-[65px] object-contain transition-all duration-500 
+                  ${(logo.name === "AnimationVisArts" || logo.name === "PachmarhiAyurveda") 
+                    ? "grayscale opacity-85 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105" 
+                    : "grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"}`}
                 />
               </figure>
             </motion.div>

@@ -2,7 +2,6 @@
 import { GoArrowUpRight } from "react-icons/go";
 import { MotionDiv, MotionH2, MotionP } from "@/lib/motion";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Maintenance() {
   const variants = {
@@ -13,31 +12,30 @@ export default function Maintenance() {
   // Storing card data in an array makes it easier to manage the complex grid classes
   const cards = [
     {
-      title: "PERFORMANCE & SPEED",
-      desc: "We Optimize Your Website For Fast Loading, Smooth Performance, And Better SEO. Caching, Code Optimization, And Monitoring Ensure A Seamless User Experience.",
-      image: "https://img.freepik.com/free-vector/speed-motion-background-with-fast-speedometer-car-racing-velocity-background_60438-2063.jpg?semt=ais_hybrid&w=740&q=80",
+      title: "THE SPOTLIGHT",
+      desc: "Being Great Means Nothing If No One Sees It. We Put Your Brand Where Customers Are Already Looking. And Turn That Visibility Into Demand.",
+      video: "/videos/Services/DigitalMarketingVedio.mp4",
       // Right-aligned on large screens
       gridClass: "col-span-12 md:col-span-10 md:col-start-3 lg:col-span-8 lg:col-start-5",
     },
     {
-      title: "SECURITY & RELIABILITY",
-      desc: "We Protect Your Site With 24/7 Monitoring, Firewalls, And Regular Updates. Stay Secure From Malware, Hacking, And Data Breaches",
-      image: "/images/ProactiveImage.jpeg",
+      title: "THE FIRST DOOR",
+      desc: "Visitors Decide In Seconds Whether To Stay Or Leave. We Design That First Door To Feel Effortless, Inviting, And Worth Walking Through.",
+      video: "/videos/Services/ExperienceDesignVedio.mp4",
       // Shifted slightly left
       gridClass: "col-span-12 md:col-span-10 md:col-start-2 lg:col-span-8 lg:col-start-4",
     },
     {
-      title: "ONGOING SUPPORT",
-      desc: "Get Continuous Updates, Bug Fixes, And Content Changes. We Keep Your Website Fresh, Functional, And Aligned With Your Business Needs.",
-      image: "/images/ProactiveImage3.jpeg",
+      title: "THE DAILY SCROLL",
+      desc: "Your Audience Scrolls Past Hundreds Of Brands Daily. We Make Sure Yours Is The One They Stop For And Remember.",
+      video: "/videos/Services/TechnologyVedio.mp4",
       // Shifted further left + blue highlight from design
       gridClass: "col-span-12 md:col-span-10 md:col-start-1 lg:col-span-8 lg:col-start-3",
-    
     },
     {
-      title: "DISASTER RECOVERY",
-      desc: "Our Automated Backups And Quick Restoration Minimize Downtime. Stay Prepared With Reliable Recovery Solutions.",
-      image: "/images/ProactiveImage2.jpeg",
+      title: "THE SIGNATURE",
+      desc: "A Name Means Nothing Until It Means Something. We Shape That Meaning Into A Signature People Recognize And Trust.",
+      video: "/videos/Services/BrandingVedio.mp4",
       // Far left aligned
       gridClass: "col-span-12 md:col-span-10 md:col-start-1 lg:col-span-8 lg:col-start-1",
     },
@@ -82,7 +80,7 @@ export default function Maintenance() {
       {/* CTA Button */}
       <Link
         href={"/#contactUs"}
-        className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10 w-fit my-6 mb-20"
+        className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10 w-fit my-6 mb-20 os-btn-slide"
       >
         Start Growing <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
       </Link>
@@ -114,16 +112,18 @@ export default function Maintenance() {
                 </p>
               </article>
 
-              {/* Right Side: Image */}
+              {/* Right Side: Video */}
               <figure className="w-full">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  width={500}
-                  height={400}
-                  // Removed rounded corners to match the sharp edges in Figma
-                  className="w-full h-[220px] md:h-[280px] object-cover bg-slate-100"
-                />
+                <div className="w-full h-[220px] md:h-[280px] relative bg-slate-100 overflow-hidden">
+                  <video
+                    src={card.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
               </figure>
 
             </div>

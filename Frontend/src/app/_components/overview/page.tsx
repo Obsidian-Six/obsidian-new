@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import type { ReactNode, Dispatch, SetStateAction } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import ServicesHero from "../../services/_components/ServicesHero";
 
@@ -55,6 +54,7 @@ const OverviewPage = () => {
         setHoverIndex,
         isFlipped = false,
         exploreLink,
+        videoSrc,
     }: {
         id: string;
         title: ReactNode;
@@ -63,6 +63,7 @@ const OverviewPage = () => {
         setHoverIndex: Dispatch<SetStateAction<number>>;
         isFlipped?: boolean;
         exploreLink?: ReactNode;
+        videoSrc: string;
     }) => (
         <section id={id} className="max-w-[1400px] mx-auto px-6 md:px-12 py-24 bg-white border-b border-gray-50 last:border-0 scroll-mt-28">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -79,14 +80,15 @@ const OverviewPage = () => {
                                 key={item.id}
                                 className="group py-6 border-b border-gray-100 text-left transition-all w-full flex flex-col items-start"
                             >
-                                <button
+                                <div
+                                    role="button"
                                     onMouseEnter={() => setHoverIndex(index)}
-                                    className="flex justify-between items-center text-left w-full"
+                                    className="flex justify-between items-center text-left w-full cursor-pointer select-none"
                                 >
                                     <span className={`text-xl font-medium transition-colors duration-300 ${hoverIndex === index ? 'text-black' : 'text-slate-500'}`}>
                                         {item.title}
                                     </span>
-                                </button>
+                                </div>
                             </div>
                         ))}
                     </nav>
@@ -98,17 +100,17 @@ const OverviewPage = () => {
                     )}
                 </div>
 
-                {/* Image Display Area */}
+                {/* Video Showcase Display Area */}
                 <div className={`lg:col-span-5 sticky top-32 h-fit ${isFlipped ? 'lg:order-1 lg:col-start-1 lg:col-span-6' : 'lg:order-2 lg:col-start-8'}`}>
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-50 rounded-sm shadow-sm">
-                        {list.map((item, index) => (
-                            <div
-                                key={item.id}
-                                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${hoverIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-                            >
-                                <Image src={item.img} alt={item.title} fill className="object-cover" />
-                            </div>
-                        ))}
+                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-50 rounded-2xl shadow-md border border-slate-100">
+                        <video
+                            src={videoSrc}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="absolute inset-0 w-full h-full object-cover"
+                        />
                     </div>
                 </div>
 
@@ -127,6 +129,7 @@ const OverviewPage = () => {
                     list={digitalServices} 
                     hoverIndex={digitalHover} 
                     setHoverIndex={setDigitalHover} 
+                    videoSrc="/videos/Services/DigitalMarketingVedio.mp4"
                     exploreLink={
                         <Link
                             href="/digital-marketing-agency-uae"
@@ -144,6 +147,7 @@ const OverviewPage = () => {
                     hoverIndex={techHover} 
                     setHoverIndex={setTechHover} 
                     isFlipped={true} 
+                    videoSrc="/videos/Services/TechnologyVedio.mp4"
                     exploreLink={
                         <Link
                             href="/services/technology"
@@ -160,6 +164,7 @@ const OverviewPage = () => {
                     list={brandingServices} 
                     hoverIndex={brandingHover} 
                     setHoverIndex={setBrandHover} 
+                    videoSrc="/videos/Services/BrandingVedio.mp4"
                     exploreLink={
                         <Link
                             href="/branding-agency-uae"
@@ -177,6 +182,7 @@ const OverviewPage = () => {
                     hoverIndex={expHover} 
                     setHoverIndex={setExpHover} 
                     isFlipped={true}
+                    videoSrc="/videos/Services/ExperienceDesignVedio.mp4"
                     exploreLink={
                         <Link
                             href="/services/experience-design"

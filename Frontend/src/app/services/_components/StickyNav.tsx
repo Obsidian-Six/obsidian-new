@@ -40,7 +40,8 @@ export default function StickyNav({
           {navItems.map((item) => {
             const isActive = activeTab === item;
             return (
-              <button
+              <div
+                role="button"
                 key={item}
                 onClick={() => {
                   setActiveTab(item);
@@ -48,7 +49,7 @@ export default function StickyNav({
                     window.scrollTo({ top: 380, behavior: "smooth" });
                   }
                 }}
-                className={`text-sm font-semibold tracking-wide relative shrink-0 transition-all duration-300 ${
+                className={`text-sm font-semibold tracking-wide relative shrink-0 transition-all duration-300 cursor-pointer select-none ${
                   isSticky ? "py-3 md:py-3.5" : "py-5"
                 } ${
                   isActive ? "text-slate-900 font-bold" : "text-slate-400 hover:text-slate-600"
@@ -62,7 +63,7 @@ export default function StickyNav({
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-              </button>
+              </div>
             );
           })}
         </div>

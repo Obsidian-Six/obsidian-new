@@ -56,10 +56,11 @@ export default function FAQ() {
             
             return (
               <motion.div key={index} className="group" initial={false}>
-                <button
+                <div
+                  role="button"
                   suppressHydrationWarning
                   onClick={() => setActiveIndex(isOpen ? null : index)}
-                  className="w-full flex items-center justify-between py-8 text-left transition-all"
+                  className="w-full flex items-center justify-between py-8 text-left transition-all cursor-pointer select-none"
                 >
                   <div className="flex items-center gap-5">
                     <motion.div
@@ -80,7 +81,7 @@ export default function FAQ() {
                       {faq.question}
                     </span>
                   </div>
-                </button>
+                </div>
 
                 <AnimatePresence initial={false}>
                   {isOpen && (

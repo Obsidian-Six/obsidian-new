@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 90" width="100%" height="100%">
+  <defs>
+    <linearGradient id="avaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#024787" />
+      <stop offset="100%" stop-color="#00b4d8" />
+    </linearGradient>
+  </defs>
+  <!-- Icon AVA stylized geometric -->
+  <g transform="translate(15, 23)">
+    <path d="M 22 5 L 37 40 L 30 40 L 22 20 L 14 40 L 7 40 Z" fill="url(#avaGrad)" />
+    <path d="M 12 5 L 22 30 L 32 5 L 39 5 L 26 38 L 18 38 L 5 5 Z" fill="#1B1B1B" opacity="0.85" />
+    <circle cx="22" cy="27" r="3" fill="#00b4d8" />
+  </g>
+  <!-- Typography -->
+  <text x="68" y="42" font-family="'Poppins', 'Inter', sans-serif" font-size="15" font-weight="700" fill="#1B1B1B" letter-spacing="-0.5">Animation</text>
+  <text x="68" y="56" font-family="'Poppins', 'Inter', sans-serif" font-size="10" font-weight="600" fill="#024787" letter-spacing="2">VIS ARTS</text>
+</svg>

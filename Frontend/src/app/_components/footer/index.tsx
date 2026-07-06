@@ -437,7 +437,7 @@ const Footer = () => {
             <div className="os-brand-col">
               <Link className="os-logo" href="/">
                 <Image
-                  src="/images/logo/logo2.png"
+                  src="/images/logo/logo1.png"
                   alt="Obsidian Six"
                   width={140}
                   height={40}

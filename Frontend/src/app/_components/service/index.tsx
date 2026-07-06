@@ -23,19 +23,19 @@ const HomeService = () => {
       className={`w-full overflow-hidden ${isDesktop ? "h-full flex flex-col justify-between" : ""}`}
     >
       {/* Constrained Image Box matching vertical limits perfectly */}
-      <div className="relative w-full overflow-hidden rounded-2xl shadow-md aspect-video border border-slate-200/60 bg-slate-50 flex items-center justify-center">
+      <div className="relative w-full overflow-hidden rounded-[16px] shadow-[0_2px_12px_rgba(0,0,0,0.06)] aspect-[16/9] border border-slate-100/60">
         <Image
           src={service.image}
           alt={service.name}
           fill
-          className="object-contain p-2"
+          className="object-cover object-center"
           priority
         />
       </div>
 
       {/* Structured Content Grid fits entirely within the fold */}
       <div className={`grid grid-cols-1 md:grid-cols-[1.1fr_1.4fr] gap-4 items-start ${isDesktop ? "h-[40%] pt-4" : "mt-4 pb-4"}`}>
-        <div className="flex flex-col justify-between h-full">
+        <div className="flex flex-col items-start gap-4">
           <div>
             <div className="text-xl md:text-2xl font-semibold font-poppins uppercase tracking-tight text-[#19183A] leading-tight">
               {service.name}
@@ -50,7 +50,7 @@ const HomeService = () => {
               e.stopPropagation();
               setIsPopupOpen(true);
             }}
-            className="mt-4 self-start group inline-flex items-center gap-2.5 px-5 py-2.5 bg-slate-900 text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-md shadow-[#024787]/10 whitespace-nowrap"
+            className="group inline-flex items-center gap-2.5 px-5 py-2.5 bg-slate-900 text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-md shadow-[#024787]/10 whitespace-nowrap os-btn-slide"
           >
             Inquire Now
             <GoArrowUpRight className="text-base group-hover:rotate-45 transition-transform duration-300" />

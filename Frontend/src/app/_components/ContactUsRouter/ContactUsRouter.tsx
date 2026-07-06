@@ -383,7 +383,7 @@ const ContactUsRouter = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-10 py-4 bg-black text-white hover:bg-slate-900 transition-colors flex items-center gap-3 font-semibold text-xs uppercase tracking-widest rounded-none disabled:opacity-50 font-poppins"
+                      className="px-10 py-4 bg-black text-white hover:bg-slate-900 transition-colors flex items-center gap-3 font-semibold text-xs uppercase tracking-widest rounded-none disabled:opacity-50 font-poppins os-btn-slide"
                     >
                       {isSubmitting ? (
                         <>

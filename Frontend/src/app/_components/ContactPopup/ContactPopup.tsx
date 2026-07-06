@@ -113,7 +113,7 @@ const ContactPopup = ({ isOpen: controlledIsOpen, onClose, defaultService }: Con
     }
   };
 
-  const inputStyles = "w-full bg-white border border-slate-200 p-2.5 md:p-3.5 text-sm md:text-base font-medium text-slate-900 outline-none focus:border-[#024787] focus:ring-4 focus:ring-[#024787]/5 transition-all rounded-xl placeholder:text-slate-400 appearance-none shadow-sm";
+  const inputStyles = "w-full bg-white border border-slate-200 p-2.5 md:p-3.5 text-sm md:text-base font-medium text-slate-900 outline-none focus:border-[#024787] focus:ring-4 focus:ring-[#024787]/5 transition-all rounded-none placeholder:text-slate-400 appearance-none shadow-sm";
   const labelStyles = "text-[10px] md:text-[11px] uppercase font-bold tracking-[0.1em] text-slate-500 ml-1 mb-1.5 block";
   return (
     <AnimatePresence>
@@ -172,12 +172,13 @@ const ContactPopup = ({ isOpen: controlledIsOpen, onClose, defaultService }: Con
 
             {/* RIGHT PANEL: The Form */}
             <div className="w-full md:w-[60%] p-6 md:p-16 flex flex-col justify-center relative bg-white overflow-y-auto">
-              <button 
+              <div 
                 onClick={handleClose} 
-                className="absolute top-6 right-6 p-2 hover:bg-slate-100 rounded-full transition-all z-50 text-slate-400 hover:text-slate-900"
+                role="button"
+                className="absolute top-6 right-6 p-2 hover:bg-slate-100/50 rounded-full transition-all z-50 text-black cursor-pointer"
               >
                 <X size={24} />
-              </button>
+              </div>
 
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
@@ -228,9 +229,9 @@ const ContactPopup = ({ isOpen: controlledIsOpen, onClose, defaultService }: Con
                           country={"in"}
                           enableSearch={true}
                           containerClass="!w-full"
-                          inputClass="!w-full !h-[50px] md:!h-[56px] !bg-white !border-slate-200 !rounded-xl !text-slate-900 !font-medium !pl-14 !text-sm md:!text-base !shadow-sm focus:!border-[#024787] focus:!ring-4 focus:!ring-[#024787]/5"
-                          buttonClass="!border-slate-200 !rounded-l-xl !bg-slate-50 !w-12"
-                          dropdownClass="!rounded-xl !shadow-2xl !border-slate-100"
+                          inputClass="!w-full !h-[50px] md:!h-[56px] !bg-white !border-slate-200 !rounded-none !text-slate-900 !font-medium !pl-14 !text-sm md:!text-base !shadow-sm focus:!border-[#024787] focus:!ring-4 focus:!ring-[#024787]/5"
+                          buttonClass="!border-slate-200 !rounded-none !bg-slate-50 !w-12"
+                          dropdownClass="!rounded-none !shadow-2xl !border-slate-100"
                           onChange={(phone: string) => setFormData({ ...formData, phone })}
                         />
                       </div>
@@ -238,7 +239,7 @@ const ContactPopup = ({ isOpen: controlledIsOpen, onClose, defaultService }: Con
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-[#024787] text-white font-bold text-sm md:text-lg py-4 md:py-5 rounded-2xl shadow-[0_12px_24px_-8px_rgba(96,0,255,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(96,0,255,0.6)] transition-all flex items-center justify-center gap-3 transform active:scale-[0.98] hover:-translate-y-1"
+                        className="w-full bg-[#024787] text-white font-bold text-sm md:text-lg py-4 md:py-5 rounded-none shadow-[0_12px_24px_-8px_rgba(96,0,255,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(96,0,255,0.6)] transition-all flex items-center justify-center gap-3 transform active:scale-[0.98] hover:-translate-y-1 os-btn-slide"
                       >
                         {isSubmitting ? <><Loader2 className="animate-spin size-5" /> Processing...</> : "Claim Your Free Strategy →"}
                       </button>

@@ -3,7 +3,7 @@ import type ClientLogo from "../models/client-logo.types";
 const clientLogos: ClientLogo[] = [
   {
     name: "AnimationVisArts",
-    url: "https://animationvisarts.com/wp-content/uploads/2023/10/image-15.png",
+    url: "/our-client/animationvisarts.svg",
   },
   { name: "Swiggy", url: "/our-client/swiggy.png" },
   { name: "Kotak", url: "/our-client/kotak.png" },
@@ -14,7 +14,7 @@ const clientLogos: ClientLogo[] = [
   },
   {
     name: "PachmarhiAyurveda",
-    url: "https://pachmarhiayurveda.com/assets/logo-CKua0_W6.png",
+    url: "/images/pachmarhi-ayurveda.png",
   },
   {
     name: "AmazonDSP",

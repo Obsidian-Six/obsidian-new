@@ -65,7 +65,7 @@ const OurWork = () => {
       >
         <Link
           href="/case-studies"
-          className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10"
+          className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10 os-btn-slide"
         >
           View all works <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
         </Link>

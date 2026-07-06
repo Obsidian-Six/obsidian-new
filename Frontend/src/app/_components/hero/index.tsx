@@ -95,7 +95,7 @@ export default function Hero() {
             >
               <Link
                 href="/#contactUs"
-                className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10"
+                className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10 os-btn-slide"
               >
                 Start Journey <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
               </Link>
@@ -105,11 +105,12 @@ export default function Hero() {
 
         <div className="absolute bottom-[-100px] flex gap-4">
           {slides.map((_, index) => (
-            <button
+            <div
+              role="button"
               suppressHydrationWarning
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-1 rounded-full transition-all duration-700 ${
+              className={`h-1 rounded-full transition-all duration-700 cursor-pointer ${
                 currentSlide === index ? "bg-black w-12" : "bg-slate-200 w-4 hover:bg-slate-400"
               }`}
               aria-label={`Slide ${index + 1}`}

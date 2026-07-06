@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+@theme {
+  --color-black: #1B1B1B;
+  --color-slate-950: #1B1B1B;
+  --color-slate-900: #1B1B1B;
+}
+
+/* Maintain original dark background shades for layout containers, sections, and overlay elements */
+.bg-black {
+  background-color: #000000 !important;
+}
+.bg-slate-950 {
+  background-color: #020617 !important;
+}
+.bg-slate-900 {
+  background-color: #0f172a !important;
+}
+.bg-\[\#000000\] {
+  background-color: #000000 !important;
+}
+.bg-\[\#000\] {
+  background-color: #000000 !important;
+}
+
 :root {
   /* Match your Tailwind h-20 (80px) and md:h-24 (96px) */
   --nav-height-mobile: 80px;
@@ -88,6 +111,7 @@
   body {
     @apply font-poppins font-normal; /* Poppins 400 as the global default */
     font-family: var(--font-poppins);
+    color: #1B1B1B;
   }
 
   header {
@@ -469,13 +493,7 @@ a.os-cta-btn,
   border-radius: 0px !important;
 }
 
-/* Force all buttons and button-styled links to slide-fill with orange color on hover */
-button:not(#menu-btn):not(.collapsible-btn),
-input[type="button"],
-input[type="submit"],
-.btn,
-.button,
-.os-cta-btn,
+/* Force only explicitly marked slide-fill buttons to animate with orange color on hover */
 .os-btn-slide {
   position: relative;
   overflow: hidden;
@@ -483,12 +501,6 @@ input[type="submit"],
   transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-button:not(#menu-btn):not(.collapsible-btn)::before,
-input[type="button"]::before,
-input[type="submit"]::before,
-.btn::before,
-.button::before,
-.os-cta-btn::before,
 .os-btn-slide::before {
   content: "";
   position: absolute;
@@ -504,22 +516,10 @@ input[type="submit"]::before,
   border-radius: inherit !important;
 }
 
-button:not(#menu-btn):not(.collapsible-btn):hover::before,
-input[type="button"]:hover::before,
-input[type="submit"]:hover::before,
-.btn:hover::before,
-.button:hover::before,
-.os-cta-btn:hover::before,
 .os-btn-slide:hover::before {
   transform: scaleX(1) !important;
 }
 
-button:not(#menu-btn):not(.collapsible-btn):hover,
-input[type="button"]:hover,
-input[type="submit"]:hover,
-.btn:hover,
-.button:hover,
-.os-cta-btn:hover,
 .os-btn-slide:hover {
   color: #ffffff !important;
   border-color: #FD7B28 !important;

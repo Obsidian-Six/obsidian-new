@@ -211,7 +211,7 @@ const ContactForm = () => {
         <button
           suppressHydrationWarning
           disabled={isSubmitting}
-          className={`group inline-flex items-center justify-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-lg shadow-[#024787]/10 ${
+          className={`group inline-flex items-center justify-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-lg shadow-[#024787]/10 os-btn-slide ${
             isSubmitting ? "opacity-50 cursor-progress" : "opacity-100 cursor-pointer hover:bg-[#024787]"
           }`}
           type="submit"

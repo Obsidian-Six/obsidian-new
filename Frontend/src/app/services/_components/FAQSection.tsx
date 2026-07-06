@@ -58,9 +58,10 @@ export default function FaqSection({ faqData }: { faqData?: FaqItem[] }) {
                 className="border-b border-slate-900 w-full"
               >
                 {/* Clickable Header Trigger Row */}
-                <button
+                <div
+                  role="button"
                   onClick={() => toggleFaq(index)}
-                  className="w-full py-6 flex items-center justify-between text-left group transition-colors duration-200 focus:outline-none"
+                  className="w-full py-6 flex items-center justify-between text-left group transition-colors duration-200 cursor-pointer select-none"
                   aria-expanded={isOpen}
                 >
                   <span 
@@ -86,7 +87,7 @@ export default function FaqSection({ faqData }: { faqData?: FaqItem[] }) {
                       }`} 
                     />
                   </div>
-                </button>
+                </div>
 
                 {/* Collapsible Content Area */}
                 <div
