@@ -289,7 +289,7 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
 
 {
     "id": "sweet_protection_ecommerce",
-    "name": "Sweet Protection",
+    "name": "Prime play",
     "slug": "sweet-protection-custom-tech-ecommerce-performance-gear",
     "category": "E-commerce & Sports Technology",
     "gallery": [
@@ -1004,9 +1004,9 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     ],
     details:
       "Scaled a traditional offline book publisher into a digital brand, achieving over 8M+ engagement and a viral reach of 7M+ views.",
-    image: "/tathyabaan/tathyabaan_publishing.png",
+    image: "/tathyabaan/books.jpg",
     tags: ["Social Media Marketing", "Content Strategy", "Website Development"],
-    heroImage: "/tathyabaan/tathyabaan_publishing.png",
+    heroImage: "/tathyabaan/books.jpg",
     "heroVideo": "",
     "overviewVideo": "",
     "ChallengeVideo": "",
