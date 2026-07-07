@@ -840,6 +840,24 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     name: "Sant Hirdaram Institute of Management (SHIM)",
     slug: "shim-bhopal-mba-admissions",
     category: "Digital Strategy",
+    "gallery": [
+      {
+        "img": "/shim/gallery1.jpg",
+        "text": "LinkedIn engagement strategies targeting project heads."
+      },
+      {
+        "img": "/shim/gallery2.jpg",
+        "text": "Streamlining the B2B sales cycle by 30% through automation."
+      },
+      {
+        "img": "/shim/gallery3.jpg",
+        "text": "Authority-driven content creation for industrial buyers."
+      },
+      {
+        "img": "/shim/gallery4.jpg",
+        "text": "Reducing manual handling of leads by 40% via CRM integration."
+      }
+    ],
     "twoImage": {
       "leftPanel": {
         "bgImage": "/shim/twoimage_left.jpg",
