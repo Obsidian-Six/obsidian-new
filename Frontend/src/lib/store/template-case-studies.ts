@@ -840,66 +840,38 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     name: "Sant Hirdaram Institute of Management (SHIM)",
     slug: "shim-bhopal-mba-admissions",
     category: "Digital Strategy",
-    "gallery": [
-      {
-        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "text": "LinkedIn engagement strategies targeting project heads."
-      },
-      {
-        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "text": "Streamlining the B2B sales cycle by 30% through automation."
-      },
-      {
-        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "text": "Authority-driven content creation for industrial buyers."
-      },
-      {
-        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "text": "Reducing manual handling of leads by 40% via CRM integration."
-      },
-      {
-        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "text": "Establishing long-term digital authority in heavy engineering."
-      }
-    ],
     "twoImage": {
-
       "leftPanel": {
-        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "topLabel": "Platform",
-        "bottomLabel": "Token Vault"
+        "bgImage": "/shim/twoimage_left.jpg",
+        "topLabel": "PERFORMANCE MARKETING",
+        "bottomLabel": ""
       },
       "rightPanel": {
-        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
+        "bgImage": "/shim/twoimage_right.jpg"
       }
     },
-
     details:
       "Transformed a premier women's MBA college by filling 100% of seats, generating ₹60 Lakh+ in revenue with a 20x ROAS.",
     image:
       "/shim/thumbnail.jpeg",
     tags: ["Performance Marketing", "Lead Generation", "Admission Strategy"],
     heroImage:
-      "https://images.unsplash.com/photo-1474314243412-cd4a79f02c6a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/shim/hero.jpg",
     "heroVideo": "",
     "overviewVideo": "",
     "ChallengeVideo": "",
     "ApproachVideo": "",
     "ResultVideo": "",
-
-
     caseSection: {
       data: "Transforming SHIM into a",
       highlight: "Premier Choice for MBA Aspirants",
     },
-
     overview:
       "SHIM is a premier MBA college for girls in Bhopal, known for academic excellence. Despite their reputation, they struggled with candidate enrollment due to ineffective digital marketing. We implemented a data-driven 360-degree digital transformation to restore their market leadership and fill their admission cycle capacity.",
-
     challenge: {
       data: "SHIM faced critical hurdles that prevented them from reaching their enrollment potential:",
-      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+      "image1": "/shim/challenge1.jpg",
+      "image2": "/shim/challenge2.jpg",
       point: [
         {
           name: "Insufficient Candidate Enrollment",
@@ -923,7 +895,6 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
         },
       ],
     },
-
     approaches: [
       {
         name: "STRATEGIC REBRANDING",
@@ -941,7 +912,6 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
           "Developed viral-ready video content and reels that addressed student placement goals and pain points.",
       },
     ],
-
     results: [
       {
         img: "/shim/image0.png",
@@ -968,7 +938,6 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
         data: "Achieved 80% growth on Instagram and 60% on Facebook with 400K+ combined new visitors.",
       },
     ],
-
     impacts: [
       {
         name: "Institutional Transformation",
@@ -983,10 +952,9 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
         detail: "Reduced administrative waste by focusing exclusively on high-intent candidates.",
       },
     ],
-
     detail:
       "Our strategic marketing approach and rebranding efforts transformed SHIM’s digital presence. By combining aggressive performance marketing with a complete digital facelift, we achieved full admissions and a 20x ROAS—proving that the right strategy can lead the competitive admission landscape.",
-    pageType: "template",
+    pageType: "template"
   },
 
 {

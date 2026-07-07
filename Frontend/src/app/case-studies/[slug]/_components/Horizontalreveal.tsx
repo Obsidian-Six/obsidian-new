@@ -22,7 +22,7 @@ export default function HorizontalRevealGallery({ ele }: { ele: TemplateCaseStud
 
   // 2. Adjust translation based on the actual number of items
   // Calculation: (Items - 1) * -itemWidthPercentage
-  const x = useTransform(smoothProgress, [0, 1], ["0%", `-${(ele.gallery.length - 1) * 20}%`]);
+  const x = useTransform(smoothProgress, [0, 1], ["0%", `-${((ele.gallery?.length || 0) - 1) * 20}%`]);
   
   // 3. Add a spring on the derived x transform for buttery-smooth motion
   const springX = useSpring(x, {
@@ -39,7 +39,7 @@ export default function HorizontalRevealGallery({ ele }: { ele: TemplateCaseStud
           style={{ x: springX }} 
           className="flex gap-8 px-10 will-change-transform" // 3. will-change-transform enables GPU rendering
         >
-          {ele.gallery.map((item, index) => (
+          {ele.gallery?.map((item, index) => (
             <div
               key={index}
               className="group relative h-[450px] w-[350px] md:h-[600px] md:w-[650px] flex-shrink-0 overflow-hidden bg-slate-100 shadow-xl"

@@ -79,7 +79,7 @@ export interface TemplateCaseStudy extends CaseStudy {
   ResultVideo:string,
   overview: string;
   caseSection: CaseStudyCaseSection;
-  gallery: GalleryItem[];
+  gallery?: GalleryItem[];
   challenge: CaseStudyChallenge;
   approaches: CaseStudyApproachItem[];
   results: CaseStudyResultItem[];
