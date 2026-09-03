@@ -23,7 +23,7 @@ const OurWork = () => {
     <section
       ref={containerRef}
       id="blogs"
-      className="max-w-7xl mx-auto px-6 md:px-10 py-32 overflow-hidden"
+      className="max-w-7xl mx-auto px-6 md:px-10 py-12 overflow-hidden"
     >
       {/* Section Tag */}
       <div className="mb-12">
@@ -49,7 +49,7 @@ const OurWork = () => {
         </MotionP>
       </div>
       {/* Grid Layout */}
-      <motion.div style={{ y }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24">
+      <motion.div style={{ y }} className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-3 md:gap-x-10 gap-y-12 md:gap-y-20">
         {displayWorks.map((caseStudy, index) => (
           <WorkCard key={index} caseStudy={caseStudy} index={index} />
         ))}
@@ -61,7 +61,7 @@ const OurWork = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }} // Repeat animation
         transition={{ delay: 0.1 }}
-        className="flex justify-center mt-32"
+        className="flex justify-center mt-2"
       >
         <Link
           href="/case-studies"

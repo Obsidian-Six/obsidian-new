@@ -8,6 +8,7 @@ import "./globals.css";
 import type { ReactNode } from "react";
 import TabBlurProtection from "./_components/tab-blur-protection";
 import HeaderToggle from "./_components/HeaderToggle";
+import SmoothScroll from "./_components/SmoothScroll";
 
 
 export const metadata = {
@@ -139,6 +140,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* End Meta Pixel Code */}
       </head>
       <body className="antialiased" cz-shortcut-listen="true">
+         <SmoothScroll />
         <HeaderToggle />
         <main>{children}</main>
         <footer>
