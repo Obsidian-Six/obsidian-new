@@ -115,7 +115,7 @@ export default function DownloadBrochurePage() {
           
           {isSubmitted ? (
             <div className="py-12 animate-in fade-in zoom-in duration-500">
-              <CheckCircle2 className="w-16 h-16 text-[#024787] mb-6" />
+              <CheckCircle2 className="w-16 h-16 text-[#052D69] mb-6" />
               <h1 className="text-4xl font-light tracking-tight text-slate-900 mb-4 font-poppins">
                 Brochure Sent!
               </h1>
@@ -156,7 +156,7 @@ export default function DownloadBrochurePage() {
                     First Name
                   </label>
                   <input
-                    className="w-full border border-[#C3C3C3] px-4 py-3 text-sm outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-12 bg-white"
+                    className="w-full border border-[#C3C3C3] px-4 py-3 text-sm outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-12 bg-white"
                     id="first-name"
                     placeholder="Enter first name"
                     type="text"
@@ -169,7 +169,7 @@ export default function DownloadBrochurePage() {
                     Last Name
                   </label>
                   <input
-                    className="w-full border border-[#C3C3C3] px-4 py-3 text-sm outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-12 bg-white"
+                    className="w-full border border-[#C3C3C3] px-4 py-3 text-sm outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-12 bg-white"
                     id="last-name"
                     placeholder="Enter last name"
                     type="text"
@@ -187,7 +187,7 @@ export default function DownloadBrochurePage() {
                   </label>
                   <input
                     required
-                    className="w-full border border-[#C3C3C3] px-4 py-3 text-sm outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-12 bg-white"
+                    className="w-full border border-[#C3C3C3] px-4 py-3 text-sm outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-sans h-12 bg-white"
                     id="email"
                     placeholder="Enter email"
                     type="email"
@@ -206,7 +206,7 @@ export default function DownloadBrochurePage() {
                       onChange={(value: string) => setPhone(value)}
                       enableSearch={true}
                       searchPlaceholder="Search country..."
-                      inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3 !text-sm !outline-none !rounded-none focus:!border-[#024787] !font-sans !h-12 bg-white"
+                      inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3 !text-sm !outline-none !rounded-none focus:!border-[#052D69] !font-sans !h-12 bg-white"
                       containerClass="!w-full !rounded-none"
                       buttonClass="!rounded-none !border-y-0 !border-l-0 !border-r !border-[#C3C3C3] !bg-white"
                       dropdownClass="!rounded-none"
@@ -226,7 +226,7 @@ export default function DownloadBrochurePage() {
                   id="consent-policy"
                   checked={consentPolicy}
                   onChange={(e) => setConsentPolicy(e.target.checked)}
-                  className="mt-1 h-3.5 w-3.5 border-[#C3C3C3] rounded-none focus:ring-[#024787] text-[#024787]"
+                  className="mt-1 h-3.5 w-3.5 border-[#C3C3C3] rounded-none focus:ring-[#052D69] text-[#052D69]"
                 />
                 <label htmlFor="consent-policy" className="text-[11px] text-slate-500 leading-normal">
                   I have read the{" "}
@@ -244,7 +244,7 @@ export default function DownloadBrochurePage() {
                   id="consent-updates"
                   checked={consentUpdates}
                   onChange={(e) => setConsentUpdates(e.target.checked)}
-                  className="mt-1 h-3.5 w-3.5 border-[#C3C3C3] rounded-none focus:ring-[#024787] text-[#024787]"
+                  className="mt-1 h-3.5 w-3.5 border-[#C3C3C3] rounded-none focus:ring-[#052D69] text-[#052D69]"
                 />
                 <label htmlFor="consent-updates" className="text-[11px] text-slate-500 leading-normal">
                   Yes, I agree to receive updates on services, events and exciting projects

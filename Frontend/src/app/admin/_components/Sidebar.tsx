@@ -37,7 +37,7 @@ export default function Sidebar({ activeTab, setActiveTab, onOpenCreate }: Sideb
                 <button
                     type="button"
                     onClick={onOpenCreate}
-                    className="w-full mt-6 flex items-center gap-2 justify-center bg-[#024787] hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-xl shadow-sm transition-all text-sm border-0 cursor-pointer"
+                    className="w-full mt-6 flex items-center gap-2 justify-center bg-[#052D69] hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-xl shadow-sm transition-all text-sm border-0 cursor-pointer"
                 >
                     <FaPlus /> Create Case Study
                 </button>

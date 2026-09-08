@@ -29,7 +29,7 @@ export function VisionQuote() {
         <h3 className="text-3xl md:text-5xl lg:text-6xl font-light italic font-serif leading-[1.7] md:leading-[1.5] text-slate-900 tracking-tight">
           “We exist to turn vision into{" "}
           <span className="relative inline-block align-middle my-1">
-            <span className="bg-[#024787] px-3 py-1 md:px-4 md:py-1 not-italic font-sans font-bold text-white tracking-tighter inline-block transform -rotate-1 shadow-lg shadow-[#024787]/10">
+            <span className="bg-[#052D69] px-3 py-1 md:px-4 md:py-1 not-italic font-sans font-bold text-white tracking-tighter inline-block transform -rotate-1 shadow-lg shadow-[#052D69]/10">
               results
             </span>
           </span>
@@ -37,7 +37,7 @@ export function VisionQuote() {
           <br className="hidden md:block" />
           and brands into{" "}
           <span className="relative inline-block align-middle my-1">
-            <span className="bg-[#024787] px-3 py-1 md:px-4 md:py-1 not-italic font-sans font-bold text-white tracking-tighter inline-block transform rotate-1 shadow-lg shadow-[#024787]/10">
+            <span className="bg-[#052D69] px-3 py-1 md:px-4 md:py-1 not-italic font-sans font-bold text-white tracking-tighter inline-block transform rotate-1 shadow-lg shadow-[#052D69]/10">
               experiences
             </span>
           </span>.”

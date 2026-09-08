@@ -9,6 +9,7 @@ import type { ReactNode } from "react";
 import TabBlurProtection from "./_components/tab-blur-protection";
 import HeaderToggle from "./_components/HeaderToggle";
 import SmoothScroll from "./_components/SmoothScroll";
+import ScrollToTop from "./_components/ScrollTop";
 
 
 export const metadata = {
@@ -140,6 +141,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* End Meta Pixel Code */}
       </head>
       <body className="antialiased" cz-shortcut-listen="true">
+         <ScrollToTop />
          <SmoothScroll />
         <HeaderToggle />
         <main>{children}</main>
@@ -147,7 +149,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Footer />
         </footer>
         <FloatingWhatsapp />
-        <TabBlurProtection />
+        {/* <TabBlurProtection /> */}
       </body>
     </html>
   );

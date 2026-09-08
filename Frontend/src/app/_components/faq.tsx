@@ -40,12 +40,12 @@ export default function FAQ() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
+            className="text-[#052D69] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
           >
             [ FAQ ]
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl text-slate-950 font-light tracking-tighter leading-none">
-            Questions<span className="text-[#024787]">.</span>
+            Questions<span className="text-[#052D69]">.</span>
           </h2>
         </div>
 
@@ -67,7 +67,7 @@ export default function FAQ() {
                       animate={{ 
                         rotate: isOpen ? 90 : 0,
                         scale: isOpen ? 1.1 : 1,
-                        color: isOpen ? "#024787" : "#111" 
+                        color: isOpen ? "#052D69" : "#111" 
                       }}
                     >
                       {/* Bolder Icon */}
@@ -76,7 +76,7 @@ export default function FAQ() {
                     
                     {/* Bold Question Text */}
                     <span className={`text-xl md:text-2xl font-medium tracking-tight transition-colors duration-300 ${
-                      isOpen ? "text-[#024787]" : "text-black group-hover:text-[#024787]"
+                      isOpen ? "text-[#052D69]" : "text-black group-hover:text-[#052D69]"
                     }`}>
                       {faq.question}
                     </span>

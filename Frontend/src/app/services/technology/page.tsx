@@ -221,8 +221,8 @@ function SecurityShieldSVG() {
       {/* Outer orbits */}
       <ellipse cx="100" cy="100" rx="80" ry="35" fill="none" stroke="#4285F4" strokeWidth="1" transform="rotate(-30, 100, 100)" />
       <ellipse cx="100" cy="100" rx="80" ry="35" fill="none" stroke="#4285F4" strokeWidth="1" transform="rotate(45, 100, 100)" />
-      <circle cx="50" cy="70" r="4" fill="#004cf6" />
-      <circle cx="150" cy="130" r="4" fill="#004cf6" />
+      <circle cx="50" cy="70" r="4" fill="#052D69" />
+      <circle cx="150" cy="130" r="4" fill="#052D69" />
       {/* Main Shield */}
       <path d="M100 30c30 0 60 10 60 10v60c0 40-30 70-60 80c-30-10-60-40-60-80V40s30-10 60-10z" fill="url(#shieldGrad)" />
       <path d="M100 30v150c26-10 50-38 50-70V40s-20-8-50-10z" fill="#FFF" opacity="0.25" />
@@ -553,7 +553,7 @@ export default function TechnologyPage() {
   ];
 
   return (
-    <div className="bg-white min-h-screen text-slate-900 font-inter selection:bg-[#004cf6]/20">
+    <div className="bg-white min-h-screen text-slate-900 font-inter selection:bg-[#052D69]/20">
       
       {/* 1. HERO SECTION WITH EMBEDDED INTRO ANIMATION */}
       <section className="bg-[#030712] text-white py-32 md:py-48 px-6 overflow-hidden relative flex items-center min-h-[75vh]">
@@ -563,7 +563,7 @@ export default function TechnologyPage() {
             <defs>
               <radialGradient id="heroOrbGrad" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
                 <stop offset="0%" stopColor="#c084fc" stopOpacity="0.75" />
-                <stop offset="45%" stopColor="#004cf6" stopOpacity="0.4" />
+                <stop offset="45%" stopColor="#052D69" stopOpacity="0.4" />
                 <stop offset="75%" stopColor="#7c3aed" stopOpacity="0.2" />
                 <stop offset="100%" stopColor="#030712" stopOpacity="0" />
               </radialGradient>
@@ -614,7 +614,7 @@ export default function TechnologyPage() {
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           
           <div className="text-center max-w-4xl mx-auto mb-20 space-y-4">
-            <span className="text-[#004cf6] text-xs font-semibold uppercase tracking-[0.3em] font-poppins block">
+            <span className="text-[#052D69] text-xs font-semibold uppercase tracking-[0.3em] font-poppins block">
               [ Enterprise Architecture ]
             </span>
             <h2 className="text-4xl md:text-5xl font-light tracking-tight text-slate-955 leading-tight font-poppins">
@@ -712,7 +712,7 @@ export default function TechnologyPage() {
                 {/* Visual Glass Header banner */}
                 <div className="h-28 bg-gradient-to-r from-blue-100 via-indigo-50 to-orange-50 relative overflow-hidden flex items-center justify-center">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,76,246,0.05)_0%,rgba(0,0,0,0)_60%)]" />
-                  <div className="w-10 h-10 rounded-full bg-white/80 shadow-sm border border-slate-100 flex items-center justify-center font-bold text-xs text-[#004cf6] font-poppins">
+                  <div className="w-10 h-10 rounded-full bg-white/80 shadow-sm border border-slate-100 flex items-center justify-center font-bold text-xs text-[#052D69] font-poppins">
                     0{idx + 1}
                   </div>
                 </div>
@@ -757,7 +757,7 @@ export default function TechnologyPage() {
                     onClick={() => scrollToSection(cat)}
                     className="w-full text-left px-5 py-4 rounded-xl text-sm font-semibold font-poppins tracking-wide transition-all"
                     style={{
-                      backgroundColor: isActive ? "#004cf6" : "transparent",
+                      backgroundColor: isActive ? "#052D69" : "transparent",
                       color: isActive ? "#ffffff" : "#64748b",
                     }}
                   >
@@ -817,7 +817,7 @@ export default function TechnologyPage() {
               <button
                 suppressHydrationWarning={true}
                 onClick={() => scrollSlider("left")}
-                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#004cf6] hover:text-[#004cf6] transition-colors shadow-sm"
+                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#052D69] hover:text-[#052D69] transition-colors shadow-sm"
                 aria-label="Previous case study"
               >
                 <ArrowLeftIcon />
@@ -825,7 +825,7 @@ export default function TechnologyPage() {
               <button
                 suppressHydrationWarning={true}
                 onClick={() => scrollSlider("right")}
-                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#004cf6] hover:text-[#004cf6] transition-colors shadow-sm"
+                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#052D69] hover:text-[#052D69] transition-colors shadow-sm"
                 aria-label="Next case study"
               >
                 <ArrowRightIcon />
@@ -873,7 +873,7 @@ export default function TechnologyPage() {
                     <div className="pt-6">
                       <Link
                         href={`/case-studies/${cs.slug}`}
-                        className="inline-flex items-center gap-2 px-6 py-3 border border-slate-900 text-slate-900 hover:border-[#004cf6] hover:text-[#004cf6] hover:bg-blue-50/5 transition-all text-xs font-bold uppercase tracking-wider font-poppins rounded-none"
+                        className="inline-flex items-center gap-2 px-6 py-3 border border-slate-900 text-slate-900 hover:border-[#052D69] hover:text-[#052D69] hover:bg-blue-50/5 transition-all text-xs font-bold uppercase tracking-wider font-poppins rounded-none"
                       >
                         Read Case Study <ArrowRight size={14} />
                       </Link>
@@ -913,10 +913,10 @@ export default function TechnologyPage() {
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
                     className="flex justify-between items-center text-left w-full group"
                   >
-                    <span className={`text-base md:text-lg font-semibold transition-colors duration-300 ${isOpen ? 'text-[#004cf6]' : 'text-slate-900 group-hover:text-[#004cf6]'}`}>
+                    <span className={`text-base md:text-lg font-semibold transition-colors duration-300 ${isOpen ? 'text-[#052D69]' : 'text-slate-900 group-hover:text-[#052D69]'}`}>
                       {faq.question}
                     </span>
-                    {isOpen ? <Minus size={18} className="text-[#004cf6]" /> : <Plus size={18} className="text-slate-400 group-hover:text-[#004cf6]" />}
+                    {isOpen ? <Minus size={18} className="text-[#052D69]" /> : <Plus size={18} className="text-slate-400 group-hover:text-[#052D69]" />}
                   </button>
                   <AnimatePresence initial={false}>
                     {isOpen && (
@@ -941,7 +941,7 @@ export default function TechnologyPage() {
             <button
               suppressHydrationWarning={true}
               onClick={() => alert("Check back later for more FAQs!")}
-              className="px-6 py-2.5 border border-[#004cf6] text-[#004cf6] hover:bg-blue-50/40 text-xs font-bold uppercase tracking-wider transition-colors font-poppins"
+              className="px-6 py-2.5 border border-[#052D69] text-[#052D69] hover:bg-blue-50/40 text-xs font-bold uppercase tracking-wider transition-colors font-poppins"
             >
               Show more
             </button>
@@ -985,7 +985,7 @@ export default function TechnologyPage() {
                       href="https://www.linkedin.com/in/aadarsh-k-3b44a1170/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-slate-400 hover:text-[#004cf6] mt-2 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-slate-400 hover:text-[#052D69] mt-2 transition-colors"
                     >
                       <Linkedin size={14} />
                       <span className="text-[10px] font-semibold uppercase tracking-wider">LinkedIn</span>
@@ -1000,14 +1000,14 @@ export default function TechnologyPage() {
               <div className="bg-white border border-slate-100 p-6 md:p-10 shadow-sm rounded-none">
                 {isSubmitted ? (
                   <div className="py-16 text-center animate-in fade-in zoom-in duration-500">
-                    <CheckCircle2 className="w-16 h-16 text-[#004cf6] mx-auto mb-6" />
+                    <CheckCircle2 className="w-16 h-16 text-[#052D69] mx-auto mb-6" />
                     <h2 className="text-3xl font-light mb-2 font-poppins">Message Sent!</h2>
                     <p className="text-slate-500 text-base mb-6 font-inter font-normal">
                       Our system engineering team will review your details and reach out within 24 hours.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="text-[#004cf6] font-semibold uppercase tracking-widest text-xs hover:underline font-poppins"
+                      className="text-[#052D69] font-semibold uppercase tracking-widest text-xs hover:underline font-poppins"
                     >
                       Send another message
                     </button>
@@ -1024,7 +1024,7 @@ export default function TechnologyPage() {
                         <input
                           suppressHydrationWarning={true}
                           required
-                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#004cf6] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal"
+                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal"
                           id="first-name"
                           placeholder="Enter first name"
                           type="text"
@@ -1038,7 +1038,7 @@ export default function TechnologyPage() {
                         </label>
                         <input
                           suppressHydrationWarning={true}
-                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#004cf6] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal"
+                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal"
                           id="last-name"
                           placeholder="Enter last name"
                           type="text"
@@ -1057,7 +1057,7 @@ export default function TechnologyPage() {
                         <input
                           suppressHydrationWarning={true}
                           required
-                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#004cf6] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal"
+                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal"
                           id="email"
                           placeholder="Enter email"
                           type="email"
@@ -1076,7 +1076,7 @@ export default function TechnologyPage() {
                             onChange={(value: string) => setPhone(value)}
                             enableSearch={true}
                             searchPlaceholder="Search country..."
-                            inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#004cf6] !font-inter !h-14 bg-white font-normal"
+                            inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#052D69] !font-inter !h-14 bg-white font-normal"
                             containerClass="!w-full !rounded-none"
                             buttonClass="!rounded-none !border-y-0 !border-l-0 !border-r !border-[#C3C3C3] !bg-white"
                             dropdownClass="!rounded-none"
@@ -1102,7 +1102,7 @@ export default function TechnologyPage() {
                         suppressHydrationWarning={true}
                         required
                         maxLength={1000}
-                        className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#004cf6] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-44 resize-none bg-white font-normal"
+                        className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-44 resize-none bg-white font-normal"
                         id="tell-us-more"
                         placeholder="Brief about your project"
                         value={message}
@@ -1116,7 +1116,7 @@ export default function TechnologyPage() {
                         suppressHydrationWarning={true}
                         type="submit"
                         disabled={isSubmitting}
-                        className="px-10 py-4 bg-black text-white hover:bg-[#004cf6] transition-colors flex items-center gap-3 font-semibold text-xs uppercase tracking-widest rounded-none disabled:opacity-50 font-poppins"
+                        className="px-10 py-4 bg-black text-white hover:bg-[#052D69] transition-colors flex items-center gap-3 font-semibold text-xs uppercase tracking-widest rounded-none disabled:opacity-50 font-poppins"
                       >
                         {isSubmitting ? (
                           <>

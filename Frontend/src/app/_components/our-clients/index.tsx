@@ -16,7 +16,7 @@ export default function OurClients() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-[#024787] font-poppins text-[10px] md:text-xs tracking-[0.4em]  mb-4 block font-medium"
+              className="text-[#052D69] font-poppins text-[10px] md:text-xs tracking-[0.4em]  mb-4 block font-medium"
             >
               [ Trusted Partners ]
             </motion.span>

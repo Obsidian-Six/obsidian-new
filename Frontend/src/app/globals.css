@@ -34,7 +34,7 @@
 
 /* Sidebar Input Styles */
 .sidebar-input {
-  @apply w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#024787] transition-all;
+  @apply w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#052D69] transition-all;
 }
 
 
@@ -62,7 +62,7 @@
 }
 
 .wp-content-styled strong {
-  @apply text-[#024787] font-bold;
+  @apply text-[#052D69] font-bold;
 }
 
 .wp-content-styled img {
@@ -96,7 +96,7 @@
   }
 
   .prose-custom strong {
-    @apply font-bold text-[#024787];
+    @apply font-bold text-[#052D69];
   }
 
   .prose-custom img {
@@ -168,7 +168,7 @@
     @apply relative overflow-hidden transition-all duration-300 z-10 hover:text-white;
   }
   button[data-variant="opener"]::before {
-    @apply content-[''] w-0 h-[300%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-[#024787] transition-all duration-500 ease-in-out block -z-10;
+    @apply content-[''] w-0 h-[300%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-[#052D69] transition-all duration-500 ease-in-out block -z-10;
   }
   button[data-variant="opener"]:hover::before {
     @apply w-[105%];
@@ -201,7 +201,7 @@
     @apply bg-[#19183a];
   }
   .head-main {
-    @apply text-[#024787];
+    @apply text-[#052D69];
   }
   .border-main {
     @apply border border-[#19183a];
@@ -227,7 +227,7 @@
     @apply translate-y-6;
   }
   .group:hover .span-mother2 span {
-    @apply translate-y-0 text-[#024787];
+    @apply translate-y-0 text-[#052D69];
   }
 
   /* UI Verse io - Adapted for Navbar */
@@ -302,7 +302,7 @@ body.modal-open {
 }
 
 .headmain {
-  color: #024787;
+  color: #052D69;
 }
 
 
@@ -358,7 +358,7 @@ body.modal-open {
 
 .group:hover .span-mother2 span {
   transform: translateY(0);
-  color: #024787;
+  color: #052D69;
 }
 
 /* From Uiverse.io - Adapted for Navbar */
@@ -456,12 +456,20 @@ header.scrolled-floating nav {
     padding-right: 1rem !important;
   }
 }
-
+/* header {
+  transform: translateY(0);
+  opacity: 1;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+} */
 /* Hide header when scrolling on services pages */
 header.hide-on-scroll {
   transform: translateY(-120%);
-  opacity: 0;
-  pointer-events: none;
+  /* opacity: 0; */
+  /* pointer-events: none; */
 }
 
 .animated-nav:hover i:nth-child(8) {
@@ -523,4 +531,10 @@ a.os-cta-btn,
 .os-btn-slide:hover {
   color: #ffffff !important;
   border-color: #FD7B28 !important;
+}
+
+body.mobile-menu-open header {
+  transform: translateY(0) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }

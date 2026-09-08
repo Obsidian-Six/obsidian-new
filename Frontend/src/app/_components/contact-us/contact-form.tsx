@@ -72,7 +72,7 @@ const ContactForm = () => {
           </label>
           <input
             suppressHydrationWarning
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-colors"
             id="first-name"
             placeholder="First Name"
             type="text"
@@ -86,7 +86,7 @@ const ContactForm = () => {
           </label>
           <input
             suppressHydrationWarning
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-colors"
             id="last-name"
             placeholder="Last Name"
             type="text"
@@ -102,7 +102,7 @@ const ContactForm = () => {
         </label>
         <input
           suppressHydrationWarning
-          className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-colors"
+          className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-colors"
           id="email"
           placeholder="abc@company.com"
           type="email"
@@ -123,7 +123,7 @@ const ContactForm = () => {
             onChange={(value: string) => setPhone(value)}
             enableSearch={true}
             searchPlaceholder="Search country..."
-            inputClass="!border !border-[#C3C3C3] p-2.5 !text-xs !outline-none !w-full !rounded-none focus:!border-[#024787]"
+            inputClass="!border !border-[#C3C3C3] p-2.5 !text-xs !outline-none !w-full !rounded-none focus:!border-[#052D69]"
             containerClass="!w-full"
             buttonClass="!rounded-none !border-[#C3C3C3]"
             dropdownClass="!rounded-none"
@@ -146,8 +146,8 @@ const ContactForm = () => {
                 key={index}
                 className={`flex items-center px-4 py-2 text-xs cursor-pointer transition-all duration-300 border ${
                   isSelected 
-                    ? "bg-[#024787] border-[#024787] text-white shadow-md" 
-                    : "bg-white border-[#C3C3C3] text-gray-600 hover:border-[#024787]"
+                    ? "bg-[#052D69] border-[#052D69] text-white shadow-md" 
+                    : "bg-white border-[#C3C3C3] text-gray-600 hover:border-[#052D69]"
                 }`}
               >
                 <input
@@ -177,7 +177,7 @@ const ContactForm = () => {
           </label>
           <input
             suppressHydrationWarning
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-colors"
             id="company-name"
             placeholder="abc pvt ltd"
             type="text"
@@ -191,7 +191,7 @@ const ContactForm = () => {
           </label>
           <input
             suppressHydrationWarning
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-colors"
             id="company-website"
             placeholder="www.abc.com"
             type="text"
@@ -211,8 +211,8 @@ const ContactForm = () => {
         <button
           suppressHydrationWarning
           disabled={isSubmitting}
-          className={`group inline-flex items-center justify-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-lg shadow-[#024787]/10 os-btn-slide ${
-            isSubmitting ? "opacity-50 cursor-progress" : "opacity-100 cursor-pointer hover:bg-[#024787]"
+          className={`group inline-flex items-center justify-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-lg shadow-[#052D69]/10 os-btn-slide ${
+            isSubmitting ? "opacity-50 cursor-progress" : "opacity-100 cursor-pointer hover:bg-[#052D69]"
           }`}
           type="submit"
         >

@@ -28,13 +28,13 @@ const ContactUs = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
+          className="text-[#052D69] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
         >
           [ Contact Us ]
         </motion.span>
         <h2 className="text-4xl md:text-5xl lg:text-6xl leading-none font-light text-slate-950 tracking-tighter">
           Let&apos;s Construct <br className="hidden md:block" />
-          <span className="text-[#024787] italic font-serif">Future.</span>
+          <span className="text-[#052D69] italic font-serif">Future.</span>
         </h2>
         <p className="text-gray-400 mt-6 max-w-md uppercase tracking-[0.2em] text-[9px] md:text-[10px] font-bold">
           Ready to scale? Drop us a line.
@@ -51,7 +51,7 @@ const ContactUs = () => {
 
               {/* Call */}
               <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 rounded-2xl border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 rounded-xl shadow-sm  group-hover:text-[#024787] transition-colors">
+                <div className="bg-white p-3 rounded-xl shadow-sm  group-hover:text-[#052D69] transition-colors">
                   <PiPhoneCall className="text-xl" />
                 </div>
                 <div>
@@ -64,7 +64,7 @@ const ContactUs = () => {
 
               {/* Email */}
               <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 rounded-2xl border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 rounded-xl shadow-sm group-hover:text-[#024787] transition-colors">
+                <div className="bg-white p-3 rounded-xl shadow-sm group-hover:text-[#052D69] transition-colors">
                   <MdOutlineMailOutline className="text-xl" />
                 </div>
                 <div>
@@ -77,7 +77,7 @@ const ContactUs = () => {
 
               {/* Instagram */}
               <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 rounded-2xl border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 rounded-xl shadow-sm group-hover:text-[#024787] transition-colors">
+                <div className="bg-white p-3 rounded-xl shadow-sm group-hover:text-[#052D69] transition-colors">
                   <RiInstagramLine className="text-xl" />
                 </div>
                 <div>
@@ -90,7 +90,7 @@ const ContactUs = () => {
 
               {/* Location */}
               <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 rounded-2xl border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 rounded-xl shadow-sm group-hover:text-[#024787] transition-colors">
+                <div className="bg-white p-3 rounded-xl shadow-sm group-hover:text-[#052D69] transition-colors">
                   <GrLocation className="text-xl" />
                 </div>
                 <div>

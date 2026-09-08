@@ -79,7 +79,7 @@ export default function Hero() {
 
             <div className="space-y-4 max-w-2xl mx-auto">
                 {/* Premium Italic look for tagline */}
-                <h2 className="text-xl md:text-3xl font-light italic text-[#024787] tracking-tight">
+                <h2 className="text-xl md:text-3xl font-light italic text-[#052D69] tracking-tight">
                     {slides[currentSlide]?.tagline}
                 </h2>
                 <p className="text-sm md:text-xl text-slate-700 leading-relaxed tracking-wide font-light">
@@ -95,7 +95,7 @@ export default function Hero() {
             >
               <Link
                 href="/#contactUs"
-                className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10 os-btn-slide"
+                className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#052D69] transition-all duration-300 shadow-lg shadow-[#052D69]/10 os-btn-slide"
               >
                 Start Journey <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
               </Link>
@@ -132,9 +132,9 @@ export default function Hero() {
             Connect
          </span>
          <div className="w-[1px] h-12 bg-black/10 mb-4" />
-         <a href="https://instagram.com/obsidiansixofficial" className="hover:text-[#024787] opacity-40 hover:opacity-100 transition-all duration-300"><FaInstagram size={22} /></a>
-         <a href="https://linkedin.com/company/obsidian-six" className="hover:text-[#024787] opacity-40 hover:opacity-100 transition-all duration-300"><FaLinkedin size={22} /></a>
-         <a href="https://wa.me/918085652729" className="hover:text-[#024787] opacity-40 hover:opacity-100 transition-all duration-300"><FaWhatsapp size={22} /></a>
+         <a href="https://instagram.com/obsidiansixofficial" className="hover:text-[#052D69] opacity-40 hover:opacity-100 transition-all duration-300"><FaInstagram size={22} /></a>
+         <a href="https://linkedin.com/company/obsidian-six" className="hover:text-[#052D69] opacity-40 hover:opacity-100 transition-all duration-300"><FaLinkedin size={22} /></a>
+         <a href="https://wa.me/918085652729" className="hover:text-[#052D69] opacity-40 hover:opacity-100 transition-all duration-300"><FaWhatsapp size={22} /></a>
       </div>
     </section>
   );

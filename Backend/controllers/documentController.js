@@ -122,14 +122,14 @@ async function sendUserBrochureEmail(userEmail, firstName) {
     subject: `Your Obsidian Six Brochure Request`,
     html: `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px;">
-        <h2 style="color: #024787; margin-bottom: 20px;">Hello ${firstName || 'there'},</h2>
+        <h2 style="color: #052D69; margin-bottom: 20px;">Hello ${firstName || 'there'},</h2>
         <p>Thank you for requesting the official Obsidian Six company brochure!</p>
         <p>We are excited to partner with you on your digital transformation journey. In this brochure, you'll find information about our core services, including branding, digital marketing, website development, and IT solutions.</p>
         <p>We have attached the brochure PDF directly to this email. You can also view or download it at any time using the link below:</p>
         <div style="margin: 30px 0; text-align: center;">
-          <a href="https://obsidiansix.com/Obs_brochure.pdf" style="background-color: #024787; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">Download Brochure Link</a>
+          <a href="https://obsidiansix.com/Obs_brochure.pdf" style="background-color: #052D69; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">Download Brochure Link</a>
         </div>
-        <p>If you have any questions or would like to schedule a strategy session, please feel free to email us at <a href="mailto:info@obsidiansix.com" style="color: #024787;">info@obsidiansix.com</a> or call us at <a href="tel:+918085652729" style="color: #024787;">+91 80856 52729</a>.</p>
+        <p>If you have any questions or would like to schedule a strategy session, please feel free to email us at <a href="mailto:info@obsidiansix.com" style="color: #052D69;">info@obsidiansix.com</a> or call us at <a href="tel:+918085652729" style="color: #052D69;">+91 80856 52729</a>.</p>
         <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 30px 0;" />
         <p style="font-size: 12px; color: #666;">Best regards,<br /><strong>The Strategy Team</strong><br />Obsidian Six</p>
       </div>

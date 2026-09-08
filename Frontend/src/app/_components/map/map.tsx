@@ -35,7 +35,7 @@ const Map = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
+            className="text-[#052D69] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
           >
             [ Global Presence ]
           </motion.span>
@@ -47,7 +47,7 @@ const Map = () => {
             className="text-4xl md:text-5xl lg:text-6xl text-slate-950 font-light tracking-tighter leading-[1.1]"
           >
             Powering Businesses <br className="hidden md:block" />
-            <span className="italic font-serif text-[#024787]">Worldwide.</span>
+            <span className="italic font-serif text-[#052D69]">Worldwide.</span>
           </motion.h2>
         </div>
 
@@ -88,7 +88,7 @@ const Map = () => {
               priority
             />
           </div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-[#024787]/5 blur-[80px] -z-10 rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-[#052D69]/5 blur-[80px] -z-10 rounded-full" />
         </motion.div>
       </div>
     </section>

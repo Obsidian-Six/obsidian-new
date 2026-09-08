@@ -6,7 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
-export default function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+export default function MobileMenu({
+  isOpen,
+  onClose,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+}) {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const mainNavItems = [
@@ -31,12 +37,20 @@ export default function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClo
           initial={{ x: "100%" }}
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
-          transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
-          className="fixed inset-0 w-full h-screen bg-white z-[115] lg:hidden flex flex-col"
+          transition={{
+            type: "tween",
+            duration: 0.3,
+            ease: "easeInOut",
+          }}
+          className="fixed inset-0 z-[115] flex h-[100dvh] w-full flex-col overflow-hidden bg-white lg:hidden"
         >
           {/* Top Header of Menu Panel to align with standard mobile header */}
           <div className="flex items-center justify-between px-6 h-20 border-b border-slate-100 shrink-0">
-            <Link href="/" onClick={onClose} className="flex items-center h-full">
+            <Link
+              href="/"
+              onClick={onClose}
+              className="flex items-center h-full"
+            >
               <Image
                 src="/images/logo/logo2.png"
                 width={120}
@@ -51,17 +65,19 @@ export default function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClo
           </div>
 
           {/* Navigation Options Section */}
-          <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col justify-between">
-            <nav className="flex flex-col">
-              
+          <div
+            data-mobile-menu-scroll
+            className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 md:py-6 flex flex-col"
+          >
+            <nav className="w-full flex flex-col">
               {/* Collapsible Services Item */}
-              <div className="border-b border-slate-100">
+              <div className="w-full border-b border-slate-100">
                 <button
                   type="button"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="w-full py-5 flex items-center justify-between text-base font-poppins font-medium tracking-tight text-[#19183A] hover:text-[#024787] transition-colors focus:outline-none"
+                  className="w-full py-4 md:py-5 flex items-center justify-between text-base font-poppins font-medium tracking-tight text-[#19183A] hover:text-[#052D69] transition-colors focus:outline-none"
                 >
-                  <span>Services</span>
+                  <span className="text-xl">Services</span>
                   {isServicesOpen ? (
                     <IoChevronUp className="text-slate-400 text-lg" />
                   ) : (
@@ -83,7 +99,7 @@ export default function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClo
                           key={index}
                           href={subItem.link}
                           onClick={onClose}
-                          className="block py-3 text-sm font-poppins font-normal text-slate-600 hover:text-[#024787] border-b border-slate-100/50 last:border-b-0"
+                          className="text-lg block py-3 text-sm font-poppins font-normal text-slate-600 hover:text-[#052D69] border-b border-slate-100/50 last:border-b-0"
                         >
                           {subItem.name}
                         </Link>
@@ -95,17 +111,16 @@ export default function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClo
 
               {/* Other Navigation Items */}
               {mainNavItems.map((item, i) => (
-                <div key={i} className="border-b border-slate-100">
+                <div key={i} className="w-full border-b border-slate-100">
                   <Link
                     href={item.link}
                     onClick={onClose}
-                    className="block py-5 text-base font-poppins font-medium tracking-tight text-[#19183A] hover:text-[#024787] transition-colors"
+                    className="text-xl block py-4 md:py-4 text-base font-poppins font-medium tracking-tight text-[#19183A] hover:text-[#052D69] transition-colors"
                   >
                     {item.name}
                   </Link>
                 </div>
               ))}
-
             </nav>
 
             {/* Bottom Section containing the CTA button */}
@@ -113,12 +128,11 @@ export default function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClo
               <Link
                 href="/contactus"
                 onClick={onClose}
-                className="w-full bg-[#004cf6] hover:bg-blue-700 text-white font-poppins font-semibold py-4 text-center tracking-wide block transition-colors rounded-none"
+                className="w-full bg-[#052D69] hover:bg-blue-700 text-white font-poppins font-semibold py-4 text-center tracking-wide block transition-colors rounded-none"
               >
                 Contact Us
               </Link>
             </div>
-
           </div>
         </motion.div>
       )}

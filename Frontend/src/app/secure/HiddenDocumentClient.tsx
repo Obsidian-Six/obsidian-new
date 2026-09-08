@@ -329,7 +329,7 @@ export default function HiddenDocumentClient({ pdfFilename }: HiddenDocumentClie
       {/* Header bar */}
       <div className="w-full bg-slate-950/80 border-b border-slate-900 backdrop-blur-md px-6 py-4 flex items-center justify-between z-40 relative">
         <div className="flex items-center gap-3">
-          <div className="h-9 w-9 bg-gradient-to-tr from-[#024787] to-[#086ddd] rounded-xl flex items-center justify-center shadow-lg shadow-[#024787]/25">
+          <div className="h-9 w-9 bg-gradient-to-tr from-[#052D69] to-[#086ddd] rounded-xl flex items-center justify-center shadow-lg shadow-[#052D69]/25">
             <Lock className="text-white size-4" />
           </div>
           <div>
@@ -406,7 +406,7 @@ export default function HiddenDocumentClient({ pdfFilename }: HiddenDocumentClie
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#024787] hover:bg-[#086ddd] text-white font-bold text-sm md:text-base py-4.5 rounded-2xl shadow-xl shadow-[#024787]/20 hover:shadow-2xl hover:shadow-[#086ddd]/30 transition-all flex items-center justify-center gap-3 transform active:scale-[0.98] hover:-translate-y-0.5"
+                  className="w-full bg-[#052D69] hover:bg-[#086ddd] text-white font-bold text-sm md:text-base py-4.5 rounded-2xl shadow-xl shadow-[#052D69]/20 hover:shadow-2xl hover:shadow-[#086ddd]/30 transition-all flex items-center justify-center gap-3 transform active:scale-[0.98] hover:-translate-y-0.5"
                 >
                   {isSubmitting ? (
                     <>

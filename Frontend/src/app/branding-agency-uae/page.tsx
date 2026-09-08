@@ -356,7 +356,7 @@ export default function BrandingLandingPage() {
                 {/* Visual Glass Header banner with index bubble */}
                 <div className={`h-24 bg-gradient-to-r ${item.grad} relative overflow-hidden flex items-center justify-center`}>
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02)_0%,rgba(0,0,0,0)_60%)]" />
-                  <div className="w-10 h-10 rounded-full bg-white/90 shadow-sm border border-slate-100 flex items-center justify-center font-bold text-xs text-[#004cf6] font-poppins">
+                  <div className="w-10 h-10 rounded-full bg-white/90 shadow-sm border border-slate-100 flex items-center justify-center font-bold text-xs text-[#052D69] font-poppins">
                     0{idx + 1}
                   </div>
                 </div>
@@ -428,13 +428,13 @@ export default function BrandingLandingPage() {
                       onClick={() => setActiveProcessStep(idx)}
                       className="flex justify-between items-center text-left w-full group cursor-pointer"
                     >
-                      <span className={`text-base md:text-lg font-semibold transition-colors duration-300 ${isOpen ? 'text-[#004cf6]' : 'text-slate-900 group-hover:text-[#004cf6]'}`}>
+                      <span className={`text-base md:text-lg font-semibold transition-colors duration-300 ${isOpen ? 'text-[#052D69]' : 'text-slate-900 group-hover:text-[#052D69]'}`}>
                         {step.title}
                       </span>
                       {isOpen ? (
-                        <Minus size={18} className="text-[#004cf6] shrink-0" />
+                        <Minus size={18} className="text-[#052D69] shrink-0" />
                       ) : (
-                        <Plus size={18} className="text-slate-400 group-hover:text-[#004cf6] shrink-0" />
+                        <Plus size={18} className="text-slate-400 group-hover:text-[#052D69] shrink-0" />
                       )}
                     </button>
                     <AnimatePresence initial={false}>
@@ -485,7 +485,7 @@ export default function BrandingLandingPage() {
               {/* Animated blue wave matching user scroll */}
               <motion.path
                 d="M50,0 C15,120 85,250 50,380 C15,500 85,620 50,750 C15,870 85,1000 50,1000"
-                stroke="#004cf6"
+                stroke="#052D69"
                 strokeWidth="3"
                 style={{ pathLength }}
               />
@@ -806,7 +806,7 @@ export default function BrandingLandingPage() {
               <button
                 suppressHydrationWarning
                 onClick={() => scrollSlider("left")}
-                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#004cf6] hover:text-[#004cf6] transition-colors shadow-sm cursor-pointer"
+                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#052D69] hover:text-[#052D69] transition-colors shadow-sm cursor-pointer"
                 aria-label="Previous case study"
               >
                 <ArrowLeftIcon />
@@ -814,7 +814,7 @@ export default function BrandingLandingPage() {
               <button
                 suppressHydrationWarning
                 onClick={() => scrollSlider("right")}
-                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#004cf6] hover:text-[#004cf6] transition-colors shadow-sm cursor-pointer"
+                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:border-[#052D69] hover:text-[#052D69] transition-colors shadow-sm cursor-pointer"
                 aria-label="Next case study"
               >
                 <ArrowRightIcon />
@@ -862,7 +862,7 @@ export default function BrandingLandingPage() {
                     <div className="pt-6">
                       <Link
                         href={`/case-studies/${cs.slug}`}
-                        className="inline-flex items-center gap-2 px-6 py-3 border border-slate-900 text-slate-900 hover:border-[#004cf6] hover:text-[#004cf6] hover:bg-blue-50/5 transition-all text-xs font-bold uppercase tracking-wider font-poppins rounded-none"
+                        className="inline-flex items-center gap-2 px-6 py-3 border border-slate-900 text-slate-900 hover:border-[#052D69] hover:text-[#052D69] hover:bg-blue-50/5 transition-all text-xs font-bold uppercase tracking-wider font-poppins rounded-none"
                       >
                         Read Case Study <ArrowRight size={14} />
                       </Link>
@@ -922,7 +922,7 @@ export default function BrandingLandingPage() {
                       href="https://www.linkedin.com/in/aadarsh-k-3b44a1170/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-slate-400 hover:text-[#004cf6] mt-2 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-slate-400 hover:text-[#052D69] mt-2 transition-colors"
                     >
                       <Linkedin size={14} />
                       <span className="text-[10px] font-semibold uppercase tracking-wider">LinkedIn</span>
@@ -937,14 +937,14 @@ export default function BrandingLandingPage() {
               <div className="bg-white border border-slate-100 p-6 md:p-10 shadow-sm rounded-none">
                 {isSubmitted ? (
                   <div className="py-16 text-center animate-in fade-in zoom-in duration-500">
-                    <CheckCircle2 className="w-16 h-16 text-[#004cf6] mx-auto mb-6" />
+                    <CheckCircle2 className="w-16 h-16 text-[#052D69] mx-auto mb-6" />
                     <h2 className="text-3xl font-light mb-2 font-poppins">Message Sent!</h2>
                     <p className="text-slate-500 text-base mb-6 font-inter font-normal">
                       Our brand strategy team will review your project details and reach out within 24 hours.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="text-[#004cf6] font-semibold uppercase tracking-widest text-xs hover:underline font-poppins cursor-pointer"
+                      className="text-[#052D69] font-semibold uppercase tracking-widest text-xs hover:underline font-poppins cursor-pointer"
                     >
                       Send another message
                     </button>
@@ -960,7 +960,7 @@ export default function BrandingLandingPage() {
                         </label>
                         <input
                           required
-                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#004cf6] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal text-slate-900"
+                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal text-slate-900"
                           id="first-name"
                           placeholder="Enter first name"
                           type="text"
@@ -973,7 +973,7 @@ export default function BrandingLandingPage() {
                           Last Name
                         </label>
                         <input
-                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#004cf6] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal text-slate-900"
+                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal text-slate-900"
                           id="last-name"
                           placeholder="Enter last name"
                           type="text"
@@ -991,7 +991,7 @@ export default function BrandingLandingPage() {
                         </label>
                         <input
                           required
-                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#004cf6] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal text-slate-900"
+                          className="w-full border border-[#C3C3C3] px-4 py-3 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 bg-white font-normal text-slate-900"
                           id="email"
                           placeholder="Enter email"
                           type="email"
@@ -1010,7 +1010,7 @@ export default function BrandingLandingPage() {
                             onChange={(value: string) => setPhone(value)}
                             enableSearch={true}
                             searchPlaceholder="Search country..."
-                            inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#004cf6] !font-inter !h-14 bg-white font-normal text-slate-900"
+                            inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#052D69] !font-inter !h-14 bg-white font-normal text-slate-900"
                             containerClass="!w-full !rounded-none"
                             buttonClass="!rounded-none !border-y-0 !border-l-0 !border-r !border-[#C3C3C3] !bg-white"
                             dropdownClass="!rounded-none !text-slate-900"
@@ -1035,7 +1035,7 @@ export default function BrandingLandingPage() {
                       <textarea
                         required
                         maxLength={1000}
-                        className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#004cf6] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-44 resize-none bg-white font-normal text-slate-900"
+                        className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-44 resize-none bg-white font-normal text-slate-900"
                         id="tell-us-more"
                         placeholder="Briefly describe your brand objectives"
                         value={message}
@@ -1048,7 +1048,7 @@ export default function BrandingLandingPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="px-10 py-4 bg-black text-white hover:bg-[#004cf6] transition-colors flex items-center gap-3 font-semibold text-xs uppercase tracking-widest rounded-none disabled:opacity-50 font-poppins cursor-pointer"
+                        className="px-10 py-4 bg-black text-white hover:bg-[#052D69] transition-colors flex items-center gap-3 font-semibold text-xs uppercase tracking-widest rounded-none disabled:opacity-50 font-poppins cursor-pointer"
                       >
                         {isSubmitting ? (
                           <>

@@ -67,7 +67,7 @@ const BlogsSidebarForm = () => {
             First Name
           </label>
           <input
-            className="border border-slate-200 p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-all bg-white"
+            className="border border-slate-200 p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-all bg-white"
             id="first-name"
             type="text"
             placeholder="John"
@@ -80,7 +80,7 @@ const BlogsSidebarForm = () => {
             Last Name
           </label>
           <input
-            className="border border-slate-200 p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-all bg-white"
+            className="border border-slate-200 p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-all bg-white"
             id="last-name"
             type="text"
             placeholder="Doe"
@@ -97,7 +97,7 @@ const BlogsSidebarForm = () => {
             Email
           </label>
           <input
-            className="border border-slate-200 p-2.5 text-xs outline-none w-full focus:border-[#024787] transition-all"
+            className="border border-slate-200 p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-all"
             id="email"
             type="email"
             placeholder="abc@company.com"
@@ -134,8 +134,8 @@ const BlogsSidebarForm = () => {
               <label
                 key={index}
                 className={`px-3 py-1.5 text-[9px] font-bold uppercase cursor-pointer border transition-all ${isSelected
-                    ? "bg-[#024787] border-[#024787] text-white"
-                    : "bg-white border-slate-200 text-slate-500 hover:border-[#024787]"
+                    ? "bg-[#052D69] border-[#052D69] text-white"
+                    : "bg-white border-slate-200 text-slate-500 hover:border-[#052D69]"
                   }`}
               >
                 <input
@@ -161,7 +161,7 @@ const BlogsSidebarForm = () => {
             Company
           </label>
           <input
-            className="border border-slate-200 p-2.5 text-xs outline-none w-full focus:border-[#024787]"
+            className="border border-slate-200 p-2.5 text-xs outline-none w-full focus:border-[#052D69]"
             placeholder="Company Name"
             type="text"
             value={companyName}
@@ -174,7 +174,7 @@ const BlogsSidebarForm = () => {
       <div className="pt-4 relative z-50">
         <button
           disabled={isSubmitting}
-          className="w-full font-black text-[11px] uppercase tracking-[0.2em] py-4 text-white bg-[#024787] hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-lg active:scale-[0.98]"
+          className="w-full font-black text-[11px] uppercase tracking-[0.2em] py-4 text-white bg-[#052D69] hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-lg active:scale-[0.98]"
           type="submit"
         >
           {isSubmitting ? "Sending..." : (

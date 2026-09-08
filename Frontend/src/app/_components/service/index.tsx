@@ -40,7 +40,7 @@ const HomeService = () => {
             <div className="text-xl md:text-2xl font-semibold font-poppins uppercase tracking-tight text-[#19183A] leading-tight">
               {service.name}
             </div>
-            <div className="h-[2px] bg-[#024787] w-10 mt-2" />
+            <div className="h-[2px] bg-[#052D69] w-10 mt-2" />
           </div>
 
           <button
@@ -50,7 +50,7 @@ const HomeService = () => {
               e.stopPropagation();
               setIsPopupOpen(true);
             }}
-            className="group inline-flex items-center gap-2.5 px-5 py-2.5 bg-slate-900 text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-md shadow-[#024787]/10 whitespace-nowrap os-btn-slide"
+            className="group inline-flex items-center gap-2.5 px-5 py-2.5 bg-slate-900 text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#052D69] transition-all duration-300 shadow-md shadow-[#052D69]/10 whitespace-nowrap os-btn-slide"
           >
             Inquire Now
             <GoArrowUpRight className="text-base group-hover:rotate-45 transition-transform duration-300" />
@@ -78,7 +78,7 @@ const HomeService = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-[#024787] font-poppins text-[10px] md:text-xs tracking-[0.4em] uppercase mb-2 block font-semibold"
+              className="text-[#052D69] font-poppins text-[10px] md:text-xs tracking-[0.4em] uppercase mb-2 block font-semibold"
             >
               [ Our Services ]
             </MotionDiv>
@@ -95,14 +95,14 @@ const HomeService = () => {
                   suppressHydrationWarning
                   type="button"
                   className={`w-full text-left flex items-center justify-between text-lg md:text-xl uppercase font-poppins py-4 transition-all duration-300 ${selectedService.name === service.name
-                    ? "text-[#024787] font-medium pl-2"
+                    ? "text-[#052D69] font-medium pl-2"
                     : "text-main opacity-60 hover:opacity-100 hover:pl-1"
                     }`}
                   onClick={() => setSelectedService(service)}
                 >
                   <span className="max-w-[85%] tracking-tight">{service.name}</span>
                   <BsArrowRightCircle
-                    className={`text-lg md:text-xl transition-transform duration-300 ${selectedService.name === service.name ? 'rotate-[-45deg] text-[#024787]' : 'text-slate-400'
+                    className={`text-lg md:text-xl transition-transform duration-300 ${selectedService.name === service.name ? 'rotate-[-45deg] text-[#052D69]' : 'text-slate-400'
                       }`}
                   />
                 </button>

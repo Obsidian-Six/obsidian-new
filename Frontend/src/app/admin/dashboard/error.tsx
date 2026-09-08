@@ -9,7 +9,7 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
         <p className="mb-4">{error.message}</p>
         <button
           onClick={reset}
-          className="px-4 py-2 bg-[#024787] hover:bg-[#025aa5] text-white rounded"
+          className="px-4 py-2 bg-[#052D69] hover:bg-[#025aa5] text-white rounded"
         >
           Try again
         </button>

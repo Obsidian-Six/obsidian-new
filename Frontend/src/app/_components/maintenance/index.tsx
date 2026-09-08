@@ -49,7 +49,7 @@ export default function Maintenance() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
+          className="text-[#052D69] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
         >
           [ Our Mission ]
         </MotionDiv>
@@ -61,7 +61,7 @@ export default function Maintenance() {
           className="text-4xl md:text-5xl lg:text-6xl text-slate-950 font-light tracking-tighter leading-[1.1]"
         >
           We Exist To Convert Your <br className="hidden md:block" />
-          <span className="italic font-serif text-[#024787]">Imagination</span> Into Achievements.
+          <span className="italic font-serif text-[#052D69]">Imagination</span> Into Achievements.
         </MotionH2>
       </div>
 
@@ -80,7 +80,7 @@ export default function Maintenance() {
       {/* CTA Button */}
       <Link
         href={"/#contactUs"}
-        className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#024787] transition-all duration-300 shadow-lg shadow-[#024787]/10 w-fit my-6 mb-20 os-btn-slide"
+        className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#052D69] transition-all duration-300 shadow-lg shadow-[#052D69]/10 w-fit my-6 mb-20 os-btn-slide"
       >
         Start Growing <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
       </Link>

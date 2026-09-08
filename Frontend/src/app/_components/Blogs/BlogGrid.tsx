@@ -58,14 +58,14 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
                             </div>
 
                             <div className="flex flex-col flex-grow px-1 md:px-0">
-                                <p className="text-[#024787] text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] mb-2 md:mb-3">
+                                <p className="text-[#052D69] text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] mb-2 md:mb-3">
                                     {new Date(post.date).toLocaleDateString('en-US', {
                                         month: 'long', day: 'numeric', year: 'numeric'
                                     })}
                                 </p>
 
                                 <h2
-                                    className="text-xl md:text-2xl font-bold text-slate-900 leading-[1.2] mb-3 transition-colors duration-300 group-hover:text-[#024787]"
+                                    className="text-xl md:text-2xl font-bold text-slate-900 leading-[1.2] mb-3 transition-colors duration-300 group-hover:text-[#052D69]"
                                     dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                                 />
 
@@ -74,8 +74,8 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
                                     dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
                                 />
 
-                                <div className="mt-auto flex items-center text-sm font-bold text-black group-hover:text-[#024787] transition-colors">
-                                    <span className="inline-block border-b-2 border-[#024787] transition-all group-hover:pr-4 pb-1">
+                                <div className="mt-auto flex items-center text-sm font-bold text-black group-hover:text-[#052D69] transition-colors">
+                                    <span className="inline-block border-b-2 border-[#052D69] transition-all group-hover:pr-4 pb-1">
                                         Read Story
                                     </span>
                                     <svg

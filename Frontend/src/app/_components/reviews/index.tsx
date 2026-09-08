@@ -13,7 +13,7 @@ const Reviews = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#024787] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
+            className="text-[#052D69] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
           >
             [ Testimonials ]
           </MotionDiv>
@@ -25,7 +25,7 @@ const Reviews = () => {
             className="text-4xl md:text-5xl lg:text-6xl text-slate-950 font-light tracking-tighter leading-[1.1]"
           >
             Hear from Those We’ve Helped <br className="hidden md:block" />
-            <span className="italic font-serif text-[#024787]">Grow.</span>
+            <span className="italic font-serif text-[#052D69]">Grow.</span>
           </MotionH2>
         </div>
 

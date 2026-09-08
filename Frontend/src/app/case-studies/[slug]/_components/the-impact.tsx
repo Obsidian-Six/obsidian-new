@@ -34,7 +34,7 @@ export default function TheImpact({ ele }: { ele: TemplateCaseStudy }) {
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: "easeInOut", delay: 0.2 }}
               d="M1 11C30 4 118 -3 147 11"
-              stroke="#024787"
+              stroke="#052D69"
               strokeWidth="3"
               strokeLinecap="round"
             />
@@ -58,7 +58,7 @@ export default function TheImpact({ ele }: { ele: TemplateCaseStudy }) {
                   <span className="absolute -left-8 -top-8 text-slate-50 text-8xl font-bold -z-10 group-hover:text-purple-50 transition-colors duration-500">
                     0{j + 1}
                   </span>
-                  <h3 className="text-3xl md:text-5xl font-light text-[#19183A] leading-tight tracking-tight group-hover:text-[#024787] transition-colors duration-500">
+                  <h3 className="text-3xl md:text-5xl font-light text-[#19183A] leading-tight tracking-tight group-hover:text-[#052D69] transition-colors duration-500">
                     {item.name}
                   </h3>
                 </div>
@@ -73,7 +73,7 @@ export default function TheImpact({ ele }: { ele: TemplateCaseStudy }) {
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="bg-slate-100 h-[1px] mt-12 group-hover:bg-[#024787]/30 transition-colors duration-500 origin-left" 
+                className="bg-slate-100 h-[1px] mt-12 group-hover:bg-[#052D69]/30 transition-colors duration-500 origin-left" 
               />
             </motion.div>
           ))}

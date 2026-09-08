@@ -42,7 +42,7 @@ export default function OurStory() {
           transition={{ duration: 0.8 }}
           className="mb-20 md:mb-24"
         >
-          <span className="text-[10px] tracking-[0.4em] uppercase text-[#024787] font-medium block mb-6">
+          <span className="text-[10px] tracking-[0.4em] uppercase text-[#052D69] font-medium block mb-6">
             02 // Background
           </span>
           <h2 className="text-4xl md:text-5xl font-medium text-slate-950 mb-8 tracking-tight leading-tight">
@@ -75,8 +75,8 @@ export default function OurStory() {
               </div>
 
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-[10px] font-bold text-[#024787] font-mono">0{index + 1}</span>
-                <h3 className="text-lg font-bold text-slate-900 uppercase tracking-[0.1em] group-hover:text-[#024787] transition-colors">
+                <span className="text-[10px] font-bold text-[#052D69] font-mono">0{index + 1}</span>
+                <h3 className="text-lg font-bold text-slate-900 uppercase tracking-[0.1em] group-hover:text-[#052D69] transition-colors">
                   {card.title}
                 </h3>
               </div>

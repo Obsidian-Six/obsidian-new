@@ -76,7 +76,7 @@ const Slider: React.FC = () => {
             <button
               suppressHydrationWarning
               data-variant="opener"
-              className="p-2.5 bg-[#024787] cursor-pointer border border-[#024787] hover:bg-white hover:text-[#024787]"
+              className="p-2.5 bg-[#052D69] cursor-pointer border border-[#052D69] hover:bg-white hover:text-[#052D69]"
               onClick={prevSlide}
             >
               <BsArrowLeft className="text-2xl text-white" />
@@ -84,7 +84,7 @@ const Slider: React.FC = () => {
             <button
               suppressHydrationWarning
               data-variant="opener"
-              className="p-2.5 bg-[#024787] cursor-pointer border border-[#024787] hover:bg-white hover:text-[#024787]"
+              className="p-2.5 bg-[#052D69] cursor-pointer border border-[#052D69] hover:bg-white hover:text-[#052D69]"
               onClick={nextSlide}
             >
               <BsArrowRight className="text-2xl text-white" />

@@ -118,7 +118,7 @@ const ContactUsRouter = () => {
           
           {/* LEFT COLUMN: Headings & Brochure */}
           <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
-            <span className="inline-block px-4 py-1 bg-blue-50 text-[#024787] text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">
+            <span className="inline-block px-4 py-1 bg-blue-50 text-[#052D69] text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">
               [ Contact Us ]
             </span>
 
@@ -148,7 +148,7 @@ const ContactUsRouter = () => {
             <div className="pt-4">
               <Link
                 href="/download-brochure"
-                className="group flex items-center gap-6 p-4 bg-white border border-[#E5E7EB] hover:border-[#024787] hover:-translate-y-1 hover:shadow-md transition-all duration-300 max-w-sm cursor-pointer"
+                className="group flex items-center gap-6 p-4 bg-white border border-[#E5E7EB] hover:border-[#052D69] hover:-translate-y-1 hover:shadow-md transition-all duration-300 max-w-sm cursor-pointer"
               >
                 {/* Obsidian Six Logo Thumbnail */}
                 <div className="relative w-20 h-20 bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100 p-2">
@@ -162,11 +162,11 @@ const ContactUsRouter = () => {
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-slate-800 tracking-tight font-poppins group-hover:text-[#024787] transition-colors">
+                  <h3 className="text-sm font-bold text-slate-800 tracking-tight font-poppins group-hover:text-[#052D69] transition-colors">
                     Download Our Brochure
                   </h3>
                   <p className="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1.5 uppercase font-inter">
-                    PDF 7.1 MB <Download size={12} className="text-slate-400 group-hover:text-[#024787] group-hover:translate-y-0.5 transition-all" />
+                    PDF 7.1 MB <Download size={12} className="text-slate-400 group-hover:text-[#052D69] group-hover:translate-y-0.5 transition-all" />
                   </p>
                 </div>
               </Link>
@@ -211,14 +211,14 @@ const ContactUsRouter = () => {
 
               {isSubmitted ? (
                 <div className="py-16 text-center animate-in fade-in zoom-in duration-500">
-                  <CheckCircle2 className="w-16 h-16 text-[#024787] mx-auto mb-6" />
+                  <CheckCircle2 className="w-16 h-16 text-[#052D69] mx-auto mb-6" />
                   <h2 className="text-3xl font-bold mb-2 font-poppins">Message Sent!</h2>
                   <p className="text-slate-500 text-base mb-6 font-inter">
                     Our strategy team will review your details and reach out within 24 hours.
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="text-[#024787] font-bold uppercase tracking-widest text-xs hover:underline font-poppins"
+                    className="text-[#052D69] font-bold uppercase tracking-widest text-xs hover:underline font-poppins"
                   >
                     Send another message
                   </button>
@@ -234,7 +234,7 @@ const ContactUsRouter = () => {
                       </label>
                       <input
                         required
-                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
                         id="first-name"
                         placeholder="Enter first name"
                         type="text"
@@ -247,7 +247,7 @@ const ContactUsRouter = () => {
                         Last Name
                       </label>
                       <input
-                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
                         id="last-name"
                         placeholder="Enter last name"
                         type="text"
@@ -265,7 +265,7 @@ const ContactUsRouter = () => {
                       </label>
                       <input
                         required
-                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
                         id="email"
                         placeholder="Enter email"
                         type="email"
@@ -284,7 +284,7 @@ const ContactUsRouter = () => {
                           onChange={(value: string) => setPhone(value)}
                           enableSearch={true}
                           searchPlaceholder="Search country..."
-                          inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3.5 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#024787] !font-inter !h-14 bg-white"
+                          inputClass="!w-full !border !border-[#C3C3C3] !pl-[52px] !pr-4 !py-3.5 !text-sm md:!text-base !outline-none !rounded-none focus:!border-[#052D69] !font-inter !h-14 bg-white"
                           containerClass="!w-full !rounded-none"
                           buttonClass="!rounded-none !border-y-0 !border-l-0 !border-r !border-[#C3C3C3] !bg-white"
                           dropdownClass="!rounded-none"
@@ -303,7 +303,7 @@ const ContactUsRouter = () => {
                         Company Name
                       </label>
                       <input
-                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
                         id="company-name"
                         placeholder="Enter your company name"
                         type="text"
@@ -320,7 +320,7 @@ const ContactUsRouter = () => {
                         Subject
                       </label>
                       <input
-                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
+                        className="w-full border border-[#C3C3C3] px-4 py-3.5 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-14 md:h-14 bg-white"
                         id="subject"
                         placeholder="Enter your subject"
                         type="text"
@@ -343,7 +343,7 @@ const ContactUsRouter = () => {
                     <textarea
                       required
                       maxLength={1000}
-                      className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#024787] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-44 resize-none bg-white"
+                      className="w-full border border-[#C3C3C3] p-4 text-sm md:text-base outline-none focus:border-[#052D69] transition-all rounded-none placeholder:text-[#A3A3A3] font-inter h-44 resize-none bg-white"
                       id="tell-us-more"
                       placeholder={
                         activeTab === "quote"
@@ -366,11 +366,11 @@ const ContactUsRouter = () => {
                         id="consent-checkbox"
                         checked={consent}
                         onChange={(e) => setConsent(e.target.checked)}
-                        className="mt-1 h-3.5 w-3.5 border-[#C3C3C3] rounded-none focus:ring-[#024787] text-[#024787]"
+                        className="mt-1 h-3.5 w-3.5 border-[#C3C3C3] rounded-none focus:ring-[#052D69] text-[#052D69]"
                       />
                       <label htmlFor="consent-checkbox" className="text-xs text-slate-500 leading-tight font-inter">
                         I have read the{" "}
-                        <a href="/terms" target="_blank" className="text-[#024787] font-semibold underline hover:text-blue-700">
+                        <a href="/terms" target="_blank" className="text-[#052D69] font-semibold underline hover:text-blue-700">
                           privacy policy
                         </a>{" "}
                         and consent to the processing of my data for the purpose of handling my enquiry.
@@ -445,7 +445,7 @@ const ContactUsRouter = () => {
                     href="https://maps.google.com/?q=Platinum+BKC+Bandra+Mumbai"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#024787] hover:underline font-poppins"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#052D69] hover:underline font-poppins"
                   >
                     <span>📍 Google Map</span>
                   </a>
@@ -478,7 +478,7 @@ const ContactUsRouter = () => {
                     href="https://maps.google.com/?q=Danish+Nagar+Hoshangabad+Road+Bhopal"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#024787] hover:underline font-poppins"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#052D69] hover:underline font-poppins"
                   >
                     <span>📍 Google Map</span>
                   </a>

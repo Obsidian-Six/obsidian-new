@@ -113,7 +113,7 @@ const ContactPopup = ({ isOpen: controlledIsOpen, onClose, defaultService }: Con
     }
   };
 
-  const inputStyles = "w-full bg-white border border-slate-200 p-2.5 md:p-3.5 text-sm md:text-base font-medium text-slate-900 outline-none focus:border-[#024787] focus:ring-4 focus:ring-[#024787]/5 transition-all rounded-none placeholder:text-slate-400 appearance-none shadow-sm";
+  const inputStyles = "w-full bg-white border border-slate-200 p-2.5 md:p-3.5 text-sm md:text-base font-medium text-slate-900 outline-none focus:border-[#052D69] focus:ring-4 focus:ring-[#052D69]/5 transition-all rounded-none placeholder:text-slate-400 appearance-none shadow-sm";
   const labelStyles = "text-[10px] md:text-[11px] uppercase font-bold tracking-[0.1em] text-slate-500 ml-1 mb-1.5 block";
   return (
     <AnimatePresence>
@@ -139,7 +139,7 @@ const ContactPopup = ({ isOpen: controlledIsOpen, onClose, defaultService }: Con
               <div className="absolute -top-24 -left-24 w-64 h-64 bg-[#086ddd]/5 rounded-full blur-3xl" />
               
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 bg-[#086ddd]/10 text-[#024787] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-8">
+                <div className="inline-flex items-center gap-2 bg-[#086ddd]/10 text-[#052D69] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-8">
                   <Sparkles size={12} /> Trusted Partners
                 </div>
                 <div className="grid grid-cols-3 gap-6 items-center opacity-70">
@@ -163,7 +163,7 @@ const ContactPopup = ({ isOpen: controlledIsOpen, onClose, defaultService }: Con
                   { label: "Client Satisfaction", value: "99%" }
                 ].map((stat, i) => (
                   <div key={i} className="group">
-                    <h3 className="text-4xl font-bold text-slate-900 tracking-tight group-hover:text-[#024787] transition-colors">{stat.value}</h3>
+                    <h3 className="text-4xl font-bold text-slate-900 tracking-tight group-hover:text-[#052D69] transition-colors">{stat.value}</h3>
                     <p className="text-[11px] uppercase font-bold text-slate-400 tracking-[0.15em] mt-1">{stat.label}</p>
                   </div>
                 ))}
@@ -186,7 +186,7 @@ const ContactPopup = ({ isOpen: controlledIsOpen, onClose, defaultService }: Con
                     <div className="mb-8 md:mb-10">
                       <h3 className="text-2xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
                         Let’s Build <br />
-                        <span className="text-[#024787]">Something Great.</span>
+                        <span className="text-[#052D69]">Something Great.</span>
                       </h3>
                       <p className="text-slate-500 font-medium mt-3 text-sm md:text-lg">
                         Tell us about your project and get a custom strategy.
@@ -229,7 +229,7 @@ const ContactPopup = ({ isOpen: controlledIsOpen, onClose, defaultService }: Con
                           country={"in"}
                           enableSearch={true}
                           containerClass="!w-full"
-                          inputClass="!w-full !h-[50px] md:!h-[56px] !bg-white !border-slate-200 !rounded-none !text-slate-900 !font-medium !pl-14 !text-sm md:!text-base !shadow-sm focus:!border-[#024787] focus:!ring-4 focus:!ring-[#024787]/5"
+                          inputClass="!w-full !h-[50px] md:!h-[56px] !bg-white !border-slate-200 !rounded-none !text-slate-900 !font-medium !pl-14 !text-sm md:!text-base !shadow-sm focus:!border-[#052D69] focus:!ring-4 focus:!ring-[#052D69]/5"
                           buttonClass="!border-slate-200 !rounded-none !bg-slate-50 !w-12"
                           dropdownClass="!rounded-none !shadow-2xl !border-slate-100"
                           onChange={(phone: string) => setFormData({ ...formData, phone })}
@@ -239,7 +239,7 @@ const ContactPopup = ({ isOpen: controlledIsOpen, onClose, defaultService }: Con
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-[#024787] text-white font-bold text-sm md:text-lg py-4 md:py-5 rounded-none shadow-[0_12px_24px_-8px_rgba(96,0,255,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(96,0,255,0.6)] transition-all flex items-center justify-center gap-3 transform active:scale-[0.98] hover:-translate-y-1 os-btn-slide"
+                        className="w-full bg-[#052D69] text-white font-bold text-sm md:text-lg py-4 md:py-5 rounded-none shadow-[0_12px_24px_-8px_rgba(96,0,255,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(96,0,255,0.6)] transition-all flex items-center justify-center gap-3 transform active:scale-[0.98] hover:-translate-y-1 os-btn-slide"
                       >
                         {isSubmitting ? <><Loader2 className="animate-spin size-5" /> Processing...</> : "Claim Your Free Strategy →"}
                       </button>
