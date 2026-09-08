@@ -19,7 +19,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
-  useEffect(() => {
+useEffect(() => {
   if (pathname !== "/") {
     setIsHeroVisible(false);
     return;
@@ -34,6 +34,8 @@ export default function Navbar() {
 
   const observer = new IntersectionObserver(
     ([entry]) => {
+      if (!entry) return;
+
       setIsHeroVisible(entry.isIntersecting);
     },
     {
@@ -45,7 +47,6 @@ export default function Navbar() {
 
   return () => observer.disconnect();
 }, [pathname]);
-
 
   useEffect(() => {
     let lastScrollY = window.scrollY;

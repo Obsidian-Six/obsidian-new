@@ -1,21 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { usePathname } from "next/navigation";
 import { IoMenu, IoCall } from "react-icons/io5";
 import { RxCross1 } from "react-icons/rx";
 import MobileMenu from "./MobileMenu";
 
-export default function NavbarMenuToggler() {
-  const [isOpened, setIsOpened] = useState<boolean>(false);
+interface NavbarMenuTogglerProps {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function NavbarMenuToggler({
+  isOpen,
+  setIsOpen,
+}: NavbarMenuTogglerProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const pathname = usePathname();
 
   // Close menu when route changes
   useEffect(() => {
-    setIsOpened(false);
-  }, [pathname]);
+    setIsOpen(false);
+  }, [pathname, setIsOpen]);
 
   // Detect scroll
   useEffect(() => {
@@ -23,7 +30,9 @@ export default function NavbarMenuToggler() {
       setIsScrolled(window.scrollY > 0);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -34,7 +43,7 @@ export default function NavbarMenuToggler() {
   // MOBILE MENU SCROLL LOCK
   // ============================================
   useEffect(() => {
-    if (!isOpened) {
+    if (!isOpen) {
       document.body.classList.remove("mobile-menu-open");
 
       document.body.style.position = "";
@@ -55,7 +64,7 @@ export default function NavbarMenuToggler() {
     // Add global class
     document.body.classList.add("mobile-menu-open");
 
-    // Lock the body in its current position
+    // Lock body
     document.body.style.position = "fixed";
     document.body.style.top = `-${scrollY}px`;
     document.body.style.left = "0";
@@ -63,14 +72,13 @@ export default function NavbarMenuToggler() {
     document.body.style.width = "100%";
     document.body.style.overflow = "hidden";
 
-    // Also lock html
+    // Lock html
     document.documentElement.style.overflow = "hidden";
 
     // Prevent background wheel scrolling
     const preventWheel = (event: WheelEvent) => {
       const target = event.target as HTMLElement;
 
-      // Allow scrolling inside mobile menu
       if (target.closest("[data-mobile-menu-scroll]")) {
         return;
       }
@@ -82,7 +90,6 @@ export default function NavbarMenuToggler() {
     const preventTouchMove = (event: TouchEvent) => {
       const target = event.target as HTMLElement;
 
-      // Allow scrolling inside mobile menu
       if (target.closest("[data-mobile-menu-scroll]")) {
         return;
       }
@@ -116,10 +123,12 @@ export default function NavbarMenuToggler() {
       // Restore exact scroll position
       window.scrollTo(0, scrollY);
     };
-  }, [isOpened]);
+  }, [isOpen]);
 
   const isDarkTheme =
-    pathname === "/digital-marketing-agency-uae" && !isScrolled && !isOpened;
+    pathname === "/digital-marketing-agency-uae" &&
+    !isScrolled &&
+    !isOpen;
 
   return (
     <>
@@ -137,7 +146,7 @@ export default function NavbarMenuToggler() {
           lg:hidden
         "
       >
-        {!isOpened && (
+        {!isOpen && (
           <a
             href="tel:+918085652729"
             className="flex items-center justify-center p-1"
@@ -154,12 +163,12 @@ export default function NavbarMenuToggler() {
         <button
           id="menu-btn"
           type="button"
-          aria-label={isOpened ? "Close menu" : "Open menu"}
-          aria-expanded={isOpened}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
           className="flex items-center justify-center border-0 bg-transparent p-0"
-          onClick={() => setIsOpened((prev) => !prev)}
+          onClick={() => setIsOpen((prev) => !prev)}
         >
-          {isOpened ? (
+          {isOpen ? (
             <RxCross1 className="cursor-pointer text-3xl text-black" />
           ) : (
             <IoMenu
@@ -171,7 +180,10 @@ export default function NavbarMenuToggler() {
         </button>
       </div>
 
-      <MobileMenu isOpen={isOpened} onClose={() => setIsOpened(false)} />
+      <MobileMenu
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
     </>
   );
 }

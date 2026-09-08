@@ -1063,6 +1063,7 @@
     rgba(50, 50, 62, 0.43) 100%
   );
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   text-align: center;
   font-family: var(--font-tertiary);
   font-weight: var(--fw-regular);

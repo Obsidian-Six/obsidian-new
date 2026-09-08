@@ -6,7 +6,7 @@ import Footer from "./_components/footer";
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import type { ReactNode } from "react";
-import TabBlurProtection from "./_components/tab-blur-protection";
+// import TabBlurProtection from "./_components/tab-blur-protection";
 import HeaderToggle from "./_components/HeaderToggle";
 import SmoothScroll from "./_components/SmoothScroll";
 import ScrollToTop from "./_components/ScrollTop";

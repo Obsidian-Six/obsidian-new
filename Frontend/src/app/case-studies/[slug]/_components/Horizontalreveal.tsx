@@ -99,9 +99,15 @@ export default function HorizontalRevealGallery({
   const trackRef = useRef<HTMLDivElement>(null);
 
   const [scrollDistance, setScrollDistance] = useState(0);
+  const [sectionTop, setSectionTop] = useState(0);
 
   // ---------------------------------------
-  // Calculate exact horizontal distance
+  // Window scroll
+  // ---------------------------------------
+  const { scrollY } = useScroll();
+
+  // ---------------------------------------
+  // Calculate horizontal distance
   // ---------------------------------------
   useLayoutEffect(() => {
     if (gallery.length <= 1) {
@@ -123,6 +129,7 @@ export default function HorizontalRevealGallery({
       setScrollDistance(distance);
     };
 
+    // Initial calculation
     calculateDistance();
 
     const resizeObserver = new ResizeObserver(
@@ -133,10 +140,14 @@ export default function HorizontalRevealGallery({
       resizeObserver.observe(trackRef.current);
     }
 
-    window.addEventListener("resize", calculateDistance);
+    window.addEventListener(
+      "resize",
+      calculateDistance
+    );
 
     return () => {
       resizeObserver.disconnect();
+
       window.removeEventListener(
         "resize",
         calculateDistance
@@ -145,28 +156,26 @@ export default function HorizontalRevealGallery({
   }, [gallery.length]);
 
   // ---------------------------------------
-  // IMPORTANT:
-  // Don't use targetRef with useScroll()
+  // Calculate section position
   // ---------------------------------------
-  const { scrollY } = useScroll();
-
-  // ---------------------------------------
-  // Get section position
-  // ---------------------------------------
-  const [sectionTop, setSectionTop] = useState(0);
-
   useLayoutEffect(() => {
     const calculatePosition = () => {
       if (!sectionRef.current) return;
 
-      const rect = sectionRef.current.getBoundingClientRect();
+      const rect =
+        sectionRef.current.getBoundingClientRect();
 
-      setSectionTop(rect.top + window.scrollY);
+      setSectionTop(
+        rect.top + window.scrollY
+      );
     };
 
     calculatePosition();
 
-    window.addEventListener("resize", calculatePosition);
+    window.addEventListener(
+      "resize",
+      calculatePosition
+    );
 
     return () => {
       window.removeEventListener(
@@ -177,17 +186,14 @@ export default function HorizontalRevealGallery({
   }, []);
 
   // ---------------------------------------
-  // Calculate vertical scroll distance
-  // ---------------------------------------
-  const verticalDistance =
-    scrollDistance;
-
-  // ---------------------------------------
-  // Convert window scroll to gallery progress
+  // Gallery progress
   // ---------------------------------------
   const galleryProgress = useTransform(
     scrollY,
-    [sectionTop, sectionTop + verticalDistance],
+    [
+      sectionTop,
+      sectionTop + scrollDistance,
+    ],
     [0, 1],
     {
       clamp: true,
@@ -195,7 +201,7 @@ export default function HorizontalRevealGallery({
   );
 
   // ---------------------------------------
-  // Smooth horizontal progress
+  // Smooth progress
   // ---------------------------------------
   const smoothProgress = useSpring(
     galleryProgress,
@@ -226,12 +232,19 @@ export default function HorizontalRevealGallery({
   // ONE IMAGE
   // ---------------------------------------
   if (gallery.length === 1) {
+    const firstImage = gallery[0];
+
+    // TypeScript safety
+    if (!firstImage) {
+      return null;
+    }
+
     return (
       <section className="relative bg-white py-20">
         <div className="px-10">
           <div className="relative h-[450px] w-full overflow-hidden md:h-[600px]">
             <Image
-              src={gallery[0].img}
+              src={firstImage.img}
               alt="Gallery image"
               fill
               unoptimized
@@ -258,12 +271,14 @@ export default function HorizontalRevealGallery({
       <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden">
         <motion.div
           ref={trackRef}
-          style={{ x }}
+          style={{
+            x,
+          }}
           className="flex w-max gap-8 px-10 will-change-transform"
         >
           {gallery.map((item, index) => (
             <div
-              key={index}
+              key={`${item.img}-${index}`}
               className="
                 group
                 relative
@@ -279,13 +294,21 @@ export default function HorizontalRevealGallery({
             >
               <Image
                 src={item.img}
-                alt={`Gallery image ${index + 1}`}
+                alt={
+                  item.text ||
+                  `Gallery image ${index + 1}`
+                }
                 fill
                 unoptimized
                 priority={index < 2}
-                sizes="(max-width: 768px) 350px, 650px"
+                sizes="
+                  (max-width: 768px) 350px,
+                  650px
+                "
                 onLoad={() => {
-                  if (!trackRef.current) return;
+                  if (!trackRef.current) {
+                    return;
+                  }
 
                   const distance = Math.max(
                     0,
@@ -294,6 +317,16 @@ export default function HorizontalRevealGallery({
                   );
 
                   setScrollDistance(distance);
+
+                  // Recalculate section position
+                  if (sectionRef.current) {
+                    const rect =
+                      sectionRef.current.getBoundingClientRect();
+
+                    setSectionTop(
+                      rect.top + window.scrollY
+                    );
+                  }
                 }}
                 className="
                   object-cover
@@ -304,16 +337,63 @@ export default function HorizontalRevealGallery({
                 "
               />
 
-              <div className="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/40" />
+              {/* Image overlay */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-black/20
+                  transition-colors
+                  duration-500
+                  group-hover:bg-black/40
+                "
+              />
 
-              <div className="absolute inset-x-0 bottom-0 translate-y-4 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-8 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                <p className="mb-2 text-sm font-mono uppercase tracking-widest text-purple-400">
-                  Insight 0{index + 1}
+              {/* Image information */}
+              <div
+                className="
+                  absolute
+                  inset-x-0
+                  bottom-0
+                  translate-y-4
+                  bg-gradient-to-t
+                  from-black/90
+                  via-black/50
+                  to-transparent
+                  p-8
+                  opacity-0
+                  transition-all
+                  duration-500
+                  group-hover:translate-y-0
+                  group-hover:opacity-100
+                "
+              >
+                <p
+                  className="
+                    mb-2
+                    font-mono
+                    text-sm
+                    uppercase
+                    tracking-widest
+                    text-purple-400
+                  "
+                >
+                  Insight{" "}
+                  {String(index + 1).padStart(2, "0")}
                 </p>
 
-                <p className="text-xl font-medium leading-tight text-white">
-                  {item.text}
-                </p>
+                {item.text && (
+                  <p
+                    className="
+                      text-xl
+                      font-medium
+                      leading-tight
+                      text-white
+                    "
+                  >
+                    {item.text}
+                  </p>
+                )}
               </div>
             </div>
           ))}
