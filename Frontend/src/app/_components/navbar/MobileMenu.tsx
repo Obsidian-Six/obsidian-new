@@ -6,14 +6,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
-export default function MobileMenu({
-  isOpen,
-  onClose,
-}: {
+interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-}) {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+}
+
+interface ServiceItem {
+  name: string;
+  slug: string;
+}
+
+interface Category {
+  title: string;
+  items: ServiceItem[];
+}
+
+export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const [isServicesOpen, setIsServicesOpen] = useState<boolean>(false);
+  const [openCategory, setOpenCategory] = useState<number | null>(null);
 
   const mainNavItems = [
     { name: "Works", link: "/case-studies" },
@@ -22,13 +32,105 @@ export default function MobileMenu({
     { name: "AI Audit", link: "/uae-ai-marketing-audit.html" },
   ];
 
-  const serviceSubItems = [
-    { name: "Explore Services", link: "/services" },
-    { name: "Digital Marketing", link: "/digital-marketing-agency-uae" },
-    { name: "Technology", link: "/services/technology" },
-    { name: "Branding", link: "/branding-agency-uae" },
-    { name: "Experience Design", link: "/services/experience-design" },
+  const categories: Category[] = [
+    {
+      title: "Branding",
+      items: [
+        {
+          name: "Brand Consulting",
+          slug: "brand-consulting",
+        },
+        {
+          name: "Logo Design",
+          slug: "logo-design",
+        },
+        {
+          name: "Industrial / Product Design",
+          slug: "industrial-product-design",
+        },
+        {
+          name: "Graphic Design",
+          slug: "graphic-design",
+        },
+        {
+          name: "2D / 3D Visualisation",
+          slug: "2d-3d-visualisation",
+        },
+      ],
+    },
+    {
+      title: "Technology",
+      items: [
+        {
+          name: "AI & Machine Learning",
+          slug: "ai-machine-learning",
+        },
+        {
+          name: "DevOps Consulting",
+          slug: "devops-consulting",
+        },
+        {
+          name: "Data & Analytics",
+          slug: "data-analytics",
+        },
+        {
+          name: "Web Development",
+          slug: "web-development",
+        },
+        {
+          name: "Mobile App Development",
+          slug: "mobile-app-development",
+        },
+        {
+          name: "E-commerce",
+          slug: "e-commerce",
+        },
+        {
+          name: "Quality Assurance & Testing",
+          slug: "quality-assurance-testing",
+        },
+      ],
+    },
+    {
+      title: "Digital Marketing",
+      items: [
+        {
+          name: "Search Engine Optimisation",
+          slug: "search-engine-optimisation",
+        },
+        {
+          name: "Social Media Management",
+          slug: "social-media-management",
+        },
+        {
+          name: "Performance Marketing",
+          slug: "performance-marketing",
+        },
+        {
+          name: "Content Marketing",
+          slug: "content-marketing",
+        },
+        {
+          name: "Marketing Automation",
+          slug: "marketing-automation",
+        },
+        {
+          name: "Analytics",
+          slug: "analytics",
+        },
+      ],
+    },
   ];
+
+  const toggleCategory = (index: number) => {
+    setOpenCategory((prev) => (prev === index ? null : index));
+  };
+
+  const handleClose = () => {
+    setIsServicesOpen(false);
+    setOpenCategory(null);
+    onClose();
+  };
 
   return (
     <AnimatePresence>
@@ -44,7 +146,7 @@ export default function MobileMenu({
           }}
           className="fixed inset-0 z-[115] flex h-[100dvh] w-full flex-col overflow-hidden bg-white lg:hidden"
         >
-          {/* Top Header of Menu Panel to align with standard mobile header */}
+          {/* Header */}
           <div className="flex items-center justify-between px-6 h-20 border-b border-slate-100 shrink-0">
             <Link
               href="/"
@@ -64,58 +166,138 @@ export default function MobileMenu({
             <div className="w-8 h-8" />
           </div>
 
-          {/* Navigation Options Section */}
+          {/* Navigation */}
           <div
             data-mobile-menu-scroll
-            className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 md:py-6 flex flex-col"
+            className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-6 md:py-6"
           >
-            <nav className="w-full flex flex-col">
-              {/* Collapsible Services Item */}
+            <nav className="flex w-full flex-col">
+              {/* SERVICES */}
               <div className="w-full border-b border-slate-100">
                 <button
                   type="button"
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="w-full py-4 md:py-5 flex items-center justify-between text-base font-poppins font-medium tracking-tight text-[#19183A] hover:text-[#052D69] transition-colors focus:outline-none"
+                  onClick={() => {
+                    setIsServicesOpen((prev) => !prev);
+                    setOpenCategory(null);
+                  }}
+                  className="flex w-full items-center justify-between py-4 text-xl font-poppins font-medium tracking-tight text-[#19183A] transition-colors hover:text-[#052D69] focus:outline-none md:py-5"
                 >
-                  <span className="text-xl">Services</span>
+                  <span>Services</span>
+
                   {isServicesOpen ? (
-                    <IoChevronUp className="text-slate-400 text-lg" />
+                    <IoChevronUp className="text-lg text-slate-400" />
                   ) : (
-                    <IoChevronDown className="text-slate-400 text-lg" />
+                    <IoChevronDown className="text-lg text-slate-400" />
                   )}
                 </button>
 
                 <AnimatePresence initial={false}>
                   {isServicesOpen && (
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="overflow-hidden bg-slate-50/50 rounded-lg px-4 mb-3"
+                      initial={{
+                        height: 0,
+                        opacity: 0,
+                      }}
+                      animate={{
+                        height: "auto",
+                        opacity: 1,
+                      }}
+                      exit={{
+                        height: 0,
+                        opacity: 0,
+                      }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
                     >
-                      {serviceSubItems.map((subItem, index) => (
-                        <Link
-                          key={index}
-                          href={subItem.link}
-                          onClick={onClose}
-                          className="text-lg block py-3 text-sm font-poppins font-normal text-slate-600 hover:text-[#052D69] border-b border-slate-100/50 last:border-b-0"
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))}
+                      {/* Explore Services */}
+                      <Link
+                        href="/services"
+                        onClick={handleClose}
+                        className="block border-b border-slate-100 px-4 py-3 text-base font-poppins font-medium text-[#052D69]"
+                      >
+                        Explore Services
+                      </Link>
+
+                      {/* CATEGORIES */}
+                      <div className="mb-3 mt-2 rounded-lg bg-slate-50/70 px-4">
+                        {categories.map((category, index) => {
+                          const isCategoryOpen = openCategory === index;
+
+                          return (
+                            <div
+                              key={category.title}
+                              className="border-b border-slate-200/70 last:border-b-0"
+                            >
+                              {/* Category */}
+                              <button
+                                type="button"
+                                onClick={() => toggleCategory(index)}
+                                className="flex w-full items-center justify-between py-4 text-left font-poppins text-base font-medium text-[#19183A] transition-colors hover:text-[#052D69] focus:outline-none"
+                              >
+                                <span>{category.title}</span>
+
+                                {isCategoryOpen ? (
+                                  <IoChevronUp className="text-base text-slate-400" />
+                                ) : (
+                                  <IoChevronDown className="text-base text-slate-400" />
+                                )}
+                              </button>
+
+                              {/* SERVICES INSIDE CATEGORY */}
+                              <AnimatePresence initial={false}>
+                                {isCategoryOpen && (
+                                  <motion.div
+                                    initial={{
+                                      height: 0,
+                                      opacity: 0,
+                                    }}
+                                    animate={{
+                                      height: "auto",
+                                      opacity: 1,
+                                    }}
+                                    exit={{
+                                      height: 0,
+                                      opacity: 0,
+                                    }}
+                                    transition={{
+                                      duration: 0.2,
+                                    }}
+                                    className="overflow-hidden"
+                                  >
+                                    <div className="pb-2">
+                                      {category.items.map((item) => (
+                                        <Link
+                                          key={item.slug}
+                                          href={`/services/${item.slug}`}
+                                          onClick={handleClose}
+                                          className="block border-b border-slate-100/80 py-3 pl-3 text-sm font-poppins font-normal text-slate-600 transition-colors last:border-b-0 hover:text-[#052D69]"
+                                        >
+                                          {item.name}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
-              {/* Other Navigation Items */}
-              {mainNavItems.map((item, i) => (
-                <div key={i} className="w-full border-b border-slate-100">
+              {/* OTHER NAV ITEMS */}
+              {mainNavItems.map((item) => (
+                <div
+                  key={item.name}
+                  className="w-full border-b border-slate-100"
+                >
                   <Link
                     href={item.link}
-                    onClick={onClose}
-                    className="text-xl block py-4 md:py-4 text-base font-poppins font-medium tracking-tight text-[#19183A] hover:text-[#052D69] transition-colors"
+                    onClick={handleClose}
+                    className="block py-4 text-xl font-poppins font-medium tracking-tight text-[#19183A] transition-colors hover:text-[#052D69] md:py-4"
                   >
                     {item.name}
                   </Link>
@@ -123,12 +305,12 @@ export default function MobileMenu({
               ))}
             </nav>
 
-            {/* Bottom Section containing the CTA button */}
-            <div className="pt-8 pb-6">
+            {/* CTA */}
+            <div className="pb-6 pt-8">
               <Link
                 href="/contactus"
-                onClick={onClose}
-                className="w-full bg-[#052D69] hover:bg-blue-700 text-white font-poppins font-semibold py-4 text-center tracking-wide block transition-colors rounded-none"
+                onClick={handleClose}
+                className="block w-full rounded-none bg-[#052D69] py-4 text-center font-poppins font-semibold tracking-wide text-white transition-colors hover:bg-blue-700"
               >
                 Contact Us
               </Link>

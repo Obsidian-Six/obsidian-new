@@ -174,7 +174,7 @@ export default async function Page() {
                   </span>
                 ))}
               </div>
-              <p className="text-main mt-8 inter opacity-60 max-md:mt-4 max-md:text-sm line-clamp-3 overflow-hidden text-ellipsis">
+              <p className="text-main mt-8 inter opacity-60 max-md:mt-4 max-md:text-sm line-clamp-2 overflow-hidden text-ellipsis">
                 {caseStudy.details}
               </p>
             </Link>
