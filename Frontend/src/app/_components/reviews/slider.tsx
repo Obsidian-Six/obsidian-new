@@ -1108,13 +1108,14 @@ const Slider = () => {
             mx-auto
             h-[620px]
             w-full
+            
             max-w-[1250px]
 
             sm:h-[680px]
 
-            md:h-[500px]
-
-          "
+            md:h-full
+            "
+            // md:h-[500px]
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
