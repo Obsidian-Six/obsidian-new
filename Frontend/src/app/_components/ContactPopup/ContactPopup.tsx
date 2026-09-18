@@ -932,7 +932,7 @@ const ContactPopup = ({
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="os-btn-slide flex w-full items-center justify-center gap-3 rounded-none bg-[#052D69] md:bg-black py-4 text-sm font-bold text-white  transition-all duration-300  ] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0 md:py-4.5 md:text-base lg:py-5 lg:text-lg tracking-wider cursor-pointer 
+                        className="os-btn-slide flex w-full items-center justify-center gap-3 rounded-none bg-[linear-gradient(to_right,#19183a_0%,#052D69_51%,#16222A_100%)] py-4 text-sm font-bold text-white  transition-all duration-300  ] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0 md:py-4.5 md:text-base lg:py-5 lg:text-lg tracking-wider cursor-pointer 
                         "
                       >
                         {isSubmitting ? (

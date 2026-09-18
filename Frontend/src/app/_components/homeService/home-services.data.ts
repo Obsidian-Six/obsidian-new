@@ -86,7 +86,7 @@ export const SERVICES: ServiceItem[] = [
         video:"/videos/Services/BrandingVedio.mp4",
         description:
         "We help brands to build best logo’s, designs,shaping visuals, voice, and identity that leave a lasting impression.",
-        href: "/services",
+        href: "/branding-agency-uae/",
     },
 
     {
@@ -124,7 +124,7 @@ export const SERVICES: ServiceItem[] = [
         video:"/videos/Services/DigitalMarketingVedio.mp4",
         description:
         "We blend SEO, ads,SMO,Content marketing and content analytics to boost visibility, attract the right audience, and turn traffic into conversions",
-        href: "/services",
+        href: "/digital-marketing-agency-uae/",
     },
 
     {
@@ -162,7 +162,7 @@ export const SERVICES: ServiceItem[] = [
         video:"/videos/Services/TechnologyVedio.mp4",
         description:
             "We integrate AI experience,  data analytics,web,mobile development and deliver seamlessEcommerce solutions.",
-            href: "/services",
+            href: "/services/technology/",
     },
 ];
 
