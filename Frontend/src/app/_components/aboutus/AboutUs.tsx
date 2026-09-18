@@ -9,6 +9,8 @@ import { PurposeContent } from "./PurposeSection";
 import { VisionQuote } from "./VisionQuote";
 import ContactPopup from "../ContactPopup/ContactPopup";
 import OurStory from "../OurStory";
+import Maintenance from "../maintenance";
+import OurClients from "../our-clients";
 
 export default function AboutUs() {
   const { scrollYProgress } = useScroll();
@@ -96,7 +98,7 @@ export default function AboutUs() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsPopupOpen(true)}
-              className="mt-8 md:mt-12 group flex items-center gap-4 bg-slate-900 text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-sm transition-all hover:bg-[#052D69] shadow-lg shadow-[#052D69]/10"
+              className="mt-8 md:mt-12 group flex items-center gap-4 bg-[linear-gradient(to_right,#19183a_0%,#052D69_51%,#16222A_100%)] text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-sm transition-all shadow-lg shadow-[#052D69]/10"
             >
               Start Your Journey <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform" />
             </motion.button>
@@ -220,8 +222,10 @@ export default function AboutUs() {
           </div>
         </MotionDiv>
       </div>
+      <Maintenance />
 
       <OurStory />
+      <OurClients />
 
       <AnimatePresence>
         {isPopupOpen && (

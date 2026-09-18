@@ -1,0 +1,509 @@
+:root {
+  --dark: #000;
+  --light: #fff;
+  --section-bg: #f5f5f5;
+  --scroll-lock-padding-right: 0px;
+}
+
+/* button {
+  font: inherit;
+} */
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* =========================================================
+   WAC DESIGN / BUILD / MARKET COMPONENT
+   Extracted + normalized from the supplied WAC CSS.
+   ========================================================= */
+
+.homeDesignWrap_section {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--dark);
+  /* margin-bottom: 5.5555555556rem; */
+  position: relative;
+  overflow: hidden;
+  --scroll-lock-padding-right: 0 !important;
+}
+
+.homeDesignWrap_section.anim + section {
+  margin-top: -100vh;
+}
+
+.homeDesignWrap_section > * {
+  opacity: 1;
+}
+
+.homeDesignWrap_section_inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  overflow: hidden;
+  background-color: #000;
+}
+
+.homeDesignWrap_section_item {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  pointer-events: none;
+}
+
+.homeDesignWrap_section_item > section {
+  background-color: transparent;
+}
+
+.homeDesignWrap_title_anim {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background-color: var(--dark);
+    height: 100%;
+}
+
+.obsidianServiceHero {
+  background-color: var(--dark);
+  color: var(--light);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.obsidianService_textWrapper {
+  /* width: max-content; */
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  /* position: absolute; */
+  z-index: 1;
+  mix-blend-mode: lighten;
+  /* top: calc(50% + 55px); */
+  /* transform: translate(-50%, -50%); */
+  /* left: 50%; */
+  will-change: transform;
+  padding-right: var(--scroll-lock-padding-right);
+}
+
+.obsidianService_textAnimInner {
+  width: max-content;
+  position: relative;
+  z-index: 1;
+}
+
+.obsidianService_textHero {
+  text-align: center;
+  font-weight: 200;
+  line-height: 1;
+  font-size: 5.5555555556rem;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  letter-spacing: -1.5px;
+}
+
+.obsidianService_textHero > span {
+  display: inline-block;
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.obsidianService_textHero > span > span {
+  display: inline-block;
+  transform-origin: center;
+  filter: contrast(100%);
+}
+
+.obsidianService_heroWord {
+  width: max-content;
+  position: relative;
+}
+
+.obsidianService_serviceWord {
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.obsidianService_butterfly {
+  width: 100%;
+  max-width: 19rem;
+  position: absolute;
+  left: 62%;
+  top: -25%;
+  opacity: 0;
+  z-index: 1;
+  mix-blend-mode: lighten;
+  pointer-events: none;
+}
+
+.obsidianService_butterfly::after {
+  content: "";
+  padding-bottom: 97.8155339806%;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.obsidianService_video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================================
+   INDIVIDUAL VIDEO POSITIONS
+   Keep each service video in its own original position
+   ========================================================= */
+
+/* .homeDesignWrap_item_design .obsidianService_butterfly {
+  left: 0%;
+  top: 2%;
+}
+
+.homeDesignWrap_item_build .obsidianService_butterfly {
+  left: 42%;
+  top: 8%;
+}
+
+.homeDesignWrap_item_social .obsidianService_butterfly {
+  left: 68%;
+  top: -4%;
+} */
+
+.obsidianService_content {
+  /* width: max-content; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  z-index: 1;
+  position: relative;
+  will-change: transform;
+  text-align: start;
+  left: 0;
+}
+
+.obsidianService_content_wrap {
+  position: relative;
+  margin-top: 1.3888888889rem;
+  font-size: 0.8888888889rem;
+}
+
+.obsidianService_content_wrap p {
+  max-width: 27.7777777778rem;
+  color: var(--light);
+  line-height: 1.6666666667;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.obsidianService_content_wrap p > span {
+  display: inline-block;
+  opacity: 0;
+  transform-origin: left;
+}
+
+.obsidianService_button {
+  background-color: transparent;
+  border: none;
+  color: #000;
+  text-decoration: none;
+  padding-left: 0;
+  padding-right: 0;
+  opacity: 0;
+  transform-origin: left;
+  font-size: 1rem;
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 0.6rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.obsidianService_button .arrow-two {
+  display: inline-block;
+  margin-left: 0.8333333333rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.obsidianService_button:hover .arrow-two {
+  transform: translateX(10px);
+}
+
+.homeDesignWrap_section_mobile {
+  padding: 0.8333333333rem 0 1.6666666667rem;
+  background-color: var(--dark);
+}
+
+.homeDesignWrap_section_mobile > * {
+  opacity: 1;
+}
+
+.homeServiceIntro_section_wrap {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #242424;
+}
+
+.homeServiceIntro_section:last-of-type .homeServiceIntro_section_wrap {
+  border-bottom: 0;
+}
+
+.homeServiceIntro_title {
+  color: #fff;
+  font-size: 60px;
+  font-weight: 300;
+  line-height: 1;
+  margin: 0 0 20px;
+}
+
+.homeServiceIntro_description {
+  font-size: 16px;
+  color: #dedede;
+  line-height: 1.5;
+  font-weight: 300;
+  margin: 0 0 16px;
+}
+
+.homeServiceIntro_section_link {
+  color: #fff;
+  background: transparent;
+  border: 0;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.homeServiceIntro_section_link:hover {
+  color: #b5b5b5;
+}
+
+.service-arrow {
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.homeServiceIntro_section_link:hover .service-arrow {
+  transform: translateX(6px);
+}
+.homeDesignWrap_section_mobile {
+    display: none;
+  }
+/* Desktop source breakpoint */
+@media screen and (min-width: 991px) {
+  .obsidianService_textWrapper{
+    width: max-content;
+  }
+  .homeDesignWrap_section > * {
+    opacity: 1;
+  }
+
+  .homeDesignWrap_section_mobile {
+    display: none;
+  }
+  .obsidianService_button{
+    margin-top: 0;
+  }
+}
+
+
+.homeHighlight_section {
+    --padding-y: 0rem;
+    width: 100%;
+    position: relative;
+    padding: var(--padding-y) 0
+}
+
+/* @media(min-width:992px) { */
+    .homeHighlight_section {
+        /* --padding-y: 5rem */
+        --padding-y: 11.1111rem
+    }
+/* } */
+
+.homeHighlight_section .homeHighlight_textWrapper {
+    --size-blend: 0%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.homeHighlight_section .homeHighlight_textWrapper .homeHighlight_title {
+    width: 100%;
+    font-size: 1.3rem;
+    color: #5d5d5d;
+    position: relative;
+    max-width: 54.4444444444rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -.0277777778rem;
+    line-height: 1.25;
+    align-items: center;
+}
+@media(min-width:767px){
+  .homeHighlight_section .homeHighlight_textWrapper .homeHighlight_title{
+    font-size: 1.7rem;
+  }
+}
+
+@media(min-width:992px) {
+    .homeHighlight_section .homeHighlight_textWrapper .homeHighlight_title {
+        font-size: 1.7777777778rem
+    }
+}
+
+@media(min-width:1200px) {
+    .homeHighlight_section .homeHighlight_textWrapper .homeHighlight_title {
+        font-size: 2rem
+    }
+}
+
+@media(min-width:1600px) {
+    .homeHighlight_section .homeHighlight_textWrapper .homeHighlight_title {
+        font-size: 2rem
+    }
+}
+
+.homeHighlight_section .homeHighlight_textWrapper .homeHighlight_title .homeHighlight_bled {
+    background-image: linear-gradient(0deg, #fff, #fff);
+    background-position: 0 90%;
+    background-repeat: no-repeat;
+    background-size: var(--size-blend) 80px;
+    transform: translateZ(0);
+    padding: .2777777778rem 0;
+    color: #fff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 2
+}
+
+.homeHighlight_section .homeHighlight_textWrapper .homeHighlight_title .homeHighlight_nonBled {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #5d5d5d;
+    z-index: 1
+}
+
+
+@media screen and (max-width: 990px) {
+  /* .homeDesignWrap_section {
+    display: none;
+  } */
+}
+
+@media (min-width: 576px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .obsidianService_textHero {
+    font-size: 7.7777777778rem;
+  }
+
+  .obsidianService_butterfly {
+    max-width: 19.4444444444rem;
+  }
+
+  .obsidianService_content {
+    text-align: left;
+    /* left: 9%; */
+  }
+}
+
+@media (min-width: 768px) {
+  .obsidianService_textHero {
+    font-size: 8.8888888889rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 1085px;
+  }
+
+  .obsidianService_butterfly {
+    max-width: 19rem;
+  }
+
+  .obsidianService_content_wrap {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .obsidianService_textHero {
+    font-size: 10rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1440px;
+  }
+
+  .obsidianService_textHero {
+    font-size: 11.6666666667rem;
+  }
+
+  .obsidianService_butterfly {
+    max-width: 20rem;
+  }
+
+  .obsidianService_content_wrap {
+    font-size: 1.2222222222rem;
+    margin-top: 1.1111111111rem;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .obsidianService_textHero {
+    font-size: 13.6111111111rem;
+  }
+}
+
+/* Accessibility / reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .obsidianService_button .arrow-two,
+  .service-arrow {
+    transition: none;
+  }
+}

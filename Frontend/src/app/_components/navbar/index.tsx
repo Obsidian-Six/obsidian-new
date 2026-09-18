@@ -19,34 +19,34 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
-useEffect(() => {
-  if (pathname !== "/") {
-    setIsHeroVisible(false);
-    return;
-  }
-
-  const hero = document.getElementById("home");
-
-  if (!hero) {
-    setIsHeroVisible(false);
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry) return;
-
-      setIsHeroVisible(entry.isIntersecting);
-    },
-    {
-      threshold: 0.1,
+  useEffect(() => {
+    if (pathname !== "/") {
+      setIsHeroVisible(false);
+      return;
     }
-  );
 
-  observer.observe(hero);
+    const hero = document.getElementById("home");
 
-  return () => observer.disconnect();
-}, [pathname]);
+    if (!hero) {
+      setIsHeroVisible(false);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) return;
+
+        setIsHeroVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+      },
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, [pathname]);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -102,7 +102,8 @@ useEffect(() => {
     { name: "Ai Audit", link: "/uae-ai-marketing-audit.html" },
   ];
 
-  const isWhiteBg = !isHeroVisible ||
+  const isWhiteBg =
+    !isHeroVisible ||
     isScrolled ||
     isMegaMenuOpen ||
     pathname?.startsWith("/services") ||
@@ -117,9 +118,6 @@ useEffect(() => {
 
   if (isAdminRoute || isHiddenDocument) return null;
 
-
-
-
   return (
     <>
       <header
@@ -127,7 +125,7 @@ useEffect(() => {
           isWhiteBg ? "bg-white shadow-md z-[1000]" : "bg-transparent"
         } ${isScrolled ? "hide-on-scroll" : ""}`}
       >
-        <nav className="container mx-auto flex h-20 items-center justify-between px-6 transition-all duration-300 md:h-24">
+        <nav className="container mx-auto flex h-16 items-center justify-between px-6 transition-all duration-300 md:h-18">
           {/* Logo */}
           <Link href="/" className="z-50" onClick={closeMenu}>
             <Image

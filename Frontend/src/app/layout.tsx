@@ -10,7 +10,8 @@ import type { ReactNode } from "react";
 import HeaderToggle from "./_components/HeaderToggle";
 import SmoothScroll from "./_components/SmoothScroll";
 import ScrollToTop from "./_components/ScrollTop";
-
+import SplashCursor from "./_components/SplashCursor";
+import localFont from "next/font/local";
 
 export const metadata = {
   title: "Obsidian Six",
@@ -41,7 +42,12 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-
+const sfProRounded = localFont({
+  src: "../../public/fonts/SFNSRounded.ttf",
+  variable: "--font-sf-rounded",
+  display: "swap",
+  preload: true,
+});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   // --- ADDED ORGANIZATION SCHEMA ---
@@ -92,7 +98,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
 
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${poppins.variable} ${inter.variable} ${sfProRounded.variable}`} suppressHydrationWarning>
       <head>
         {/* Injecting Organization Schema sitewide */}
         <script
@@ -141,6 +147,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* End Meta Pixel Code */}
       </head>
       <body className="antialiased" cz-shortcut-listen="true">
+        <div className="hidden md:block">
+         <SplashCursor />
+        </div>
          <ScrollToTop />
          <SmoothScroll />
         <HeaderToggle />

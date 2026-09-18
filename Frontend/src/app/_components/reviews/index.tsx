@@ -5,7 +5,7 @@ import Slider from "./slider";
 const Reviews = () => {
   return (
     <section className=" font-sans">
-      <div className="max-w-7xl mx-auto pb-32 px-4">
+      <div className="max-w-7xl mx-auto pb-5 px-4">
         {/* CHANGED: Added flex, items-center, and text-center to align everything to the middle */}
         <div className="mb-12 pt-14 flex flex-col items-center text-center">
           <MotionDiv
@@ -29,9 +29,9 @@ const Reviews = () => {
           </MotionH2>
         </div>
 
-        <div className="grid grid-cols-12 items-end gap-4 max-md:grid-cols-1 relative">
+        {/* <div className="grid grid-cols-12 items-end gap-4 max-md:grid-cols-1 relative"> */}
           <Slider />
-        </div>
+        {/* </div> */}
       </div>
     </section>
   );

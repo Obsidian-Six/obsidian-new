@@ -1,7 +1,31 @@
 "use client";
-import { GoArrowUpRight } from "react-icons/go";
+// import { GoArrowUpRight } from "react-icons/go";
 import { MotionDiv, MotionH2, MotionP } from "@/lib/motion";
-import Link from "next/link";
+// import Link from "next/link";
+import ServicesScroll from "./ServicesScroll";
+import Button from "../common/Button";
+// const cards = [
+//   {
+//     title: "AI Audit",
+//     desc: "We analyse your brand, digital presence and opportunities to identify where AI can create meaningful growth.",
+//     video: "/videos/ai-audit.mp4",
+//   },
+//   {
+//     title: "Brand Strategy",
+//     desc: "We build strategic foundations that help brands communicate clearly and create lasting impact.",
+//     video: "/videos/brand-strategy.mp4",
+//   },
+//   {
+//     title: "Design",
+//     desc: "We create distinctive visual systems and digital experiences designed around your audience.",
+//     video: "/videos/design.mp4",
+//   },
+//   {
+//     title: "Development",
+//     desc: "We turn ideas into fast, responsive and highly interactive digital experiences.",
+//     video: "/videos/development.mp4",
+//   },
+// ];
 
 export default function Maintenance() {
   const variants = {
@@ -42,7 +66,7 @@ export default function Maintenance() {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 overflow-hidden font-sans pb-32" id="maintenance">
+    <section className="max-w-7xl mx-auto px-4 overflow-hidden font-sans pb-5 md:pb-32" id="maintenance">
       {/* Heading Section */}
       <div className="mb-12 mt-28">
         <MotionDiv
@@ -52,6 +76,7 @@ export default function Maintenance() {
           className="text-[#052D69] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
         >
           [ Our Mission ]
+          {/* [ Our Brands ] */}
         </MotionDiv>
         <MotionH2
           initial={{ opacity: 0, y: 40 }}
@@ -78,15 +103,16 @@ export default function Maintenance() {
       </MotionP>
       
       {/* CTA Button */}
-      <Link
+      {/* <Link
         href={"/#contactUs"}
         className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#052D69] transition-all duration-300 shadow-lg shadow-[#052D69]/10 w-fit my-6 mb-20 os-btn-slide"
       >
         Start Growing <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
-      </Link>
+      </Link> */}
+      <Button hlink="/contactus" text="Start Growing" />
 
       {/* Maintenance Service Cards (Cascading Layout) */}
-      <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 w-full">
+      {/* <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 w-full">
         {cards.map((card, index) => (
           <MotionDiv
             key={index}
@@ -97,12 +123,12 @@ export default function Maintenance() {
             viewport={{ once: true, margin: "-100px" }}
             className={card.gridClass}
           >
-            {/* Inner Card Grid (Text Left | Image Right) */}
+          
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
               
-              {/* Left Side: Text Content */}
+           
               <article className="flex flex-col pt-2">
-                {/* Thin horizontal line from design */}
+               
                 <hr className="w-full border-t border-slate-300 mb-6" />
                 <h3 className="text-[#19183A] text-lg lg:text-xl font-semibold uppercase tracking-wide mb-4">
                   {card.title}
@@ -112,7 +138,7 @@ export default function Maintenance() {
                 </p>
               </article>
 
-              {/* Right Side: Video */}
+            
               <figure className="w-full">
                 <div className="w-full h-[220px] md:h-[280px] relative bg-slate-100 overflow-hidden">
                   <video
@@ -129,7 +155,8 @@ export default function Maintenance() {
             </div>
           </MotionDiv>
         ))}
-      </div>
+      </div> */}
+      <ServicesScroll cards={cards} />
     </section>
   );
 }

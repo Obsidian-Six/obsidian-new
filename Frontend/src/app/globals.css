@@ -1,9 +1,20 @@
 @import "tailwindcss";
 
+/* @font-face {
+  font-family: "SFNSRounded";
+  src: url("/fonts/SFNSRounded.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+html,body{
+   font-family: "SFNSRounded", sans-serif;
+} */
 @theme {
   --color-black: #1B1B1B;
   --color-slate-950: #1B1B1B;
   --color-slate-900: #1B1B1B;
+  --font-sf: var(--fontRounded);
 }
 
 /* Maintain original dark background shades for layout containers, sections, and overlay elements */
@@ -27,6 +38,10 @@
   /* Match your Tailwind h-20 (80px) and md:h-24 (96px) */
   --nav-height-mobile: 80px;
   --nav-height-desktop: 96px;
+  --site-w: 75.24vw;
+  --nav-gap: max(12px, 1.25vw);
+  --nav-h: 52px;
+   --fontRounded: "SFProRounded", sans-serif;
 }
 * {
   scroll-behavior: smooth;
@@ -124,9 +139,17 @@
   /* push page content below the fixed header to avoid overlap */
 
 }
-
+.accent-surface {
+  background-image: linear-gradient(
+    135deg,
+    color-mix(in oklab, #36d6e7 82%, #c8f02d 18%),
+    color-mix(in oklab, #36d6e7 50%, #c8f02d 50%),
+    color-mix(in oklab, #c8f02d 72%, #0a0b0a 28%)
+  );
+}
 .font-lato {
   font-family: var(--font-lato);
+  
 }
 
 @theme inline {
@@ -139,12 +162,17 @@
   --font-times: "Times New Roman", serif;
   --font-poppins: var(--font-poppins), sans-serif;
   --font-inter: var(--font-inter), sans-serif;
+  /* --font-rounded:var(--font-rounded), sans-serif; */
   
   /* Force all default sans and display to be Poppins */
   --font-sans: var(--font-poppins);
   --font-display: var(--font-poppins);
+  --fontRounded: var(--fontRounded);
 }
-
+html,
+body {
+  font-family: var(--fontRounded);
+}
 /* Styles After Migration - To be overrode */
 @layer base {
   header {
@@ -517,12 +545,13 @@ a.os-cta-btn,
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #FD7B28 !important;
+  /* background-color: #FD7B28 !important; */
   z-index: -1;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   border-radius: inherit !important;
+  background: linear-gradient(to right, #19183a 0%, #052D69 51%, #16222A 100%); 
 }
 
 .os-btn-slide:hover::before {
@@ -531,7 +560,7 @@ a.os-cta-btn,
 
 .os-btn-slide:hover {
   color: #ffffff !important;
-  border-color: #FD7B28 !important;
+  /* border-color: #FD7B28 !important; */
 }
 
 body.mobile-menu-open header {
@@ -539,3 +568,79 @@ body.mobile-menu-open header {
   visibility: visible !important;
   opacity: 1 !important;
 }
+
+
+
+/* cursor */
+.splash-cursor,
+.splash-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  pointer-events: none;
+  z-index: 99999;
+
+  transform: translate3d(-100px, -100px, 0);
+  will-change: transform;
+}
+
+.splash-cursor {
+  width: 8px;
+  height: 8px;
+
+  margin-left: -4px;
+  margin-top: -4px;
+
+  border-radius: 50%;
+  background: #111;
+}
+
+.splash-cursor-follower {
+  width: 42px;
+  height: 42px;
+
+  margin-left: -21px;
+  margin-top: -21px;
+
+  border-radius: 50%;
+
+  background: rgba(229, 128, 75, 0.12);
+  border: 1px solid rgba(229, 128, 75, 0.5);
+
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    margin 0.25s ease,
+    background 0.25s ease;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    cursor: auto;
+    font-family: SFProRounded;
+  }
+
+  .splash-cursor,
+  .splash-cursor-follower {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-cursor,
+  .splash-cursor-follower {
+    display: none;
+  }
+
+  html,
+  body {
+    cursor: auto;
+  }
+}
+
+/* cursor */

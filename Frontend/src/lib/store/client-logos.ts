@@ -14,7 +14,13 @@ const clientLogos: ClientLogo[] = [
   },
   {
     name: "PachmarhiAyurveda",
-    url: "/images/pachmarhi-ayurveda.png",
+    // url: "/images/pachmarhi-ayurveda.png",
+    url: "/images/pachmari-logo.jpeg",
+  },
+  {
+    name: "MoneyBiz",
+    // url: "https://moneybiz.co/wp-content/uploads/2024/09/MoneyBiz-Logo-1.svg",
+    url: "https://moneybiz.co/wp-content/uploads/2024/09/MoneyBiz-Logo-1.svg",
   },
   {
     name: "AmazonDSP",

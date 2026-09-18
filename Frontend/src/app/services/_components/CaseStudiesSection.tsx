@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import templateCaseStudiesData from "@/lib/store/template-case-studies";
 import { getSlug } from "@/lib/utils";
+import Button from "@/app/_components/common/Button";
 
 const CARDS_VISIBLE = 3;
 
@@ -77,7 +78,7 @@ export default function CaseStudiesSection() {
               className="group block"
             >
               {/* Image */}
-              <div className="relative overflow-hidden rounded-lg aspect-[4/3] bg-slate-100">
+              <div className="relative overflow-hidden aspect-[4/3] bg-slate-100">
                 <Image
                   src={study.image}
                   alt={study.name}
@@ -119,18 +120,9 @@ export default function CaseStudiesSection() {
       </div>
 
       {/* View all CTA */}
-      <div className="flex justify-center mt-12">
-        <Link
-          href="/case-studies"
-          className="inline-flex items-center gap-2.5 px-8 py-3 border border-slate-900 text-slate-900 text-sm font-medium rounded-full hover:bg-slate-900 hover:text-white transition-all duration-300 group os-btn-slide"
-        >
-          View all works
-          <ArrowRight
-            size={14}
-            className="group-hover:translate-x-1 transition-transform"
-          />
-        </Link>
-      </div>
+      {<div className="flex justify-center mt-12">
+      <Button hlink={"/case-studies"} text="View all works" />
+      </div> }
     </section>
   );
 }

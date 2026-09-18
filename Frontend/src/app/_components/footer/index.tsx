@@ -18,7 +18,7 @@ const Footer = () => {
         dangerouslySetInnerHTML={{
           __html: `
         .os-footer {
-          --os-bg: #0a0710;
+          --os-bg: #000;
           --os-bg-raised: #120c1e;
           --os-line: rgba(255, 255, 255, 0.08);
           --os-line-soft: rgba(255, 255, 255, 0.06);
@@ -26,9 +26,9 @@ const Footer = () => {
           --os-text-dim: #a39cb8;
           --os-text-faint: #6e6680;
           --os-orange: #FD7B28;
-          --os-orange-bright: #ff914d;
-          --os-orange-deep: #b24b07;
-          --os-orange-glow: rgba(253, 123, 40, 0.25);
+          // --os-orange-bright: #ff914d;
+          // --os-orange-deep: #b24b07;
+          // --os-orange-glow: rgba(253, 123, 40, 0.25);
 
           position: relative;
           background: var(--os-bg);
@@ -133,13 +133,13 @@ const Footer = () => {
           align-items: center;
           gap: 10px;
           padding: 15px 28px;
-          background: var(--os-orange);
+          background-image: linear-gradient(to_right,#19183a_0%,#052D69_51%,#16222A_100%);
           color: #fff;
           font-weight: 700;
           font-size: 15px;
           border-radius: 999px;
           text-decoration: none;
-          border: 1px solid var(--os-orange);
+          border: 1px solid #fff;
           transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
           box-shadow: 0 0 0 0 var(--os-orange-glow);
         }

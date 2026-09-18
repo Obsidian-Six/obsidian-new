@@ -1,14 +1,19 @@
 import Banner from "./_components/banner";
 import ContactUs from "./_components/contact-us";
-import HomeService from "./_components/service";
-import Maintenance from "./_components/maintenance";
+// import HomeService from "./_components/service";
+ import Maintenance from "./_components/maintenance";
 import OurWork from "./_components/our-work";
 import Reviews from "./_components/reviews";
-import OurClients from "./_components/our-clients";
+// import OurClients from "./_components/our-clients";
 import Hero from "./_components/hero";
 import ContactPopup from "./_components/ContactPopup/ContactPopup";
 import Map from "./_components/map/map";
 import FAQ from "./_components/faq";
+import HomeAbout from "./_components/home-about/HomeAbout";
+import HomeServices from "./_components/homeService/HomeServices";
+import OurBlogs from "./_components/ourBlogs/OurBlogs";
+import ScrollTriggerRefresh from "./_components/banner/ScrollTriggerRefresh";
+import AIAudit from "./_components/ai-audit/AiAuditSection";
 
 export default function Home() {
   // Define the structured data as a constant
@@ -85,6 +90,7 @@ export default function Home() {
 
   return (
     <>
+    <ScrollTriggerRefresh />
       {/* FAQ Schema Script Tag */}
       <script
         type="application/ld+json"
@@ -96,24 +102,28 @@ export default function Home() {
 
       {/* Hero Section - Above the fold */}
       <Hero />
+      <HomeAbout />
 
   
       {/* Portfolio / Case Studies */}
+      <Map />
       <OurWork />
 
       {/* Core Agency Services */}
-      <HomeService />
+      <HomeServices />
+      {/* <HomeService /> */}
 
       {/* Call to Action / Mid-page Banner */}
       <Banner />
+      {/* <OurClients /> */}
+      <OurBlogs/>
+      <AIAudit/>
       <Maintenance />
 
       <Reviews />
 
-      <OurClients />
-      <Map />
-      <FAQ />
       <ContactUs />
+      <FAQ />
     </>
   );
 }

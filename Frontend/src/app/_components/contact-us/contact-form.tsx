@@ -67,12 +67,12 @@ const ContactForm = () => {
     <form className="space-y-4" onSubmit={handleFormSubmit}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="text-xs font-semibold inter block mb-1" htmlFor="first-name">
+          <label className="text-sm font-semibold inter block mb-1" htmlFor="first-name">
             First Name
           </label>
           <input
             suppressHydrationWarning
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-sm outline-none w-full focus:border-[#052D69] transition-colors"
             id="first-name"
             placeholder="First Name"
             type="text"
@@ -81,12 +81,12 @@ const ContactForm = () => {
           />
         </div>
         <div>
-          <label className="text-xs font-semibold inter block mb-1" htmlFor="last-name">
+          <label className="text-sm font-semibold inter block mb-1" htmlFor="last-name">
             Last Name
           </label>
           <input
             suppressHydrationWarning
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-sm outline-none w-full focus:border-[#052D69] transition-colors"
             id="last-name"
             placeholder="Last Name"
             type="text"
@@ -97,12 +97,12 @@ const ContactForm = () => {
       </div>
 
       <div>
-        <label className="text-xs font-semibold inter block mb-1" htmlFor="email">
+        <label className="text-sm font-semibold inter block mb-1" htmlFor="email">
           Email
         </label>
         <input
           suppressHydrationWarning
-          className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-colors"
+          className="border border-[#C3C3C3] p-2.5 text-sm outline-none w-full focus:border-[#052D69] transition-colors"
           id="email"
           placeholder="abc@company.com"
           type="email"
@@ -113,7 +113,7 @@ const ContactForm = () => {
       </div>
 
       <div className="w-full">
-        <label className="text-xs font-semibold inter block mb-1" htmlFor="phone-number">
+        <label className="text-sm font-semibold inter block mb-1" htmlFor="phone-number">
           Phone Number
         </label>
         {isMounted ? (
@@ -123,19 +123,19 @@ const ContactForm = () => {
             onChange={(value: string) => setPhone(value)}
             enableSearch={true}
             searchPlaceholder="Search country..."
-            inputClass="!border !border-[#C3C3C3] p-2.5 !text-xs !outline-none !w-full !rounded-none focus:!border-[#052D69]"
+            inputClass="!border !border-[#C3C3C3] p-2.5 !text-sm !outline-none !w-full !rounded-none focus:!border-[#052D69]"
             containerClass="!w-full"
             buttonClass="!rounded-none !border-[#C3C3C3]"
             dropdownClass="!rounded-none"
-            searchClass="!text-xs !p-2"
+            searchClass="!text-sm !p-2"
           />
         ) : (
-          <div className="w-full h-[38px] border border-[#C3C3C3] bg-white animate-pulse" />
+          <div className="w-full h-9.5 border border-[#C3C3C3] bg-white animate-pulse" />
         )}
       </div>
 
       <div>
-        <label className="text-xs font-semibold inter block mb-3">
+        <label className="text-sm font-semibold inter block mb-3">
           What do you need help with?
         </label>
         <div className="flex flex-wrap gap-3 mt-2">
@@ -144,7 +144,7 @@ const ContactForm = () => {
             return (
               <label
                 key={index}
-                className={`flex items-center px-4 py-2 text-xs cursor-pointer transition-all duration-300 border ${
+                className={`flex items-center px-4 py-2 text-sm cursor-pointer transition-all duration-300 border ${
                   isSelected 
                     ? "bg-[#052D69] border-[#052D69] text-white shadow-md" 
                     : "bg-white border-[#C3C3C3] text-gray-600 hover:border-[#052D69]"
@@ -172,12 +172,12 @@ const ContactForm = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
         <div>
-          <label className="text-xs font-semibold inter block mb-1" htmlFor="company-name">
+          <label className="text-sm font-semibold inter block mb-1" htmlFor="company-name">
             Company Name
           </label>
           <input
             suppressHydrationWarning
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-sm outline-none w-full focus:border-[#052D69] transition-colors"
             id="company-name"
             placeholder="abc pvt ltd"
             type="text"
@@ -186,12 +186,12 @@ const ContactForm = () => {
           />
         </div>
         <div>
-          <label className="text-xs font-semibold inter block mb-1" htmlFor="company-website">
+          <label className="text-sm font-semibold inter block mb-1" htmlFor="company-website">
             Company Website
           </label>
           <input
             suppressHydrationWarning
-            className="border border-[#C3C3C3] p-2.5 text-xs outline-none w-full focus:border-[#052D69] transition-colors"
+            className="border border-[#C3C3C3] p-2.5 text-sm outline-none w-full focus:border-[#052D69] transition-colors"
             id="company-website"
             placeholder="www.abc.com"
             type="text"
@@ -202,17 +202,17 @@ const ContactForm = () => {
       </div>
 
       {isSubmitted && (
-        <p className="text-green-600 text-xs mt-2 font-medium animate-pulse">
+        <p className="text-green-600 text-sm mt-2 font-medium animate-pulse">
           Thank you for your enquiry. We will get back to you soon.
         </p>
       )}
 
-      <div className="flex justify-end">
+      <div className="flex justify-start">
         <button
           suppressHydrationWarning
           disabled={isSubmitting}
-          className={`group inline-flex items-center justify-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-lg shadow-[#052D69]/10 os-btn-slide ${
-            isSubmitting ? "opacity-50 cursor-progress" : "opacity-100 cursor-pointer hover:bg-[#052D69]"
+          className={`group inline-flex items-center justify-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-[linear-gradient(to_right,#19183a_0%,#052D69_51%,#16222A_100%)] text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-lg shadow-[#052D69]/10  border border-white ${
+            isSubmitting ? "opacity-50 cursor-progress" : "opacity-100 cursor-pointer"
           }`}
           type="submit"
         >

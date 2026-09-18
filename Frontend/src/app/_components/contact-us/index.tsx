@@ -50,8 +50,8 @@ const ContactUs = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
 
               {/* Call */}
-              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 rounded-2xl border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 rounded-xl shadow-sm  group-hover:text-[#052D69] transition-colors">
+              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
+                <div className="bg-white p-3 shadow-sm  group-hover:text-[#052D69] transition-colors">
                   <PiPhoneCall className="text-xl" />
                 </div>
                 <div>
@@ -63,8 +63,8 @@ const ContactUs = () => {
               </address>
 
               {/* Email */}
-              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 rounded-2xl border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 rounded-xl shadow-sm group-hover:text-[#052D69] transition-colors">
+              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
+                <div className="bg-white p-3 shadow-sm group-hover:text-[#052D69] transition-colors">
                   <MdOutlineMailOutline className="text-xl" />
                 </div>
                 <div>
@@ -76,8 +76,8 @@ const ContactUs = () => {
               </address>
 
               {/* Instagram */}
-              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 rounded-2xl border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 rounded-xl shadow-sm group-hover:text-[#052D69] transition-colors">
+              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
+                <div className="bg-white p-3 shadow-sm group-hover:text-[#052D69] transition-colors">
                   <RiInstagramLine className="text-xl" />
                 </div>
                 <div>
@@ -89,8 +89,8 @@ const ContactUs = () => {
               </address>
 
               {/* Location */}
-              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 rounded-2xl border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 rounded-xl shadow-sm group-hover:text-[#052D69] transition-colors">
+              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
+                <div className="bg-white p-3 shadow-sm group-hover:text-[#052D69] transition-colors">
                   <GrLocation className="text-xl" />
                 </div>
                 <div>
@@ -106,7 +106,7 @@ const ContactUs = () => {
 
         {/* Form Container */}
         {/* order-1 on mobile so the form comes first, which is better UX */}
-        <div className="lg:col-span-8 order-1 lg:order-2 bg-white border border-gray-100 p-6 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.04)] rounded-[2rem]">
+        <div className="lg:col-span-8 order-1 lg:order-2 bg-white border border-gray-100 md:p-6 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.04)]">
           <ContactForm />
         </div>
 

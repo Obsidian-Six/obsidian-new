@@ -1,13 +1,17 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion,
+  //  useInView,
+    useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { GoArrowUpRight } from "react-icons/go";
+// import { GoArrowUpRight } from "react-icons/go";
 
 import { MotionDiv, MotionP } from "@/lib/motion";
 import caseStudiesData from "@/lib/store/case-studies";
+import Button from "../common/Button";
+import { ArrowUpRight } from "lucide-react";
 
 type CaseStudy = {
   slug: string;
@@ -15,6 +19,7 @@ type CaseStudy = {
   name: string;
   category: string;
   details: string;
+  tags?:string[];
 };
 
 type WorkCardProps = {
@@ -115,33 +120,28 @@ const OurWork = () => {
         }}
         className="mt-2 flex justify-center"
       >
-        <Link
-          href="/case-studies"
-          className="os-btn-slide group inline-flex items-center gap-3 rounded-full bg-slate-900 px-8 py-3 text-[12px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-[#052D69]/10 transition-all duration-300 hover:bg-[#052D69] md:px-10 md:py-4"
-        >
-          View all works
-          <GoArrowUpRight className="text-xl transition-transform duration-300 group-hover:rotate-45" />
-        </Link>
+        <Button hlink="/case-studies" text="View all works" />
       </MotionDiv>
     </section>
   );
 };
 
-const WorkCard = ({ caseStudy, index }: WorkCardProps) => {
-  const imageRef = useRef<HTMLDivElement | null>(null);
+const WorkCard = ({ caseStudy }: WorkCardProps) => {
+  // console.log(caseStudy.tags)
+  // const imageRef = useRef<HTMLDivElement | null>(null);
 
-  const isInView = useInView(imageRef, {
-    once: true,
-    amount: 0.1,
-  });
+  // const isInView = useInView(imageRef, {
+  //   once: true,
+  //   amount: 0.1,
+  // });
 
   return (
     <div className="group flex flex-col">
-      <Link href={`/case-studies/${caseStudy.slug}`}>
-        {/* Image */}
+      {/* <Link href={`/case-studies/${caseStudy.slug}`}>
+       
         <div
           ref={imageRef}
-          className="relative overflow-hidden rounded-sm bg-slate-200"
+          className="relative overflow-hidden bg-slate-200"
         >
           <motion.div
             initial={{
@@ -167,7 +167,6 @@ const WorkCard = ({ caseStudy, index }: WorkCardProps) => {
             />
           </motion.div>
 
-          {/* Explore Case */}
           <div className="absolute right-4 top-4 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
             <span className="rounded-full bg-white/90 px-4 py-2 text-[9px] font-bold uppercase tracking-tighter shadow-xl backdrop-blur-md">
               Explore Case
@@ -175,9 +174,9 @@ const WorkCard = ({ caseStudy, index }: WorkCardProps) => {
           </div>
         </div>
 
-        {/* Text Content */}
+
         <div className="mt-8 space-y-3">
-          {/* Category */}
+      
           <motion.div
             initial={{
               opacity: 0,
@@ -204,7 +203,7 @@ const WorkCard = ({ caseStudy, index }: WorkCardProps) => {
             </p>
           </motion.div>
 
-          {/* Title + Description */}
+       
           <motion.div
             initial={{
               opacity: 0,
@@ -233,8 +232,52 @@ const WorkCard = ({ caseStudy, index }: WorkCardProps) => {
             </p>
           </motion.div>
         </div>
-      </Link>
+      </Link> */}
+      <Link
+              href={`/case-studies/${caseStudy.slug}`}
+              className="group block"
+            >
+              {/* Image */}
+              <div className="relative overflow-hidden aspect-[4/3] bg-slate-100">
+                <Image
+                  src={caseStudy.image}
+                  alt={caseStudy.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  unoptimized
+                />
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-end justify-end p-4">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white rounded-full w-9 h-9 flex items-center justify-center shadow-md">
+                    <ArrowUpRight size={15} className="text-slate-900" />
+                  </span>
+                </div>
+              </div>
+
+              {/* Meta below image */}
+              <div className="mt-4 space-y-1.5">
+                <p className="text-xs font-medium text-slate-400 uppercase tracking-widest">
+                  {caseStudy.category}
+                </p>
+                <h3 className="text-[16px] font-bold text-slate-800 leading-snug group-hover:text-slate-900 transition-colors">
+                  {caseStudy.name}
+                </h3>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {caseStudy?.tags?.slice(0, 2).map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[14px] px-2 py-0.5 border border-slate-500 rounded-full text-slate-600 whitespace-nowrap"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Link>
     </div>
+    
+
   );
 };
 

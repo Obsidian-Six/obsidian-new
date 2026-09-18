@@ -15,6 +15,17 @@ const categories = [
     ],
   },
   {
+    title: "Digital Marketing",
+    items: [
+      { name: "Search Engine Optimisation", slug: "search-engine-optimisation" },
+      { name: "Social Media Management", slug: "social-media-management" },
+      { name: "Performance Marketing", slug: "performance-marketing" },
+      { name: "Content Marketing", slug: "content-marketing" },
+      { name: "Marketing Automation", slug: "marketing-automation" },
+      { name: "Analytics", slug: "analytics" },
+    ],
+  },
+  {
     title: "Technology",
     items: [
       { name: "AI & Machine Learning", slug: "ai-machine-learning" },
@@ -24,17 +35,6 @@ const categories = [
       { name: "Mobile App Development", slug: "mobile-app-development" },
       { name: "E-commerce", slug: "e-commerce" },
       { name: "Quality Assurance & Testing", slug: "quality-assurance-testing" },
-    ],
-  },
-  {
-    title: "Digital Marketing",
-    items: [
-      { name: "Search Engine Optimisation", slug: "search-engine-optimisation" },
-      { name: "Social Media Management", slug: "social-media-management" },
-      { name: "Performance Marketing", slug: "performance-marketing" },
-      { name: "Content Marketing", slug: "content-marketing" },
-      { name: "Marketing Automation", slug: "marketing-automation" },
-      { name: "Analytics", slug: "analytics" },
     ],
   },
 ];
