@@ -25,7 +25,7 @@ const SERVICES: Service[] = [
     hero: "Brand that feels like you!",
     description:
       "We believe to create design that tells your story. We capture your brand’s soul and craft captivating messages that encapsulate your brand’s essence.",
-    href: "/contactus",
+    href: "/branding-agency-uae",
     video: Design,
   },
   {
@@ -34,7 +34,7 @@ const SERVICES: Service[] = [
     hero: "Make it real!",
     description:
       "We find your voices and grow the tribe. Turn your followers into fans! While we handle the algorithm, you master the relationships.",
-    href: "/contactus",
+    href: "/digital-marketing-agency-uae",
     video: Social,
   },
   {
@@ -44,7 +44,7 @@ const SERVICES: Service[] = [
     description:
     "We build a digital backbone that never breaks! From custom web applications to scalable e-commerce platforms, we take care of ‘how’ so your customers can enjoy the ‘Wow.’",
     video: Tech,
-    href: "/contactus",
+    href: "/services/technology",
   }
 ];
 
