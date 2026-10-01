@@ -316,7 +316,6 @@
 //   );
 // }
 
-
 // "use client";
 
 // import Image from "next/image";
@@ -353,7 +352,6 @@
 // export default function Hero(): React.JSX.Element {
 //   const heroVideoRef = useRef<HTMLVideoElement | null>(null);
 //   const reelCardRef = useRef<HTMLDivElement | null>(null);
-
 
 // useLayoutEffect(() => {
 //   const video = heroVideoRef.current;
@@ -1066,7 +1064,6 @@
 //   );
 // }
 
-
 "use client";
 
 import Image from "next/image";
@@ -1110,42 +1107,42 @@ export default function Hero(): React.JSX.Element {
    * iOS / SAFARI VIDEO AUTOPLAY
    * =========================================================
    */
- useEffect(() => {
-  const video = heroVideoRef.current;
+  useEffect(() => {
+    const video = heroVideoRef.current;
 
-  if (!video) return;
+    if (!video) return;
 
-  video.muted = true;
-  video.playsInline = true;
-
-  video.setAttribute("muted", "");
-  video.setAttribute("playsinline", "");
-  video.setAttribute("webkit-playsinline", "");
-
-  const tryPlay = () => {
     video.muted = true;
+    video.playsInline = true;
 
-    const promise = video.play();
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
 
-    if (promise !== undefined) {
-      promise.catch(() => {
-        // Safari may reject autoplay until the video is ready.
-      });
-    }
-  };
+    const tryPlay = () => {
+      video.muted = true;
 
-  video.addEventListener("loadedmetadata", tryPlay);
-  video.addEventListener("canplay", tryPlay);
-  video.addEventListener("loadeddata", tryPlay);
+      const promise = video.play();
 
-  tryPlay();
+      if (promise !== undefined) {
+        promise.catch(() => {
+          // Safari may reject autoplay until the video is ready.
+        });
+      }
+    };
 
-  return () => {
-    video.removeEventListener("loadedmetadata", tryPlay);
-    video.removeEventListener("canplay", tryPlay);
-    video.removeEventListener("loadeddata", tryPlay);
-  };
-}, []);
+    video.addEventListener("loadedmetadata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+    video.addEventListener("loadeddata", tryPlay);
+
+    tryPlay();
+
+    return () => {
+      video.removeEventListener("loadedmetadata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+      video.removeEventListener("loadeddata", tryPlay);
+    };
+  }, []);
 
   /*
    * =========================================================
@@ -1182,31 +1179,21 @@ export default function Hero(): React.JSX.Element {
         const videoRect = video.getBoundingClientRect();
         const cardRect = card.getBoundingClientRect();
 
-        const videoCenterX =
-          videoRect.left + videoRect.width / 2;
+        const videoCenterX = videoRect.left + videoRect.width / 2;
 
-        const videoCenterY =
-          videoRect.top + videoRect.height / 2;
+        const videoCenterY = videoRect.top + videoRect.height / 2;
 
-        const cardCenterX =
-          cardRect.left + cardRect.width / 2;
+        const cardCenterX = cardRect.left + cardRect.width / 2;
 
-        const cardCenterY =
-          cardRect.top + cardRect.height / 2;
+        const cardCenterY = cardRect.top + cardRect.height / 2;
 
         return {
           x: cardCenterX - videoCenterX,
           y: cardCenterY - videoCenterY,
 
-          scaleX:
-            videoRect.width > 0
-              ? cardRect.width / videoRect.width
-              : 1,
+          scaleX: videoRect.width > 0 ? cardRect.width / videoRect.width : 1,
 
-          scaleY:
-            videoRect.height > 0
-              ? cardRect.height / videoRect.height
-              : 1,
+          scaleY: videoRect.height > 0 ? cardRect.height / videoRect.height : 1,
         };
       };
 
@@ -1220,10 +1207,11 @@ export default function Hero(): React.JSX.Element {
           trigger: card,
 
           start: "top 80%",
-          end: "top top",
+          end: "top 5%",
 
           scrub: true,
           pin: false,
+          // markers:true,
 
           invalidateOnRefresh: true,
 
@@ -1234,7 +1222,7 @@ export default function Hero(): React.JSX.Element {
           },
         },
       });
-
+      let lastProgress = 0;
       timeline.to(video, {
         x: () => getVideoTransform().x,
         y: () => getVideoTransform().y,
@@ -1242,12 +1230,29 @@ export default function Hero(): React.JSX.Element {
         scaleX: () => getVideoTransform().scaleX,
         scaleY: () => getVideoTransform().scaleY,
 
-        borderRadius: "0.2cqw",
+        // borderRadius: "0.2cqw",
+        borderRadius: "0",
 
         ease: "none",
         duration: 1,
 
         invalidateOnRefresh: true,
+        onUpdate: function () {
+          const progress = this.progress();
+
+          // Forward → animation complete
+          if (progress >= 0.999) {
+            card.style.background = "#000";
+          }
+
+          // Reverse → as soon as animation starts moving backward
+          if (progress < lastProgress) {
+            // card.style.background = "linear-gradient( #fcebe0 100%)";
+            card.style.background = "transparent";
+          }
+
+          lastProgress = progress;
+        },
       });
 
       /*
@@ -1306,10 +1311,7 @@ export default function Hero(): React.JSX.Element {
 
         resizeObserver.disconnect();
 
-        window.removeEventListener(
-          "resize",
-          handleResize
-        );
+        window.removeEventListener("resize", handleResize);
       };
     });
 
@@ -1320,7 +1322,6 @@ export default function Hero(): React.JSX.Element {
 
   return (
     <div id="home" className="hero-stack">
-
       {/* =====================================================
           HERO / INTRO
       ====================================================== */}
@@ -1493,10 +1494,7 @@ export default function Hero(): React.JSX.Element {
       ====================================================== */}
 
       <section className="reel-full p-2">
-        <div
-          ref={reelCardRef}
-          className="reel-full__card"
-        />
+        <div ref={reelCardRef} className="reel-full__card" />
       </section>
     </div>
   );

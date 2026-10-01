@@ -51,15 +51,63 @@ const reviews: Review[] = [
       "https://content.jdmagicbox.com/comp/bhopal/m4/0755px755.x755.231207170037.n6m4/catalogue/vishnu-dental-clinic-j-k-road-bhopal-doctors-for-dental-mobility-j4m1latdlp-250.jpg",
     video: "",
   },
+  // {
+  //   name: "Ravi Tiwari",
+  //   title: "CEO, Claims Nidan",
+  //   feedback:
+  //     " Collaborating with Obsidian Six team has been an insightful experience. As someone running a business in the insurance claims space a niche and often overlooked industry, It's not easy to find the right kind of audience or impact through digital marketing. But the campaign they launched for us delivered both. We saw high-quality leads, real engagement, and a noticeable difference in visibility. They even executed an ad shoot for our brand, which brought a whole new level of credibility and attention. The automation and strategy behind it were sharp and result-driven. Grateful for the clarity, effort, and returns this team has brought us. ",
+  //   company: "Claims Nidan",
+  //   image: "https://www.claimsnidan.com/frontend/img/ravi-tiwari.jpg",
+  //   video: "",
+  // },
+
   {
-    name: "Ravi Tiwari",
-    title: "CEO, Claims Nidan",
+    name: "FMCG INDUSTRY",
+    title: "FOUNDER / BUSINESS OWNER",
     feedback:
-      " Collaborating with Obsidian Six team has been an insightful experience. As someone running a business in the insurance claims space a niche and often overlooked industry, It's not easy to find the right kind of audience or impact through digital marketing. But the campaign they launched for us delivered both. We saw high-quality leads, real engagement, and a noticeable difference in visibility. They even executed an ad shoot for our brand, which brought a whole new level of credibility and attention. The automation and strategy behind it were sharp and result-driven. Grateful for the clarity, effort, and returns this team has brought us. ",
-    company: "Claims Nidan",
-    image: "https://www.claimsnidan.com/frontend/img/ravi-tiwari.jpg",
+      "Hi Obsidian Team, I would like to thank you for the effort and dedication you put into our campaigns. From understanding our brand to reaching the right audience, the team was involved at every step. We started receiving better enquiries and saw a clear improvement in our online visibility. The consistency and support from the team made the entire experience very smooth.",
+    company: "",
+    image: "/images/reviews/fmcg-image.jpeg",
     video: "",
   },
+  {
+    name: "INTERNATIONAL EDUCATION CONSULTING",
+    title: "DIRECTOR",
+    feedback:
+      "Working with Obsidian has been a great experience for our organisation. The team took the time to understand our requirements and the type of students we wanted to reach. The campaigns helped us generate a steady flow of enquiries, while the creatives and communication became much more relevant to our audience. We really appreciate the team's commitment and responsiveness.",
+    company: "",
+    image: "https://www.globalcareercounsellor.com/blog/wp-content/uploads/2021/12/Start-an-Overseas-Education-Consultancy-1.jpg",
+    video: "",
+  },
+  {
+    name: "AUTOMOBILE INDUSTRY — UAE",
+    title: "MANAGING DIRECTOR",
+    feedback:
+      "We started working with Obsidian to strengthen our digital presence and generate more enquiries in the UAE market. The team understood our requirements quickly and worked on campaigns that were relevant to our target audience. What I appreciated most was their approach towards testing, optimisation and continuous improvement. The communication throughout the process has also been excellent.",
+    company: "",
+    image: "/images/reviews/automobile-uae-image.jpeg",
+    video: "",
+  },
+  {
+    name: "E-COMMERCE INDUSTRY — INDIA",
+    title: "FOUNDER",
+    feedback:
+      "Obsidian Six has been a valuable partner for our e-commerce business. The team helped us understand how to approach our campaigns, creatives and audiences in a much more structured way. We tested different ideas and gradually identified what worked better for our customers. Their team is proactive, easy to communicate with and genuinely involved in improving the campaigns.",
+    company: "",
+    image: "/images/reviews/ecommerce-image.jpeg",
+    video: "",
+  },
+  {
+    name: "FINANCIAL ADVISORY — USA",
+    title: "FOUNDER & DIRECTOR",
+    feedback:
+      "We were looking for a marketing partner who could understand the nature of our financial advisory business and communicate it professionally. Obsidian Six took the time to understand our services, audience and objectives before working on the campaigns. The overall process has been professional and well managed, and we have appreciated the team's attention to detail and consistent support.",
+    company: "",
+    image: "/images/reviews/financial-advisory-image.jpeg",
+    video: "",
+  },
+
+
   {
     name: "Angelina",
     title: "E-commerce Business Owner, France",

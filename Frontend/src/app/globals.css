@@ -304,6 +304,28 @@ body {
   }
 }
 
+/* Total width of the scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Background of the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Draggable handle/thumb of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0;
+}
+
+/* Hover state for the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 /* Ensure the popup is the topmost layer */
 .popup-container {
   z-index: 99999 !important;

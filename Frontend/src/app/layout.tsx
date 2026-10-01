@@ -1,5 +1,3 @@
-
-
 import FloatingWhatsapp from "./_components/floating-whatsapp";
 import Footer from "./_components/footer";
 
@@ -14,8 +12,32 @@ import SplashCursor from "./_components/SplashCursor";
 import localFont from "next/font/local";
 
 export const metadata = {
-  title: "Obsidian Six",
-  description: "Building Brands From obsidian · Social Media Marketing · Paid Ads Management · Designing Services · Web Devlopment · Building Brands obsidian",
+  title: "Obsidian Six | Digital Marketing, Branding & Web Development",
+  description:
+    "Building Brands From obsidian · Social Media Marketing · Paid Ads Management · Designing Services · Web Devlopment · Building Brands obsidian",
+  //FAVICON
+  icons: {
+    icon: [
+      {
+        url: "/favicon/favicon.ico",
+        type: "image/x-icon",
+      },
+      {
+        url: "/favicon/favicon-32x32.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: "/favicon/favicon-16x16.png",
+        type: "image/png",
+        sizes: "16x16",
+      },
+    ],
+    apple: "/favicon/apple-touch-icon.png",
+  },
+
+  manifest: "/favicon/site.webmanifest",
+
   // ADD THIS BLOCK:
   robots: {
     index: true,
@@ -30,16 +52,15 @@ export const metadata = {
   },
 };
 
-
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-poppins',
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
 });
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 const sfProRounded = localFont({
@@ -54,51 +75,39 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Obsidian Six",
-    "url": "https://obsidiansix.com/",
-    "logo": "https://obsidiansix.com/images/logo/logo2.png",
-    "sameAs": [
+    name: "Obsidian Six",
+    url: "https://obsidiansix.com/",
+    logo: "https://obsidiansix.com/images/logo/logo2.png",
+    sameAs: [
       "https://www.linkedin.com/company/obsidian-six/",
-      "https://www.instagram.com/obsidiansixofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+      "https://www.instagram.com/obsidiansixofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     ],
-    "contactPoint": [
+    contactPoint: [
       {
         "@type": "ContactPoint",
-        "telephone": "+91 8085652729",
-        "contactType": "sales",
-        "email": "info@obsidiansix.com",
-        "areaServed": [
-          "US",
-          "IN",
-          "AE",
-          "GB"
-        ],
-        "availableLanguage": [
-          "en",
-          "hi"
-        ]
+        telephone: "+91 8085652729",
+        contactType: "sales",
+        email: "info@obsidiansix.com",
+        areaServed: ["US", "IN", "AE", "GB"],
+        availableLanguage: ["en", "hi"],
       },
       {
         "@type": "ContactPoint",
-        "telephone": "+91 89829 92729",
-        "contactType": "customer service",
-        "email": "hr@obsidiansix.com",
-        "areaServed": [
-          "US",
-          "IN",
-          "AE"
-        ],
-        "availableLanguage": [
-          "en",
-          "hi"
-        ]
-      }
-    ]
+        telephone: "+91 89829 92729",
+        contactType: "customer service",
+        email: "hr@obsidiansix.com",
+        areaServed: ["US", "IN", "AE"],
+        availableLanguage: ["en", "hi"],
+      },
+    ],
   };
 
-
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable} ${sfProRounded.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${inter.variable} ${sfProRounded.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         {/* Injecting Organization Schema sitewide */}
         <script
@@ -115,7 +124,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
               })(window, document, "clarity", "script", "vhbmu4dqla");
-            `
+            `,
           }}
         />
         {/* Meta Pixel Code */}
@@ -132,7 +141,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               'https://connect.facebook.net/en_US/fbevents.js');
               fbq('init', '1366919888153937');
               fbq('track', 'PageView');
-            `
+            `,
           }}
         />
         <noscript>
@@ -148,10 +157,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="antialiased" cz-shortcut-listen="true">
         <div className="hidden md:block">
-         <SplashCursor />
+          <SplashCursor />
         </div>
-         <ScrollToTop />
-         <SmoothScroll />
+        <ScrollToTop />
+        <SmoothScroll />
         <HeaderToggle />
         <main>{children}</main>
         <footer>
