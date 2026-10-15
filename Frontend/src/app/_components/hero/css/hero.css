@@ -224,7 +224,7 @@
 }
 @media (width >= 1024px) {
      .intro {
-    padding-inline: calc((100% - var(--site-w)) / 2);
+    padding-inline: calc((100% - var(--site-w)) / 3);
     min-height: 52.65vw;
     padding-top: 6.52vw;
     padding-bottom: 5.435vw;

@@ -1383,22 +1383,22 @@ export default function Hero(): React.JSX.Element {
             turn
           </RevealText>
 
-          {/* GREAT */}
+          {/* marketing  */}
 
           <RevealText
             className="font-sf text-6xl md:text-7xl lg:text-8xl mx-5 font-extrabold"
             delay={140}
           >
-            great
+            marketing 
           </RevealText>
 
-          {/* IDEAS */}
+          {/* spend  */}
 
           <RevealText
             className="font-sf text-6xl md:text-7xl lg:text-8xl mx-5 font-extrabold"
             delay={200}
           >
-            ideas
+            spend 
           </RevealText>
 
           {/* INTO */}
@@ -1440,23 +1440,23 @@ export default function Hero(): React.JSX.Element {
             />
           </svg>
 
-          {/* BRANDS */}
+          {/* customers */}
 
           <RevealText
             className="font-sf text-6xl md:text-7xl lg:text-8xl mx-5 font-extrabold"
             delay={320}
           >
-            brands
+            customers
           </RevealText>
 
           {/* PEOPLE */}
 
-          <RevealText
+          {/* <RevealText
             className="font-sf text-6xl md:text-7xl lg:text-8xl mx-5 font-extrabold"
             delay={380}
           >
             people
-          </RevealText>
+          </RevealText> */}
 
           {/* =====================================================
               SMALL HERO VIDEO
