@@ -1,101 +1,251 @@
+// "use client";
+// import { PiPhoneCall } from "react-icons/pi";
+// import { MdOutlineMailOutline } from "react-icons/md";
+// import { RiInstagramLine } from "react-icons/ri";
+// import { GrLocation } from "react-icons/gr";
+// import "react-phone-input-2/lib/style.css";
+// import Link from "next/link";
+// import { motion } from "framer-motion";
+// import ContactForm from "./contact-form";
+// import ClientTicker from "./ClientTicker";
+
+// const ContactUs = () => {
+//   return (
+//     // Changed pt-0 to pt-10 to give space on mobile, added overflow-visible
+//     <section id="contactUs" className="relative pt-0 pb-0 md:pb-20 bg-white overflow-visible">
+
+//       {/* --- TIGHTENED CLIENT TICKER --- */}
+//       <div className="mb-8 md:mb-12 border-y border-gray-50 py-2 bg-gray-50/20">
+//         <div className="max-w-6xl mx-auto px-6">
+
+//           <ClientTicker />
+//         </div>
+//       </div>
+
+//       {/* Header Section */}
+//       <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12 text-left">
+//         <motion.span
+//           initial={{ opacity: 0, x: -20 }}
+//           whileInView={{ opacity: 1, x: 0 }}
+//           viewport={{ once: true }}
+//           className="text-[#052D69] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
+//         >
+//           [ Contact Us ]
+//         </motion.span>
+//         <h2 className="text-4xl md:text-5xl lg:text-6xl leading-none font-light text-slate-950 tracking-tighter">
+//           Let&apos;s Construct <br className="hidden md:block" />
+//           <span className="text-[#052D69] italic font-serif">Future.</span>
+//         </h2>
+//         <p className="text-gray-400 mt-6 max-w-md uppercase tracking-[0.2em] text-[9px] md:text-[10px] font-bold">
+//           Ready to scale? Drop us a line.
+//         </p>
+//       </div>
+
+//       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
+
+//         {/* Contact Details Side */}
+//         {/* Removed 'fixed' related logic for mobile - now it flows naturally */}
+//         <div className="lg:col-span-4 order-2 lg:order-1">
+//           <div className="lg:sticky lg:top-32 space-y-4 md:space-y-6">
+//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+
+//               {/* Call */}
+//               <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
+//                 <div className="bg-white p-3 shadow-sm  group-hover:text-[#052D69] transition-colors">
+//                   <PiPhoneCall className="text-xl" />
+//                 </div>
+//                 <div>
+//                   <h3 className="text-[8px] uppercase font-bold tracking-widest text-gray-400">Call Us</h3>
+//                   <Link href="tel:+918085652729" className="text-sm hover:text-orange-400 font-bold tracking-tight text-slate-900">
+//                     +91 80856 52729
+//                   </Link>
+//                 </div>
+//               </address>
+
+//               {/* Email */}
+//               <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
+//                 <div className="bg-white p-3 shadow-sm group-hover:text-[#052D69] transition-colors">
+//                   <MdOutlineMailOutline className="text-xl" />
+//                 </div>
+//                 <div>
+//                   <h3 className="text-[8px] uppercase font-bold tracking-widest text-gray-400">Mail Us</h3>
+//                   <Link href="mailto:info@obsidiansix.com" className="text-sm hover:text-orange-400 font-bold tracking-tight text-slate-900 break-all">
+//                     info@obsidiansix.com
+//                   </Link>
+//                 </div>
+//               </address>
+
+//               {/* Instagram */}
+//               <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
+//                 <div className="bg-white p-3 shadow-sm group-hover:text-[#052D69] transition-colors">
+//                   <RiInstagramLine className="text-xl" />
+//                 </div>
+//                 <div>
+//                   <h3 className="text-[8px] uppercase font-bold tracking-widest text-gray-400">Socials</h3>
+//                   <Link href="https://www.instagram.com/obsidiansixofficial?igsh=MTZobmdwczNvMHkxeg%3D%3D&utm_source=qr" className="text-sm hover:text-orange-400 font-bold tracking-tight text-slate-900">
+//                     @obsidiansix
+//                   </Link>
+//                 </div>
+//               </address>
+
+//               {/* Location */}
+//               <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
+//                 <div className="bg-white p-3 shadow-sm group-hover:text-[#052D69] transition-colors">
+//                   <GrLocation className="text-xl" />
+//                 </div>
+//                 <div>
+//                   <h3 className="text-[8px] uppercase font-bold tracking-widest text-gray-400">HQ</h3>
+//                   <p className="text-sm font-bold tracking-tight leading-tight text-slate-900">
+//                     Mumbai, India
+//                   </p>
+//                 </div>
+//               </address>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Form Container */}
+//         {/* order-1 on mobile so the form comes first, which is better UX */}
+//         <div className="lg:col-span-8 order-1 lg:order-2 bg-white border border-gray-100 md:p-6 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.04)]">
+//           <ContactForm />
+//         </div>
+
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default ContactUs;
+
 "use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { PiPhoneCall } from "react-icons/pi";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiInstagramLine } from "react-icons/ri";
 import { GrLocation } from "react-icons/gr";
-import "react-phone-input-2/lib/style.css";
-import Link from "next/link";
-import { motion } from "framer-motion";
+
 import ContactForm from "./contact-form";
 import ClientTicker from "./ClientTicker";
+import ClientQuote from "../ClientQuote";
 
 const ContactUs = () => {
   return (
-    // Changed pt-0 to pt-10 to give space on mobile, added overflow-visible
-    <section id="contactUs" className="relative pt-0 pb-0 md:pb-20 bg-white overflow-visible">
-
-      {/* --- TIGHTENED CLIENT TICKER --- */}
-      <div className="mb-8 md:mb-12 border-y border-gray-50 py-2 bg-gray-50/20">
-        <div className="max-w-6xl mx-auto px-6">
-          
+    <section
+      id="contactUs"
+      className="relative overflow-visible bg-white pb-12 pt-0 md:pb-20"
+    >
+      <div className="mb-8 border-y border-gray-50 bg-gray-50/20 py-2 md:mb-12">
+        <div className="mx-auto max-w-6xl px-6">
           <ClientTicker />
         </div>
       </div>
+      <div className="mb-8 border-y border-gray-50 bg-gray-50/20 py-2 md:mb-12">
+        <div className="mx-auto max-w-6xl px-6">
+          <ClientQuote
+            quote="Diye gaye actual client testimonial ko yahan add karna."
+            clientName="Client Name"
+            clientRole="Marketing Director"
+            clientImage="/images/clients/client-photo.webp"
+            companyName="Pachmarhi"
+            companyLogo="/images/clients/pachmarhi-logo.svg"
+          />
+        </div>
+      </div>
 
-      {/* Header Section */}
-      <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12 text-left">
+      <div className="mx-auto mb-8 max-w-7xl px-6 md:mb-12">
         <motion.span
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-[#052D69] font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block font-medium"
+          className="mb-4 block text-[10px] font-medium uppercase tracking-[0.4em] text-[#052D69] md:text-xs"
         >
           [ Contact Us ]
         </motion.span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl leading-none font-light text-slate-950 tracking-tighter">
-          Let&apos;s Construct <br className="hidden md:block" />
-          <span className="text-[#052D69] italic font-serif">Future.</span>
-        </h2>
-        <p className="text-gray-400 mt-6 max-w-md uppercase tracking-[0.2em] text-[9px] md:text-[10px] font-bold">
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-4xl font-light leading-tight tracking-tighter text-slate-950 md:text-5xl lg:text-6xl"
+        >
+          Let&apos;s Construct
+          <br className="hidden md:block" />
+          <span className="font-serif italic text-[#052D69]">Future.</span>
+        </motion.h2>
+
+        <p className="mt-6 max-w-md text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
           Ready to scale? Drop us a line.
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
-
-        {/* Contact Details Side */}
-        {/* Removed 'fixed' related logic for mobile - now it flows naturally */}
-        <div className="lg:col-span-4 order-2 lg:order-1">
-          <div className="lg:sticky lg:top-32 space-y-4 md:space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-
-              {/* Call */}
-              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 shadow-sm  group-hover:text-[#052D69] transition-colors">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 md:gap-12 lg:grid-cols-12">
+        <div className="order-2 lg:order-1 lg:col-span-4">
+          <div className="space-y-4 lg:sticky lg:top-32">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              <address className="flex items-center gap-4 border border-gray-100 bg-gray-50/50 p-4 not-italic">
+                <div className="bg-white p-3 shadow-sm">
                   <PiPhoneCall className="text-xl" />
                 </div>
                 <div>
-                  <h3 className="text-[8px] uppercase font-bold tracking-widest text-gray-400">Call Us</h3>
-                  <Link href="tel:+918085652729" className="text-sm hover:text-orange-400 font-bold tracking-tight text-slate-900">
+                  <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">
+                    Call Us
+                  </p>
+                  <Link
+                    href="tel:+918085652729"
+                    className="text-sm font-bold text-slate-900 hover:text-[#052D69]"
+                  >
                     +91 80856 52729
                   </Link>
                 </div>
               </address>
 
-              {/* Email */}
-              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 shadow-sm group-hover:text-[#052D69] transition-colors">
+              <address className="flex items-center gap-4 border border-gray-100 bg-gray-50/50 p-4 not-italic">
+                <div className="bg-white p-3 shadow-sm">
                   <MdOutlineMailOutline className="text-xl" />
                 </div>
                 <div>
-                  <h3 className="text-[8px] uppercase font-bold tracking-widest text-gray-400">Mail Us</h3>
-                  <Link href="mailto:info@obsidiansix.com" className="text-sm hover:text-orange-400 font-bold tracking-tight text-slate-900 break-all">
+                  <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">
+                    Mail Us
+                  </p>
+                  <Link
+                    href="mailto:info@obsidiansix.com"
+                    className="break-all text-sm font-bold text-slate-900 hover:text-[#052D69]"
+                  >
                     info@obsidiansix.com
                   </Link>
                 </div>
               </address>
 
-              {/* Instagram */}
-              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 shadow-sm group-hover:text-[#052D69] transition-colors">
+              <address className="flex items-center gap-4 border border-gray-100 bg-gray-50/50 p-4 not-italic">
+                <div className="bg-white p-3 shadow-sm">
                   <RiInstagramLine className="text-xl" />
                 </div>
                 <div>
-                  <h3 className="text-[8px] uppercase font-bold tracking-widest text-gray-400">Socials</h3>
-                  <Link href="https://www.instagram.com/obsidiansixofficial?igsh=MTZobmdwczNvMHkxeg%3D%3D&utm_source=qr" className="text-sm hover:text-orange-400 font-bold tracking-tight text-slate-900">
+                  <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">
+                    Socials
+                  </p>
+                  <Link
+                    href="https://www.instagram.com/obsidiansixofficial/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-bold text-slate-900 hover:text-[#052D69]"
+                  >
                     @obsidiansix
                   </Link>
                 </div>
               </address>
 
-              {/* Location */}
-              <address className="not-italic group flex items-center gap-4 bg-gray-50/50 p-4 border border-transparent hover:border-gray-100 transition-all shadow-sm lg:shadow-none">
-                <div className="bg-white p-3 shadow-sm group-hover:text-[#052D69] transition-colors">
+              <address className="flex items-center gap-4 border border-gray-100 bg-gray-50/50 p-4 not-italic">
+                <div className="bg-white p-3 shadow-sm">
                   <GrLocation className="text-xl" />
                 </div>
                 <div>
-                  <h3 className="text-[8px] uppercase font-bold tracking-widest text-gray-400">HQ</h3>
-                  <p className="text-sm font-bold tracking-tight leading-tight text-slate-900">
+                  <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">
+                    HQ
+                  </p>
+                  <p className="text-sm font-bold text-slate-900">
                     Mumbai, India
                   </p>
                 </div>
@@ -104,12 +254,9 @@ const ContactUs = () => {
           </div>
         </div>
 
-        {/* Form Container */}
-        {/* order-1 on mobile so the form comes first, which is better UX */}
-        <div className="lg:col-span-8 order-1 lg:order-2 bg-white border border-gray-100 md:p-6 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.04)]">
+        <div className="order-1 border border-gray-100 bg-white p-5 shadow-[0_20px_50px_rgba(0,0,0,0.04)] sm:p-8 lg:order-2 lg:col-span-8 lg:p-10">
           <ContactForm />
         </div>
-
       </div>
     </section>
   );

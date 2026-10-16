@@ -14,7 +14,7 @@ import localFont from "next/font/local";
 export const metadata = {
   title: "Obsidian Six | Digital Marketing, Branding & Web Development",
   description:
-    "Building Brands From obsidian · Social Media Marketing · Paid Ads Management · Designing Services · Web Devlopment · Building Brands obsidian",
+    "Building Brands From obsidian · Social Media Marketing · Paid Ads Management · Designing Services · Web Development · Building Brands obsidian",
   //FAVICON
   icons: {
     icon: [

@@ -14,6 +14,9 @@ import HomeServices from "./_components/homeService/HomeServices";
 import OurBlogs from "./_components/ourBlogs/OurBlogs";
 import ScrollTriggerRefresh from "./_components/banner/ScrollTriggerRefresh";
 import AIAudit from "./_components/ai-audit/AiAuditSection";
+import ResultsMarquee from "./_components/ResultsMarquee";
+import HowWeWork from "./_components/HowWeWork";
+import MeetTheFounder from "./_components/MeetTheFounder";
 
 export default function Home() {
   // Define the structured data as a constant
@@ -102,6 +105,7 @@ export default function Home() {
 
       {/* Hero Section - Above the fold */}
       <Hero />
+       <ResultsMarquee />
       <HomeAbout />
 
   
@@ -111,6 +115,7 @@ export default function Home() {
 
       {/* Core Agency Services */}
       <HomeServices />
+      <HowWeWork />
       {/* <HomeService /> */}
 
       {/* Call to Action / Mid-page Banner */}
@@ -119,7 +124,7 @@ export default function Home() {
       <OurBlogs/>
       <AIAudit/>
       <Maintenance />
-
+      <MeetTheFounder/>
       <Reviews />
 
       <ContactUs />

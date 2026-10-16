@@ -682,298 +682,298 @@ const templateCaseStudiesData: TemplateCaseStudy[] = [
     "pageType": "template"
   },
 
-{
-    id: "ab_capital",
-    name: "AB Capital",
-    slug: "ab-capital-lead-generation",
-    category: "Lead Generation",
-    "gallery": [
-      {
-        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "text": "LinkedIn engagement strategies targeting project heads."
-      },
-      {
-        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "text": "Streamlining the B2B sales cycle by 30% through automation."
-      },
-      {
-        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "text": "Authority-driven content creation for industrial buyers."
-      },
-      {
-        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "text": "Reducing manual handling of leads by 40% via CRM integration."
-      },
-      {
-        "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "text": "Establishing long-term digital authority in heavy engineering."
-      }
-    ],
-    "twoImage": {
+// {
+//     id: "ab_capital",
+//     name: "AB Capital",
+//     slug: "ab-capital-lead-generation",
+//     category: "Lead Generation",
+//     "gallery": [
+//       {
+//         "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+//         "text": "LinkedIn engagement strategies targeting project heads."
+//       },
+//       {
+//         "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+//         "text": "Streamlining the B2B sales cycle by 30% through automation."
+//       },
+//       {
+//         "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+//         "text": "Authority-driven content creation for industrial buyers."
+//       },
+//       {
+//         "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+//         "text": "Reducing manual handling of leads by 40% via CRM integration."
+//       },
+//       {
+//         "img": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+//         "text": "Establishing long-term digital authority in heavy engineering."
+//       }
+//     ],
+//     "twoImage": {
 
-      "leftPanel": {
-        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-        "topLabel": "Brand",
-        "bottomLabel": "Showcase"
-      },
-      "rightPanel": {
-        "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
-      }
-    },
+//       "leftPanel": {
+//         "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+//         "topLabel": "Brand",
+//         "bottomLabel": "Showcase"
+//       },
+//       "rightPanel": {
+//         "bgImage": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
+//       }
+//     },
 
-    details:
-      "Transformed a compromised digital presence into a lead-generation powerhouse, generating 1.8M AED revenue with 30,000+ qualified leads.",
-    image:
-      "/ab/thumbnail.jpeg",
-    tags: ["Performance Marketing", "Website Recovery", "SEO", "Lead Generation"],
-    heroImage:
-      "https://plus.unsplash.com/premium_photo-1733306503329-7a8c701fa9ad?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "heroVideo": "",
-    "overviewVideo": "",
-    "ChallengeVideo": "",
-    "ApproachVideo": "",
-    "ResultVideo": "",
-    caseSection: {
-      data: "Transforming Lead Generation for",
-      highlight: "AB Capital Dubai",
-    },
+//     details:
+//       "Transformed a compromised digital presence into a lead-generation powerhouse, generating 1.8M AED revenue with 30,000+ qualified leads.",
+//     image:
+//       "/ab/thumbnail.jpeg",
+//     tags: ["Performance Marketing", "Website Recovery", "SEO", "Lead Generation"],
+//     heroImage:
+//       "https://plus.unsplash.com/premium_photo-1733306503329-7a8c701fa9ad?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//     "heroVideo": "",
+//     "overviewVideo": "",
+//     "ChallengeVideo": "",
+//     "ApproachVideo": "",
+//     "ResultVideo": "",
+//     caseSection: {
+//       data: "Transforming Lead Generation for",
+//       highlight: "AB Capital Dubai",
+//     },
 
-    overview:
-      "AB Capital is a premier business consultancy in Dubai, UAE, specializing in business setup, audit, and growth. Despite their expertise, they faced severe digital setbacks, including a hacked website and zero organic reach. We re-established their digital authority and implemented a high-scale lead funnel targeting the UAE, Russia, and India.",
+//     overview:
+//       "AB Capital is a premier business consultancy in Dubai, UAE, specializing in business setup, audit, and growth. Despite their expertise, they faced severe digital setbacks, including a hacked website and zero organic reach. We re-established their digital authority and implemented a high-scale lead funnel targeting the UAE, Russia, and India.",
 
-    challenge: {
-      data: "The client faced several critical hurdles that halted their digital growth and lead flow:",
-      "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-      "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
-      point: [
-        {
-          name: "Compromised Digital Assets",
-          detail:
-            "Their website was hacked and flagged as adult content by Google, destroying their online credibility.",
-        },
-        {
-          name: "Dead Organic Reach",
-          detail:
-            "Zero visibility on search engines or social media, resulting in no engagement or brand presence.",
-        },
-        {
-          name: "Lead Quality Issues",
-          detail:
-            "Previous agencies failed to deliver relevant inquiries, leading to wasted spend and low-quality data.",
-        },
-        {
-          name: "Scalability Constraints",
-          detail:
-            "Needed to generate high-quality global leads under a strict budget with high ROI expectations.",
-        },
-      ],
-    },
+//     challenge: {
+//       data: "The client faced several critical hurdles that halted their digital growth and lead flow:",
+//       "image1": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+//       "image2": "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80",
+//       point: [
+//         {
+//           name: "Compromised Digital Assets",
+//           detail:
+//             "Their website was hacked and flagged as adult content by Google, destroying their online credibility.",
+//         },
+//         {
+//           name: "Dead Organic Reach",
+//           detail:
+//             "Zero visibility on search engines or social media, resulting in no engagement or brand presence.",
+//         },
+//         {
+//           name: "Lead Quality Issues",
+//           detail:
+//             "Previous agencies failed to deliver relevant inquiries, leading to wasted spend and low-quality data.",
+//         },
+//         {
+//           name: "Scalability Constraints",
+//           detail:
+//             "Needed to generate high-quality global leads under a strict budget with high ROI expectations.",
+//         },
+//       ],
+//     },
 
-    approaches: [
-      {
-        name: "WEBSITE RECOVERY & SEO",
-        detail:
-          "Audited and fixed the compromised website, removed security threats, and optimized UI/UX for performance.",
-      },
-      {
-        name: "TARGETED AD FUNNELS",
-        detail:
-          "Launched segmented lead-generation campaigns for corporate professionals and foreign investors.",
-      },
-      {
-        name: "SOCIAL MEDIA REVAMP",
-        detail:
-          "Created high-impact content and influencer collaborations to revive brand awareness and trust.",
-      },
-    ],
+//     approaches: [
+//       {
+//         name: "WEBSITE RECOVERY & SEO",
+//         detail:
+//           "Audited and fixed the compromised website, removed security threats, and optimized UI/UX for performance.",
+//       },
+//       {
+//         name: "TARGETED AD FUNNELS",
+//         detail:
+//           "Launched segmented lead-generation campaigns for corporate professionals and foreign investors.",
+//       },
+//       {
+//         name: "SOCIAL MEDIA REVAMP",
+//         detail:
+//           "Created high-impact content and influencer collaborations to revive brand awareness and trust.",
+//       },
+//     ],
 
-    results: [
-      {
-        img: "/ab/image2.png",
-        title: "Massive ",
-        highlight: "Lead Volume",
-        data: "Generated 30,000+ qualified leads in total, with 450+ delivered within the first month.",
-      },
-      {
-        img: "/ab/image1.png",
-        title: "Exceptional ",
-        highlight: "Revenue Growth",
-        data: "Generated 1.8 Million AED in revenue from leads with a 6x+ direct ROI.",
-      },
-      {
-        img: "/ab/image1.png",
-        title: "Lowest ",
-        highlight: "CPL Achieved",
-        data: "Achieved the lowest Cost Per Lead (CPL) at just 2 AED through data-driven optimization.",
-      },
-      {
-        img: "/ab/image2.png",
-        title: "Digital ",
-        highlight: "Revival",
-        data: "Achieved a 30% increase in website traffic and 50% boost in social engagement.",
-      },
-    ],
+//     results: [
+//       {
+//         img: "/ab/image2.png",
+//         title: "Massive ",
+//         highlight: "Lead Volume",
+//         data: "Generated 30,000+ qualified leads in total, with 450+ delivered within the first month.",
+//       },
+//       {
+//         img: "/ab/image1.png",
+//         title: "Exceptional ",
+//         highlight: "Revenue Growth",
+//         data: "Generated 1.8 Million AED in revenue from leads with a 6x+ direct ROI.",
+//       },
+//       {
+//         img: "/ab/image1.png",
+//         title: "Lowest ",
+//         highlight: "CPL Achieved",
+//         data: "Achieved the lowest Cost Per Lead (CPL) at just 2 AED through data-driven optimization.",
+//       },
+//       {
+//         img: "/ab/image2.png",
+//         title: "Digital ",
+//         highlight: "Revival",
+//         data: "Achieved a 30% increase in website traffic and 50% boost in social engagement.",
+//       },
+//     ],
 
-    impacts: [
-      {
-        name: "From Risk to Reliability",
-        detail: "Transformed a flagged website into a trusted, high-performing asset for the consultancy.",
-      },
-      {
-        name: "Market Leadership",
-        detail: "Re-established AB Capital as a top-tier choice for business consultancy in the UAE.",
-      },
-      {
-        name: "Revenue Scalability",
-        detail:
-          "Our strategic digital efforts helped turn challenges into growth with a 20x+ ROAS on specific campaigns.",
-      },
-    ],
+//     impacts: [
+//       {
+//         name: "From Risk to Reliability",
+//         detail: "Transformed a flagged website into a trusted, high-performing asset for the consultancy.",
+//       },
+//       {
+//         name: "Market Leadership",
+//         detail: "Re-established AB Capital as a top-tier choice for business consultancy in the UAE.",
+//       },
+//       {
+//         name: "Revenue Scalability",
+//         detail:
+//           "Our strategic digital efforts helped turn challenges into growth with a 20x+ ROAS on specific campaigns.",
+//       },
+//     ],
 
-    detail:
-      "By recovering a hacked infrastructure and applying hyper-targeted performance marketing, we turned AB Capital's digital crisis into a massive growth engine—delivering over 30,000 qualified leads, 1.8M AED in revenue, and establishing them as a market leader.",
-    pageType: "template",
-  },
+//     detail:
+//       "By recovering a hacked infrastructure and applying hyper-targeted performance marketing, we turned AB Capital's digital crisis into a massive growth engine—delivering over 30,000 qualified leads, 1.8M AED in revenue, and establishing them as a market leader.",
+//     pageType: "template",
+//   },
 
-{
-    id: "shim_bhopal",
-    name: "Sant Hirdaram Institute of Management (SHIM)",
-    slug: "shim-bhopal-mba-admissions",
-    category: "Digital Strategy",
-    "gallery": [
-      {
-        "img": "/shim/gallery1.jpg",
-        "text": "LinkedIn engagement strategies targeting project heads."
-      },
-      {
-        "img": "/shim/gallery2.jpg",
-        "text": "Streamlining the B2B sales cycle by 30% through automation."
-      },
-      {
-        "img": "/shim/gallery3.jpg",
-        "text": "Authority-driven content creation for industrial buyers."
-      },
-      {
-        "img": "/shim/gallery4.jpg",
-        "text": "Reducing manual handling of leads by 40% via CRM integration."
-      }
-    ],
-    "twoImage": {
-      "leftPanel": {
-        "bgImage": "/shim/twoimage_left.jpg",
-        "topLabel": "PERFORMANCE MARKETING",
-        "bottomLabel": ""
-      },
-      "rightPanel": {
-        "bgImage": "/shim/twoimage_right.jpg"
-      }
-    },
-    details:
-      "Transformed a premier women's MBA college by filling 100% of seats, generating ₹60 Lakh+ in revenue with a 20x ROAS.",
-    image:
-      "/shim/thumbnail.jpeg",
-    tags: ["Performance Marketing", "Lead Generation", "Admission Strategy"],
-    heroImage:
-      "/shim/hero.jpg",
-    "heroVideo": "",
-    "overviewVideo": "",
-    "ChallengeVideo": "",
-    "ApproachVideo": "",
-    "ResultVideo": "",
-    caseSection: {
-      data: "Transforming SHIM into a",
-      highlight: "Premier Choice for MBA Aspirants",
-    },
-    overview:
-      "SHIM is a premier MBA college for girls in Bhopal, known for academic excellence. Despite their reputation, they struggled with candidate enrollment due to ineffective digital marketing. We implemented a data-driven 360-degree digital transformation to restore their market leadership and fill their admission cycle capacity.",
-    challenge: {
-      data: "SHIM faced critical hurdles that prevented them from reaching their enrollment potential:",
-      "image1": "/shim/challenge1.jpg",
-      "image2": "/shim/challenge2.jpg",
-      point: [
-        {
-          name: "Insufficient Candidate Enrollment",
-          detail:
-            "The institution struggled to fill available MBA seats during peak admission cycles.",
-        },
-        {
-          name: "High Volume of Fake Inquiries",
-          detail:
-            "Low-quality leads and 'junk' inquiries wasted significant administrative time and resources.",
-        },
-        {
-          name: "Stagnant Digital Presence",
-          detail:
-            "Low website traffic and poor social media reach made the brand invisible to modern aspirants.",
-        },
-        {
-          name: "Content & Design Gap",
-          detail:
-            "Existing media lacked a consistent strategy and failed to resonate with student aspirations.",
-        },
-      ],
-    },
-    approaches: [
-      {
-        name: "STRATEGIC REBRANDING",
-        detail:
-          "Refreshed the website and social media aesthetics to appeal to high-achieving female MBA aspirants.",
-      },
-      {
-        name: "INTENT-BASED LEAD GEN",
-        detail:
-          "Shifted focus to high-intent campaigns, delivering 400+ qualified admission leads while filtering junk.",
-      },
-      {
-        name: "CONTENT-FIRST SOCIAL STRATEGY",
-        detail:
-          "Developed viral-ready video content and reels that addressed student placement goals and pain points.",
-      },
-    ],
-    results: [
-      {
-        img: "/shim/image0.png",
-        title: "100% ",
-        highlight: "Enrollment Achieved",
-        data: "Successfully filled all 300 MBA seats, reaching full capacity for the program.",
-      },
-      {
-        img: "/shim/image1.png",
-        title: "Exceptional ",
-        highlight: "Revenue Growth",
-        data: "Optimized ad campaigns delivered a 20x ROAS and generated ₹60 Lakh+ in revenue.",
-      },
-      {
-        img: "/shim/image1.png",
-        title: "Viral ",
-        highlight: "Engagement",
-        data: "Recorded 70K+ views on key campaign reels, deeply resonating with the target audience.",
-      },
-      {
-        img: "/shim/image0.png",
-        title: "Explosive ",
-        highlight: "Platform Growth",
-        data: "Achieved 80% growth on Instagram and 60% on Facebook with 400K+ combined new visitors.",
-      },
-    ],
-    impacts: [
-      {
-        name: "Institutional Transformation",
-        detail: "Pivoted from declining visibility to a model of success in educational marketing.",
-      },
-      {
-        name: "Enhanced Brand Authority",
-        detail: "Established SHIM as the premier choice for female MBA aspirants in the region.",
-      },
-      {
-        name: "Operational Efficiency",
-        detail: "Reduced administrative waste by focusing exclusively on high-intent candidates.",
-      },
-    ],
-    detail:
-      "Our strategic marketing approach and rebranding efforts transformed SHIM’s digital presence. By combining aggressive performance marketing with a complete digital facelift, we achieved full admissions and a 20x ROAS—proving that the right strategy can lead the competitive admission landscape.",
-    pageType: "template"
-  },
+// {
+//     id: "shim_bhopal",
+//     name: "Sant Hirdaram Institute of Management (SHIM)",
+//     slug: "shim-bhopal-mba-admissions",
+//     category: "Digital Strategy",
+//     "gallery": [
+//       {
+//         "img": "/shim/gallery1.jpg",
+//         "text": "LinkedIn engagement strategies targeting project heads."
+//       },
+//       {
+//         "img": "/shim/gallery2.jpg",
+//         "text": "Streamlining the B2B sales cycle by 30% through automation."
+//       },
+//       {
+//         "img": "/shim/gallery3.jpg",
+//         "text": "Authority-driven content creation for industrial buyers."
+//       },
+//       {
+//         "img": "/shim/gallery4.jpg",
+//         "text": "Reducing manual handling of leads by 40% via CRM integration."
+//       }
+//     ],
+//     "twoImage": {
+//       "leftPanel": {
+//         "bgImage": "/shim/twoimage_left.jpg",
+//         "topLabel": "PERFORMANCE MARKETING",
+//         "bottomLabel": ""
+//       },
+//       "rightPanel": {
+//         "bgImage": "/shim/twoimage_right.jpg"
+//       }
+//     },
+//     details:
+//       "Transformed a premier women's MBA college by filling 100% of seats, generating ₹60 Lakh+ in revenue with a 20x ROAS.",
+//     image:
+//       "/shim/thumbnail.jpeg",
+//     tags: ["Performance Marketing", "Lead Generation", "Admission Strategy"],
+//     heroImage:
+//       "/shim/hero.jpg",
+//     "heroVideo": "",
+//     "overviewVideo": "",
+//     "ChallengeVideo": "",
+//     "ApproachVideo": "",
+//     "ResultVideo": "",
+//     caseSection: {
+//       data: "Transforming SHIM into a",
+//       highlight: "Premier Choice for MBA Aspirants",
+//     },
+//     overview:
+//       "SHIM is a premier MBA college for girls in Bhopal, known for academic excellence. Despite their reputation, they struggled with candidate enrollment due to ineffective digital marketing. We implemented a data-driven 360-degree digital transformation to restore their market leadership and fill their admission cycle capacity.",
+//     challenge: {
+//       data: "SHIM faced critical hurdles that prevented them from reaching their enrollment potential:",
+//       "image1": "/shim/challenge1.jpg",
+//       "image2": "/shim/challenge2.jpg",
+//       point: [
+//         {
+//           name: "Insufficient Candidate Enrollment",
+//           detail:
+//             "The institution struggled to fill available MBA seats during peak admission cycles.",
+//         },
+//         {
+//           name: "High Volume of Fake Inquiries",
+//           detail:
+//             "Low-quality leads and 'junk' inquiries wasted significant administrative time and resources.",
+//         },
+//         {
+//           name: "Stagnant Digital Presence",
+//           detail:
+//             "Low website traffic and poor social media reach made the brand invisible to modern aspirants.",
+//         },
+//         {
+//           name: "Content & Design Gap",
+//           detail:
+//             "Existing media lacked a consistent strategy and failed to resonate with student aspirations.",
+//         },
+//       ],
+//     },
+//     approaches: [
+//       {
+//         name: "STRATEGIC REBRANDING",
+//         detail:
+//           "Refreshed the website and social media aesthetics to appeal to high-achieving female MBA aspirants.",
+//       },
+//       {
+//         name: "INTENT-BASED LEAD GEN",
+//         detail:
+//           "Shifted focus to high-intent campaigns, delivering 400+ qualified admission leads while filtering junk.",
+//       },
+//       {
+//         name: "CONTENT-FIRST SOCIAL STRATEGY",
+//         detail:
+//           "Developed viral-ready video content and reels that addressed student placement goals and pain points.",
+//       },
+//     ],
+//     results: [
+//       {
+//         img: "/shim/image0.png",
+//         title: "100% ",
+//         highlight: "Enrollment Achieved",
+//         data: "Successfully filled all 300 MBA seats, reaching full capacity for the program.",
+//       },
+//       {
+//         img: "/shim/image1.png",
+//         title: "Exceptional ",
+//         highlight: "Revenue Growth",
+//         data: "Optimized ad campaigns delivered a 20x ROAS and generated ₹60 Lakh+ in revenue.",
+//       },
+//       {
+//         img: "/shim/image1.png",
+//         title: "Viral ",
+//         highlight: "Engagement",
+//         data: "Recorded 70K+ views on key campaign reels, deeply resonating with the target audience.",
+//       },
+//       {
+//         img: "/shim/image0.png",
+//         title: "Explosive ",
+//         highlight: "Platform Growth",
+//         data: "Achieved 80% growth on Instagram and 60% on Facebook with 400K+ combined new visitors.",
+//       },
+//     ],
+//     impacts: [
+//       {
+//         name: "Institutional Transformation",
+//         detail: "Pivoted from declining visibility to a model of success in educational marketing.",
+//       },
+//       {
+//         name: "Enhanced Brand Authority",
+//         detail: "Established SHIM as the premier choice for female MBA aspirants in the region.",
+//       },
+//       {
+//         name: "Operational Efficiency",
+//         detail: "Reduced administrative waste by focusing exclusively on high-intent candidates.",
+//       },
+//     ],
+//     detail:
+//       "Our strategic marketing approach and rebranding efforts transformed SHIM’s digital presence. By combining aggressive performance marketing with a complete digital facelift, we achieved full admissions and a 20x ROAS—proving that the right strategy can lead the competitive admission landscape.",
+//     pageType: "template"
+//   },
 
 {
     id: "tathyabaan_publishing",

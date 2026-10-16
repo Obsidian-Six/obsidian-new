@@ -95,11 +95,11 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", link: "/#home" },
     { name: "About", link: "/aboutus" },
-    { name: "Works", link: "/case-studies" },
+    { name: "Work", link: "/case-studies" },
     { name: "Services", link: "/services" },
-    { name: "Blogs", link: "/blogs" },
+    { name: "Blog", link: "/blogs" },
     { name: "Contact", link: "/contactus" },
-    { name: "Ai Audit", link: "/uae-ai-marketing-audit.html" },
+    { name: "Free Audit", link: "/uae-ai-marketing-audit.html" },
   ];
 
   const isWhiteBg =

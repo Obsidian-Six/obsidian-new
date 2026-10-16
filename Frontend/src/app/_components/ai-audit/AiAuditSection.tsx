@@ -42,7 +42,7 @@ export default function AuditHero() {
           </p>
 
       
-          <Button hlink="/uae-ai-marketing-audit.html" text="Start Free Audit" bgColor=""  className="
+          <Button hlink="/ai-business-audit.html" text="Start Free Audit" bgColor=""  className="
               mt-8
               border
               border-white

@@ -29,11 +29,15 @@ export default function ServiceCard({ item }: ServiceCardProps) {
 
             <div className="home-services_services">
               <div className="tag-text w-richtext">
-                {item.tags.map((tag) => (
-                  <p key={tag.href}>
-                    <Link href={tag.href} className="service-tag-link">
-                      {tag.label}
-                    </Link>
+                {item.tags.map((tag, index) => (
+                  <p key={`${item.id}-${tag.label}-${index}`}>
+                    {tag.href ? (
+                      <Link href={tag.href} className="service-tag-link">
+                        {tag.label}
+                      </Link>
+                    ) : (
+                      <span className="service-tag-link">{tag.label}</span>
+                    )}
                   </p>
                 ))}
               </div>
@@ -58,7 +62,7 @@ export default function ServiceCard({ item }: ServiceCardProps) {
             {item.href ? (
               <Link
                 href={item.href}
-                className="group relative block overflow-hidden"
+                className="group relative block overflow-hidden h-100 aspect-square"
                 aria-label={`View ${item.title}`}
               >
                 <Image

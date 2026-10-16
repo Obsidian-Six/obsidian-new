@@ -1480,12 +1480,12 @@ export default function Hero(): React.JSX.Element {
 
           {/* REMEMBER */}
 
-          {/* <RevealText
+          <RevealText
             className="font-sf text-6xl md:text-7xl lg:text-8xl mx-5 font-extrabold"
             delay={440}
           >
             remember
-          </RevealText> */}
+          </RevealText>
         </h1>
       </section>
 

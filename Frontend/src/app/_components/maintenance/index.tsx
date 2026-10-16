@@ -103,59 +103,8 @@ export default function Maintenance() {
       </MotionP>
       
       {/* CTA Button */}
-      {/* <Link
-        href={"/#contactUs"}
-        className="group inline-flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-slate-900 text-white rounded-full text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#052D69] transition-all duration-300 shadow-lg shadow-[#052D69]/10 w-fit my-6 mb-20 os-btn-slide"
-      >
-        Start Growing <GoArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
-      </Link> */}
       <Button hlink="/contactus" text="Start Growing" />
-
-      {/* Maintenance Service Cards (Cascading Layout) */}
-      {/* <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 w-full">
-        {cards.map((card, index) => (
-          <MotionDiv
-            key={index}
-            variants={variants}
-            initial="start"
-            whileInView="end"
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className={card.gridClass}
-          >
-          
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
-              
-           
-              <article className="flex flex-col pt-2">
-               
-                <hr className="w-full border-t border-slate-300 mb-6" />
-                <h3 className="text-[#19183A] text-lg lg:text-xl font-semibold uppercase tracking-wide mb-4">
-                  {card.title}
-                </h3>
-                <p className="text-slate-600 font-light text-sm md:text-base leading-relaxed">
-                  {card.desc}
-                </p>
-              </article>
-
-            
-              <figure className="w-full">
-                <div className="w-full h-[220px] md:h-[280px] relative bg-slate-100 overflow-hidden">
-                  <video
-                    src={card.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
-              </figure>
-
-            </div>
-          </MotionDiv>
-        ))}
-      </div> */}
+      
       <ServicesScroll cards={cards} />
     </section>
   );

@@ -6,24 +6,28 @@ import { ChevronRight } from "lucide-react";
 
 const faqs = [
   {
-    question: "What services does Obsidian Six offer?",
-    answer: "Obsidian Six provides end-to-end digital marketing services including SEO, performance marketing, paid advertising (Google & Meta Ads), lead generation, content marketing, and conversion rate optimization."
+    question: "How soon will I see results?",
+    answer: "Most ad accounts show the first leads or orders in the first 2 to 3 weeks. Steady results usually take 60 to 90 days, because we test creatives and audiences first. Before we start, you get a 30-day plan with clear targets. [confirm]"
   },
   {
-    question: "How can SEO help my business grow?",
-    answer: "SEO improves your website’s visibility on search engines, drives qualified organic traffic, increases brand credibility, and generates consistent leads without ongoing ad spend dependency."
+    question: "How is Obsidian Six different from other agencies?",
+    answer: "One team for brand, ads, content and your website. You do not manage three vendors. Every campaign is tied to one number you care about: leads, orders or enquiries."
   },
   {
-    question: "How long does it take to see results from SEO?",
-    answer: "SEO typically takes 3–6 months to show measurable results, depending on competition, website authority, and industry. Technical improvements can show early impact."
+    question: "What guarantee do I have on my ad spend?",
+    answer: "No honest agency can guarantee sales. What we do promise: your budget is spent in your own ad account, you see every rupee in a monthly report, we move money away from what is not working, and we agree targets in writing before we start. [confirm]"
   },
   {
-    question: "What industries does Obsidian Six specialize in?",
-    answer: "We work with startups, educational institutions, B2B companies, real estate brands, and service-based businesses looking to scale through data-driven strategies."
+    question: "How good will the leads and conversions be?",
+    answer: "We aim for quality, not only a low cost per lead. We use qualifying questions in forms, filter out junk enquiries and review lead quality with you every week. For one college client this brought in 400+ qualified admission leads."
   },
   {
-    question: "Do you provide performance marketing and paid ads management?",
-    answer: "Yes, Obsidian Six specializes in performance marketing including Google Ads, Meta Ads, and paid campaigns designed to maximize ROI and generate high-quality leads."
+    question: "How will you work with us? What is the process and onboarding?",
+    answer: "Week 1: audit and account access. Week 2: strategy, creatives and tracking. Week 3: launch and testing. After that: a weekly check-in and a monthly report. You get one point of contact. [confirm timings]"
+  },
+  {
+    question: "For content: how do scripting and approvals work?",
+    answer: "We share the script or content calendar first. You approve it, we make the content, and nothing is posted without your approval. You get up to two revision rounds on each piece. [confirm]"
   }
 ];
 

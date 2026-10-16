@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Button from "../common/Button";
 
 const Footer = () => {
   const pathname = usePathname();
@@ -443,7 +444,18 @@ const Footer = () => {
                 Let&apos;s construct your <span>future</span>, together.
               </h2>
             </div>
-            <Link className="os-cta-btn" href="/#contactUs">
+            <div className="">
+              <p className="mb-2 font-bold text-white">Want results like this? </p>
+              <Button
+            hlink={"/contactus"}
+            text="Get Your Free Audit"
+            textColor="white"
+            borderColor="white"
+            hoverBgColor=""
+            hoverTextColor="hover:text-white"
+          />
+            </div>
+            {/* <Link className="os-cta-btn" href="/#contactUs">
               Start a conversation
               <svg
                 viewBox="0 0 24 24"
@@ -456,7 +468,7 @@ const Footer = () => {
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-            </Link>
+            </Link> */}
           </div>
 
           <div className="os-main">
