@@ -1,6 +1,6 @@
-
 "use client";
 
+import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const results = [
@@ -13,7 +13,7 @@ export default function ResultsMarquee() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative w-full overflow-hidden border-y border-white/10 bg-[#fff] py-5 sm:py-6">
+    <section className="relative w-full overflow-hidden border-y border-white/10 bg-[#fff] py-5 sm:py-4">
       {/* Gradient edges */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#fff] to-transparent sm:w-24 md:w-40" />
 
@@ -25,9 +25,7 @@ export default function ResultsMarquee() {
           className="flex w-max shrink-0 items-center"
           initial={{ x: "0%" }}
           animate={
-            shouldReduceMotion
-              ? { x: "0%" }
-              : { x: "-50%" }
+            shouldReduceMotion ? { x: "0%" } : { x: "-50%" }
           }
           transition={{
             duration: 30,
@@ -46,21 +44,18 @@ export default function ResultsMarquee() {
               className="flex shrink-0 items-center justify-center"
             >
               {results.map((result, index) => (
-                <>
-                <div
-                  key={`${group}-${index}`}
-                  className="flex shrink-0 items-center justify-center gap-5 px-5 sm:gap-8 sm:px-8 md:gap-1 md:px-5"
-                >
-                  <p className="whitespace-nowrap text-sm font-medium tracking-wide text-black sm:text-base md:text-lg flex">
-                    {result}
-                  </p>
+                <Fragment key={`${group}-${index}`}>
+                  <div className="flex shrink-0 items-center justify-center gap-5 px-5 sm:gap-8 sm:px-8 md:gap-1 md:px-5">
+                    <p className="flex whitespace-nowrap text-sm  tracking-wide text-black sm:text-base md:text-[24px] uppercase font-bold">
+                      {result}
+                    </p>
+                  </div>
 
-                </div>
                   <span
                     aria-hidden="true"
                     className="h-8 w-0.5 shrink-0 bg-black"
                   />
-                </>
+                </Fragment>
               ))}
             </div>
           ))}
