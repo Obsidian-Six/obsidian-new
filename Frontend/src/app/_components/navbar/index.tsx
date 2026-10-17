@@ -99,7 +99,7 @@ export default function Navbar() {
     { name: "Services", link: "/services" },
     { name: "Blog", link: "/blogs" },
     { name: "Contact", link: "/contactus" },
-    { name: "Free Audit", link: "/uae-ai-marketing-audit.html" },
+    { name: "Free Audit", link: "/ai-business-audit.html" },
   ];
 
   const isWhiteBg =

@@ -29,7 +29,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     { name: "Works", link: "/case-studies" },
     { name: "About Us", link: "/aboutus" },
     { name: "Blogs", link: "/blogs" },
-    { name: "AI Audit", link: "/uae-ai-marketing-audit.html" },
+    { name: "AI Audit", link: "/ai-business-audit.html" },
   ];
 
   const categories: Category[] = [
