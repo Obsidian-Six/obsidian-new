@@ -440,7 +440,7 @@ const ContactUsRouter = () => {
                   <p>Platinum BKC, 3rd Floor,</p>
                   <p>Bandra, Mumbai 400051</p>
                 </div>
-                <div className="pt-2">
+                {/* <div className="pt-2">
                   <a
                     href="https://maps.google.com/?q=Platinum+BKC+Bandra+Mumbai"
                     target="_blank"
@@ -449,7 +449,7 @@ const ContactUsRouter = () => {
                   >
                     <span>📍 Google Map</span>
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -473,7 +473,7 @@ const ContactUsRouter = () => {
                   <p>Danish Nagar, Hoshangabad Road,</p>
                   <p>Bhopal 462026</p>
                 </div>
-                <div className="pt-2">
+                {/* <div className="pt-2">
                   <a
                     href="https://maps.google.com/?q=Danish+Nagar+Hoshangabad+Road+Bhopal"
                     target="_blank"
@@ -482,7 +482,7 @@ const ContactUsRouter = () => {
                   >
                     <span>📍 Google Map</span>
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
 
