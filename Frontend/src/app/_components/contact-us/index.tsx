@@ -128,7 +128,7 @@ import { GrLocation } from "react-icons/gr";
 
 import ContactForm from "./contact-form";
 import ClientTicker from "./ClientTicker";
-import ClientQuote from "../ClientQuote";
+// import ClientQuote from "../ClientQuote";
 
 const ContactUs = () => {
   return (
@@ -141,7 +141,7 @@ const ContactUs = () => {
           <ClientTicker />
         </div>
       </div>
-      <div className="mb-8 border-y border-gray-50 bg-gray-50/20 py-2 md:mb-12">
+      {/* <div className="mb-8 border-y border-gray-50 bg-gray-50/20 py-2 md:mb-12">
         <div className="mx-auto max-w-6xl px-6">
           <ClientQuote
             quote="Diye gaye actual client testimonial ko yahan add karna."
@@ -152,7 +152,7 @@ const ContactUs = () => {
             companyLogo="/images/clients/pachmarhi-logo.svg"
           />
         </div>
-      </div>
+      </div> */}
 
       <div className="mx-auto mb-8 max-w-7xl px-6 md:mb-12">
         <motion.span

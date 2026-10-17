@@ -47,9 +47,9 @@ export default function MeetTheFounder() {
           </div>
 
           {/* Personal note placeholder */}
-          <p className="mt-6 border-l-2 border-[#052D69] pl-4 text-sm italic leading-7 text-gray-500">
+          {/* <p className="mt-6 border-l-2 border-[#052D69] pl-4 text-sm italic leading-7 text-gray-500">
             [A personal note from Aadarsh about why he started the agency.]
-          </p>
+          </p> */}
 
           {/* CTA */}
           <div className="mt-8 sm:mt-10">
