@@ -1,783 +1,2860 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free AI Business Audit | Obsidian Six</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Free AI business audit. Answer quick questions and get a detailed marketing report with your buyer persona, top fixes and a 90-day plan.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free AI Business Audit | Obsidian Six</title>
+    <meta name="claude:viewport-fit-sides" content="cover" />
+    <meta
+      name="description"
+      content="Free AI business audit. Answer quick questions and get a detailed marketing report with your buyer persona, top fixes and a 90-day plan."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f2f3ef;
+        --surface: #ffffff;
+        --ink: #15171b;
+        --muted: #5c6169;
+        --line: #daddd6;
+        --accent: #3243d8;
+        --accent-ink: #ffffff;
+        --soft: #e7eafd;
+        --good: #1d7f55;
+        --warn: #a66a12;
+        --bad: #b93b27;
+        --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+        --f-body:
+          "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+        --f-mono:
+          "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+        --r: 14px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0f1114;
+          --surface: #171a1f;
+          --ink: #eceef0;
+          --muted: #9ba1a9;
+          --line: #2b2f36;
+          --accent: #8e9bff;
+          --accent-ink: #0f1114;
+          --soft: #1d2240;
+          --good: #4cc38a;
+          --warn: #e3aa4e;
+          --bad: #f2785f;
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0f1114;
+        --surface: #171a1f;
+        --ink: #eceef0;
+        --muted: #9ba1a9;
+        --line: #2b2f36;
+        --accent: #8e9bff;
+        --accent-ink: #0f1114;
+        --soft: #1d2240;
+        --good: #4cc38a;
+        --warn: #e3aa4e;
+        --bad: #f2785f;
+        color-scheme: dark;
+      }
 
-:root{
-  --bg:#F2F3EF; --surface:#FFFFFF; --ink:#15171B; --muted:#5C6169; --line:#DADDD6;
-  --accent:#3243D8; --accent-ink:#FFFFFF; --soft:#E7EAFD;
-  --good:#1D7F55; --warn:#A66A12; --bad:#B93B27;
-  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --f-body:"Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --r:14px;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0F1114; --surface:#171A1F; --ink:#ECEEF0; --muted:#9BA1A9; --line:#2B2F36;
-  --accent:#8E9BFF; --accent-ink:#0F1114; --soft:#1D2240;
-  --good:#4CC38A; --warn:#E3AA4E; --bad:#F2785F; color-scheme:dark }}
-:root[data-theme="dark"]{
-  --bg:#0F1114; --surface:#171A1F; --ink:#ECEEF0; --muted:#9BA1A9; --line:#2B2F36;
-  --accent:#8E9BFF; --accent-ink:#0F1114; --soft:#1D2240;
-  --good:#4CC38A; --warn:#E3AA4E; --bad:#F2785F; color-scheme:dark }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--f-body);
+        font-size: 16px;
+        line-height: 1.55;
+        padding-left: max(16px, env(safe-area-inset-left, 0px));
+        padding-right: max(16px, env(safe-area-inset-right, 0px));
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--f-display);
+        text-wrap: balance;
+        margin: 0;
+        line-height: 1.12;
+        font-weight: 700;
+      }
+      p {
+        margin: 0;
+      }
+      a {
+        color: var(--accent);
+      }
+      button {
+        font: inherit;
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding-block: 20px 56px;
+      }
+      .col {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .label {
+        font-family: var(--f-mono);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .small {
+        font-size: 14px;
+      }
 
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
-  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
-h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.12;font-weight:700}
-p{margin:0}
-a{color:var(--accent)}
-button{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:1040px;margin:0 auto;padding-block:20px 56px}
-.col{max-width:680px;margin:0 auto}
-.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.muted{color:var(--muted)}
-.small{font-size:14px}
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding-block: 6px 22px;
+      }
+      .brand {
+        font-family: var(--f-display);
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: var(--ink);
+      }
+      .brand i {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+        background: var(--ink);
+        clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%);
+      }
 
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 0;
+        border-radius: 999px;
+        padding: 14px 24px;
+        background: var(--accent);
+        color: var(--accent-ink);
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+        min-height: 50px;
+      }
+      .btn:hover {
+        filter: brightness(1.07);
+      }
+      .btn:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+        filter: none;
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+      .btn.block {
+        width: 100%;
+      }
+      .linkbtn {
+        background: none;
+        border: 0;
+        padding: 8px 0;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 15px;
+      }
+      .linkbtn:hover {
+        color: var(--ink);
+      }
 
-.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:6px 22px}
-.brand{font-family:var(--f-display);font-weight:700;font-size:18px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink)}
-.brand i{width:18px;height:18px;display:inline-block;background:var(--ink);clip-path:polygon(50% 0,100% 38%,82% 100%,18% 100%,0 38%)}
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .hero > * {
+        min-width: 0;
+      }
+      .hero h1 {
+        font-size: clamp(32px, 5.4vw, 54px);
+        letter-spacing: -0.02em;
+        margin-top: 12px;
+      }
+      .hero .sub {
+        font-size: 18px;
+        color: var(--muted);
+        margin-top: 16px;
+        max-width: 52ch;
+      }
+      .facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        margin-top: 22px;
+        font-size: 15px;
+      }
+      .facts span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .facts b {
+        font-family: var(--f-mono);
+        font-weight: 500;
+        font-size: 13px;
+        background: var(--soft);
+        color: var(--accent);
+        padding: 3px 8px;
+        border-radius: 6px;
+      }
+      .hero .cta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px;
+        margin-top: 28px;
+      }
+      .free {
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 14px;
+        max-width: 46ch;
+      }
+      .proof {
+        margin-top: 30px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .proof strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
 
+      .sample {
+        position: relative;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow:
+          0 1px 0 var(--line),
+          0 18px 40px -24px rgba(20, 24, 40, 0.35);
+        transform: rotate(1.2deg);
+      }
+      .sample .tag {
+        position: absolute;
+        top: -11px;
+        left: 18px;
+        background: var(--ink);
+        color: var(--bg);
+        font-family: var(--f-mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        padding: 4px 9px;
+        border-radius: 6px;
+      }
+      .sample h3 {
+        font-size: 20px;
+        margin: 6px 0 14px;
+      }
+      .srow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        margin-top: 9px;
+      }
+      .srow span:first-child {
+        width: 112px;
+        flex: none;
+        color: var(--muted);
+      }
+      .sbar {
+        flex: 1;
+        height: 8px;
+        border-radius: 9px;
+        background: var(--line);
+        overflow: hidden;
+      }
+      .sbar i {
+        display: block;
+        height: 100%;
+        border-radius: 9px;
+      }
+      .sleak {
+        margin-top: 16px;
+        padding: 12px;
+        border-radius: 10px;
+        background: var(--bg);
+        font-size: 13px;
+      }
+      .sleak b {
+        display: block;
+        margin-bottom: 2px;
+      }
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 24px;
-  background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:16px;cursor:pointer;text-decoration:none;min-height:50px}
-.btn:hover{filter:brightness(1.07)}
-.btn:disabled{opacity:.45;cursor:not-allowed;filter:none}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.btn.block{width:100%}
-.linkbtn{background:none;border:0;padding:8px 0;color:var(--muted);cursor:pointer;font-size:15px}
-.linkbtn:hover{color:var(--ink)}
+      .prog {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        background: var(--bg);
+        z-index: 5;
+        padding-block: 10px 14px;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: env(safe-area-inset-top, 0px);
+        z-index: 10;
+        background: var(--bg);
+      }
+      .prog-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+      }
+      .track {
+        height: 6px;
+        background: var(--line);
+        border-radius: 6px;
+        margin-top: 10px;
+        overflow: hidden;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: var(--accent);
+        border-radius: 6px;
+        transition: width 0.35s ease;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+        margin-top: 10px;
+      }
+      .steps span {
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .steps span.on {
+        color: var(--ink);
+        font-weight: 600;
+      }
 
+      .qcard {
+        padding-block: 18px 8px;
+      }
+      .qcard h2 {
+        font-size: clamp(24px, 4vw, 32px);
+        letter-spacing: -0.01em;
+      }
+      .qhint {
+        color: var(--muted);
+        margin-top: 8px;
+        font-size: 15px;
+      }
+      .opts {
+        display: grid;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .opts.two {
+        grid-template-columns: 1fr 1fr;
+      }
+      .opt {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        text-align: left;
+        background: var(--surface);
+        border: 1.5px solid var(--line);
+        border-radius: var(--r);
+        padding: 14px 16px;
+        cursor: pointer;
+        font-size: 16px;
+        min-height: 54px;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+      }
+      .opt:hover {
+        border-color: var(--muted);
+      }
+      .opt .mk {
+        width: 20px;
+        height: 20px;
+        flex: none;
+        border: 1.5px solid var(--muted);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+      }
+      .opts.multi .opt .mk {
+        border-radius: 6px;
+      }
+      .opt[aria-pressed="true"] {
+        border-color: var(--accent);
+        background: var(--soft);
+      }
+      .opt[aria-pressed="true"] .mk {
+        border-color: var(--accent);
+        background: var(--accent);
+      }
+      .opt[aria-pressed="true"] .mk::after {
+        content: "";
+        width: 6px;
+        height: 10px;
+        border: solid var(--accent-ink);
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg) translate(-1px, -1px);
+      }
+      .opt small {
+        display: block;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      textarea,
+      input[type="text"],
+      input[type="email"],
+      input[type="url"],
+      input[type="tel"] {
+        width: 100%;
+        font: inherit;
+        font-size: 16px;
+        color: var(--ink);
+        background: var(--surface);
+        border: 1.5px solid var(--line);
+        border-radius: var(--r);
+        padding: 14px 16px;
+      }
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+        margin-top: 22px;
+      }
+      textarea:focus,
+      input:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .chip {
+        border: 1px dashed var(--line);
+        background: transparent;
+        border-radius: 999px;
+        padding: 8px 13px;
+        font-size: 14px;
+        cursor: pointer;
+        color: var(--muted);
+      }
+      .chip:hover {
+        color: var(--ink);
+        border-color: var(--muted);
+      }
+      .other {
+        margin-top: 10px;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-top: 26px;
+      }
+      .count {
+        font-family: var(--f-mono);
+        font-size: 12px;
+        color: var(--muted);
+      }
 
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.hero>*{min-width:0}
-.hero h1{font-size:clamp(32px,5.4vw,54px);letter-spacing:-.02em;margin-top:12px}
-.hero .sub{font-size:18px;color:var(--muted);margin-top:16px;max-width:52ch}
-.facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:22px;font-size:15px}
-.facts span{display:flex;align-items:center;gap:8px}
-.facts b{font-family:var(--f-mono);font-weight:500;font-size:13px;background:var(--soft);color:var(--accent);padding:3px 8px;border-radius:6px}
-.hero .cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:28px}
-.free{font-size:14px;color:var(--muted);margin-top:14px;max-width:46ch}
-.proof{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
-.proof strong{color:var(--ink);font-weight:600}
+      .form {
+        display: grid;
+        gap: 14px;
+        margin-top: 22px;
+      }
+      .field label {
+        display: block;
+        font-weight: 600;
+        font-size: 15px;
+        margin-bottom: 6px;
+      }
+      .field label em {
+        font-style: normal;
+        font-weight: 400;
+        color: var(--muted);
+      }
+      .err {
+        color: var(--bad);
+        font-size: 14px;
+        margin-top: 6px;
+      }
+      .trust {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 14px;
+      }
+      .made {
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 8px;
+      }
 
+      .load {
+        padding-block: 40px;
+        text-align: left;
+      }
+      .load h2 {
+        font-size: clamp(24px, 4vw, 32px);
+      }
+      .lsteps {
+        list-style: none;
+        padding: 0;
+        margin: 26px 0 0;
+        display: grid;
+        gap: 12px;
+      }
+      .lsteps li {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        color: var(--muted);
+        font-size: 16px;
+      }
+      .lsteps li i {
+        width: 22px;
+        height: 22px;
+        flex: none;
+        border-radius: 50%;
+        border: 1.5px solid var(--line);
+        display: grid;
+        place-items: center;
+        font-style: normal;
+        font-size: 12px;
+      }
+      .lsteps li.on {
+        color: var(--ink);
+      }
+      .lsteps li.on i {
+        border-color: var(--accent);
+        border-top-color: transparent;
+        animation: spin 0.9s linear infinite;
+      }
+      .lsteps li.done {
+        color: var(--ink);
+      }
+      .lsteps li.done i {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--accent-ink);
+      }
+      .lsteps li.done i::after {
+        content: "✓";
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-.sample{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;
-  box-shadow:0 1px 0 var(--line), 0 18px 40px -24px rgba(20,24,40,.35);transform:rotate(1.2deg)}
-.sample .tag{position:absolute;top:-11px;left:18px;background:var(--ink);color:var(--bg);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;padding:4px 9px;border-radius:6px}
-.sample h3{font-size:20px;margin:6px 0 14px}
-.srow{display:flex;align-items:center;gap:10px;font-size:13px;margin-top:9px}
-.srow span:first-child{width:112px;flex:none;color:var(--muted)}
-.sbar{flex:1;height:8px;border-radius:9px;background:var(--line);overflow:hidden}
-.sbar i{display:block;height:100%;border-radius:9px}
-.sleak{margin-top:16px;padding:12px;border-radius:10px;background:var(--bg);font-size:13px}
-.sleak b{display:block;margin-bottom:2px}
+      .rhead {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 24px;
+        align-items: center;
+        padding: 24px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        margin-top: 18px;
+      }
+      .rhead > * {
+        min-width: 0;
+      }
+      .ring {
+        width: 132px;
+        height: 132px;
+      }
+      .ring text {
+        font-family: var(--f-display);
+        font-weight: 700;
+      }
+      .rhead h2 {
+        font-size: clamp(22px, 3.4vw, 30px);
+        margin-top: 6px;
+      }
+      .rhead p {
+        margin-top: 10px;
+        color: var(--muted);
+      }
+      .pillars {
+        display: grid;
+        gap: 12px;
+        margin-top: 22px;
+      }
+      .pill {
+        display: grid;
+        grid-template-columns: 150px 1fr 54px;
+        gap: 12px;
+        align-items: center;
+        font-size: 15px;
+      }
+      .pill .num {
+        font-family: var(--f-mono);
+        font-size: 13px;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+      .badge {
+        display: inline-block;
+        font-family: var(--f-mono);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 6px;
+        border: 1px solid currentColor;
+      }
+      .sec {
+        margin-top: 40px;
+      }
+      .sec > h3 {
+        font-size: 22px;
+        margin-top: 6px;
+      }
+      .sec > .lead {
+        color: var(--muted);
+        margin-top: 6px;
+      }
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 16px;
+      }
+      .grid2 > * {
+        min-width: 0;
+      }
+      .box {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 18px;
+      }
+      .box h4 {
+        font-size: 15px;
+        margin: 0 0 8px;
+        font-family: var(--f-body);
+        font-weight: 600;
+      }
+      .box ul,
+      .leak ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .box li {
+        margin-top: 4px;
+      }
+      .persona-top {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .avatar {
+        width: 52px;
+        height: 52px;
+        flex: none;
+        border-radius: 50%;
+        background: var(--soft);
+        color: var(--accent);
+        display: grid;
+        place-items: center;
+        font-family: var(--f-display);
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .quote {
+        margin-top: 14px;
+        padding: 14px 16px;
+        border-left: 3px solid var(--accent);
+        background: var(--soft);
+        border-radius: 0 10px 10px 0;
+      }
+      .leaks {
+        display: grid;
+        gap: 12px;
+        margin-top: 16px;
+        counter-reset: lk;
+      }
+      .leak {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 18px;
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 4px 12px;
+      }
+      .leak::before {
+        counter-increment: lk;
+        content: counter(lk);
+        grid-row: span 3;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--ink);
+        color: var(--bg);
+        display: grid;
+        place-items: center;
+        font-family: var(--f-mono);
+        font-size: 13px;
+      }
+      .leak h4 {
+        margin: 0;
+        font-size: 17px;
+        font-family: var(--f-body);
+        font-weight: 600;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+      .leak .fix {
+        margin-top: 6px;
+      }
+      .leak .fix b {
+        font-weight: 600;
+      }
+      .tbl {
+        overflow-x: auto;
+        margin-top: 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        background: var(--surface);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 15px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      th {
+        font-family: var(--f-mono);
+        font-size: 11px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      td.share {
+        font-family: var(--f-mono);
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      .months {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .months > * {
+        min-width: 0;
+      }
+      .ideas {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .idea {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 14px 16px;
+      }
+      .idea .fmt {
+        flex: none;
+        font-family: var(--f-mono);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--soft);
+        padding: 4px 8px;
+        border-radius: 6px;
+        margin-top: 2px;
+      }
+      .answers {
+        margin-top: 12px;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        background: var(--surface);
+      }
+      .answers summary {
+        cursor: pointer;
+        padding: 14px 16px;
+        font-weight: 600;
+      }
+      .answers dl {
+        margin: 0;
+        padding: 0 16px 14px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+        gap: 8px 16px;
+        font-size: 14px;
+      }
+      .answers dt {
+        color: var(--muted);
+      }
+      .answers dd {
+        margin: 0;
+      }
+      .book {
+        margin-top: 44px;
+        padding: 26px;
+        border-radius: 18px;
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .book h3 {
+        font-size: clamp(22px, 3.4vw, 28px);
+      }
+      .book p {
+        margin-top: 8px;
+        opacity: 0.8;
+      }
+      .book .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .book .btn {
+        background: var(--bg);
+        color: var(--ink);
+      }
+      .book .btn.ghost {
+        background: transparent;
+        color: var(--bg);
+        border-color: color-mix(in srgb, var(--bg) 35%, transparent);
+      }
+      .note {
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 14px;
+      }
+      .ready {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--good);
+        font-weight: 600;
+      }
+      footer {
+        margin-top: 48px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+      }
+      footer a {
+        color: var(--muted);
+      }
 
+      @media (max-width: 820px) {
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 34px;
+        }
+        .sample {
+          transform: none;
+        }
+        .months {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        body {
+          font-size: 15.5px;
+        }
+        .opts.two {
+          grid-template-columns: 1fr;
+        }
+        .grid2 {
+          grid-template-columns: 1fr;
+        }
+        .rhead {
+          grid-template-columns: 1fr;
+          justify-items: start;
+        }
+        .pill {
+          grid-template-columns: 110px 1fr 44px;
+          font-size: 14px;
+        }
+        .hero .cta .btn {
+          width: 100%;
+        }
+        .steps span {
+          font-size: 11px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+      @media print {
+        body {
+          background: #fff;
+          color: #000;
+        }
+        .top,
+        .prog,
+        .book .row,
+        .no-print,
+        footer {
+          display: none !important;
+        }
+        .box,
+        .leak,
+        .rhead,
+        .idea,
+        .tbl {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <a
+          class="brand"
+          href="https://obsidiansix.com/"
+          target="_blank"
+          rel="noopener"
+          ><i aria-hidden="true"></i>Obsidian Six</a
+        >
+        <span class="label">Free AI Business Audit</span>
+      </header>
 
-.prog{position:sticky;top:env(safe-area-inset-top, 0px);background:var(--bg);z-index:5;padding-block:10px 14px}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bg)}
-.prog-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.track{height:6px;background:var(--line);border-radius:6px;margin-top:10px;overflow:hidden}
-.track i{display:block;height:100%;width:0;background:var(--accent);border-radius:6px;transition:width .35s ease}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
-.steps span{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.steps span.on{color:var(--ink);font-weight:600}
+      <section id="intro" class="hero">
+        <div>
+          <span class="label" id="eyebrow"
+            >For founders and business owners</span
+          >
+          <h1 id="headline">
+            Find out why your marketing isn't bringing in customers
+          </h1>
+          <p class="sub" id="subline">
+            Answer a few quick questions about your business. Our AI audit
+            studies your answers and gives you a detailed report - your ideal
+            buyer, what is leaking money, and a clear 90-day plan built on how
+            marketing works in 2026.
+          </p>
+          <div class="facts">
+            <span><b>16</b> quick questions, mostly taps</span>
+            <span><b>~5</b> minutes</span>
+            <span><b>Any</b> industry, any country</span>
+          </div>
+          <div class="cta">
+            <button class="btn" id="startBtn" type="button">
+              Start my free audit
+            </button>
+            <span class="small muted">Works on your phone</span>
+          </div>
+          <p class="free">
+            Free. Your report comes to your inbox. We never share your details.
+          </p>
+          <p class="proof">
+            <strong>3,324 orders</strong> in 5 months for a pet food brand -
+            <strong>450+ leads</strong> in month one for AB Capital -
+            <strong>All 300 seats</strong> filled at SHIM
+          </p>
+        </div>
+        <aside class="sample" aria-label="Preview of a sample report page">
+          <span class="tag">SAMPLE REPORT - PAGE 1</span>
+          <span class="label">Example: D2C skincare brand, India</span>
+          <h3>Overall score 52 / 100</h3>
+          <div class="srow">
+            <span>Visibility</span>
+            <div class="sbar">
+              <i style="width: 68%; background: var(--good)"></i>
+            </div>
+          </div>
+          <div class="srow">
+            <span>Lead generation</span>
+            <div class="sbar">
+              <i style="width: 55%; background: var(--warn)"></i>
+            </div>
+          </div>
+          <div class="srow">
+            <span>Conversion</span>
+            <div class="sbar">
+              <i style="width: 41%; background: var(--warn)"></i>
+            </div>
+          </div>
+          <div class="srow">
+            <span>Tracking</span>
+            <div class="sbar">
+              <i style="width: 22%; background: var(--bad)"></i>
+            </div>
+          </div>
+          <div class="srow">
+            <span>Repeat customers</span>
+            <div class="sbar">
+              <i style="width: 47%; background: var(--warn)"></i>
+            </div>
+          </div>
+          <div class="sleak">
+            <b>Fix #1 - You can't see what an order costs you</b>Meta ads run
+            without Conversions API, so the algorithm learns from half your
+            sales. Set up CAPI and order tracking first.
+          </div>
+        </aside>
+      </section>
 
+      <section id="quiz" class="col" hidden>
+        <div class="prog">
+          <div class="prog-head">
+            <span class="label" id="stepLabel">Step 1 of 4</span>
+            <span class="count" id="qCount">Question 1 of 16</span>
+          </div>
+          <div class="track"><i id="bar"></i></div>
+          <div class="steps" id="stepNames"></div>
+        </div>
+        <div class="qcard" id="qcard" aria-live="polite"></div>
+        <div class="nav">
+          <button class="linkbtn" id="backBtn" type="button">← Back</button>
+          <button class="btn" id="nextBtn" type="button">Next</button>
+        </div>
+      </section>
 
-.qcard{padding-block:18px 8px}
-.qcard h2{font-size:clamp(24px,4vw,32px);letter-spacing:-.01em}
-.qhint{color:var(--muted);margin-top:8px;font-size:15px}
-.opts{display:grid;gap:10px;margin-top:22px}
-.opts.two{grid-template-columns:1fr 1fr}
-.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--surface);border:1.5px solid var(--line);
-  border-radius:var(--r);padding:14px 16px;cursor:pointer;font-size:16px;min-height:54px;transition:border-color .15s, background .15s}
-.opt:hover{border-color:var(--muted)}
-.opt .mk{width:20px;height:20px;flex:none;border:1.5px solid var(--muted);border-radius:50%;display:grid;place-items:center}
-.opts.multi .opt .mk{border-radius:6px}
-.opt[aria-pressed="true"]{border-color:var(--accent);background:var(--soft)}
-.opt[aria-pressed="true"] .mk{border-color:var(--accent);background:var(--accent)}
-.opt[aria-pressed="true"] .mk::after{content:"";width:6px;height:10px;border:solid var(--accent-ink);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
-.opt small{display:block;color:var(--muted);font-size:13px}
-textarea,input[type=text],input[type=email],input[type=url],input[type=tel]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--surface);
-  border:1.5px solid var(--line);border-radius:var(--r);padding:14px 16px}
-textarea{min-height:110px;resize:vertical;margin-top:22px}
-textarea:focus,input:focus{outline:none;border-color:var(--accent)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.chip{border:1px dashed var(--line);background:transparent;border-radius:999px;padding:8px 13px;font-size:14px;cursor:pointer;color:var(--muted)}
-.chip:hover{color:var(--ink);border-color:var(--muted)}
-.other{margin-top:10px}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:26px}
-.count{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+      <section id="details" class="col" hidden>
+        <div class="prog">
+          <div class="prog-head">
+            <span class="label">Last step</span
+            ><span class="count">All questions done</span>
+          </div>
+          <div class="track"><i style="width: 100%"></i></div>
+        </div>
+        <div class="qcard">
+          <h2>Where should we send your report?</h2>
+          <p class="qhint">
+            Your report opens on this page right away. We also email you a copy.
+          </p>
+        </div>
+        <form id="leadForm" class="form" novalidate>
+          <div class="field">
+            <label for="f-name">Your name</label
+            ><input id="f-name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="f-company">Company</label
+            ><input
+              id="f-company"
+              type="text"
+              autocomplete="organization"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="f-email">Business email</label
+            ><input
+              id="f-email"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="f-site"
+              >Company website
+              <em id="siteOpt">(so we can review your pages and ads)</em></label
+            ><input
+              id="f-site"
+              type="url"
+              inputmode="url"
+              placeholder="yourbusiness.com"
+              autocomplete="url"
+            />
+          </div>
+          <div class="field">
+            <label for="f-wa">WhatsApp <em>(optional)</em></label
+            ><input
+              id="f-wa"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              placeholder="+91 98xxx xxxxx"
+            />
+          </div>
+          <p class="err" id="formErr" hidden></p>
+          <button class="btn block" id="genBtn" type="submit">
+            Generate my free report
+          </button>
+          <div class="trust">
+            <span>Private - never shared</span
+            ><span>Report in about a minute</span
+            ><a
+              id="privacyLink"
+              href="https://obsidiansix.com/privacy/"
+              target="_blank"
+              rel="noopener"
+              >Privacy policy</a
+            >
+          </div>
+          <p class="made">
+            Prepared by the Obsidian Six team in Mumbai and Bhopal.
+          </p>
+        </form>
+        <div class="nav">
+          <button class="linkbtn" id="detailsBack" type="button">
+            ← Back to questions
+          </button>
+        </div>
+      </section>
 
+      <section id="loading" class="col load" hidden>
+        <span class="label">Working on it</span>
+        <h2 id="loadTitle">Building your audit report</h2>
+        <p class="qhint">This takes about a minute. Keep this page open.</p>
+        <ol class="lsteps" id="lsteps">
+          <li><i></i>Reading your business and market</li>
+          <li><i></i>Building your ideal buyer profile</li>
+          <li><i></i>Scoring your marketing on 5 areas</li>
+          <li><i></i>Finding where you lose leads and money</li>
+          <li><i></i>Matching 2026 channels to your industry</li>
+          <li><i></i>Writing your 90-day plan</li>
+        </ol>
+      </section>
 
-.form{display:grid;gap:14px;margin-top:22px}
-.field label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
-.field label em{font-style:normal;font-weight:400;color:var(--muted)}
-.err{color:var(--bad);font-size:14px;margin-top:6px}
-.trust{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted);margin-top:14px}
-.made{font-size:14px;color:var(--muted);margin-top:8px}
+      <section id="result" class="col" hidden>
+        <p class="ready">✓ Your report is ready</p>
+        <div id="report"></div>
+        <details class="answers no-print">
+          <summary>Audit completed - your responses</summary>
+          <dl id="answerList"></dl>
+        </details>
+        <div class="book">
+          <span class="label" style="color: inherit; opacity: 0.7"
+            >Next step</span
+          >
+          <h3>Walk through this report with us</h3>
+          <p>
+            20 minutes on a call. We go over your top fixes and what to do
+            first. No cost, no contract.
+          </p>
+          <div class="row">
+            <a
+              class="btn"
+              id="bookBtn"
+              href="https://obsidiansix.com/contactus/"
+              target="_blank"
+              rel="noopener"
+              >Book a free 20-minute walkthrough</a
+            >
+            <button class="btn ghost" id="saveBtn" type="button">
+              Save report
+            </button>
+          </div>
+        </div>
+        <p class="note" id="saveNote" hidden></p>
+        <p class="note no-print">
+          <button class="linkbtn" id="restartBtn" type="button">
+            Start a new audit
+          </button>
+        </p>
+      </section>
 
-
-.load{padding-block:40px;text-align:left}
-.load h2{font-size:clamp(24px,4vw,32px)}
-.lsteps{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:12px}
-.lsteps li{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:16px}
-.lsteps li i{width:22px;height:22px;flex:none;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-style:normal;font-size:12px}
-.lsteps li.on{color:var(--ink)}
-.lsteps li.on i{border-color:var(--accent);border-top-color:transparent;animation:spin .9s linear infinite}
-.lsteps li.done{color:var(--ink)}
-.lsteps li.done i{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.lsteps li.done i::after{content:"✓"}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-
-.rhead{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:18px;margin-top:18px}
-.rhead>*{min-width:0}
-.ring{width:132px;height:132px}
-.ring text{font-family:var(--f-display);font-weight:700}
-.rhead h2{font-size:clamp(22px,3.4vw,30px);margin-top:6px}
-.rhead p{margin-top:10px;color:var(--muted)}
-.pillars{display:grid;gap:12px;margin-top:22px}
-.pill{display:grid;grid-template-columns:150px 1fr 54px;gap:12px;align-items:center;font-size:15px}
-.pill .num{font-family:var(--f-mono);font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
-.badge{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;border:1px solid currentColor}
-.sec{margin-top:40px}
-.sec>h3{font-size:22px;margin-top:6px}
-.sec>.lead{color:var(--muted);margin-top:6px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
-.grid2>*{min-width:0}
-.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
-.box h4{font-size:15px;margin:0 0 8px;font-family:var(--f-body);font-weight:600}
-.box ul,.leak ul{margin:0;padding-left:18px}
-.box li{margin-top:4px}
-.persona-top{display:flex;gap:14px;align-items:center}
-.avatar{width:52px;height:52px;flex:none;border-radius:50%;background:var(--soft);color:var(--accent);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:20px}
-.quote{margin-top:14px;padding:14px 16px;border-left:3px solid var(--accent);background:var(--soft);border-radius:0 10px 10px 0}
-.leaks{display:grid;gap:12px;margin-top:16px;counter-reset:lk}
-.leak{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;grid-template-columns:34px 1fr;gap:4px 12px}
-.leak::before{counter-increment:lk;content:counter(lk);grid-row:span 3;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:var(--f-mono);font-size:13px}
-.leak h4{margin:0;font-size:17px;font-family:var(--f-body);font-weight:600;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.leak .fix{margin-top:6px}
-.leak .fix b{font-weight:600}
-.tbl{overflow-x:auto;margin-top:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
-table{border-collapse:collapse;width:100%;font-size:15px}
-th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:500}
-tr:last-child td{border-bottom:0}
-td.share{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
-.months{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-.months>*{min-width:0}
-.ideas{display:grid;gap:10px;margin-top:16px}
-.idea{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
-.idea .fmt{flex:none;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--soft);padding:4px 8px;border-radius:6px;margin-top:2px}
-.answers{margin-top:12px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
-.answers summary{cursor:pointer;padding:14px 16px;font-weight:600}
-.answers dl{margin:0;padding:0 16px 14px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:8px 16px;font-size:14px}
-.answers dt{color:var(--muted)}
-.answers dd{margin:0}
-.book{margin-top:44px;padding:26px;border-radius:18px;background:var(--ink);color:var(--bg)}
-.book h3{font-size:clamp(22px,3.4vw,28px)}
-.book p{margin-top:8px;opacity:.8}
-.book .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-.book .btn{background:var(--bg);color:var(--ink)}
-.book .btn.ghost{background:transparent;color:var(--bg);border-color:color-mix(in srgb, var(--bg) 35%, transparent)}
-.note{font-size:14px;color:var(--muted);margin-top:14px}
-.ready{display:flex;align-items:center;gap:10px;color:var(--good);font-weight:600}
-footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 18px}
-footer a{color:var(--muted)}
-
-@media (max-width:820px){
-  .hero{grid-template-columns:1fr;gap:34px}
-  .sample{transform:none}
-  .months{grid-template-columns:1fr}
-}
-@media (max-width:560px){
-  body{font-size:15.5px}
-  .opts.two{grid-template-columns:1fr}
-  .grid2{grid-template-columns:1fr}
-  .rhead{grid-template-columns:1fr;justify-items:start}
-  .pill{grid-template-columns:110px 1fr 44px;font-size:14px}
-  .hero .cta .btn{width:100%}
-  .steps span{font-size:11px}
-}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-@media print{
-  body{background:#fff;color:#000}
-  .top,.prog,.book .row,.no-print,footer{display:none!important}
-  .box,.leak,.rhead,.idea,.tbl{break-inside:avoid}
-}
-</style>
-</head>
-<body>
-  
-<div class="wrap">
-  <header class="top">
-    <a class="brand" href="https://obsidiansix.com/" target="_blank" rel="noopener"><i aria-hidden="true"></i>Obsidian Six</a>
-    <span class="label">Free AI Business Audit</span>
-  </header>
-
-  
-  <section id="intro" class="hero">
-    <div>
-      <span class="label" id="eyebrow">For founders and business owners</span>
-      <h1 id="headline">Find out why your marketing isn't bringing in customers</h1>
-      <p class="sub" id="subline">Answer a few quick questions about your business. Our AI audit studies your answers and gives you a detailed report - your ideal buyer, what is leaking money, and a clear 90-day plan built on how marketing works in 2026.</p>
-      <div class="facts">
-        <span><b>16</b> quick questions, mostly taps</span>
-        <span><b>~5</b> minutes</span>
-        <span><b>Any</b> industry, any country</span>
-      </div>
-      <div class="cta">
-        <button class="btn" id="startBtn" type="button">Start my free audit</button>
-        <span class="small muted">Works on your phone</span>
-      </div>
-      <p class="free">Free. Your report comes to your inbox. We never share your details.</p>
-      <p class="proof"><strong>3,324 orders</strong> in 5 months for a pet food brand - <strong>450+ leads</strong> in month one for AB Capital - <strong>All 300 seats</strong> filled at SHIM</p>
+      <footer>
+        <span>© Obsidian Six - Mumbai and Bhopal</span>
+        <a
+          href="https://obsidiansix.com/privacy/"
+          target="_blank"
+          rel="noopener"
+          >Privacy</a
+        >
+        <a href="https://obsidiansix.com/terms/" target="_blank" rel="noopener"
+          >Terms</a
+        >
+      </footer>
     </div>
-    <aside class="sample" aria-label="Preview of a sample report page">
-      <span class="tag">SAMPLE REPORT - PAGE 1</span>
-      <span class="label">Example: D2C skincare brand, India</span>
-      <h3>Overall score 52 / 100</h3>
-      <div class="srow"><span>Visibility</span><div class="sbar"><i style="width:68%;background:var(--good)"></i></div></div>
-      <div class="srow"><span>Lead generation</span><div class="sbar"><i style="width:55%;background:var(--warn)"></i></div></div>
-      <div class="srow"><span>Conversion</span><div class="sbar"><i style="width:41%;background:var(--warn)"></i></div></div>
-      <div class="srow"><span>Tracking</span><div class="sbar"><i style="width:22%;background:var(--bad)"></i></div></div>
-      <div class="srow"><span>Repeat customers</span><div class="sbar"><i style="width:47%;background:var(--warn)"></i></div></div>
-      <div class="sleak"><b>Fix #1 - You can't see what an order costs you</b>Meta ads run without Conversions API, so the algorithm learns from half your sales. Set up CAPI and order tracking first.</div>
-    </aside>
-  </section>
 
+    <script>
+      const CONFIG = {
+        AI_ENDPOINT:
+          "https://obsidiansix-ai-business-audit.dev-obsidiansix.workers.dev/",
+        LEAD_WEBHOOK: "",
+        BOOKING_URL: "",
+        PRIVACY_URL: "https://obsidiansix.com/privacy/",
+      };
+      if (CONFIG.BOOKING_URL)
+        document.getElementById("bookBtn").href = CONFIG.BOOKING_URL;
+      document.getElementById("privacyLink").href = CONFIG.PRIVACY_URL;
 
-  <section id="quiz" class="col" hidden>
-    <div class="prog">
-      <div class="prog-head">
-        <span class="label" id="stepLabel">Step 1 of 4</span>
-        <span class="count" id="qCount">Question 1 of 16</span>
-      </div>
-      <div class="track"><i id="bar"></i></div>
-      <div class="steps" id="stepNames"></div>
-    </div>
-    <div class="qcard" id="qcard" aria-live="polite"></div>
-    <div class="nav">
-      <button class="linkbtn" id="backBtn" type="button">← Back</button>
-      <button class="btn" id="nextBtn" type="button">Next</button>
-    </div>
-  </section>
+      const PRESETS = {
+        education: {
+          eyebrow: "For schools, colleges and coaching institutes",
+          h: "Discover why your admission ads are not filling seats",
+          industry: "Education",
+          market: "India",
+        },
+        "consulting-uae": {
+          eyebrow: "For business setup and consulting firms in the UAE",
+          h: "Discover why your consulting firm is not getting enough qualified enquiries",
+          industry: "Finance & consulting",
+          market: "UAE & GCC",
+        },
+        consulting: {
+          eyebrow: "For consulting and professional service firms",
+          h: "Discover why your lead ads are not turning into clients",
+          industry: "Finance & consulting",
+        },
+        ecommerce: {
+          eyebrow: "For online stores and D2C brands",
+          h: "Discover why your store gets visitors but not enough orders",
+          industry: "E-commerce & D2C",
+        },
+        "real-estate": {
+          eyebrow: "For builders, brokers and property developers",
+          h: "Discover why your property ads bring calls but not site visits",
+          industry: "Real estate",
+        },
+      };
+      const presetKey = (
+        new URLSearchParams(location.search).get("for") ||
+        location.hash.slice(1) ||
+        ""
+      ).toLowerCase();
+      const preset = PRESETS[presetKey] || null;
+      if (preset) {
+        document.getElementById("eyebrow").textContent = preset.eyebrow;
+        document.getElementById("headline").textContent = preset.h;
+      }
 
- 
-  <section id="details" class="col" hidden>
-    <div class="prog">
-      <div class="prog-head"><span class="label">Last step</span><span class="count">All questions done</span></div>
-      <div class="track"><i style="width:100%"></i></div>
-    </div>
-    <div class="qcard">
-      <h2>Where should we send your report?</h2>
-      <p class="qhint">Your report opens on this page right away. We also email you a copy.</p>
-    </div>
-    <form id="leadForm" class="form" novalidate>
-      <div class="field"><label for="f-name">Your name</label><input id="f-name" type="text" autocomplete="name" required></div>
-      <div class="field"><label for="f-company">Company</label><input id="f-company" type="text" autocomplete="organization" required></div>
-      <div class="field"><label for="f-email">Business email</label><input id="f-email" type="email" autocomplete="email" inputmode="email" required></div>
-      <div class="field"><label for="f-site">Company website <em id="siteOpt">(so we can review your pages and ads)</em></label><input id="f-site" type="url" inputmode="url" placeholder="yourbusiness.com" autocomplete="url"></div>
-      <div class="field"><label for="f-wa">WhatsApp <em>(optional)</em></label><input id="f-wa" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98xxx xxxxx"></div>
-      <p class="err" id="formErr" hidden></p>
-      <button class="btn block" id="genBtn" type="submit">Generate my free report</button>
-      <div class="trust"><span>Private - never shared</span><span>Report in about a minute</span><a id="privacyLink" href="https://obsidiansix.com/privacy/" target="_blank" rel="noopener">Privacy policy</a></div>
-      <p class="made">Prepared by the Obsidian Six team in Mumbai and Bhopal.</p>
-    </form>
-    <div class="nav"><button class="linkbtn" id="detailsBack" type="button">← Back to questions</button></div>
-  </section>
+      const MONEY = {
+        India: {
+          c: "₹",
+          spend: ["Under ₹50,000", "₹50,000 - 2 lakh", "₹2 lakh+"],
+          ticket: [
+            "Under ₹1,000",
+            "₹1,000 - 10,000",
+            "₹10,000 - 1 lakh",
+            "₹1 lakh+",
+          ],
+        },
+        "UAE & GCC": {
+          c: "AED",
+          spend: ["Under AED 2,500", "AED 2,500 - 10,000", "AED 10,000+"],
+          ticket: [
+            "Under AED 100",
+            "AED 100 - 1,000",
+            "AED 1,000 - 10,000",
+            "AED 10,000+",
+          ],
+        },
+        "UK & Europe": {
+          c: "£/€",
+          spend: ["Under £/€500", "£/€500 - 2,000", "£/€2,000+"],
+          ticket: ["Under £/€30", "£/€30 - 300", "£/€300 - 3,000", "£/€3,000+"],
+        },
+        "US & Canada": {
+          c: "$",
+          spend: ["Under $600", "$600 - 2,500", "$2,500+"],
+          ticket: ["Under $40", "$40 - 400", "$400 - 4,000", "$4,000+"],
+        },
+        "Other / global": {
+          c: "USD",
+          spend: ["Under $600", "$600 - 2,500", "$2,500+"],
+          ticket: ["Under $40", "$40 - 400", "$400 - 4,000", "$4,000+"],
+        },
+      };
+      const money = () => MONEY[A.market] || MONEY["India"];
 
-  
-  <section id="loading" class="col load" hidden>
-    <span class="label">Working on it</span>
-    <h2 id="loadTitle">Building your audit report</h2>
-    <p class="qhint">This takes about a minute. Keep this page open.</p>
-    <ol class="lsteps" id="lsteps">
-      <li><i></i>Reading your business and market</li>
-      <li><i></i>Building your ideal buyer profile</li>
-      <li><i></i>Scoring your marketing on 5 areas</li>
-      <li><i></i>Finding where you lose leads and money</li>
-      <li><i></i>Matching 2026 channels to your industry</li>
-      <li><i></i>Writing your 90-day plan</li>
-    </ol>
-  </section>
+      const STEPS = [
+        "Your business",
+        "Your customers",
+        "Your marketing",
+        "Your goals",
+      ];
+      const Q = [
+        {
+          id: "industry",
+          step: 0,
+          type: "single",
+          two: true,
+          other: true,
+          q: "What kind of business do you run?",
+          opts: [
+            "Education",
+            "E-commerce & D2C",
+            "Real estate",
+            "Finance & consulting",
+            "Healthcare & wellness",
+            "Hospitality & travel",
+            "Food & FMCG",
+            "B2B & manufacturing",
+            "Software & tech",
+            "Local services",
+            "Other",
+          ],
+        },
+        {
+          id: "offer",
+          step: 0,
+          type: "text",
+          q: "What do you sell? One line is enough.",
+          hint: "Write it the way you would say it to a friend. Hindi, Hinglish or a few words is fine.",
+          ph: "e.g. Ayurvedic shilajit, sold on our website and WhatsApp",
+        },
+        {
+          id: "market",
+          step: 0,
+          type: "single",
+          two: true,
+          q: "Where are most of your customers?",
+          opts: [
+            "India",
+            "UAE & GCC",
+            "UK & Europe",
+            "US & Canada",
+            "Other / global",
+          ],
+        },
+        {
+          id: "stage",
+          step: 0,
+          type: "single",
+          q: "How is the business doing right now?",
+          opts: [
+            ["Just started", "Under 1 year old"],
+            ["Growing", "Sales are going up"],
+            ["Stable but stuck", "Same numbers for a while"],
+            ["Struggling", "Sales are dropping"],
+          ],
+        },
 
+        {
+          id: "audience",
+          step: 1,
+          type: "single",
+          q: "Who usually buys from you?",
+          opts: [
+            ["People", "Individual customers (B2C)"],
+            ["Businesses", "Companies and teams (B2B)"],
+            ["Both", ""],
+          ],
+        },
+        {
+          id: "customer",
+          step: 1,
+          type: "text",
+          optional: true,
+          q: "Describe your best customer in a few words",
+          hint: "Age, city, job, what they want. Short is fine - the audit fills in the rest.",
+          ph: "e.g. working women 28-40 in metro cities who want natural products",
+          chips: {
+            People: [
+              "Parents of school kids",
+              "Young working professionals",
+              "Families in my city",
+              "Students preparing for exams",
+            ],
+            Businesses: [
+              "Small business owners",
+              "HR and admin heads",
+              "Factory purchase managers",
+              "Startup founders",
+            ],
+            Both: [
+              "Small business owners",
+              "Young working professionals",
+              "Families in my city",
+            ],
+          },
+        },
+        {
+          id: "buyPath",
+          step: 1,
+          type: "single",
+          q: "How do customers usually buy from you?",
+          opts: [
+            "They order online",
+            "They call or WhatsApp first",
+            "They visit our store or office",
+            "They book a meeting or demo",
+            "Long process, several people decide",
+          ],
+        },
+        {
+          id: "ticket",
+          step: 1,
+          type: "single",
+          two: true,
+          q: "What is an average order or deal worth?",
+          dyn: "ticket",
+        },
 
-  <section id="result" class="col" hidden>
-    <p class="ready">✓ Your report is ready</p>
-    <div id="report"></div>
-    <details class="answers no-print">
-      <summary>Audit completed - your responses</summary>
-      <dl id="answerList"></dl>
-    </details>
-    <div class="book">
-      <span class="label" style="color:inherit;opacity:.7">Next step</span>
-      <h3>Walk through this report with us</h3>
-      <p>20 minutes on a call. We go over your top fixes and what to do first. No cost, no contract.</p>
-      <div class="row">
-        <a class="btn" id="bookBtn" href="https://obsidiansix.com/contactus/" target="_blank" rel="noopener">Book a free 20-minute walkthrough</a>
-        <button class="btn ghost" id="saveBtn" type="button">Save report</button>
-      </div>
-    </div>
-    <p class="note" id="saveNote" hidden></p>
-    <p class="note no-print"><button class="linkbtn" id="restartBtn" type="button">Start a new audit</button></p>
-  </section>
+        {
+          id: "channels",
+          step: 2,
+          type: "multi",
+          two: true,
+          q: "Where are you active today?",
+          hint: "Pick all that apply.",
+          opts: [
+            "Instagram",
+            "Facebook",
+            "Meta ads",
+            "Google ads",
+            "Website & SEO",
+            "LinkedIn",
+            "YouTube",
+            "WhatsApp",
+            "Email",
+            "Marketplaces (Amazon etc.)",
+            "Word of mouth",
+            "Offline / events",
+            "Nothing yet",
+          ],
+        },
+        {
+          id: "spend",
+          step: 2,
+          type: "single",
+          q: "How much do you spend on ads each month?",
+          dyn: "spend",
+        },
+        {
+          id: "tracking",
+          step: 2,
+          type: "single",
+          q: "Do you know what one lead or sale costs you?",
+          opts: [
+            ["Yes, I track it", "I know my cost per lead or sale"],
+            ["Rough idea", "I can guess, no proper tracking"],
+            ["No idea", "We don't track this"],
+          ],
+        },
+        {
+          id: "website",
+          step: 2,
+          type: "single",
+          q: "How is your website doing?",
+          opts: [
+            "No website yet",
+            "Basic, rarely updated",
+            "Decent, gets some enquiries",
+            "Strong, brings leads or sales daily",
+          ],
+        },
 
-  <footer>
-    <span>© Obsidian Six - Mumbai and Bhopal</span>
-    <a href="https://obsidiansix.com/privacy/" target="_blank" rel="noopener">Privacy</a>
-    <a href="https://obsidiansix.com/terms/" target="_blank" rel="noopener">Terms</a>
-  </footer>
-</div>
+        {
+          id: "team",
+          step: 3,
+          type: "single",
+          two: true,
+          q: "How big is your team?",
+          opts: ["1-5", "6-15", "16-60", "60+"],
+        },
+        {
+          id: "problems",
+          step: 3,
+          type: "multi",
+          max: 2,
+          q: "What hurts the most right now?",
+          hint: "Pick up to 2.",
+          opts: [
+            "Not enough leads or enquiries",
+            "Leads come but don't buy",
+            "Ads cost too much",
+            "People don't know our brand",
+            "Customers don't come back",
+            "I don't know what's working",
+            "No time or team for marketing",
+          ],
+        },
+        {
+          id: "goal",
+          step: 3,
+          type: "single",
+          q: "What do you want in the next 90 days?",
+          opts: [
+            "More leads and enquiries",
+            "More sales or orders",
+            "A stronger brand people trust",
+            "Launch a new product or service",
+            "Enter a new city or country",
+          ],
+        },
+        {
+          id: "notes",
+          step: 3,
+          type: "text",
+          optional: true,
+          q: "Anything else we should know?",
+          hint: "Optional. Competitors, what you tried before, what didn't work. Say it however you like.",
+          ph: "e.g. we tried Google ads last year, got calls but no sales",
+        },
+      ];
 
-<script>
+      let A = {};
+      let qi = 0;
+      const $ = (id) => document.getElementById(id);
+      const esc = (s) =>
+        String(s ?? "").replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      const show = (id) =>
+        ["intro", "quiz", "details", "loading", "result"].forEach(
+          (s) => ($(s).hidden = s !== id),
+        );
+      const top0 = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-const CONFIG = {
-  AI_ENDPOINT: "https://obsidiansix-ai-business-audit.dev-obsidiansix.workers.dev/",        
-  LEAD_WEBHOOK: "",      
-  BOOKING_URL: "",        
-  PRIVACY_URL: "https://obsidiansix.com/privacy/"
-};
-if (CONFIG.BOOKING_URL) document.getElementById("bookBtn").href = CONFIG.BOOKING_URL;
-document.getElementById("privacyLink").href = CONFIG.PRIVACY_URL;
+      try {
+        const saved = JSON.parse(
+          localStorage.getItem("o6-audit-draft") || "null",
+        );
+        if (saved && saved.A) {
+          A = saved.A;
+        }
+      } catch (e) {}
+      const saveDraft = () => {
+        try {
+          localStorage.setItem("o6-audit-draft", JSON.stringify({ A }));
+        } catch (e) {}
+      };
 
+      function optsFor(q) {
+        if (q.dyn === "spend")
+          return [
+            ["Not running ads", ""],
+            ...money().spend.map((s) => [s, ""]),
+          ];
+        if (q.dyn === "ticket") return money().ticket.map((s) => [s, ""]);
+        return q.opts.map((o) => (Array.isArray(o) ? o : [o, ""]));
+      }
 
-const PRESETS = {
-  education:{eyebrow:"For schools, colleges and coaching institutes", h:"Discover why your admission ads are not filling seats", industry:"Education", market:"India"},
-  "consulting-uae":{eyebrow:"For business setup and consulting firms in the UAE", h:"Discover why your consulting firm is not getting enough qualified enquiries", industry:"Finance & consulting", market:"UAE & GCC"},
-  consulting:{eyebrow:"For consulting and professional service firms", h:"Discover why your lead ads are not turning into clients", industry:"Finance & consulting"},
-  ecommerce:{eyebrow:"For online stores and D2C brands", h:"Discover why your store gets visitors but not enough orders", industry:"E-commerce & D2C"},
-  "real-estate":{eyebrow:"For builders, brokers and property developers", h:"Discover why your property ads bring calls but not site visits", industry:"Real estate"}
-};
-const presetKey = (new URLSearchParams(location.search).get("for") || location.hash.slice(1) || "").toLowerCase();
-const preset = PRESETS[presetKey] || null;
-if (preset){
-  document.getElementById("eyebrow").textContent = preset.eyebrow;
-  document.getElementById("headline").textContent = preset.h;
-}
+      function renderStepNames(step) {
+        $("stepNames").innerHTML = STEPS.map(
+          (s, i) =>
+            `<span class="${i === step ? "on" : ""}">${i + 1}. ${s}</span>`,
+        ).join("");
+      }
 
-const MONEY = {
-  "India":{c:"₹", spend:["Under ₹50,000","₹50,000 - 2 lakh","₹2 lakh+"], ticket:["Under ₹1,000","₹1,000 - 10,000","₹10,000 - 1 lakh","₹1 lakh+"]},
-  "UAE & GCC":{c:"AED", spend:["Under AED 2,500","AED 2,500 - 10,000","AED 10,000+"], ticket:["Under AED 100","AED 100 - 1,000","AED 1,000 - 10,000","AED 10,000+"]},
-  "UK & Europe":{c:"£/€", spend:["Under £/€500","£/€500 - 2,000","£/€2,000+"], ticket:["Under £/€30","£/€30 - 300","£/€300 - 3,000","£/€3,000+"]},
-  "US & Canada":{c:"$", spend:["Under $600","$600 - 2,500","$2,500+"], ticket:["Under $40","$40 - 400","$400 - 4,000","$4,000+"]},
-  "Other / global":{c:"USD", spend:["Under $600","$600 - 2,500","$2,500+"], ticket:["Under $40","$40 - 400","$400 - 4,000","$4,000+"]}
-};
-const money = () => MONEY[A.market] || MONEY["India"];
+      function renderQ() {
+        const q = Q[qi];
+        $("stepLabel").textContent =
+          `Step ${q.step + 1} of 4 - ${STEPS[q.step]}`;
+        $("qCount").textContent = `Question ${qi + 1} of ${Q.length}`;
+        $("bar").style.width = `${(qi / Q.length) * 100}%`;
+        renderStepNames(q.step);
+        let h = `<h2>${esc(q.q)}</h2>${q.hint ? `<p class="qhint">${esc(q.hint)}</p>` : ""}`;
+        if (q.type === "text") {
+          h += `<textarea id="ta" placeholder="${esc(q.ph || "")}" maxlength="600">${esc(A[q.id] || "")}</textarea>`;
+          const chips = q.chips ? q.chips[A.audience] || q.chips.Both : null;
+          if (chips)
+            h += `<div class="chips">${chips.map((c) => `<button type="button" class="chip" data-chip="${esc(c)}">+ ${esc(c)}</button>`).join("")}</div>`;
+        } else {
+          const multi = q.type === "multi";
+          const cur = multi ? A[q.id] || [] : A[q.id];
+          h +=
+            `<div class="opts ${q.two ? "two" : ""} ${multi ? "multi" : ""}" role="group">` +
+            optsFor(q)
+              .map(([v, sub]) => {
+                const on = multi ? cur.includes(v) : cur === v;
+                return `<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="${on}"><span class="mk"></span><span>${esc(v)}${sub ? `<small>${esc(sub)}</small>` : ""}</span></button>`;
+              })
+              .join("") +
+            `</div>`;
+          if (q.other && A[q.id] === "Other")
+            h += `<input class="other" id="otherIn" type="text" placeholder="Type your industry" value="${esc(A[q.id + "_other"] || "")}">`;
+        }
+        $("qcard").innerHTML = h;
+        $("backBtn").style.visibility = "visible";
+        updateNext();
 
+        const ta = $("ta");
+        if (ta) {
+          ta.addEventListener("input", () => {
+            A[q.id] = ta.value;
+            saveDraft();
+            updateNext();
+          });
+          document.querySelectorAll("[data-chip]").forEach(
+            (b) =>
+              (b.onclick = () => {
+                const t = b.dataset.chip;
+                ta.value = ta.value.trim()
+                  ? ta.value.trim() + ", " + t.toLowerCase()
+                  : t;
+                A[q.id] = ta.value;
+                saveDraft();
+                updateNext();
+                ta.focus();
+              }),
+          );
+        }
+        const oi = $("otherIn");
+        if (oi) {
+          oi.addEventListener("input", () => {
+            A[q.id + "_other"] = oi.value;
+            saveDraft();
+            updateNext();
+          });
+          oi.focus();
+        }
 
-const STEPS = ["Your business","Your customers","Your marketing","Your goals"];
-const Q = [
-  {id:"industry", step:0, type:"single", two:true, other:true, q:"What kind of business do you run?",
-   opts:["Education","E-commerce & D2C","Real estate","Finance & consulting","Healthcare & wellness","Hospitality & travel","Food & FMCG","B2B & manufacturing","Software & tech","Local services","Other"]},
-  {id:"offer", step:0, type:"text", q:"What do you sell? One line is enough.",
-   hint:"Write it the way you would say it to a friend. Hindi, Hinglish or a few words is fine.",
-   ph:"e.g. Ayurvedic shilajit, sold on our website and WhatsApp"},
-  {id:"market", step:0, type:"single", two:true, q:"Where are most of your customers?",
-   opts:["India","UAE & GCC","UK & Europe","US & Canada","Other / global"]},
-  {id:"stage", step:0, type:"single", q:"How is the business doing right now?",
-   opts:[["Just started","Under 1 year old"],["Growing","Sales are going up"],["Stable but stuck","Same numbers for a while"],["Struggling","Sales are dropping"]]},
+        document
+          .querySelectorAll(".opt")
+          .forEach((b) => (b.onclick = () => pick(q, b.dataset.v)));
+      }
 
-  {id:"audience", step:1, type:"single", q:"Who usually buys from you?",
-   opts:[["People","Individual customers (B2C)"],["Businesses","Companies and teams (B2B)"],["Both",""]]},
-  {id:"customer", step:1, type:"text", optional:true, q:"Describe your best customer in a few words",
-   hint:"Age, city, job, what they want. Short is fine - the audit fills in the rest.",
-   ph:"e.g. working women 28-40 in metro cities who want natural products",
-   chips:{People:["Parents of school kids","Young working professionals","Families in my city","Students preparing for exams"],
-          Businesses:["Small business owners","HR and admin heads","Factory purchase managers","Startup founders"],
-          Both:["Small business owners","Young working professionals","Families in my city"]}},
-  {id:"buyPath", step:1, type:"single", q:"How do customers usually buy from you?",
-   opts:["They order online","They call or WhatsApp first","They visit our store or office","They book a meeting or demo","Long process, several people decide"]},
-  {id:"ticket", step:1, type:"single", two:true, q:"What is an average order or deal worth?", dyn:"ticket"},
+      function pick(q, v) {
+        if (q.type === "multi") {
+          let cur = A[q.id] || [];
+          if (v === "Nothing yet") cur = cur.includes(v) ? [] : [v];
+          else {
+            cur = cur.filter((x) => x !== "Nothing yet");
+            if (cur.includes(v)) cur = cur.filter((x) => x !== v);
+            else {
+              if (q.max && cur.length >= q.max) cur.shift();
+              cur.push(v);
+            }
+          }
+          A[q.id] = cur;
+          saveDraft();
+          renderQ();
+          return;
+        }
+        if (q.id === "market" && A.market !== v) {
+          delete A.spend;
+          delete A.ticket;
+        }
+        A[q.id] = v;
+        saveDraft();
+        if (q.other && v === "Other") {
+          renderQ();
+          return;
+        }
+        renderQ();
+        setTimeout(next, 260);
+      }
 
-  {id:"channels", step:2, type:"multi", two:true, q:"Where are you active today?", hint:"Pick all that apply.",
-   opts:["Instagram","Facebook","Meta ads","Google ads","Website & SEO","LinkedIn","YouTube","WhatsApp","Email","Marketplaces (Amazon etc.)","Word of mouth","Offline / events","Nothing yet"]},
-  {id:"spend", step:2, type:"single", q:"How much do you spend on ads each month?", dyn:"spend"},
-  {id:"tracking", step:2, type:"single", q:"Do you know what one lead or sale costs you?",
-   opts:[["Yes, I track it","I know my cost per lead or sale"],["Rough idea","I can guess, no proper tracking"],["No idea","We don't track this"]]},
-  {id:"website", step:2, type:"single", q:"How is your website doing?",
-   opts:["No website yet","Basic, rarely updated","Decent, gets some enquiries","Strong, brings leads or sales daily"]},
+      function answered(q) {
+        const v = A[q.id];
+        if (q.optional) return true;
+        if (q.type === "text") return !!(v && v.trim().length >= 2);
+        if (q.type === "multi") return Array.isArray(v) && v.length > 0;
+        if (q.other && v === "Other")
+          return !!(A[q.id + "_other"] || "").trim();
+        return !!v;
+      }
+      function updateNext() {
+        const q = Q[qi];
+        $("nextBtn").disabled = !answered(q);
+        const emptyOptional =
+          q.optional && q.type === "text" && !String(A[q.id] || "").trim();
+        $("nextBtn").textContent = emptyOptional
+          ? "Skip"
+          : qi === Q.length - 1
+            ? "Finish"
+            : "Next";
+      }
+      function next() {
+        if (!answered(Q[qi])) return;
+        if (qi < Q.length - 1) {
+          qi++;
+          renderQ();
+          top0();
+        } else openDetails();
+      }
+      function back() {
+        if (qi > 0) {
+          qi--;
+          renderQ();
+          top0();
+        } else show("intro");
+      }
 
-  {id:"team", step:3, type:"single", two:true, q:"How big is your team?", opts:["1-5","6-15","16-60","60+"]},
-  {id:"problems", step:3, type:"multi", max:2, q:"What hurts the most right now?", hint:"Pick up to 2.",
-   opts:["Not enough leads or enquiries","Leads come but don't buy","Ads cost too much","People don't know our brand","Customers don't come back","I don't know what's working","No time or team for marketing"]},
-  {id:"goal", step:3, type:"single", q:"What do you want in the next 90 days?",
-   opts:["More leads and enquiries","More sales or orders","A stronger brand people trust","Launch a new product or service","Enter a new city or country"]},
-  {id:"notes", step:3, type:"text", optional:true, q:"Anything else we should know?",
-   hint:"Optional. Competitors, what you tried before, what didn't work. Say it however you like.",
-   ph:"e.g. we tried Google ads last year, got calls but no sales"}
-];
+      function openDetails() {
+        show("details");
+        top0();
+        const noSite = A.website === "No website yet";
+        $("siteOpt").textContent = noSite
+          ? "(optional - add your Instagram or Google listing instead)"
+          : "(so we can review your pages and ads)";
+        $("f-site").placeholder = noSite
+          ? "instagram.com/yourbrand"
+          : "yourbusiness.com";
+        setTimeout(() => $("f-name").focus(), 300);
+      }
 
-let A = {};          
-let qi = 0;           
-const $ = id => document.getElementById(id);
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const show = id => ["intro","quiz","details","loading","result"].forEach(s => $(s).hidden = s !== id);
-const top0 = () => window.scrollTo({top:0, behavior:"smooth"});
+      $("startBtn").onclick = () => {
+        if (preset) {
+          if (preset.industry && !A.industry) A.industry = preset.industry;
+          if (preset.market && !A.market) A.market = preset.market;
+        }
+        qi = 0;
+        show("quiz");
+        renderQ();
+        top0();
+      };
+      $("nextBtn").onclick = next;
+      $("backBtn").onclick = back;
+      $("detailsBack").onclick = () => {
+        qi = Q.length - 1;
+        show("quiz");
+        renderQ();
+      };
+      document.addEventListener("keydown", (e) => {
+        if ($("quiz").hidden) return;
+        if (e.key === "Enter" && e.target.tagName !== "TEXTAREA") {
+          e.preventDefault();
+          next();
+        }
+      });
 
-try { const saved = JSON.parse(localStorage.getItem("o6-audit-draft") || "null"); if (saved && saved.A) { A = saved.A; } } catch(e){}
-const saveDraft = () => { try { localStorage.setItem("o6-audit-draft", JSON.stringify({A})); } catch(e){} };
+      const has = (k, v) => (A[k] || []).includes(v);
+      const clamp = (n) => Math.max(8, Math.min(95, Math.round(n)));
+      function score() {
+        const ch = A.channels || [];
+        const organic = [
+          "Instagram",
+          "Facebook",
+          "Website & SEO",
+          "LinkedIn",
+          "YouTube",
+        ].filter((c) => ch.includes(c)).length;
+        const web =
+          {
+            "No website yet": 0,
+            "Basic, rarely updated": 10,
+            "Decent, gets some enquiries": 20,
+            "Strong, brings leads or sales daily": 30,
+          }[A.website] ?? 10;
+        const sp =
+          A.spend === "Not running ads"
+            ? 0
+            : money().spend.indexOf(A.spend) + 1; // 0..3
+        const big = ["16-60", "60+"].includes(A.team);
+        const prob = (p) => has("problems", p);
 
-function optsFor(q){
-  if (q.dyn === "spend") return [["Not running ads",""], ...money().spend.map(s => [s,""])];
-  if (q.dyn === "ticket") return money().ticket.map(s => [s,""]);
-  return q.opts.map(o => Array.isArray(o) ? o : [o,""]);
-}
+        const visibility =
+          22 +
+          Math.min(organic * 9, 36) +
+          web -
+          (prob("People don't know our brand") ? 12 : 0) +
+          (has("channels", "Word of mouth") ? 4 : 0);
+        const leadgen =
+          18 +
+          [0, 14, 24, 32][sp] +
+          (ch.includes("Google ads") ? 10 : 0) +
+          (ch.includes("Meta ads") ? 10 : 0) +
+          (ch.includes("WhatsApp") ? 5 : 0) +
+          (ch.includes("Marketplaces (Amazon etc.)") ? 5 : 0) -
+          (prob("Not enough leads or enquiries") ? 16 : 0) -
+          (A.stage === "Struggling" ? 6 : 0);
+        const conversion =
+          42 +
+          (web - 12) +
+          (A.tracking === "Yes, I track it" ? 8 : 0) -
+          (prob("Leads come but don't buy") ? 20 : 0) -
+          (prob("Ads cost too much") ? 6 : 0) +
+          (A.stage === "Growing" ? 8 : 0);
+        const tracking =
+          ({ "Yes, I track it": 78, "Rough idea": 42, "No idea": 14 }[
+            A.tracking
+          ] ?? 30) +
+          (big ? 5 : 0) -
+          (prob("I don't know what's working") ? 10 : 0) -
+          (sp >= 2 && A.tracking !== "Yes, I track it" ? 8 : 0);
+        const retention =
+          38 +
+          (ch.includes("Email") ? 14 : 0) +
+          (ch.includes("WhatsApp") ? 12 : 0) +
+          (ch.includes("Word of mouth") ? 8 : 0) -
+          (prob("Customers don't come back") ? 22 : 0);
 
-function renderStepNames(step){
-  $("stepNames").innerHTML = STEPS.map((s,i) => `<span class="${i===step?"on":""}">${i+1}. ${s}</span>`).join("");
-}
+        const s = {
+          Visibility: clamp(visibility),
+          "Lead generation": clamp(leadgen),
+          Conversion: clamp(conversion),
+          "Tracking & data": clamp(tracking),
+          "Repeat customers": clamp(retention),
+        };
+        s.overall = Math.round(Object.values(s).reduce((a, b) => a + b, 0) / 5);
+        return s;
+      }
+      const band = (n) =>
+        n >= 65
+          ? { t: "Working well", c: "var(--good)" }
+          : n >= 40
+            ? { t: "Room to grow", c: "var(--warn)" }
+            : { t: "Needs urgent work", c: "var(--bad)" };
 
-function renderQ(){
-  const q = Q[qi];
-  $("stepLabel").textContent = `Step ${q.step+1} of 4 - ${STEPS[q.step]}`;
-  $("qCount").textContent = `Question ${qi+1} of ${Q.length}`;
-  $("bar").style.width = `${(qi / Q.length) * 100}%`;
-  renderStepNames(q.step);
-  let h = `<h2>${esc(q.q)}</h2>${q.hint ? `<p class="qhint">${esc(q.hint)}</p>` : ""}`;
-  if (q.type === "text"){
-    h += `<textarea id="ta" placeholder="${esc(q.ph||"")}" maxlength="600">${esc(A[q.id]||"")}</textarea>`;
-    const chips = q.chips ? (q.chips[A.audience] || q.chips.Both) : null;
-    if (chips) h += `<div class="chips">${chips.map(c => `<button type="button" class="chip" data-chip="${esc(c)}">+ ${esc(c)}</button>`).join("")}</div>`;
-  } else {
-    const multi = q.type === "multi";
-    const cur = multi ? (A[q.id] || []) : A[q.id];
-    h += `<div class="opts ${q.two?"two":""} ${multi?"multi":""}" role="group">` + optsFor(q).map(([v,sub]) => {
-      const on = multi ? cur.includes(v) : cur === v;
-      return `<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="${on}"><span class="mk"></span><span>${esc(v)}${sub?`<small>${esc(sub)}</small>`:""}</span></button>`;
-    }).join("") + `</div>`;
-    if (q.other && A[q.id] === "Other") h += `<input class="other" id="otherIn" type="text" placeholder="Type your industry" value="${esc(A[q.id+"_other"]||"")}">`;
-  }
-  $("qcard").innerHTML = h;
-  $("backBtn").style.visibility = "visible";
-  updateNext();
+      const KB = {
+        Education: {
+          persona: "Anxious Parent / Ambitious Student",
+          who: "Parents of 15-22 year olds and the students themselves, comparing 3-5 institutes before deciding. Parents pay, students influence.",
+          pains: [
+            "Fear of choosing a college that does not lead to a job",
+            "Too many similar ads, hard to tell institutes apart",
+            "Fees feel high without clear placement proof",
+          ],
+          triggers: [
+            "Placement numbers and named recruiters",
+            "Current student and alumni videos",
+            "Scholarship or early-bird deadline",
+          ],
+          objections: [
+            "Is the placement data real?",
+            "Is the campus safe and good?",
+            "Can we afford it?",
+          ],
+          where: [
+            "Instagram reels",
+            "YouTube reviews",
+            "Google search: 'best college for X in city'",
+            "WhatsApp parent groups",
+          ],
+          message:
+            "Real students, real placements - see where our last batch is working today.",
+          channels: [
+            [
+              "Meta ads (lead forms + WhatsApp)",
+              "Main lead source during admission season",
+              40,
+              "Run student-shot reels as ads, not posters",
+            ],
+            [
+              "Google search ads",
+              "Catch high-intent 'college near me' searches",
+              25,
+              "Bid on course + city keywords, send to a course page",
+            ],
+            [
+              "Instagram organic",
+              "Trust and proof",
+              15,
+              "3 reels a week: placements, campus life, faculty",
+            ],
+            [
+              "YouTube",
+              "Deep proof for parents",
+              10,
+              "Alumni interviews, 3-5 minutes",
+            ],
+            [
+              "WhatsApp follow-up",
+              "Convert enquiries to visits",
+              10,
+              "Reply in 5 minutes, send brochure + visit slot",
+            ],
+          ],
+          ideas: [
+            [
+              "Reel",
+              "Where is our 2025 batch working today? (alumni on camera)",
+            ],
+            ["Carousel", "Fees vs return: what you pay vs what our grads earn"],
+            ["Reel", "A day in the life of a first-year student"],
+            ["Video", "Parent asks, principal answers - 5 real questions"],
+            ["Story", "Seats left this week + scholarship deadline"],
+          ],
+          kpis: [
+            ["Cost per lead", "Track weekly, cut ads above your average"],
+            ["Lead to campus visit", "20-30% is healthy"],
+            ["Visit to admission", "25-40%"],
+            ["Reply time on WhatsApp", "Under 10 minutes"],
+          ],
+        },
+        "E-commerce & D2C": {
+          persona: "Value-Seeking Online Shopper",
+          who: "Shoppers 22-45 who discover products on Instagram, compare on reviews and buy on mobile, often cash on delivery in India.",
+          pains: [
+            "Worry the product won't match the photos",
+            "Hidden shipping costs and slow delivery",
+            "Too many brands making the same claims",
+          ],
+          triggers: [
+            "Real customer reviews and unboxing videos",
+            "First-order offer or bundle",
+            "Fast delivery and easy returns",
+          ],
+          objections: [
+            "Is it genuine?",
+            "Will it work for me?",
+            "What if I want to return it?",
+          ],
+          where: [
+            "Instagram reels",
+            "YouTube shorts",
+            "Google shopping",
+            "Amazon / Flipkart reviews",
+          ],
+          message:
+            "Made for people like you - see what 1,000+ customers say after 30 days.",
+          channels: [
+            [
+              "Meta ads (Advantage+ shopping)",
+              "Main sales engine",
+              45,
+              "Feed it 10+ fresh creatives a month and Conversions API data",
+            ],
+            [
+              "Google shopping + Performance Max",
+              "Capture people already searching",
+              20,
+              "Clean product feed with good titles and images",
+            ],
+            [
+              "Creator / UGC content",
+              "Creative supply and trust",
+              15,
+              "Pay small creators for honest review videos",
+            ],
+            [
+              "Email + WhatsApp flows",
+              "Repeat orders",
+              10,
+              "Abandoned cart, post-purchase, refill reminders",
+            ],
+            [
+              "Marketplaces",
+              "Reach and reviews",
+              10,
+              "Use for discovery, push repeat buyers to your site",
+            ],
+          ],
+          ideas: [
+            ["Reel", "30-day before and after from a real customer"],
+            ["UGC", "Unboxing in under 20 seconds"],
+            ["Carousel", "What is inside vs what others hide in theirs"],
+            ["Reel", "Founder explains why the product exists"],
+            ["Story", "Bundle offer with a countdown"],
+          ],
+          kpis: [
+            ["ROAS", "2.5x+ blended for most D2C, depends on margin"],
+            ["Add-to-cart to purchase", "25-40%"],
+            ["Repeat purchase in 90 days", "20%+"],
+            ["Cost per order", "Below 30% of order value"],
+          ],
+        },
+        "Real estate": {
+          persona: "Careful First-Time Buyer / Investor",
+          who: "Salaried families 30-50 and NRI or local investors. Long decision, lots of research, many family members involved.",
+          pains: [
+            "Fear of delays and builder trust issues",
+            "Unclear total cost and loan process",
+            "Too many brokers calling",
+          ],
+          triggers: [
+            "Construction progress videos and RERA details",
+            "Clear price sheet and payment plan",
+            "Site visit with transport",
+          ],
+          objections: [
+            "Will possession be on time?",
+            "Is the price fair for this area?",
+            "Can I get a loan easily?",
+          ],
+          where: [
+            "Facebook and Instagram",
+            "Google search for project and area",
+            "YouTube walkthroughs",
+            "Property portals",
+          ],
+          message:
+            "See the site, the papers and the price - all before you visit.",
+          channels: [
+            [
+              "Meta lead ads + WhatsApp",
+              "Volume of enquiries",
+              40,
+              "Qualify with 2 questions: budget and timeline",
+            ],
+            [
+              "Google search ads",
+              "High-intent area searches",
+              25,
+              "Project name + area + 2BHK/3BHK keywords",
+            ],
+            [
+              "YouTube walkthroughs",
+              "Trust for long decisions",
+              15,
+              "Monthly site progress video",
+            ],
+            [
+              "Property portals",
+              "Extra reach",
+              10,
+              "Keep listings fresh with real photos",
+            ],
+            [
+              "CRM + call follow-up",
+              "Turn leads into site visits",
+              10,
+              "Call within 5 minutes, 5-touch follow-up",
+            ],
+          ],
+          ideas: [
+            ["Video", "Monthly site progress update"],
+            ["Reel", "Total cost explained: price, GST, registry, loan EMI"],
+            ["Carousel", "Area guide: schools, hospitals, travel time"],
+            ["Video", "Owner walkthrough of a finished flat"],
+            ["Story", "Site visit this Sunday - cab pickup"],
+          ],
+          kpis: [
+            ["Cost per qualified lead", "Track separately from raw leads"],
+            ["Lead to site visit", "8-15%"],
+            ["Site visit to booking", "5-10%"],
+            ["First call time", "Under 5 minutes"],
+          ],
+        },
+        "Finance & consulting": {
+          persona: "Busy Decision-Maker Seeking Certainty",
+          who: "Founders, SME owners, professionals and investors who need an expert they can trust with money, compliance or growth. They research quietly and ask peers.",
+          pains: [
+            "Fear of costly mistakes and penalties",
+            "Confusing rules and paperwork",
+            "Past advisors who were slow or unclear",
+          ],
+          triggers: [
+            "Clear fixed-fee packages",
+            "Case results with numbers",
+            "A quick free consultation",
+          ],
+          objections: [
+            "Are you really an expert in my situation?",
+            "What will it cost in total?",
+            "How fast will it be done?",
+          ],
+          where: [
+            "LinkedIn",
+            "Google search",
+            "YouTube explainers",
+            "WhatsApp and referrals",
+          ],
+          message:
+            "Clear answers, fixed fees, done on time - see how we handled cases like yours.",
+          channels: [
+            [
+              "Google search ads",
+              "Catch people searching for the service now",
+              35,
+              "One landing page per service, with fee range",
+            ],
+            [
+              "LinkedIn (founder + company)",
+              "Authority and B2B trust",
+              20,
+              "Founder posts 3 times a week on real client questions",
+            ],
+            [
+              "Meta lead ads",
+              "Reach SMEs and individuals",
+              20,
+              "Lead form with 2 qualifying questions",
+            ],
+            [
+              "SEO + AI search answers",
+              "Long-term free enquiries",
+              15,
+              "Write clear Q&A pages so ChatGPT and Google AI cite you",
+            ],
+            [
+              "WhatsApp + email follow-up",
+              "Convert enquiries",
+              10,
+              "Same-day reply with a checklist PDF",
+            ],
+          ],
+          ideas: [
+            ["Post", "5 mistakes that cost companies money this year"],
+            ["Video", "Client story: problem, what we did, result"],
+            ["Carousel", "Step-by-step process with timelines"],
+            ["Reel", "60-second answer to the most asked question"],
+            ["Post", "Checklist download in exchange for email"],
+          ],
+          kpis: [
+            ["Cost per qualified enquiry", "Track by service"],
+            ["Enquiry to consultation", "30-50%"],
+            ["Consultation to client", "20-35%"],
+            ["Average client value", "Track monthly"],
+          ],
+        },
+        "Healthcare & wellness": {
+          persona: "Health-Conscious Researcher",
+          who: "Adults 25-55 looking for a solution to a health or wellness need, reading reviews and asking family before trusting a clinic or product.",
+          pains: [
+            "Fear of side effects or fake products",
+            "Not sure who to trust",
+            "Past treatments that didn't work",
+          ],
+          triggers: [
+            "Doctor or expert faces on content",
+            "Patient stories and reviews",
+            "Clear pricing and booking",
+          ],
+          objections: [
+            "Is it safe?",
+            "Does it really work?",
+            "Is it worth the price?",
+          ],
+          where: ["Google search and Maps", "Instagram", "YouTube", "WhatsApp"],
+          message:
+            "Explained by experts, trusted by people like you - see real results.",
+          channels: [
+            [
+              "Google search + Maps",
+              "People searching for treatment or product now",
+              30,
+              "Collect Google reviews every week",
+            ],
+            [
+              "Meta ads",
+              "Awareness and leads",
+              30,
+              "Expert-led video, follow ad policy on health claims",
+            ],
+            [
+              "Instagram + YouTube organic",
+              "Education and trust",
+              20,
+              "Explain one problem per video",
+            ],
+            [
+              "WhatsApp",
+              "Bookings and reorders",
+              10,
+              "Appointment reminders and reorder nudges",
+            ],
+            ["Email", "Retention", 10, "Monthly health tips and offers"],
+          ],
+          ideas: [
+            ["Reel", "Expert answers 1 common myth"],
+            ["Video", "Patient or customer story, start to result"],
+            ["Carousel", "Who this is for and who it is not for"],
+            ["Reel", "Behind the scenes: how we make or test it"],
+            ["Story", "Book a free consult this week"],
+          ],
+          kpis: [
+            ["Cost per booking or order", "Weekly"],
+            ["Show-up rate", "70%+ for appointments"],
+            ["Google rating", "4.5+ with fresh reviews"],
+            ["Reorder or revisit rate", "Track monthly"],
+          ],
+        },
+        "Hospitality & travel": {
+          persona: "Experience-Hungry Planner",
+          who: "Couples, families and groups planning trips or stays, inspired by reels and deciding on photos, reviews and price.",
+          pains: [
+            "Photos don't match reality",
+            "Hidden charges",
+            "Booking hassle and slow replies",
+          ],
+          triggers: [
+            "Real guest videos",
+            "Clear package price",
+            "Fast WhatsApp reply",
+          ],
+          objections: [
+            "Is it really like the photos?",
+            "Is it safe and clean?",
+            "Is it worth the money?",
+          ],
+          where: [
+            "Instagram reels",
+            "Google Maps and reviews",
+            "YouTube travel vlogs",
+            "OTAs",
+          ],
+          message:
+            "What you see is what you get - real guests, real stays, clear prices.",
+          channels: [
+            [
+              "Instagram reels + Meta ads",
+              "Desire and enquiries",
+              40,
+              "Shoot guests' real moments, not stock",
+            ],
+            [
+              "Google Business + Maps",
+              "Discovery and trust",
+              20,
+              "Reply to every review",
+            ],
+            [
+              "Creators",
+              "Reach new audiences",
+              15,
+              "Hosted stays for local creators",
+            ],
+            [
+              "WhatsApp",
+              "Bookings",
+              15,
+              "Quick reply templates with price and dates",
+            ],
+            [
+              "Direct booking website",
+              "Margin vs OTA",
+              10,
+              "Offer a direct-booking perk",
+            ],
+          ],
+          ideas: [
+            ["Reel", "Golden hour at our property in 15 seconds"],
+            ["Video", "Guest review on the way out"],
+            ["Carousel", "3-day plan with costs"],
+            ["Reel", "What 10,000 gets you here"],
+            ["Story", "Weekend slots left"],
+          ],
+          kpis: [
+            ["Cost per booking", "By season"],
+            ["Direct vs OTA share", "Push direct higher"],
+            ["Enquiry to booking", "15-30%"],
+            ["Review rating", "4.5+"],
+          ],
+        },
+        "Food & FMCG": {
+          persona: "Everyday Household Buyer",
+          who: "Household shoppers 22-45 buying daily-use products, influenced by taste, price, trust and what is easy to find.",
+          pains: [
+            "Not sure about quality or ingredients",
+            "Can't find it in nearby stores",
+            "Too many similar brands",
+          ],
+          triggers: [
+            "Taste tests and reviews",
+            "Trial packs and offers",
+            "Availability on quick-commerce apps",
+          ],
+          objections: [
+            "Is it healthy and safe?",
+            "Is it better than my usual brand?",
+            "Where can I buy it?",
+          ],
+          where: [
+            "Instagram reels",
+            "Quick-commerce apps",
+            "YouTube shorts",
+            "Local stores",
+          ],
+          message: "Try it once - taste the difference, see what is inside.",
+          channels: [
+            [
+              "Meta ads",
+              "Awareness and trial",
+              35,
+              "Taste-reaction videos as ads",
+            ],
+            [
+              "Quick-commerce + marketplace ads",
+              "Sales where people buy",
+              25,
+              "Run search ads inside the apps",
+            ],
+            [
+              "Creators",
+              "Trust and reach",
+              15,
+              "Recipe and taste videos with micro creators",
+            ],
+            [
+              "Instagram organic",
+              "Brand love",
+              15,
+              "Recipes, behind the scenes, customer reposts",
+            ],
+            [
+              "WhatsApp + offline",
+              "Distributors and repeat",
+              10,
+              "Retailer offers and sampling",
+            ],
+          ],
+          ideas: [
+            ["Reel", "Blind taste test vs a big brand"],
+            ["Reel", "3 quick recipes with our product"],
+            ["Carousel", "Ingredient label explained simply"],
+            ["UGC", "Customer's family reacts"],
+            ["Story", "Now on Blinkit/Zepto - order in 10 minutes"],
+          ],
+          kpis: [
+            ["Cost per first order", "Weekly"],
+            ["Repeat rate", "25%+ in 60 days"],
+            ["Store or app availability", "Track per city"],
+            ["Review count", "Grow weekly"],
+          ],
+        },
+        "B2B & manufacturing": {
+          persona: "Risk-Averse Purchase Head",
+          who: "Purchase managers, project heads and owners at companies, comparing vendors on quality, price, delivery and support. Several people approve.",
+          pains: [
+            "Vendors who miss deadlines",
+            "Quality issues after the order",
+            "Slow quotes and unclear specs",
+          ],
+          triggers: [
+            "Case studies with similar clients",
+            "Quick, clear quotes",
+            "Certifications and factory proof",
+          ],
+          objections: [
+            "Can you handle our volume?",
+            "Is the quality consistent?",
+            "What about after-sales support?",
+          ],
+          where: [
+            "Google search",
+            "LinkedIn",
+            "IndiaMART / trade portals",
+            "Trade shows",
+            "Email",
+          ],
+          message:
+            "Built to spec, delivered on time - see the plants already running our product.",
+          channels: [
+            [
+              "Google search ads + SEO",
+              "Capture buyers searching for specs",
+              30,
+              "One page per product with specs and a quote form",
+            ],
+            [
+              "LinkedIn",
+              "Reach decision-makers",
+              25,
+              "Founder and engineer posts, plus targeted outreach",
+            ],
+            [
+              "Trade portals",
+              "Steady enquiries",
+              15,
+              "Complete profiles, fast replies",
+            ],
+            [
+              "Email follow-up + CRM",
+              "Long sales cycle",
+              15,
+              "Monthly update with new case studies",
+            ],
+            [
+              "Video",
+              "Factory proof",
+              15,
+              "Production line and testing videos",
+            ],
+          ],
+          ideas: [
+            ["Video", "Inside our factory: how one unit is made and tested"],
+            ["Post", "Case study: problem, solution, numbers"],
+            ["Carousel", "How to choose the right spec - buyer guide"],
+            ["Post", "Delivery timeline we commit to"],
+            ["Video", "Client site running our product"],
+          ],
+          kpis: [
+            ["Cost per qualified RFQ", "Monthly"],
+            ["RFQ to quote time", "Under 24 hours"],
+            ["Quote to order", "15-30%"],
+            ["Pipeline value", "Track monthly"],
+          ],
+        },
+        "Software & tech": {
+          persona: "Outcome-Focused Team Lead",
+          who: "Founders, managers and team leads looking for a tool or tech partner that saves time or money. They compare options, read reviews and want a demo.",
+          pains: [
+            "Tools that are hard to set up",
+            "Paying for features nobody uses",
+            "Vendors who disappear after the sale",
+          ],
+          triggers: [
+            "Free trial or demo",
+            "Clear pricing",
+            "Reviews and case studies",
+          ],
+          objections: [
+            "Will my team actually use it?",
+            "How long to set up?",
+            "Can I trust you with data?",
+          ],
+          where: [
+            "Google search",
+            "LinkedIn",
+            "YouTube",
+            "Review sites",
+            "AI assistants like ChatGPT",
+          ],
+          message:
+            "Set up in a day, see the result in a week - try it with your own data.",
+          channels: [
+            [
+              "Google search ads",
+              "Capture solution searches",
+              30,
+              "Competitor and problem keywords",
+            ],
+            [
+              "LinkedIn",
+              "Reach buyers",
+              25,
+              "Founder content + demo-request ads",
+            ],
+            [
+              "SEO + AI search",
+              "Long-term demand",
+              20,
+              "Comparison and how-to pages that AI tools can quote",
+            ],
+            [
+              "Email nurture",
+              "Convert trials",
+              15,
+              "Onboarding sequence tied to first win",
+            ],
+            [
+              "Partnerships",
+              "Distribution",
+              10,
+              "Agencies and integration partners",
+            ],
+          ],
+          ideas: [
+            ["Video", "2-minute demo solving one real problem"],
+            ["Post", "Before vs after: hours saved for a client"],
+            ["Carousel", "Us vs spreadsheet vs big-tool comparison"],
+            ["Post", "Founder lesson from building the product"],
+            ["Webinar", "Live setup with a customer"],
+          ],
+          kpis: [
+            ["Cost per demo", "Monthly"],
+            ["Trial to paid", "10-25%"],
+            ["Churn", "Track monthly"],
+            ["Sales cycle length", "Track and shorten"],
+          ],
+        },
+        "Local services": {
+          persona: "Nearby Customer Who Needs It Now",
+          who: "People in your city searching on Google Maps or asking on WhatsApp, choosing on reviews, distance, speed and price.",
+          pains: [
+            "Unreliable service providers",
+            "No clear price upfront",
+            "Slow response",
+          ],
+          triggers: [
+            "Top Google reviews",
+            "Fast reply and booking",
+            "Before and after photos",
+          ],
+          objections: [
+            "Will they come on time?",
+            "Is the price fair?",
+            "Is the work good?",
+          ],
+          where: [
+            "Google Maps",
+            "Instagram",
+            "WhatsApp",
+            "Local Facebook groups",
+          ],
+          message: "Top-rated in your area - fixed price, on time, guaranteed.",
+          channels: [
+            [
+              "Google Business Profile + Maps",
+              "Main source of local leads",
+              30,
+              "Ask every happy customer for a review",
+            ],
+            [
+              "Google local ads",
+              "Calls from nearby searches",
+              25,
+              "Call ads during working hours",
+            ],
+            [
+              "Meta ads (city radius)",
+              "Awareness and offers",
+              20,
+              "Before and after videos",
+            ],
+            [
+              "WhatsApp",
+              "Bookings and repeat",
+              15,
+              "Quick quote templates, follow-up reminders",
+            ],
+            [
+              "Referrals",
+              "Low-cost customers",
+              10,
+              "Reward customers who refer",
+            ],
+          ],
+          ideas: [
+            ["Reel", "Before and after in 15 seconds"],
+            ["Post", "Price list, no hidden charges"],
+            ["Reel", "Meet the team who comes to your home"],
+            ["Story", "Customer review screenshot"],
+            ["Post", "Seasonal tip + offer"],
+          ],
+          kpis: [
+            ["Cost per call or booking", "Weekly"],
+            ["Google rating and review count", "4.5+, growing"],
+            ["Booking rate from calls", "40%+"],
+            ["Repeat and referral share", "Track monthly"],
+          ],
+        },
+      };
+      KB["Other"] = {
+        persona: "Your Best-Fit Customer",
+        who: "People who already need what you sell and are comparing options online before they decide.",
+        pains: [
+          "Too many similar options",
+          "Not sure who to trust",
+          "Unclear pricing",
+        ],
+        triggers: [
+          "Reviews and real results",
+          "Clear offer and price",
+          "Fast reply",
+        ],
+        objections: [
+          "Will it work for me?",
+          "Is it worth the price?",
+          "Can I trust this business?",
+        ],
+        where: ["Instagram", "Google search", "WhatsApp", "YouTube"],
+        message:
+          "See what we did for people like you - clear price, fast reply.",
+        channels: KB["Local services"].channels.map((c) => c.slice()),
+        ideas: KB["E-commerce & D2C"].ideas
+          .slice(0, 2)
+          .concat(KB["Finance & consulting"].ideas.slice(1, 4)),
+        kpis: [
+          ["Cost per lead or sale", "Weekly"],
+          ["Lead to customer", "Track monthly"],
+          ["Repeat rate", "Track monthly"],
+          ["Reply time", "Under 10 minutes"],
+        ],
+      };
 
-  const ta = $("ta");
-  if (ta){
-    ta.addEventListener("input", () => { A[q.id] = ta.value; saveDraft(); updateNext(); });
-    document.querySelectorAll("[data-chip]").forEach(b => b.onclick = () => {
-      const t = b.dataset.chip; ta.value = ta.value.trim() ? ta.value.trim() + ", " + t.toLowerCase() : t;
-      A[q.id] = ta.value; saveDraft(); updateNext(); ta.focus();
-    });
-  }
-  const oi = $("otherIn");
-  if (oi){ oi.addEventListener("input", () => { A[q.id+"_other"] = oi.value; saveDraft(); updateNext(); }); oi.focus(); }
+      const TRENDS = [
+        [
+          "AI search is the new front page",
+          "People now ask ChatGPT, Gemini and Google AI Overviews for recommendations. Publish clear Q&A pages, pricing and reviews so these tools can find and quote you.",
+        ],
+        [
+          "Ad platforms pick the audience, you supply the creative",
+          "Meta Advantage+ and Google Performance Max target on their own. Your edge is 8-15 fresh creatives a month and clean conversion data (Pixel + Conversions API).",
+        ],
+        [
+          "Short video with real people beats polished posters",
+          "Founder, staff and customer videos shot on a phone outperform designed graphics on reach and trust.",
+        ],
+        [
+          "WhatsApp is the sales counter",
+          "Click-to-WhatsApp ads, instant replies and automated follow-ups convert enquiries that forms lose.",
+        ],
+        [
+          "First-party data is your moat",
+          "Collect phone numbers and emails with consent. Retargeting through your own lists is cheaper and lasts longer than cookie-based ads.",
+        ],
+        [
+          "Founder-led content builds B2B trust",
+          "Decision-makers follow people, not logos. Regular LinkedIn posts from the founder shorten sales cycles.",
+        ],
+      ];
 
-  document.querySelectorAll(".opt").forEach(b => b.onclick = () => pick(q, b.dataset.v));
-}
+      function fallbackReport(s) {
+        const ind = KB[A.industry] || KB["Other"];
+        const ch = A.channels || [];
+        const sp =
+          A.spend === "Not running ads"
+            ? 0
+            : money().spend.indexOf(A.spend) + 1;
+        const prob = (p) => has("problems", p);
+        const small = A.team === "1-5";
+        const leaks = [];
+        const add = (p, title, why, fix, impact) =>
+          leaks.push({ p, title, why, fix, impact });
 
-function pick(q, v){
-  if (q.type === "multi"){
-    let cur = A[q.id] || [];
-    if (v === "Nothing yet") cur = cur.includes(v) ? [] : [v];
-    else {
-      cur = cur.filter(x => x !== "Nothing yet");
-      if (cur.includes(v)) cur = cur.filter(x => x !== v);
-      else { if (q.max && cur.length >= q.max) cur.shift(); cur.push(v); }
-    }
-    A[q.id] = cur; saveDraft(); renderQ(); return;
-  }
-  if (q.id === "market" && A.market !== v){ delete A.spend; delete A.ticket; }
-  A[q.id] = v; saveDraft();
-  if (q.other && v === "Other"){ renderQ(); return; }
-  renderQ();
-  setTimeout(next, 260);   
-}
+        if (A.tracking !== "Yes, I track it")
+          add(
+            sp >= 2 ? 10 : 8,
+            "You can't see what a customer costs you",
+            "Without tracking you can't tell which ad, post or channel brings paying customers, so budget goes to guesses.",
+            "Install Meta Pixel + Conversions API and GA4 with lead/purchase events. Tag every link with UTM. Log every lead in one sheet or CRM with its source.",
+            "High",
+          );
+        if (
+          prob("Leads come but don't buy") ||
+          [
+            "They call or WhatsApp first",
+            "They book a meeting or demo",
+          ].includes(A.buyPath)
+        )
+          add(
+            prob("Leads come but don't buy") ? 9 : 6,
+            "Enquiries go cold before you follow up",
+            "Most leads buy from whoever replies first. A slow first reply and no follow-up waste the money already spent on getting the lead.",
+            "Reply within 5 minutes using WhatsApp Business quick replies. Follow up on day 1, 3 and 7. Track lead-to-customer rate weekly.",
+            "High",
+          );
+        if (["No website yet", "Basic, rarely updated"].includes(A.website))
+          add(
+            7,
+            "Your website isn't doing any selling",
+            "Ads, Google and AI search all send people to your site. A weak page loses them and makes every rupee of ad spend work harder than it should.",
+            "Build one focused landing page per main offer: clear headline, proof (reviews, numbers), price or range, and a WhatsApp/booking button above the fold. Load under 3 seconds on mobile.",
+            "High",
+          );
+        if (
+          sp === 0 &&
+          (prob("Not enough leads or enquiries") ||
+            ["More leads and enquiries", "More sales or orders"].includes(
+              A.goal,
+            ))
+        )
+          add(
+            8,
+            "You depend only on word of mouth and organic",
+            "Organic reach is slow and unpredictable. Without a small paid engine you can't control how many leads come in each week.",
+            "Start a small, steady test: one search campaign for buyers already looking, one Meta campaign with 3-4 video creatives. Review results every week for 4 weeks before scaling.",
+            "High",
+          );
+        if (prob("Ads cost too much"))
+          add(
+            8,
+            "Your ads are getting expensive",
+            "Rising cost usually comes from tired creatives, a weak offer or sending traffic to a page that doesn't convert, not just from competition.",
+            "Refresh creatives every 2-3 weeks, test 3 new hooks at a time, move budget to winners, and fix the landing page before raising budget.",
+            "High",
+          );
+        if (small && ch.filter((c) => c !== "Nothing yet").length >= 5)
+          add(
+            6,
+            "Spread across too many channels",
+            "A small team on 5+ channels ends up doing all of them half-way. Results stay average everywhere.",
+            "Pick 2 channels where your buyer already is and do them properly for 90 days. Pause the rest.",
+            "Medium",
+          );
+        if (prob("People don't know our brand"))
+          add(
+            6,
+            "No steady content system",
+            "People buy from brands they have seen many times. Random posting doesn't build that memory.",
+            "Commit to 3 short videos a week on fixed themes: proof, education, behind the scenes. Reuse each video on Instagram, YouTube Shorts and WhatsApp status.",
+            "Medium",
+          );
+        if (prob("Customers don't come back"))
+          add(
+            7,
+            "No plan to bring customers back",
+            "Getting a repeat customer costs far less than a new one, yet most of your effort goes to new ones.",
+            "Collect every customer's WhatsApp with consent. Send a thank-you, a usage tip, a review request and a repeat offer at fixed days after purchase.",
+            "High",
+          );
+        if (A.stage === "Struggling" || A.stage === "Stable but stuck")
+          add(
+            5,
+            "The offer may need a fresh look",
+            "When sales stall, the problem is often the offer or positioning, not the ads. People need a clear reason to pick you now.",
+            "Compare your offer with the top 3 competitors on price, proof and promise. Add one clear reason to buy now - a bundle, guarantee or deadline.",
+            "Medium",
+          );
+        if (!ch.includes("Google ads") && !ch.includes("Website & SEO"))
+          add(
+            5,
+            "You are missing people who are already searching",
+            "Search and AI assistants catch buyers at the moment of need. You are not there when they look.",
+            "Set up a complete Google Business Profile, a basic search campaign on your top 5 buying keywords, and FAQ pages that answer real customer questions.",
+            "Medium",
+          );
+        add(
+          3,
+          "Not enough visible proof",
+          "Buyers in 2026 check reviews and real results before they contact anyone.",
+          "Collect 10 reviews and 3 short customer videos this month. Put them on your site, ads and WhatsApp catalogue.",
+          "Medium",
+        );
+        leaks.sort((a, b) => b.p - a.p);
 
-function answered(q){
-  const v = A[q.id];
-  if (q.optional) return true;
-  if (q.type === "text") return !!(v && v.trim().length >= 2);
-  if (q.type === "multi") return Array.isArray(v) && v.length > 0;
-  if (q.other && v === "Other") return !!(A[q.id+"_other"]||"").trim();
-  return !!v;
-}
-function updateNext(){
-  const q = Q[qi];
-  $("nextBtn").disabled = !answered(q);
-  const emptyOptional = q.optional && q.type === "text" && !String(A[q.id]||"").trim();
-  $("nextBtn").textContent = emptyOptional ? "Skip" : (qi === Q.length-1 ? "Finish" : "Next");
-}
-function next(){
-  if (!answered(Q[qi])) return;
-  if (qi < Q.length-1){ qi++; renderQ(); top0(); }
-  else openDetails();
-}
-function back(){
-  if (qi > 0){ qi--; renderQ(); top0(); }
-  else show("intro");
-}
+        const goalPlans = {
+          "More leads and enquiries": [
+            "Fix tracking and set up a lead sheet or CRM",
+            "Launch one landing page and one lead campaign",
+            "Set a 5-minute reply rule on WhatsApp and calls",
+          ],
+          "More sales or orders": [
+            "Fix tracking (Pixel + CAPI, GA4 purchase events)",
+            "Fix the product or offer page and checkout",
+            "Launch 4 fresh creatives and a retargeting campaign",
+          ],
+          "A stronger brand people trust": [
+            "Write your brand promise in one line",
+            "Collect 10 reviews and 3 customer videos",
+            "Start 3 videos a week on fixed themes",
+          ],
+          "Launch a new product or service": [
+            "Define who it is for and the launch offer",
+            "Build the launch page and waitlist",
+            "Line up 5 creators or partners for launch week",
+          ],
+          "Enter a new city or country": [
+            "Study the top 3 local competitors and prices",
+            "Localise your page, offer and language",
+            "Run a small test campaign in the new market",
+          ],
+        };
+        const wk1 = goalPlans[A.goal] || goalPlans["More leads and enquiries"];
 
-function openDetails(){
-  show("details"); top0();
-  const noSite = A.website === "No website yet";
-  $("siteOpt").textContent = noSite ? "(optional - add your Instagram or Google listing instead)" : "(so we can review your pages and ads)";
-  $("f-site").placeholder = noSite ? "instagram.com/yourbrand" : "yourbusiness.com";
-  setTimeout(() => $("f-name").focus(), 300);
-}
+        return {
+          headline: `${s.overall >= 65 ? "A solid base with clear room to scale" : s.overall >= 40 ? "Good pieces in place, but leads and money are leaking" : "The basics need fixing before more spend will pay off"}`,
+          summary: `${A.offer ? "You sell " + A.offer.trim().replace(/\.$/, "") + ". " : ""}Your strongest area is ${maxKey(s)} and the weakest is ${minKey(s)}. The biggest win right now is "${leaks[0].title.toLowerCase()}". Fix the top three items below before raising budget - that is where your next customers are hiding.`,
+          persona: {
+            name: ind.persona,
+            who:
+              A.customer && A.customer.trim()
+                ? `${ind.who} You described them as: "${A.customer.trim()}".`
+                : ind.who,
+            pains: ind.pains,
+            triggers: ind.triggers,
+            objections: ind.objections,
+            where: ind.where,
+            message: ind.message,
+          },
+          leaks: leaks
+            .slice(0, 5)
+            .map(({ title, why, fix, impact }) => ({
+              title,
+              why,
+              fix,
+              impact,
+            })),
+          channels: ind.channels.map(([channel, role, share, tip]) => ({
+            channel,
+            role,
+            share,
+            tip,
+          })),
+          ideas: ind.ideas.map(([format, hook]) => ({ format, hook })),
+          roadmap: {
+            "Month 1 - Fix the base": wk1,
+            "Month 2 - Build the engine": [
+              "Run 2 channels properly with weekly reviews",
+              "Publish 3 short videos a week",
+              "Start a simple WhatsApp follow-up sequence",
+            ],
+            "Month 3 - Scale what works": [
+              "Move budget to the best channel and creative",
+              "Add retargeting and a repeat-customer offer",
+              "Set monthly targets for leads, cost and sales",
+            ],
+          },
+          quickWins: [
+            "Reply to every enquiry within 5 minutes this week",
+            ["No website yet", "Basic, rarely updated"].includes(A.website)
+              ? "Complete your Google Business Profile with photos and 5 reviews"
+              : "Add reviews and a WhatsApp button to your main page",
+            "Write down your cost per lead or sale from last month, even roughly",
+          ],
+          kpis: ind.kpis.map(([metric, target]) => ({ metric, target })),
+          trends: (A.audience === "Businesses"
+            ? [TRENDS[0], TRENDS[5], TRENDS[3]]
+            : [TRENDS[0], TRENDS[1], TRENDS[3]]
+          ).map(([trend, action]) => ({ trend, action })),
+        };
+      }
+      function maxKey(s) {
+        return Object.entries(s)
+          .filter(([k]) => k !== "overall")
+          .sort((a, b) => b[1] - a[1])[0][0]
+          .toLowerCase();
+      }
+      function minKey(s) {
+        return Object.entries(s)
+          .filter(([k]) => k !== "overall")
+          .sort((a, b) => a[1] - b[1])[0][0]
+          .toLowerCase();
+      }
 
-$("startBtn").onclick = () => {
-  if (preset){ if (preset.industry && !A.industry) A.industry = preset.industry; if (preset.market && !A.market) A.market = preset.market; }
-  qi = 0; show("quiz"); renderQ(); top0();
-};
-$("nextBtn").onclick = next;
-$("backBtn").onclick = back;
-$("detailsBack").onclick = () => { qi = Q.length-1; show("quiz"); renderQ(); };
-document.addEventListener("keydown", e => {
-  if ($("quiz").hidden) return;
-  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA") { e.preventDefault(); next(); }
-});
-
-const has = (k, v) => (A[k] || []).includes(v);
-const clamp = n => Math.max(8, Math.min(95, Math.round(n)));
-function score(){
-  const ch = A.channels || [];
-  const organic = ["Instagram","Facebook","Website & SEO","LinkedIn","YouTube"].filter(c => ch.includes(c)).length;
-  const web = {"No website yet":0,"Basic, rarely updated":10,"Decent, gets some enquiries":20,"Strong, brings leads or sales daily":30}[A.website] ?? 10;
-  const sp = A.spend === "Not running ads" ? 0 : money().spend.indexOf(A.spend) + 1;   // 0..3
-  const big = ["16-60","60+"].includes(A.team);
-  const prob = p => has("problems", p);
-
-  const visibility = 22 + Math.min(organic*9, 36) + web - (prob("People don't know our brand") ? 12 : 0) + (has("channels","Word of mouth") ? 4 : 0);
-  const leadgen = 18 + [0,14,24,32][sp] + (ch.includes("Google ads") ? 10 : 0) + (ch.includes("Meta ads") ? 10 : 0)
-                + (ch.includes("WhatsApp") ? 5 : 0) + (ch.includes("Marketplaces (Amazon etc.)") ? 5 : 0)
-                - (prob("Not enough leads or enquiries") ? 16 : 0) - (A.stage === "Struggling" ? 6 : 0);
-  const conversion = 42 + (web - 12) + (A.tracking === "Yes, I track it" ? 8 : 0)
-                - (prob("Leads come but don't buy") ? 20 : 0) - (prob("Ads cost too much") ? 6 : 0)
-                + (A.stage === "Growing" ? 8 : 0);
-  const tracking = ({"Yes, I track it":78,"Rough idea":42,"No idea":14}[A.tracking] ?? 30)
-                + (big ? 5 : 0) - (prob("I don't know what's working") ? 10 : 0) - (sp >= 2 && A.tracking !== "Yes, I track it" ? 8 : 0);
-  const retention = 38 + (ch.includes("Email") ? 14 : 0) + (ch.includes("WhatsApp") ? 12 : 0) + (ch.includes("Word of mouth") ? 8 : 0)
-                - (prob("Customers don't come back") ? 22 : 0);
-
-  const s = {
-    "Visibility": clamp(visibility),
-    "Lead generation": clamp(leadgen),
-    "Conversion": clamp(conversion),
-    "Tracking & data": clamp(tracking),
-    "Repeat customers": clamp(retention)
-  };
-  s.overall = Math.round(Object.values(s).reduce((a,b)=>a+b,0) / 5);
-  return s;
-}
-const band = n => n >= 65 ? {t:"Working well", c:"var(--good)"} : n >= 40 ? {t:"Room to grow", c:"var(--warn)"} : {t:"Needs urgent work", c:"var(--bad)"};
-
-
-const KB = {
-  "Education":{persona:"Anxious Parent / Ambitious Student", who:"Parents of 15-22 year olds and the students themselves, comparing 3-5 institutes before deciding. Parents pay, students influence.",
-    pains:["Fear of choosing a college that does not lead to a job","Too many similar ads, hard to tell institutes apart","Fees feel high without clear placement proof"],
-    triggers:["Placement numbers and named recruiters","Current student and alumni videos","Scholarship or early-bird deadline"],
-    objections:["Is the placement data real?","Is the campus safe and good?","Can we afford it?"],
-    where:["Instagram reels","YouTube reviews","Google search: 'best college for X in city'","WhatsApp parent groups"],
-    message:"Real students, real placements - see where our last batch is working today.",
-    channels:[["Meta ads (lead forms + WhatsApp)","Main lead source during admission season",40,"Run student-shot reels as ads, not posters"],["Google search ads","Catch high-intent 'college near me' searches",25,"Bid on course + city keywords, send to a course page"],["Instagram organic","Trust and proof",15,"3 reels a week: placements, campus life, faculty"],["YouTube","Deep proof for parents",10,"Alumni interviews, 3-5 minutes"],["WhatsApp follow-up","Convert enquiries to visits",10,"Reply in 5 minutes, send brochure + visit slot"]],
-    ideas:[["Reel","Where is our 2025 batch working today? (alumni on camera)"],["Carousel","Fees vs return: what you pay vs what our grads earn"],["Reel","A day in the life of a first-year student"],["Video","Parent asks, principal answers - 5 real questions"],["Story","Seats left this week + scholarship deadline"]],
-    kpis:[["Cost per lead","Track weekly, cut ads above your average"],["Lead to campus visit","20-30% is healthy"],["Visit to admission","25-40%"],["Reply time on WhatsApp","Under 10 minutes"]]},
-  "E-commerce & D2C":{persona:"Value-Seeking Online Shopper", who:"Shoppers 22-45 who discover products on Instagram, compare on reviews and buy on mobile, often cash on delivery in India.",
-    pains:["Worry the product won't match the photos","Hidden shipping costs and slow delivery","Too many brands making the same claims"],
-    triggers:["Real customer reviews and unboxing videos","First-order offer or bundle","Fast delivery and easy returns"],
-    objections:["Is it genuine?","Will it work for me?","What if I want to return it?"],
-    where:["Instagram reels","YouTube shorts","Google shopping","Amazon / Flipkart reviews"],
-    message:"Made for people like you - see what 1,000+ customers say after 30 days.",
-    channels:[["Meta ads (Advantage+ shopping)","Main sales engine",45,"Feed it 10+ fresh creatives a month and Conversions API data"],["Google shopping + Performance Max","Capture people already searching",20,"Clean product feed with good titles and images"],["Creator / UGC content","Creative supply and trust",15,"Pay small creators for honest review videos"],["Email + WhatsApp flows","Repeat orders",10,"Abandoned cart, post-purchase, refill reminders"],["Marketplaces","Reach and reviews",10,"Use for discovery, push repeat buyers to your site"]],
-    ideas:[["Reel","30-day before and after from a real customer"],["UGC","Unboxing in under 20 seconds"],["Carousel","What is inside vs what others hide in theirs"],["Reel","Founder explains why the product exists"],["Story","Bundle offer with a countdown"]],
-    kpis:[["ROAS","2.5x+ blended for most D2C, depends on margin"],["Add-to-cart to purchase","25-40%"],["Repeat purchase in 90 days","20%+"],["Cost per order","Below 30% of order value"]]},
-  "Real estate":{persona:"Careful First-Time Buyer / Investor", who:"Salaried families 30-50 and NRI or local investors. Long decision, lots of research, many family members involved.",
-    pains:["Fear of delays and builder trust issues","Unclear total cost and loan process","Too many brokers calling"],
-    triggers:["Construction progress videos and RERA details","Clear price sheet and payment plan","Site visit with transport"],
-    objections:["Will possession be on time?","Is the price fair for this area?","Can I get a loan easily?"],
-    where:["Facebook and Instagram","Google search for project and area","YouTube walkthroughs","Property portals"],
-    message:"See the site, the papers and the price - all before you visit.",
-    channels:[["Meta lead ads + WhatsApp","Volume of enquiries",40,"Qualify with 2 questions: budget and timeline"],["Google search ads","High-intent area searches",25,"Project name + area + 2BHK/3BHK keywords"],["YouTube walkthroughs","Trust for long decisions",15,"Monthly site progress video"],["Property portals","Extra reach",10,"Keep listings fresh with real photos"],["CRM + call follow-up","Turn leads into site visits",10,"Call within 5 minutes, 5-touch follow-up"]],
-    ideas:[["Video","Monthly site progress update"],["Reel","Total cost explained: price, GST, registry, loan EMI"],["Carousel","Area guide: schools, hospitals, travel time"],["Video","Owner walkthrough of a finished flat"],["Story","Site visit this Sunday - cab pickup"]],
-    kpis:[["Cost per qualified lead","Track separately from raw leads"],["Lead to site visit","8-15%"],["Site visit to booking","5-10%"],["First call time","Under 5 minutes"]]},
-  "Finance & consulting":{persona:"Busy Decision-Maker Seeking Certainty", who:"Founders, SME owners, professionals and investors who need an expert they can trust with money, compliance or growth. They research quietly and ask peers.",
-    pains:["Fear of costly mistakes and penalties","Confusing rules and paperwork","Past advisors who were slow or unclear"],
-    triggers:["Clear fixed-fee packages","Case results with numbers","A quick free consultation"],
-    objections:["Are you really an expert in my situation?","What will it cost in total?","How fast will it be done?"],
-    where:["LinkedIn","Google search","YouTube explainers","WhatsApp and referrals"],
-    message:"Clear answers, fixed fees, done on time - see how we handled cases like yours.",
-    channels:[["Google search ads","Catch people searching for the service now",35,"One landing page per service, with fee range"],["LinkedIn (founder + company)","Authority and B2B trust",20,"Founder posts 3 times a week on real client questions"],["Meta lead ads","Reach SMEs and individuals",20,"Lead form with 2 qualifying questions"],["SEO + AI search answers","Long-term free enquiries",15,"Write clear Q&A pages so ChatGPT and Google AI cite you"],["WhatsApp + email follow-up","Convert enquiries",10,"Same-day reply with a checklist PDF"]],
-    ideas:[["Post","5 mistakes that cost companies money this year"],["Video","Client story: problem, what we did, result"],["Carousel","Step-by-step process with timelines"],["Reel","60-second answer to the most asked question"],["Post","Checklist download in exchange for email"]],
-    kpis:[["Cost per qualified enquiry","Track by service"],["Enquiry to consultation","30-50%"],["Consultation to client","20-35%"],["Average client value","Track monthly"]]},
-  "Healthcare & wellness":{persona:"Health-Conscious Researcher", who:"Adults 25-55 looking for a solution to a health or wellness need, reading reviews and asking family before trusting a clinic or product.",
-    pains:["Fear of side effects or fake products","Not sure who to trust","Past treatments that didn't work"],
-    triggers:["Doctor or expert faces on content","Patient stories and reviews","Clear pricing and booking"],
-    objections:["Is it safe?","Does it really work?","Is it worth the price?"],
-    where:["Google search and Maps","Instagram","YouTube","WhatsApp"],
-    message:"Explained by experts, trusted by people like you - see real results.",
-    channels:[["Google search + Maps","People searching for treatment or product now",30,"Collect Google reviews every week"],["Meta ads","Awareness and leads",30,"Expert-led video, follow ad policy on health claims"],["Instagram + YouTube organic","Education and trust",20,"Explain one problem per video"],["WhatsApp","Bookings and reorders",10,"Appointment reminders and reorder nudges"],["Email","Retention",10,"Monthly health tips and offers"]],
-    ideas:[["Reel","Expert answers 1 common myth"],["Video","Patient or customer story, start to result"],["Carousel","Who this is for and who it is not for"],["Reel","Behind the scenes: how we make or test it"],["Story","Book a free consult this week"]],
-    kpis:[["Cost per booking or order","Weekly"],["Show-up rate","70%+ for appointments"],["Google rating","4.5+ with fresh reviews"],["Reorder or revisit rate","Track monthly"]]},
-  "Hospitality & travel":{persona:"Experience-Hungry Planner", who:"Couples, families and groups planning trips or stays, inspired by reels and deciding on photos, reviews and price.",
-    pains:["Photos don't match reality","Hidden charges","Booking hassle and slow replies"],
-    triggers:["Real guest videos","Clear package price","Fast WhatsApp reply"],
-    objections:["Is it really like the photos?","Is it safe and clean?","Is it worth the money?"],
-    where:["Instagram reels","Google Maps and reviews","YouTube travel vlogs","OTAs"],
-    message:"What you see is what you get - real guests, real stays, clear prices.",
-    channels:[["Instagram reels + Meta ads","Desire and enquiries",40,"Shoot guests' real moments, not stock"],["Google Business + Maps","Discovery and trust",20,"Reply to every review"],["Creators","Reach new audiences",15,"Hosted stays for local creators"],["WhatsApp","Bookings",15,"Quick reply templates with price and dates"],["Direct booking website","Margin vs OTA",10,"Offer a direct-booking perk"]],
-    ideas:[["Reel","Golden hour at our property in 15 seconds"],["Video","Guest review on the way out"],["Carousel","3-day plan with costs"],["Reel","What 10,000 gets you here"],["Story","Weekend slots left"]],
-    kpis:[["Cost per booking","By season"],["Direct vs OTA share","Push direct higher"],["Enquiry to booking","15-30%"],["Review rating","4.5+"]]},
-  "Food & FMCG":{persona:"Everyday Household Buyer", who:"Household shoppers 22-45 buying daily-use products, influenced by taste, price, trust and what is easy to find.",
-    pains:["Not sure about quality or ingredients","Can't find it in nearby stores","Too many similar brands"],
-    triggers:["Taste tests and reviews","Trial packs and offers","Availability on quick-commerce apps"],
-    objections:["Is it healthy and safe?","Is it better than my usual brand?","Where can I buy it?"],
-    where:["Instagram reels","Quick-commerce apps","YouTube shorts","Local stores"],
-    message:"Try it once - taste the difference, see what is inside.",
-    channels:[["Meta ads","Awareness and trial",35,"Taste-reaction videos as ads"],["Quick-commerce + marketplace ads","Sales where people buy",25,"Run search ads inside the apps"],["Creators","Trust and reach",15,"Recipe and taste videos with micro creators"],["Instagram organic","Brand love",15,"Recipes, behind the scenes, customer reposts"],["WhatsApp + offline","Distributors and repeat",10,"Retailer offers and sampling"]],
-    ideas:[["Reel","Blind taste test vs a big brand"],["Reel","3 quick recipes with our product"],["Carousel","Ingredient label explained simply"],["UGC","Customer's family reacts"],["Story","Now on Blinkit/Zepto - order in 10 minutes"]],
-    kpis:[["Cost per first order","Weekly"],["Repeat rate","25%+ in 60 days"],["Store or app availability","Track per city"],["Review count","Grow weekly"]]},
-  "B2B & manufacturing":{persona:"Risk-Averse Purchase Head", who:"Purchase managers, project heads and owners at companies, comparing vendors on quality, price, delivery and support. Several people approve.",
-    pains:["Vendors who miss deadlines","Quality issues after the order","Slow quotes and unclear specs"],
-    triggers:["Case studies with similar clients","Quick, clear quotes","Certifications and factory proof"],
-    objections:["Can you handle our volume?","Is the quality consistent?","What about after-sales support?"],
-    where:["Google search","LinkedIn","IndiaMART / trade portals","Trade shows","Email"],
-    message:"Built to spec, delivered on time - see the plants already running our product.",
-    channels:[["Google search ads + SEO","Capture buyers searching for specs",30,"One page per product with specs and a quote form"],["LinkedIn","Reach decision-makers",25,"Founder and engineer posts, plus targeted outreach"],["Trade portals","Steady enquiries",15,"Complete profiles, fast replies"],["Email follow-up + CRM","Long sales cycle",15,"Monthly update with new case studies"],["Video","Factory proof",15,"Production line and testing videos"]],
-    ideas:[["Video","Inside our factory: how one unit is made and tested"],["Post","Case study: problem, solution, numbers"],["Carousel","How to choose the right spec - buyer guide"],["Post","Delivery timeline we commit to"],["Video","Client site running our product"]],
-    kpis:[["Cost per qualified RFQ","Monthly"],["RFQ to quote time","Under 24 hours"],["Quote to order","15-30%"],["Pipeline value","Track monthly"]]},
-  "Software & tech":{persona:"Outcome-Focused Team Lead", who:"Founders, managers and team leads looking for a tool or tech partner that saves time or money. They compare options, read reviews and want a demo.",
-    pains:["Tools that are hard to set up","Paying for features nobody uses","Vendors who disappear after the sale"],
-    triggers:["Free trial or demo","Clear pricing","Reviews and case studies"],
-    objections:["Will my team actually use it?","How long to set up?","Can I trust you with data?"],
-    where:["Google search","LinkedIn","YouTube","Review sites","AI assistants like ChatGPT"],
-    message:"Set up in a day, see the result in a week - try it with your own data.",
-    channels:[["Google search ads","Capture solution searches",30,"Competitor and problem keywords"],["LinkedIn","Reach buyers",25,"Founder content + demo-request ads"],["SEO + AI search","Long-term demand",20,"Comparison and how-to pages that AI tools can quote"],["Email nurture","Convert trials",15,"Onboarding sequence tied to first win"],["Partnerships","Distribution",10,"Agencies and integration partners"]],
-    ideas:[["Video","2-minute demo solving one real problem"],["Post","Before vs after: hours saved for a client"],["Carousel","Us vs spreadsheet vs big-tool comparison"],["Post","Founder lesson from building the product"],["Webinar","Live setup with a customer"]],
-    kpis:[["Cost per demo","Monthly"],["Trial to paid","10-25%"],["Churn","Track monthly"],["Sales cycle length","Track and shorten"]]},
-  "Local services":{persona:"Nearby Customer Who Needs It Now", who:"People in your city searching on Google Maps or asking on WhatsApp, choosing on reviews, distance, speed and price.",
-    pains:["Unreliable service providers","No clear price upfront","Slow response"],
-    triggers:["Top Google reviews","Fast reply and booking","Before and after photos"],
-    objections:["Will they come on time?","Is the price fair?","Is the work good?"],
-    where:["Google Maps","Instagram","WhatsApp","Local Facebook groups"],
-    message:"Top-rated in your area - fixed price, on time, guaranteed.",
-    channels:[["Google Business Profile + Maps","Main source of local leads",30,"Ask every happy customer for a review"],["Google local ads","Calls from nearby searches",25,"Call ads during working hours"],["Meta ads (city radius)","Awareness and offers",20,"Before and after videos"],["WhatsApp","Bookings and repeat",15,"Quick quote templates, follow-up reminders"],["Referrals","Low-cost customers",10,"Reward customers who refer"]],
-    ideas:[["Reel","Before and after in 15 seconds"],["Post","Price list, no hidden charges"],["Reel","Meet the team who comes to your home"],["Story","Customer review screenshot"],["Post","Seasonal tip + offer"]],
-    kpis:[["Cost per call or booking","Weekly"],["Google rating and review count","4.5+, growing"],["Booking rate from calls","40%+"],["Repeat and referral share","Track monthly"]]}
-};
-KB["Other"] = {persona:"Your Best-Fit Customer", who:"People who already need what you sell and are comparing options online before they decide.",
-  pains:["Too many similar options","Not sure who to trust","Unclear pricing"],
-  triggers:["Reviews and real results","Clear offer and price","Fast reply"],
-  objections:["Will it work for me?","Is it worth the price?","Can I trust this business?"],
-  where:["Instagram","Google search","WhatsApp","YouTube"],
-  message:"See what we did for people like you - clear price, fast reply.",
-  channels:KB["Local services"].channels.map(c=>c.slice()), ideas:KB["E-commerce & D2C"].ideas.slice(0,2).concat(KB["Finance & consulting"].ideas.slice(1,4)),
-  kpis:[["Cost per lead or sale","Weekly"],["Lead to customer","Track monthly"],["Repeat rate","Track monthly"],["Reply time","Under 10 minutes"]]};
-
-const TRENDS = [
-  ["AI search is the new front page","People now ask ChatGPT, Gemini and Google AI Overviews for recommendations. Publish clear Q&A pages, pricing and reviews so these tools can find and quote you."],
-  ["Ad platforms pick the audience, you supply the creative","Meta Advantage+ and Google Performance Max target on their own. Your edge is 8-15 fresh creatives a month and clean conversion data (Pixel + Conversions API)."],
-  ["Short video with real people beats polished posters","Founder, staff and customer videos shot on a phone outperform designed graphics on reach and trust."],
-  ["WhatsApp is the sales counter","Click-to-WhatsApp ads, instant replies and automated follow-ups convert enquiries that forms lose."],
-  ["First-party data is your moat","Collect phone numbers and emails with consent. Retargeting through your own lists is cheaper and lasts longer than cookie-based ads."],
-  ["Founder-led content builds B2B trust","Decision-makers follow people, not logos. Regular LinkedIn posts from the founder shorten sales cycles."]
-];
-
-function fallbackReport(s){
-  const ind = KB[A.industry] || KB["Other"];
-  const ch = A.channels || [];
-  const sp = A.spend === "Not running ads" ? 0 : money().spend.indexOf(A.spend) + 1;
-  const prob = p => has("problems", p);
-  const small = A.team === "1-5";
-  const leaks = [];
-  const add = (p, title, why, fix, impact) => leaks.push({p, title, why, fix, impact});
-
-  if (A.tracking !== "Yes, I track it")
-    add(sp >= 2 ? 10 : 8, "You can't see what a customer costs you",
-      "Without tracking you can't tell which ad, post or channel brings paying customers, so budget goes to guesses.",
-      "Install Meta Pixel + Conversions API and GA4 with lead/purchase events. Tag every link with UTM. Log every lead in one sheet or CRM with its source.", "High");
-  if (prob("Leads come but don't buy") || ["They call or WhatsApp first","They book a meeting or demo"].includes(A.buyPath))
-    add(prob("Leads come but don't buy") ? 9 : 6, "Enquiries go cold before you follow up",
-      "Most leads buy from whoever replies first. A slow first reply and no follow-up waste the money already spent on getting the lead.",
-      "Reply within 5 minutes using WhatsApp Business quick replies. Follow up on day 1, 3 and 7. Track lead-to-customer rate weekly.", "High");
-  if (["No website yet","Basic, rarely updated"].includes(A.website))
-    add(7, "Your website isn't doing any selling",
-      "Ads, Google and AI search all send people to your site. A weak page loses them and makes every rupee of ad spend work harder than it should.",
-      "Build one focused landing page per main offer: clear headline, proof (reviews, numbers), price or range, and a WhatsApp/booking button above the fold. Load under 3 seconds on mobile.", "High");
-  if (sp === 0 && (prob("Not enough leads or enquiries") || ["More leads and enquiries","More sales or orders"].includes(A.goal)))
-    add(8, "You depend only on word of mouth and organic",
-      "Organic reach is slow and unpredictable. Without a small paid engine you can't control how many leads come in each week.",
-      "Start a small, steady test: one search campaign for buyers already looking, one Meta campaign with 3-4 video creatives. Review results every week for 4 weeks before scaling.", "High");
-  if (prob("Ads cost too much"))
-    add(8, "Your ads are getting expensive",
-      "Rising cost usually comes from tired creatives, a weak offer or sending traffic to a page that doesn't convert, not just from competition.",
-      "Refresh creatives every 2-3 weeks, test 3 new hooks at a time, move budget to winners, and fix the landing page before raising budget.", "High");
-  if (small && ch.filter(c => c !== "Nothing yet").length >= 5)
-    add(6, "Spread across too many channels",
-      "A small team on 5+ channels ends up doing all of them half-way. Results stay average everywhere.",
-      "Pick 2 channels where your buyer already is and do them properly for 90 days. Pause the rest.", "Medium");
-  if (prob("People don't know our brand"))
-    add(6, "No steady content system",
-      "People buy from brands they have seen many times. Random posting doesn't build that memory.",
-      "Commit to 3 short videos a week on fixed themes: proof, education, behind the scenes. Reuse each video on Instagram, YouTube Shorts and WhatsApp status.", "Medium");
-  if (prob("Customers don't come back"))
-    add(7, "No plan to bring customers back",
-      "Getting a repeat customer costs far less than a new one, yet most of your effort goes to new ones.",
-      "Collect every customer's WhatsApp with consent. Send a thank-you, a usage tip, a review request and a repeat offer at fixed days after purchase.", "High");
-  if (A.stage === "Struggling" || A.stage === "Stable but stuck")
-    add(5, "The offer may need a fresh look",
-      "When sales stall, the problem is often the offer or positioning, not the ads. People need a clear reason to pick you now.",
-      "Compare your offer with the top 3 competitors on price, proof and promise. Add one clear reason to buy now - a bundle, guarantee or deadline.", "Medium");
-  if (!ch.includes("Google ads") && !ch.includes("Website & SEO"))
-    add(5, "You are missing people who are already searching",
-      "Search and AI assistants catch buyers at the moment of need. You are not there when they look.",
-      "Set up a complete Google Business Profile, a basic search campaign on your top 5 buying keywords, and FAQ pages that answer real customer questions.", "Medium");
-  add(3, "Not enough visible proof",
-    "Buyers in 2026 check reviews and real results before they contact anyone.",
-    "Collect 10 reviews and 3 short customer videos this month. Put them on your site, ads and WhatsApp catalogue.", "Medium");
-  leaks.sort((a,b) => b.p - a.p);
-
-  const goalPlans = {
-    "More leads and enquiries":["Fix tracking and set up a lead sheet or CRM","Launch one landing page and one lead campaign","Set a 5-minute reply rule on WhatsApp and calls"],
-    "More sales or orders":["Fix tracking (Pixel + CAPI, GA4 purchase events)","Fix the product or offer page and checkout","Launch 4 fresh creatives and a retargeting campaign"],
-    "A stronger brand people trust":["Write your brand promise in one line","Collect 10 reviews and 3 customer videos","Start 3 videos a week on fixed themes"],
-    "Launch a new product or service":["Define who it is for and the launch offer","Build the launch page and waitlist","Line up 5 creators or partners for launch week"],
-    "Enter a new city or country":["Study the top 3 local competitors and prices","Localise your page, offer and language","Run a small test campaign in the new market"]
-  };
-  const wk1 = goalPlans[A.goal] || goalPlans["More leads and enquiries"];
-
-  return {
-    headline: `${s.overall >= 65 ? "A solid base with clear room to scale" : s.overall >= 40 ? "Good pieces in place, but leads and money are leaking" : "The basics need fixing before more spend will pay off"}`,
-    summary: `${A.offer ? "You sell " + A.offer.trim().replace(/\.$/,"") + ". " : ""}Your strongest area is ${maxKey(s)} and the weakest is ${minKey(s)}. The biggest win right now is "${leaks[0].title.toLowerCase()}". Fix the top three items below before raising budget - that is where your next customers are hiding.`,
-    persona: {name: ind.persona, who: (A.customer && A.customer.trim()) ? `${ind.who} You described them as: "${A.customer.trim()}".` : ind.who,
-      pains: ind.pains, triggers: ind.triggers, objections: ind.objections, where: ind.where, message: ind.message},
-    leaks: leaks.slice(0,5).map(({title,why,fix,impact}) => ({title,why,fix,impact})),
-    channels: ind.channels.map(([channel,role,share,tip]) => ({channel, role, share, tip})),
-    ideas: ind.ideas.map(([format,hook]) => ({format, hook})),
-    roadmap: {
-      "Month 1 - Fix the base": wk1,
-      "Month 2 - Build the engine": ["Run 2 channels properly with weekly reviews","Publish 3 short videos a week","Start a simple WhatsApp follow-up sequence"],
-      "Month 3 - Scale what works": ["Move budget to the best channel and creative","Add retargeting and a repeat-customer offer","Set monthly targets for leads, cost and sales"]
-    },
-    quickWins: [
-      "Reply to every enquiry within 5 minutes this week",
-      ["No website yet","Basic, rarely updated"].includes(A.website) ? "Complete your Google Business Profile with photos and 5 reviews" : "Add reviews and a WhatsApp button to your main page",
-      "Write down your cost per lead or sale from last month, even roughly"
-    ],
-    kpis: ind.kpis.map(([metric,target]) => ({metric, target})),
-    trends: (A.audience === "Businesses" ? [TRENDS[0],TRENDS[5],TRENDS[3]] : [TRENDS[0],TRENDS[1],TRENDS[3]]).map(([trend,action]) => ({trend, action}))
-  };
-}
-function maxKey(s){ return Object.entries(s).filter(([k])=>k!=="overall").sort((a,b)=>b[1]-a[1])[0][0].toLowerCase(); }
-function minKey(s){ return Object.entries(s).filter(([k])=>k!=="overall").sort((a,b)=>a[1]-b[1])[0][0].toLowerCase(); }
-
-
-function buildPrompt(answers, scores, lead){
-  return `You are a senior marketing consultant writing a business audit for a real business owner. Today is ${new Date().toISOString().slice(0,10)}. Use marketing practice that is current in 2026.
+      function buildPrompt(answers, scores, lead) {
+        return `You are a senior marketing consultant writing a business audit for a real business owner. Today is ${new Date().toISOString().slice(0, 10)}. Use marketing practice that is current in 2026.
 
 THE BUSINESS (the owner's own answers - they may be short, informal, Hindi or Hinglish; read the intent, never mock the wording):
-${JSON.stringify({company: lead.company, website: lead.website, ...answers}, null, 2)}
+${JSON.stringify({ company: lead.company, website: lead.website, ...answers }, null, 2)}
 
 SCORES ALREADY CALCULATED (0-100, use them as given, do not change them):
 ${JSON.stringify(scores)}
@@ -804,116 +2881,170 @@ Return ONLY valid JSON, no markdown, in exactly this shape:
  "trends": [{"trend":"2026 shift that matters to them","action":"what they should do about it"}]
 }
 Give exactly 5 leaks (most important first), 4-5 channels, 5 ideas, 4 kpis, 3 trends.`;
-}
+      }
 
+      async function getAIReport(scores, lead) {
+        const answers = cleanAnswers();
 
-async function getAIReport(scores, lead){
-  const answers = cleanAnswers();
+        if (CONFIG.AI_ENDPOINT) {
+          const r = await fetch(CONFIG.AI_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ answers, scores, lead }),
+          });
+          if (!r.ok) throw new Error("endpoint " + r.status);
+          const d = await r.json();
+          return d.report || d;
+        }
 
-  if (CONFIG.AI_ENDPOINT){
-    const r = await fetch(CONFIG.AI_ENDPOINT, {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({answers, scores, lead})});
-    if (!r.ok) throw new Error("endpoint " + r.status);
-    const d = await r.json();
-    return d.report || d;
-  }
- 
-  if (window.claude && window.claude.use){
-    const sample = await window.claude.use("sample");
-    if (sample) return await sample.json(buildPrompt(answers, scores, lead), {modelTier:"complex"});
-  }
-  return null;
-}
+        if (window.claude && window.claude.use) {
+          const sample = await window.claude.use("sample");
+          if (sample)
+            return await sample.json(buildPrompt(answers, scores, lead), {
+              modelTier: "complex",
+            });
+        }
+        return null;
+      }
 
-function cleanAnswers(){
-  const out = {};
-  Q.forEach(q => {
-    let v = A[q.id];
-    if (q.other && v === "Other" && A[q.id+"_other"]) v = A[q.id+"_other"];
-    if (v && (!Array.isArray(v) || v.length)) out[q.id] = v;
-  });
-  return out;
-}
+      function cleanAnswers() {
+        const out = {};
+        Q.forEach((q) => {
+          let v = A[q.id];
+          if (q.other && v === "Other" && A[q.id + "_other"])
+            v = A[q.id + "_other"];
+          if (v && (!Array.isArray(v) || v.length)) out[q.id] = v;
+        });
+        return out;
+      }
 
-function merge(ai, fb){
-  if (!ai || typeof ai !== "object") return fb;
-  const ok = (v, n) => Array.isArray(v) && v.length >= (n||1);
-  return {
-    headline: ai.headline || fb.headline,
-    summary: ai.summary || fb.summary,
-    persona: ai.persona && ai.persona.who ? {...fb.persona, ...ai.persona} : fb.persona,
-    leaks: ok(ai.leaks,3) ? ai.leaks : fb.leaks,
-    channels: ok(ai.channels,3) ? ai.channels : fb.channels,
-    ideas: ok(ai.ideas,3) ? ai.ideas : fb.ideas,
-    roadmap: ai.roadmap && Object.keys(ai.roadmap).length ? ai.roadmap : fb.roadmap,
-    quickWins: ok(ai.quickWins) ? ai.quickWins : fb.quickWins,
-    kpis: ok(ai.kpis) ? ai.kpis : fb.kpis,
-    trends: ok(ai.trends) ? ai.trends : fb.trends
-  };
-}
+      function merge(ai, fb) {
+        if (!ai || typeof ai !== "object") return fb;
+        const ok = (v, n) => Array.isArray(v) && v.length >= (n || 1);
+        return {
+          headline: ai.headline || fb.headline,
+          summary: ai.summary || fb.summary,
+          persona:
+            ai.persona && ai.persona.who
+              ? { ...fb.persona, ...ai.persona }
+              : fb.persona,
+          leaks: ok(ai.leaks, 3) ? ai.leaks : fb.leaks,
+          channels: ok(ai.channels, 3) ? ai.channels : fb.channels,
+          ideas: ok(ai.ideas, 3) ? ai.ideas : fb.ideas,
+          roadmap:
+            ai.roadmap && Object.keys(ai.roadmap).length
+              ? ai.roadmap
+              : fb.roadmap,
+          quickWins: ok(ai.quickWins) ? ai.quickWins : fb.quickWins,
+          kpis: ok(ai.kpis) ? ai.kpis : fb.kpis,
+          trends: ok(ai.trends) ? ai.trends : fb.trends,
+        };
+      }
 
-let LAST = null;
+      let LAST = null;
 
-$("leadForm").addEventListener("submit", async e => {
-  e.preventDefault();
-  const lead = {name:$("f-name").value.trim(), company:$("f-company").value.trim(), email:$("f-email").value.trim(),
-                website:$("f-site").value.trim(), whatsapp:$("f-wa").value.trim()};
-  const err = [];
-  if (!lead.name) err.push("your name");
-  if (!lead.company) err.push("company");
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) err.push("a valid email");
-  if (!lead.website && A.website !== "No website yet") err.push("your website");
-  if (err.length){ $("formErr").textContent = "Please add " + err.join(", ") + "."; $("formErr").hidden = false; return; }
-  $("formErr").hidden = true;
+      $("leadForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const lead = {
+          name: $("f-name").value.trim(),
+          company: $("f-company").value.trim(),
+          email: $("f-email").value.trim(),
+          website: $("f-site").value.trim(),
+          whatsapp: $("f-wa").value.trim(),
+        };
+        const err = [];
+        if (!lead.name) err.push("your name");
+        if (!lead.company) err.push("company");
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email))
+          err.push("a valid email");
+        if (!lead.website && A.website !== "No website yet")
+          err.push("your website");
+        if (err.length) {
+          $("formErr").textContent = "Please add " + err.join(", ") + ".";
+          $("formErr").hidden = false;
+          return;
+        }
+        $("formErr").hidden = true;
 
-  show("loading"); top0();
-  const lis = [...document.querySelectorAll("#lsteps li")];
-  lis.forEach(li => li.className = "");
-  let k = 0; lis[0].className = "on";
-  const tick = setInterval(() => { if (k < lis.length-1){ lis[k].className = "done"; k++; lis[k].className = "on"; } }, 4200);
+        show("loading");
+        top0();
+        const lis = [...document.querySelectorAll("#lsteps li")];
+        lis.forEach((li) => (li.className = ""));
+        let k = 0;
+        lis[0].className = "on";
+        const tick = setInterval(() => {
+          if (k < lis.length - 1) {
+            lis[k].className = "done";
+            k++;
+            lis[k].className = "on";
+          }
+        }, 4200);
 
-  const scores = score();
-  const fb = fallbackReport(scores);
-  let rep = fb, source = "rules";
-  try {
-    const ai = await getAIReport(scores, lead);
-    if (ai){ rep = merge(ai, fb); source = "ai"; }
-  } catch(err){ console.warn("AI report failed, using built-in report", err); }
+        const scores = score();
+        const fb = fallbackReport(scores);
+        let rep = fb,
+          source = "rules";
+        try {
+          const ai = await getAIReport(scores, lead);
+          if (ai) {
+            rep = merge(ai, fb);
+            source = "ai";
+          }
+        } catch (err) {
+          console.warn("AI report failed, using built-in report", err);
+        }
 
-  clearInterval(tick);
-  for (; k < lis.length; k++){ lis[k].className = "done"; await new Promise(r => setTimeout(r, 220)); }
+        clearInterval(tick);
+        for (; k < lis.length; k++) {
+          lis[k].className = "done";
+          await new Promise((r) => setTimeout(r, 220));
+        }
 
-  LAST = {lead, scores, rep, source, date: new Date()};
-  renderReport(LAST);
-  show("result"); top0();
-  sendLead(LAST);
-});
+        LAST = { lead, scores, rep, source, date: new Date() };
+        renderReport(LAST);
+        show("result");
+        top0();
+        sendLead(LAST);
+      });
 
-function ring(n){
-  const r = 54, c = 2*Math.PI*r, b = band(n);
-  return `<svg class="ring" viewBox="0 0 132 132" role="img" aria-label="Overall score ${n} out of 100">
+      function ring(n) {
+        const r = 54,
+          c = 2 * Math.PI * r,
+          b = band(n);
+        return `<svg class="ring" viewBox="0 0 132 132" role="img" aria-label="Overall score ${n} out of 100">
     <circle cx="66" cy="66" r="${r}" fill="none" stroke="var(--line)" stroke-width="10"/>
     <circle cx="66" cy="66" r="${r}" fill="none" stroke="${b.c}" stroke-width="10" stroke-linecap="round"
-      stroke-dasharray="${(c*n/100).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 66 66)"/>
+      stroke-dasharray="${((c * n) / 100).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 66 66)"/>
     <text x="66" y="70" text-anchor="middle" font-size="34" fill="var(--ink)">${n}</text>
     <text x="66" y="92" text-anchor="middle" font-size="11" fill="var(--muted)" style="font-family:var(--f-mono)">OUT OF 100</text></svg>`;
-}
-const li = arr => (arr||[]).map(x => `<li>${esc(x)}</li>`).join("");
+      }
+      const li = (arr) => (arr || []).map((x) => `<li>${esc(x)}</li>`).join("");
 
-function reportHTML({lead, scores, rep, date}){
-  const b = band(scores.overall);
-  const P = rep.persona || {};
-  const initials = (P.name||"Buyer").split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();
-  const pillars = Object.entries(scores).filter(([k])=>k!=="overall").map(([k,v]) => {
-    const bb = band(v);
-    return `<div class="pill"><span>${esc(k)}</span><div class="sbar"><i style="width:${v}%;background:${bb.c}"></i></div><span class="num">${v}/100</span></div>`;
-  }).join("");
-  const totalShare = (rep.channels||[]).reduce((a,c)=>a+(+c.share||0),0) || 100;
+      function reportHTML({ lead, scores, rep, date }) {
+        const b = band(scores.overall);
+        const P = rep.persona || {};
+        const initials = (P.name || "Buyer")
+          .split(/\s+/)
+          .filter(Boolean)
+          .slice(0, 2)
+          .map((w) => w[0])
+          .join("")
+          .toUpperCase();
+        const pillars = Object.entries(scores)
+          .filter(([k]) => k !== "overall")
+          .map(([k, v]) => {
+            const bb = band(v);
+            return `<div class="pill"><span>${esc(k)}</span><div class="sbar"><i style="width:${v}%;background:${bb.c}"></i></div><span class="num">${v}/100</span></div>`;
+          })
+          .join("");
+        const totalShare =
+          (rep.channels || []).reduce((a, c) => a + (+c.share || 0), 0) || 100;
 
-  return `
+        return `
   <div class="rhead">
     ${ring(scores.overall)}
     <div>
-      <span class="label">${esc(lead.company)} - AI business audit - ${date.toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})}</span>
+      <span class="label">${esc(lead.company)} - AI business audit - ${date.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" })}</span>
       <h2>${esc(rep.headline)}</h2>
       <span class="badge" style="color:${b.c};margin-top:10px">${b.t}</span>
       <p>${esc(rep.summary)}</p>
@@ -942,93 +3073,136 @@ function reportHTML({lead, scores, rep, date}){
 
   <div class="sec">
     <span class="label">03 - Fix these first</span><h3>Where you are losing leads and money</h3>
-    <div class="leaks">${(rep.leaks||[]).map(l => `
-      <div class="leak"><h4>${esc(l.title)} <span class="badge" style="color:${/high/i.test(l.impact)?"var(--bad)":"var(--warn)"}">${esc(l.impact||"Medium")} impact</span></h4>
+    <div class="leaks">${(rep.leaks || [])
+      .map(
+        (l) => `
+      <div class="leak"><h4>${esc(l.title)} <span class="badge" style="color:${/high/i.test(l.impact) ? "var(--bad)" : "var(--warn)"}">${esc(l.impact || "Medium")} impact</span></h4>
         <p class="muted">${esc(l.why)}</p>
-        <p class="fix"><b>Fix:</b> ${esc(l.fix)}</p></div>`).join("")}</div>
+        <p class="fix"><b>Fix:</b> ${esc(l.fix)}</p></div>`,
+      )
+      .join("")}</div>
   </div>
 
   <div class="sec">
     <span class="label">04 - Channel plan</span><h3>Where to put your time and budget</h3>
     <div class="tbl"><table><thead><tr><th>Channel</th><th>Job</th><th>Budget</th><th>How to win</th></tr></thead><tbody>
-      ${(rep.channels||[]).map(c => `<tr><td><b>${esc(c.channel)}</b></td><td>${esc(c.role)}</td><td class="share">${Math.round((+c.share||0)/totalShare*100)}%</td><td>${esc(c.tip)}</td></tr>`).join("")}
+      ${(rep.channels || []).map((c) => `<tr><td><b>${esc(c.channel)}</b></td><td>${esc(c.role)}</td><td class="share">${Math.round(((+c.share || 0) / totalShare) * 100)}%</td><td>${esc(c.tip)}</td></tr>`).join("")}
     </tbody></table></div>
   </div>
 
   <div class="sec">
     <span class="label">05 - Content ideas</span><h3>Five posts to make this month</h3>
-    <div class="ideas">${(rep.ideas||[]).map(i => `<div class="idea"><span class="fmt">${esc(i.format)}</span><span>${esc(i.hook)}</span></div>`).join("")}</div>
+    <div class="ideas">${(rep.ideas || []).map((i) => `<div class="idea"><span class="fmt">${esc(i.format)}</span><span>${esc(i.hook)}</span></div>`).join("")}</div>
   </div>
 
   <div class="sec">
     <span class="label">06 - 90-day plan</span><h3>What to do, month by month</h3>
-    <div class="months">${Object.entries(rep.roadmap||{}).map(([m,acts]) => `<div class="box"><h4>${esc(m)}</h4><ul>${li(acts)}</ul></div>`).join("")}</div>
+    <div class="months">${Object.entries(rep.roadmap || {})
+      .map(
+        ([m, acts]) =>
+          `<div class="box"><h4>${esc(m)}</h4><ul>${li(acts)}</ul></div>`,
+      )
+      .join("")}</div>
     <div class="box" style="margin-top:12px"><h4>Do this week</h4><ul>${li(rep.quickWins)}</ul></div>
   </div>
 
   <div class="sec">
     <span class="label">07 - Numbers to watch</span><h3>Your scoreboard</h3>
     <div class="tbl"><table><thead><tr><th>Metric</th><th>Healthy range</th></tr></thead><tbody>
-      ${(rep.kpis||[]).map(k => `<tr><td><b>${esc(k.metric)}</b></td><td>${esc(k.target)}</td></tr>`).join("")}
+      ${(rep.kpis || []).map((k) => `<tr><td><b>${esc(k.metric)}</b></td><td>${esc(k.target)}</td></tr>`).join("")}
     </tbody></table></div>
     <p class="note">Ranges are typical for your industry and market, not guarantees.</p>
   </div>
 
   <div class="sec">
     <span class="label">08 - 2026 shifts</span><h3>What changed this year and what to do</h3>
-    <div class="grid2">${(rep.trends||[]).map(t => `<div class="box"><h4>${esc(t.trend)}</h4><p class="muted small">${esc(t.action)}</p></div>`).join("")}</div>
+    <div class="grid2">${(rep.trends || []).map((t) => `<div class="box"><h4>${esc(t.trend)}</h4><p class="muted small">${esc(t.action)}</p></div>`).join("")}</div>
   </div>`;
-}
+      }
 
-function renderReport(d){
-  $("report").innerHTML = reportHTML(d);
-  const labels = {}; Q.forEach(q => labels[q.id] = q.q);
-  const ans = cleanAnswers();
-  $("answerList").innerHTML = Object.entries(ans).map(([k,v]) => `<dt>${esc(labels[k])}</dt><dd>${esc(Array.isArray(v)?v.join(", "):v)}</dd>`).join("");
-  $("saveNote").hidden = true;
-}
+      function renderReport(d) {
+        $("report").innerHTML = reportHTML(d);
+        const labels = {};
+        Q.forEach((q) => (labels[q.id] = q.q));
+        const ans = cleanAnswers();
+        $("answerList").innerHTML = Object.entries(ans)
+          .map(
+            ([k, v]) =>
+              `<dt>${esc(labels[k])}</dt><dd>${esc(Array.isArray(v) ? v.join(", ") : v)}</dd>`,
+          )
+          .join("");
+        $("saveNote").hidden = true;
+      }
 
-function sendLead(d){
-  if (!CONFIG.LEAD_WEBHOOK) return;
-  const payload = {
-    ...d.lead, ...cleanAnswers(), overall: d.scores.overall, scores: d.scores, source: d.source,
-    headline: d.rep.headline, booking: CONFIG.BOOKING_URL, reportHtml: standaloneReport(d)
-  };
-  fetch(CONFIG.LEAD_WEBHOOK, {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"}, body: JSON.stringify(payload)}).catch(()=>{});
-}
+      function sendLead(d) {
+        if (!CONFIG.LEAD_WEBHOOK) return;
+        const payload = {
+          ...d.lead,
+          ...cleanAnswers(),
+          overall: d.scores.overall,
+          scores: d.scores,
+          source: d.source,
+          headline: d.rep.headline,
+          booking: CONFIG.BOOKING_URL,
+          reportHtml: standaloneReport(d),
+        };
+        fetch(CONFIG.LEAD_WEBHOOK, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload),
+        }).catch(() => {});
+      }
 
-
-function standaloneReport(d){
-  const css = document.querySelector("style").textContent;
-  const book = CONFIG.BOOKING_URL || "https://obsidiansix.com/contactus/";
-  return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(d.lead.company)} - AI Business Audit</title>
+      function standaloneReport(d) {
+        const css = document.querySelector("style").textContent;
+        const book = CONFIG.BOOKING_URL || "https://obsidiansix.com/contactus/";
+        return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(d.lead.company)} - AI Business Audit</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <style>${css}</style></head><body><div class="wrap"><div class="col"><div class="top"><span class="brand"><i></i>Obsidian Six</span><span class="label">AI Business Audit</span></div>
 ${reportHTML(d)}<div class="book"><h3>Walk through this report with us</h3><p>20 minutes on a call. No cost, no contract.</p><div class="row"><a class="btn" href="${esc(book)}">Book a free 20-minute walkthrough</a></div></div>
 <footer><span>Prepared by the Obsidian Six team in Mumbai and Bhopal</span></footer></div></div></body></html>`;
-}
+      }
 
-$("saveBtn").onclick = async () => {
-  if (!LAST) return;
-  const name = (LAST.lead.company || "business").replace(/[^a-z0-9]+/gi,"-").toLowerCase() + "-ai-audit.html";
-  let dl = null;
-  try { dl = window.claude && window.claude.use ? await window.claude.use("downloads") : null; } catch(e){}
-  if (dl){
-    try { await dl.save({filename:name, data: standaloneReport(LAST)}); return; }
-    catch(e){ if (e && e.code === "declined") return; }
-  }
-  if (!window.claude){ window.print(); return; }
-  $("saveNote").textContent = "Saving isn't available in this view. Your report is also sent to your email.";
-  $("saveNote").hidden = false;
-};
+      $("saveBtn").onclick = async () => {
+        if (!LAST) return;
+        const name =
+          (LAST.lead.company || "business")
+            .replace(/[^a-z0-9]+/gi, "-")
+            .toLowerCase() + "-ai-audit.html";
+        let dl = null;
+        try {
+          dl =
+            window.claude && window.claude.use
+              ? await window.claude.use("downloads")
+              : null;
+        } catch (e) {}
+        if (dl) {
+          try {
+            await dl.save({ filename: name, data: standaloneReport(LAST) });
+            return;
+          } catch (e) {
+            if (e && e.code === "declined") return;
+          }
+        }
+        if (!window.claude) {
+          window.print();
+          return;
+        }
+        $("saveNote").textContent =
+          "Saving isn't available in this view. Your report is also sent to your email.";
+        $("saveNote").hidden = false;
+      };
 
-$("restartBtn").onclick = () => {
-  A = {}; saveDraft(); LAST = null; $("leadForm").reset(); qi = 0; show("intro"); top0();
-};
-</script>
-
-</body>
+      $("restartBtn").onclick = () => {
+        A = {};
+        saveDraft();
+        LAST = null;
+        $("leadForm").reset();
+        qi = 0;
+        show("intro");
+        top0();
+      };
+    </script>
+  </body>
 </html>
-
-
-
