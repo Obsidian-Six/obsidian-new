@@ -47,22 +47,15 @@ function Toolbar({
   htmlMode,
   setHtmlMode,
   onImage,
+  onLink,
 }: {
   editor: Editor;
   htmlMode: boolean;
   setHtmlMode: (v: boolean) => void;
   onImage: () => void;
+  onLink: () => void;
 }) {
-  const setLink = () => {
-    const prev = editor.getAttributes("link").href as string | undefined;
-    const url = window.prompt("Link URL (use /services/seo/ for pages on our site)", prev || "https://");
-    if (url === null) return;
-    if (url === "" || url === "https://") {
-      editor.chain().focus().extendMarkRange("link").unsetLink().run();
-      return;
-    }
-    editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
-  };
+  const setLink = onLink;
 
   const d = htmlMode;
   return (
@@ -94,6 +87,10 @@ export default function RichTextEditor({ value, onChange, onUploadImage }: Props
   const [htmlMode, setHtmlMode] = useState(false);
   const [html, setHtml] = useState(value);
   const fileRef = useRef<HTMLInputElement>(null);
+  // Inline bars instead of browser pop-up prompts (blocked in some browsers).
+  const [linkBar, setLinkBar] = useState<string | null>(null);
+  const [pendingImage, setPendingImage] = useState<{ url: string; alt: string } | null>(null);
+  const [uploading, setUploading] = useState(false);
 
   const editor = useEditor({
     immediatelyRender: false,
@@ -136,11 +133,29 @@ export default function RichTextEditor({ value, onChange, onUploadImage }: Props
 
   const pickImage = async (file?: File) => {
     if (!file || !editor) return;
+    setUploading(true);
     const url = await onUploadImage(file);
-    if (!url) return;
-    const alt = window.prompt("Describe the image for Google and screen readers (alt text):", "") || "";
-    editor.chain().focus().setImage({ src: url, alt }).run();
+    setUploading(false);
+    if (url) setPendingImage({ url, alt: "" });
   };
+
+  const applyLink = () => {
+    if (!editor || linkBar === null) return;
+    const url = linkBar.trim();
+    if (!url || url === "https://") editor.chain().focus().extendMarkRange("link").unsetLink().run();
+    else editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
+    setLinkBar(null);
+  };
+
+  const insertImage = () => {
+    if (!editor || !pendingImage) return;
+    editor.chain().focus().setImage({ src: pendingImage.url, alt: pendingImage.alt.trim() }).run();
+    setPendingImage(null);
+  };
+
+  const bar = "flex flex-wrap items-center gap-2 border-b border-gray-200 bg-blue-50 px-3 py-2 text-sm";
+  const barInput = "min-w-0 flex-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm focus:border-[#052D69] focus:outline-none";
+  const barBtn = "rounded-lg bg-[#052D69] px-3 py-1.5 font-semibold text-white";
 
   if (!editor) {
     return <div className="h-[540px] animate-pulse rounded-2xl border border-gray-200 bg-gray-50" />;
@@ -148,7 +163,48 @@ export default function RichTextEditor({ value, onChange, onUploadImage }: Props
 
   return (
     <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
-      <Toolbar editor={editor} htmlMode={htmlMode} setHtmlMode={switchMode} onImage={() => fileRef.current?.click()} />
+      <Toolbar
+        editor={editor}
+        htmlMode={htmlMode}
+        setHtmlMode={switchMode}
+        onImage={() => fileRef.current?.click()}
+        onLink={() => setLinkBar((editor.getAttributes("link").href as string | undefined) || "https://")}
+      />
+      {linkBar !== null && (
+        <div className={bar}>
+          <span className="font-semibold text-gray-700">Link to:</span>
+          <input
+            autoFocus
+            className={barInput}
+            value={linkBar}
+            onChange={(e) => setLinkBar(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") { e.preventDefault(); applyLink(); }
+              if (e.key === "Escape") setLinkBar(null);
+            }}
+            placeholder="/services/search-engine-optimisation/ or https://…"
+          />
+          <button type="button" className={barBtn} onClick={applyLink}>Apply</button>
+          <button type="button" className="px-2 text-gray-500" onClick={() => setLinkBar(null)}>Cancel</button>
+        </div>
+      )}
+      {uploading && <div className={bar}>Uploading image…</div>}
+      {pendingImage && (
+        <div className={bar}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={pendingImage.url} alt="" className="h-10 w-14 rounded object-cover" />
+          <input
+            autoFocus
+            className={barInput}
+            value={pendingImage.alt}
+            onChange={(e) => setPendingImage({ ...pendingImage, alt: e.target.value })}
+            onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); insertImage(); } }}
+            placeholder="Describe the image (alt text for Google)"
+          />
+          <button type="button" className={barBtn} onClick={insertImage}>Insert image</button>
+          <button type="button" className="px-2 text-gray-500" onClick={() => setPendingImage(null)}>Cancel</button>
+        </div>
+      )}
       <input
         ref={fileRef}
         type="file"

@@ -34,6 +34,10 @@ export default function BlogsTab({ token, apiBase, onOpenCreate, onOpenEdit }: P
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const [importing, setImporting] = useState(false);
+  // Inline "click again to confirm" instead of window.confirm, which some
+  // browsers and embedded panes block silently.
+  const [confirmImport, setConfirmImport] = useState(false);
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
 
   const headers = { Authorization: `Bearer ${token}` };
 
@@ -61,7 +65,12 @@ export default function BlogsTab({ token, apiBase, onOpenCreate, onOpenEdit }: P
   }, [load]);
 
   const remove = async (p: ListPost) => {
-    if (!window.confirm(`Delete "${p.title}"? This cannot be undone.`)) return;
+    if (confirmDeleteId !== p._id) {
+      setConfirmDeleteId(p._id);
+      setTimeout(() => setConfirmDeleteId((id) => (id === p._id ? null : id)), 5000);
+      return;
+    }
+    setConfirmDeleteId(null);
     const res = await fetch(`${apiBase}/api/blogs/${p._id}`, { method: "DELETE", headers });
     const data = await res.json();
     if (!res.ok || !data.success) return setError(data.message || "Delete failed");
@@ -70,7 +79,12 @@ export default function BlogsTab({ token, apiBase, onOpenCreate, onOpenEdit }: P
   };
 
   const importWordPress = async () => {
-    if (!window.confirm("Copy all posts from the old WordPress blog into the CMS? Posts already here are skipped.")) return;
+    if (!confirmImport) {
+      setConfirmImport(true);
+      setTimeout(() => setConfirmImport(false), 6000);
+      return;
+    }
+    setConfirmImport(false);
     setImporting(true);
     setError("");
     setNotice("");
@@ -102,7 +116,8 @@ export default function BlogsTab({ token, apiBase, onOpenCreate, onOpenEdit }: P
         </div>
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={importWordPress} disabled={importing} className="flex items-center gap-2 rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50">
-            <FaCloudDownloadAlt /> {importing ? "Importing…" : "Import from WordPress"}
+            <FaCloudDownloadAlt />{" "}
+            {importing ? "Importing… (about 30 seconds)" : confirmImport ? "Click again to import" : "Import from WordPress"}
           </button>
           <button type="button" onClick={onOpenCreate} className="flex items-center gap-2 rounded-xl bg-[#052D69] px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-800">
             <FaPlus /> New post
@@ -186,8 +201,8 @@ export default function BlogsTab({ token, apiBase, onOpenCreate, onOpenEdit }: P
                       <button type="button" title="Edit" onClick={() => onOpenEdit(p._id)} className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-[#052D69]">
                         <FaEdit />
                       </button>
-                      <button type="button" title="Delete" onClick={() => remove(p)} className="rounded-lg p-2 text-gray-500 hover:bg-red-50 hover:text-red-600">
-                        <FaTrash />
+                      <button type="button" title="Delete" onClick={() => remove(p)} className={`rounded-lg p-2 text-sm font-semibold ${confirmDeleteId === p._id ? "bg-red-600 text-white" : "text-gray-500 hover:bg-red-50 hover:text-red-600"}`}>
+                        {confirmDeleteId === p._id ? "Delete?" : <FaTrash />}
                       </button>
                     </div>
                   </td>
