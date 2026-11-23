@@ -22,8 +22,9 @@ if [ -f Backend/.env ] && ! grep -q '^BLOG_API_KEY=' Backend/.env; then
 fi
 
 # Run every 2 minutes. Replaces any older line for this script.
-( crontab -l 2>/dev/null | grep -v 'deploy/auto-deploy.sh' ; \
-  echo "*/2 * * * * $SCRIPT >> $LOG 2>&1" ) | crontab -
+# (crontab -l fails when root has no crontab yet, so ignore its exit code.)
+EXISTING="$(crontab -l 2>/dev/null | grep -v 'deploy/auto-deploy.sh' || true)"
+printf '%s\n%s\n' "$EXISTING" "*/2 * * * * $SCRIPT >> $LOG 2>&1" | sed '/^$/d' | crontab -
 
 # Keep the log small.
 if [ -d /etc/logrotate.d ] && [ -w /etc/logrotate.d ]; then
