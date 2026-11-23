@@ -144,6 +144,11 @@ export default function HeroCase({
           {/* =================================================
               CONTENT GRID
           ================================================== */}
+          <h1 className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-black/60">
+            {ele.name}
+            {ele.category ? ` – ${ele.category} case study` : " case study"}
+          </h1>
+
           <div className="grid items-start gap-5 gap-y-8">
             {/* =================================================
                 LEFT SIDE — HEADLINE

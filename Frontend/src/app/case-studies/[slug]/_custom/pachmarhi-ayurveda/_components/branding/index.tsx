@@ -18,7 +18,7 @@ export default function Branding() {
       <figure className="branding__brand reveal">
         <Image 
           src="/images/brand.png" 
-          alt="brand logo" 
+          alt="Pachmarhi Ayurveda brand logo" 
           width={600} 
           height={400} 
           className="w-full h-auto"

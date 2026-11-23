@@ -1327,10 +1327,10 @@ export default function Hero(): React.JSX.Element {
       ====================================================== */}
 
       <section className="intro">
-        <h1
-          className="hero-art"
-          aria-label="We turn great ideas into brands people remember"
-        >
+        <h1 className="hero-eyebrow">
+          Digital Marketing &amp; Web Development Agency in India
+        </h1>
+        <p className="hero-art">
           {/* WE */}
 
           <RevealText
@@ -1486,7 +1486,7 @@ export default function Hero(): React.JSX.Element {
           >
             remember
           </RevealText>
-        </h1>
+        </p>
       </section>
 
       {/* =====================================================

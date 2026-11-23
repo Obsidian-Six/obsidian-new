@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Lock, FileText, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Secure Document Vault | Obsidian Six",
+  title: "Secure Document Vault",
   description: "View gated blueprints and exclusive documents from Obsidian Six.",
   robots: {
     index: false,

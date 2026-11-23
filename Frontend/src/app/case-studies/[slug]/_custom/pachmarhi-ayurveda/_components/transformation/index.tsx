@@ -10,7 +10,7 @@ export default async function Transformation() {
             <figure className="transformation__image">
               <Image
                 src="/case-studies/custom/pachmarhi-ayurveda/images/before.png"
-                alt="Before"
+                alt="Pachmarhi Ayurveda website before the redesign"
                 width={800}
                 height={400}
               />
@@ -53,7 +53,7 @@ export default async function Transformation() {
             <figure className="transformation__image">
               <Image
                 src="/case-studies/custom/pachmarhi-ayurveda/images/after.png"
-                alt="After"
+                alt="Pachmarhi Ayurveda website after the redesign by Obsidian Six"
                 width={800}
                 height={400}
               />

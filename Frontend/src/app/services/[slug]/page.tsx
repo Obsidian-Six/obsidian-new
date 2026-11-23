@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { notFound, useParams } from "next/navigation";
 import { servicesStore } from "@/lib/store/template-services";
+import { serviceSeo } from "@/lib/store/service-seo";
 
 import HeroSection from "../_components/HeroSection";
 import StickyNav from "../_components/StickyNav";
@@ -76,6 +77,7 @@ export default function DynamicServicePage() {
         title={service.title}
         category={service.category}
         bgImage={service.bgImage}
+        heading={serviceSeo[slug as string]?.h1}
       />
 
       <StickyNav

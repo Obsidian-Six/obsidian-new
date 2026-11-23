@@ -5,6 +5,14 @@
 // import type CaseStudy from "@/lib/models/case-study.types";
 // import caseStudiesData from "@/lib/store/case-studies";
 // import { normalizeMediaUrls, getSlug } from "@/lib/utils";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  path: "/case-studies",
+  title: "Case Studies – Marketing & Web Projects",
+  description:
+    "See how Obsidian Six grew brands in healthcare, education, e-commerce, travel and B2B with SEO, ads, branding and custom websites. Real projects, real work.",
+});
 
 
 // export const dynamic = 'force-dynamic';
@@ -125,9 +133,10 @@ export default async function Page() {
     <div className="px-5 md:px-14">
       <p className="p-10 w-full bg-white"></p>
       {/* <div className="md:text-6xl sm:text-4xl text-3xl text-main font-light poppins my-10 w-[80%] mx-auto"> */}
-      <div className="md:text-6xl sm:text-4xl text-3xl text-main font-light poppins my-10 w-[100%] mx-auto">
+      <h1 className="md:text-6xl sm:text-4xl text-3xl text-main font-light poppins my-10 w-[100%] mx-auto">
         CASE STUDIES
-      </div>
+        <span className="sr-only"> – digital marketing, branding and web development projects</span>
+      </h1>
       {/* <div className="grid md:grid-cols-3 sm:grid-cols-2 w-[80%] mx-auto gap-14 my-10"> */}
       <div className="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 w-[100%] mx-auto gap-x-10 gap-y-10 md:gap-x-6 md:gap-y-6 lg:gap-x-10 lg:gap-y-10 my-10 content-stretch">
         {combinedCaseStudies.map((caseStudy: CaseStudy, index: number) => (

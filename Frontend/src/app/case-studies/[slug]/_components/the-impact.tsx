@@ -97,7 +97,7 @@ export default function TheImpact({ ele }: { ele: TemplateCaseStudy }) {
           <div className="p-10 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-purple-900/5 transition-all duration-500">
             <Image
               src="/images/logo/logo2.png"
-              alt="Client Logo"
+              alt="Obsidian Six logo"
               width={240}
               height={120}
               className="h-40 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-700"

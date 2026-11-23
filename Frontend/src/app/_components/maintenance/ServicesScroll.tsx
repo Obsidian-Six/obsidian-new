@@ -8,6 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 type ServiceCard = {
   title: string;
+  /** Keyword heading shown above the slogan, e.g. "Digital Marketing & SEO". */
+  service?: string;
   desc: string;
   video?: string;
   image?: string;
@@ -352,11 +354,17 @@ export default function ServicesScroll({
                     </span>
 
                     <span className="h-px w-16 bg-[#19183A]/10" />
+
+                    {card.service && (
+                      <h2 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#052D69]">
+                        {card.service}
+                      </h2>
+                    )}
                   </div>
 
                   {/* Title */}
 
-                  <h2
+                  <p
                     className="
                       max-w-[600px]
                       text-4xl
@@ -372,7 +380,7 @@ export default function ServicesScroll({
                     "
                   >
                     {card.title}
-                  </h2>
+                  </p>
 
                   {/* Description */}
 
@@ -542,7 +550,7 @@ export default function ServicesScroll({
                 ) : card.image ? (
                   <img
                     src={card.image}
-                    alt={card.title}
+                    alt={card.service ?? card.title}
                     className="
                       h-full
                       w-full
@@ -675,7 +683,7 @@ export default function ServicesScroll({
                 ) : card.image ? (
                   <img
                     src={card.image}
-                    alt={card.title}
+                    alt={card.service ?? card.title}
                     className="
                       h-full
                       w-full
@@ -719,6 +727,11 @@ export default function ServicesScroll({
                     text-[#19183A]
                   "
                 >
+                  {card.service && (
+                    <span className="mb-2 block text-[11px] font-semibold tracking-[0.2em] text-[#052D69]">
+                      {card.service}
+                    </span>
+                  )}
                   {card.title}
                 </h3>
 

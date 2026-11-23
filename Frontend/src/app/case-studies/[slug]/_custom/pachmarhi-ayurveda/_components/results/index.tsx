@@ -18,7 +18,7 @@ export default async function Results() {
         <figure className="results__card-image">
           <Image
             src="/case-studies/custom/pachmarhi-ayurveda/images/dominating-digital-presence.png"
-            alt=""
+            alt="Pachmarhi Ayurveda dominating digital presence result"
             width={800}
             height={400}
           />
@@ -28,7 +28,7 @@ export default async function Results() {
         <figure className="results__card-image">
           <Image
             src="/case-studies/custom/pachmarhi-ayurveda/images/successful-e-commerce-launch.png"
-            alt=""
+            alt="Pachmarhi Ayurveda e-commerce website launch"
             width={800}
             height={400}
           />
@@ -56,7 +56,7 @@ export default async function Results() {
         <figure className="results__card-image">
           <Image
             src="/case-studies/custom/pachmarhi-ayurveda/images/monthly-growth.png"
-            alt=""
+            alt="Pachmarhi Ayurveda monthly growth chart"
             width={800}
             height={400}
           />
@@ -66,7 +66,7 @@ export default async function Results() {
         <figure className="results__card-image">
           <Image
             src="/case-studies/custom/pachmarhi-ayurveda/images/expand-customer-base.png"
-            alt=""
+            alt="Pachmarhi Ayurveda expanded customer base"
             width={800}
             height={400}
           />

@@ -911,7 +911,7 @@ export default function ExperienceDesignPage() {
                   <div className="relative w-16 h-16 rounded-full overflow-hidden border border-slate-200">
                     <Image
                       src="/founder.jpeg"
-                      alt="Aadarsh K"
+                      alt="Aadarsh Kumar, founder of Obsidian Six"
                       fill
                       className="object-cover"
                     />

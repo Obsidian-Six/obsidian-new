@@ -70,6 +70,9 @@ export default function ServicesHero() {
             className="text-[clamp(2.5rem,5vw,4.5rem)] font-semibold tracking-[-0.5px] text-white leading-[1.1] font-poppins"
           >
             Our Services
+            <span className="block text-[0.45em] font-normal tracking-normal mt-3 opacity-90">
+              Digital marketing, branding &amp; technology
+            </span>
           </h1>
         </motion.div>
       </div>

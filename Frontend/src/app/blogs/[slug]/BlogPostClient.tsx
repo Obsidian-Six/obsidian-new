@@ -17,6 +17,9 @@ const getPostImage = (post: any) => {
   return contentMatch ? contentMatch[1] : '/founder.jpg';
 };
 
+const stripTags = (html?: string) =>
+  (html || '').replace(/<[^>]*>/g, '').replace(/&#8217;/g, "'").replace(/&amp;/g, '&').trim();
+
 export default function BlogPostClient({ slug }: { slug: string }) {
   const [post, setPost] = useState<any>(null);
   const [morePosts, setMorePosts] = useState<any[]>([]);
@@ -102,7 +105,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
           <div className="w-full lg:flex-1 relative aspect-video rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border-2 md:border-4 border-white bg-slate-200">
             <Image
               src={imageUrl}
-              alt="featured"
+              alt={stripTags(post?.title?.rendered) || "Blog post cover image"}
               fill
               className="object-cover"
               priority
@@ -182,7 +185,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
                   <div className="aspect-[16/10] bg-slate-200 rounded-3xl overflow-hidden relative shadow-lg">
                     <Image
                       src={pImg}
-                      alt="thumbnail"
+                      alt={stripTags(p?.title?.rendered) || "Related blog post"}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                       unoptimized

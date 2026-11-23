@@ -158,7 +158,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 width={120}
                 height={36}
                 className="h-9 w-auto"
-                alt="Logo"
+                alt="Obsidian Six logo"
                 priority
               />
             </Link>

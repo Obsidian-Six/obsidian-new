@@ -27,18 +27,18 @@ export default function AuditHero() {
             AI Marketing Intelligence
           </span>
 
-          <h1 className="text-[48px] font-normal leading-[0.95] tracking-[-0.06em] text-white sm:text-[64px] md:text-[82px]">
+          <h2 className="text-[48px] font-normal leading-[0.95] tracking-[-0.06em] text-white sm:text-[64px] md:text-[82px]">
             Discover what&apos;s
             <br />
             <span className="text-white/40">
               holding you back.
             </span>
-          </h1>
+          </h2>
 
           <p className="mx-auto mt-7 max-w-120 text-sm leading-7 text-white/45">
             Answer 11 focused questions and let our AI
             uncover the marketing opportunities hidden
-            inside your UAE business.
+            inside your business.
           </p>
 
       
