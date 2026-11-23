@@ -147,7 +147,7 @@
 //                     <div key={idx} className="relative h-14 w-full flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500">
 //                       <Image
 //                         src={`/our-client/${logo}`}
-//                         alt="Client Logo"
+//                         alt={`${logo.replace(/\.[a-z]+$/i, "").replace(/[-_]+/g, " ")} logo – Obsidian Six client`}
 //                         fill
 //                         className="object-contain"
 //                       />
@@ -612,7 +612,7 @@ const ContactPopup = ({
                     >
                       <Image
                         src={`/our-client/${logo}`}
-                        alt="Client Logo"
+                        alt={`${logo.replace(/\.[a-z]+$/i, "").replace(/[-_]+/g, " ")} logo – Obsidian Six client`}
                         fill
                         sizes="120px"
                         className="object-contain"

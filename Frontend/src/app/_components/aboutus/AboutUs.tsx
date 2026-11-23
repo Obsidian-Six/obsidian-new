@@ -75,14 +75,14 @@ export default function AboutUs() {
         {/* --- HEADER SECTION --- */}
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12">
           <MotionDiv className="lg:col-span-8" {...fadeInUp}>
-            <span className="inline-block px-3 py-1 border border-slate-900/10 rounded-full text-[10px] tracking-[0.2em] uppercase text-slate-500 mb-6 bg-white shadow-sm">
-              [ About the Agency ]
-            </span>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tighter text-slate-950">
+            <h1 className="inline-block px-3 py-1 border border-slate-900/10 rounded-full text-[10px] tracking-[0.2em] uppercase text-slate-500 mb-6 bg-white shadow-sm">
+              About Obsidian Six – Digital Agency in India
+            </h1>
+            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tighter text-slate-950">
               Digital experiences <br className="hidden md:block" />
               carved for the <br className="hidden md:block" />
               <span className="italic font-serif font-light text-[#052D69]">real-world results.</span>
-            </h1>
+            </h2>
           </MotionDiv>
 
           <MotionDiv
@@ -169,7 +169,7 @@ export default function AboutUs() {
             <div className="lg:col-span-5 relative overflow-hidden aspect-[4/5] lg:aspect-auto">
               <Image
                 src="/founder.jpeg"
-                alt="Founder"
+                alt="Aadarsh Kumar, founder of Obsidian Six"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 40vw"

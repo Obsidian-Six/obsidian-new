@@ -10,11 +10,18 @@ import SmoothScroll from "./_components/SmoothScroll";
 import ScrollToTop from "./_components/ScrollTop";
 import SplashCursor from "./_components/SplashCursor";
 import localFont from "next/font/local";
+import type { Metadata } from "next";
+import { SITE_URL, organizationSchema, jsonLd } from "@/lib/seo";
 
-export const metadata = {
-  title: "Obsidian Six | Digital Marketing, Branding & Web Development",
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Digital Marketing & Web Agency in India | Obsidian Six",
+    template: "%s | Obsidian Six",
+  },
   description:
-    "Building Brands From obsidian · Social Media Marketing · Paid Ads Management · Designing Services · Web Development · Building Brands obsidian",
+    "Obsidian Six is a digital marketing and web development agency in India, with offices in Mumbai and Bhopal. SEO, Meta and Google ads, branding and websites.",
+  applicationName: "Obsidian Six",
   //FAVICON
   icons: {
     icon: [
@@ -38,7 +45,6 @@ export const metadata = {
 
   manifest: "/favicon/site.webmanifest",
 
-  // ADD THIS BLOCK:
   robots: {
     index: true,
     follow: true,
@@ -47,8 +53,14 @@ export const metadata = {
       follow: true,
     },
   },
-  alternates: {
-    canonical: "https://obsidiansix.com/",
+  // Canonical is set per page (see src/lib/seo.ts). A canonical here would be
+  // inherited by every page and tell Google they are all the homepage.
+  openGraph: {
+    type: "website",
+    siteName: "Obsidian Six",
+    locale: "en_IN",
+    url: SITE_URL + "/",
+    images: [{ url: "/images/logo/logo2.png" }],
   },
 };
 
@@ -71,36 +83,7 @@ const sfProRounded = localFont({
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  // --- ADDED ORGANIZATION SCHEMA ---
-  const orgSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Obsidian Six",
-    url: "https://obsidiansix.com/",
-    logo: "https://obsidiansix.com/images/logo/logo2.png",
-    sameAs: [
-      "https://www.linkedin.com/company/obsidian-six/",
-      "https://www.instagram.com/obsidiansixofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-    ],
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        telephone: "+91 8085652729",
-        contactType: "sales",
-        email: "info@obsidiansix.com",
-        areaServed: ["US", "IN", "AE", "GB"],
-        availableLanguage: ["en", "hi"],
-      },
-      {
-        "@type": "ContactPoint",
-        telephone: "+91 89829 92729",
-        contactType: "customer service",
-        email: "hr@obsidiansix.com",
-        areaServed: ["US", "IN", "AE"],
-        availableLanguage: ["en", "hi"],
-      },
-    ],
-  };
+  const orgSchema = organizationSchema();
 
   return (
     <html
@@ -112,7 +95,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Injecting Organization Schema sitewide */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(orgSchema) }}
         />
         {/* Microsoft Clarity Script */}
         <script

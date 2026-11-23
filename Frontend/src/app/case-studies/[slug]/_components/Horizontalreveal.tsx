@@ -245,7 +245,7 @@ export default function HorizontalRevealGallery({
           <div className="relative h-[450px] w-full overflow-hidden md:h-[600px]">
             <Image
               src={firstImage.img}
-              alt="Gallery image"
+              alt={firstImage.text || `${ele.name} project image`}
               fill
               unoptimized
               sizes="100vw"

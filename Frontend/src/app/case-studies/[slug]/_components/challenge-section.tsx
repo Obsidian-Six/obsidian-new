@@ -68,7 +68,7 @@ export default function ChallengeSection({
             {challenge.image2 && (
               <Image
                 src={challenge.image2}
-                alt="Project Visual"
+                alt={`${data.name} project visual`}
                 width={1200}
                 height={800}
                 unoptimized

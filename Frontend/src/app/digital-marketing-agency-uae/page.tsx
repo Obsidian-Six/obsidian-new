@@ -299,10 +299,11 @@ export default function SEOLandingPage() {
                   : "col-span-12 lg:col-span-7 items-center lg:items-start text-center lg:text-left"
               }`}
             >
-              <div className="relative flex flex-col font-poppins font-light tracking-wide leading-none mb-6">
+              <h1 className="relative flex flex-col font-poppins font-light tracking-wide leading-none mb-6">
+                <span className="sr-only">Digital Marketing Agency in Dubai, UAE</span>
                 
                 {/* Row 1: Digital */}
-                <div className="overflow-hidden h-[70px] sm:h-[90px] md:h-[120px] lg:h-[140px] flex items-center justify-center lg:justify-start">
+                <div aria-hidden="true" className="overflow-hidden h-[70px] sm:h-[90px] md:h-[120px] lg:h-[140px] flex items-center justify-center lg:justify-start">
                   <AnimatePresence>
                     {step >= 2 && (
                       <motion.span
@@ -319,7 +320,7 @@ export default function SEOLandingPage() {
                 </div>
 
                 {/* Row 2: Marketing */}
-                <div className="overflow-hidden h-[70px] sm:h-[90px] md:h-[120px] lg:h-[140px] flex items-center justify-center lg:justify-start">
+                <div aria-hidden="true" className="overflow-hidden h-[70px] sm:h-[90px] md:h-[120px] lg:h-[140px] flex items-center justify-center lg:justify-start">
                   <motion.span
                     layout
                     transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
@@ -328,7 +329,7 @@ export default function SEOLandingPage() {
                     Marketing
                   </motion.span>
                 </div>
-              </div>
+              </h1>
 
               {/* Paragraph & button */}
               <AnimatePresence>
@@ -908,7 +909,7 @@ export default function SEOLandingPage() {
                   <div className="relative w-16 h-16 rounded-full overflow-hidden border border-slate-200">
                     <Image
                       src="/founder.jpeg"
-                      alt="Aadarsh K"
+                      alt="Aadarsh Kumar, founder of Obsidian Six"
                       fill
                       className="object-cover"
                     />

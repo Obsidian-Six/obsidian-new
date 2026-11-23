@@ -293,19 +293,20 @@ export default function BrandingLandingPage() {
         {/* Centered animated hero text */}
         <div className="max-w-4xl mx-auto w-full text-center relative z-10 flex flex-col items-center">
           
+          <h1 className="sr-only">Branding Agency in Dubai, UAE</h1>
           <div className="relative flex flex-col font-poppins font-light tracking-wide leading-none mb-6">
             {/* Height parameters adjusted upward to fit descender for letter 'g' */}
             <div className="overflow-hidden h-[95px] sm:h-[130px] md:h-[175px] lg:h-[200px] flex items-center justify-center">
               <AnimatePresence>
                 {heroStep >= 1 && (
-                  <motion.h1
+                  <motion.p
                     initial={{ y: "80%", opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                     className="text-7xl sm:text-[100px] md:text-[130px] lg:text-[160px] text-white font-extralight pb-3"
                   >
                     Branding
-                  </motion.h1>
+                  </motion.p>
                 )}
               </AnimatePresence>
             </div>
@@ -906,7 +907,7 @@ export default function BrandingLandingPage() {
                   <div className="relative w-16 h-16 rounded-full overflow-hidden border border-slate-200">
                     <Image
                       src="/founder.jpeg"
-                      alt="Aadarsh K"
+                      alt="Aadarsh Kumar, founder of Obsidian Six"
                       fill
                       className="object-cover"
                     />

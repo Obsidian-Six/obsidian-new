@@ -118,9 +118,9 @@ const ContactUsRouter = () => {
           
           {/* LEFT COLUMN: Headings & Brochure */}
           <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
-            <span className="inline-block px-4 py-1 bg-blue-50 text-[#052D69] text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">
-              [ Contact Us ]
-            </span>
+            <h1 className="inline-block px-4 py-1 bg-blue-50 text-[#052D69] text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">
+              Contact Obsidian Six – Mumbai &amp; Bhopal
+            </h1>
 
             <div className="space-y-4">
               <h2 className="text-5xl md:text-6xl lg:text-[76px] font-extrabold text-slate-950 tracking-tighter leading-[0.9] font-poppins">
@@ -425,7 +425,7 @@ const ContactUsRouter = () => {
               <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden shadow-sm">
                 <Image
                   src="/images/locations/mumbai.png"
-                  alt="Mumbai BKC Office"
+                  alt="Obsidian Six office at Platinum BKC, Bandra, Mumbai"
                   fill
                   className="object-cover"
                 />
@@ -458,7 +458,7 @@ const ContactUsRouter = () => {
               <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden shadow-sm">
                 <Image
                   src="/images/locations/bhopal.png"
-                  alt="Bhopal Office"
+                  alt="Obsidian Six office on Hoshangabad Road, Bhopal"
                   fill
                   className="object-cover"
                 />

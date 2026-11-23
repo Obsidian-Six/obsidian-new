@@ -42,6 +42,7 @@ export default function Maintenance() {
   const cards = [
     {
       title: "THE SPOTLIGHT",
+      service: "Digital Marketing & SEO",
       desc: "Being Great Means Nothing If No One Sees It. We Put Your Brand Where Customers Are Already Looking. And Turn That Visibility Into Demand.",
       video: "/videos/Services/DigitalMarketingVedio.mp4",
       // Right-aligned on large screens
@@ -50,6 +51,7 @@ export default function Maintenance() {
     },
     {
       title: "THE FIRST DOOR",
+      service: "Website & UX Design",
       desc: "Visitors Decide In Seconds Whether To Stay Or Leave. We Design That First Door To Feel Effortless, Inviting, And Worth Walking Through.",
       video: "/videos/Services/ExperienceDesignVedio.mp4",
       // Shifted slightly left
@@ -58,6 +60,7 @@ export default function Maintenance() {
     },
     {
       title: "THE DAILY SCROLL",
+      service: "Social Media Marketing",
       desc: "Your Audience Scrolls Past Hundreds Of Brands Daily. We Make Sure Yours Is The One They Stop For And Remember.",
       video: "/videos/Services/TechnologyVedio.mp4",
       // Shifted further left + blue highlight from design
@@ -66,6 +69,7 @@ export default function Maintenance() {
     },
     {
       title: "THE SIGNATURE",
+      service: "Branding & Identity",
       desc: "A Name Means Nothing Until It Means Something. We Shape That Meaning Into A Signature People Recognize And Trust.",
       video: "/videos/Services/BrandingVedio.mp4",
       // Far left aligned

@@ -582,9 +582,10 @@ export default function TechnologyPage() {
 
         {/* Text transition container */}
         <div className="max-w-7xl mx-auto w-full text-center relative z-10">
+          <h1 className="sr-only">Web, App &amp; Software Development Services in India</h1>
           <AnimatePresence mode="wait">
             {introState === "build" ? (
-              <motion.h1
+              <motion.p
                 key="build"
                 initial={{ opacity: 0, y: 35 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -593,9 +594,9 @@ export default function TechnologyPage() {
                 className="text-6xl md:text-[100px] lg:text-[120px] font-extralight tracking-[0.12em] uppercase text-white font-poppins"
               >
                 Scale With
-              </motion.h1>
+              </motion.p>
             ) : (
-              <motion.h1
+              <motion.p
                 key="technology"
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -603,7 +604,7 @@ export default function TechnologyPage() {
                 className="text-6xl md:text-[100px] lg:text-[120px] font-extralight tracking-wider text-slate-100 font-poppins"
               >
                 Engineering
-              </motion.h1>
+              </motion.p>
             )}
           </AnimatePresence>
         </div>
@@ -969,7 +970,7 @@ export default function TechnologyPage() {
                   <div className="relative w-16 h-16 rounded-full overflow-hidden border border-slate-200">
                     <Image
                       src="/founder.jpeg"
-                      alt="Aadarsh K"
+                      alt="Aadarsh Kumar, founder of Obsidian Six"
                       fill
                       className="object-cover"
                     />

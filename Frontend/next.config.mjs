@@ -1,8 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  optimizeFonts: false,
   output: 'standalone',
   trailingSlash: true,
+  // Old case-study URLs (e.g. /case-study/4dgc) are still in Google's index.
+  // Send them to the current /case-studies/ pages so their ranking carries over.
+  async redirects() {
+    return [
+      { source: "/case-study/4dgc/", destination: "/case-studies/fourth-dimension-general-construction/", permanent: true },
+      { source: "/case-study/", destination: "/case-studies/", permanent: true },
+      { source: "/case-study/:slug/", destination: "/case-studies/:slug/", permanent: true },
+    ];
+  },
   images: {
     unoptimized: true,
 

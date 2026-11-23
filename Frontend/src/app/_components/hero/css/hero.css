@@ -6,6 +6,7 @@
 .intro {
   background: 0 0;
   place-items: center;
+  align-content: center;
   min-height: min(100vh, 1000px);
   /* padding: max(96px, 6.32vw) max(min(153.8px, 12vw), 50vw - 544px) 80px; */
   display: grid;
@@ -278,4 +279,18 @@
   to {
     overflow: visible;
   }
+}
+
+/* Keyword H1 shown above the hero tagline */
+.hero-eyebrow {
+  margin: 0 0 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(25, 24, 58, 0.6);
+}
+@media (width >= 768px) {
+  .hero-eyebrow { font-size: 0.875rem; }
 }

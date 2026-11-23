@@ -136,7 +136,7 @@ export default function Navbar() {
               className={`h-10 w-auto ${
                 isDarkTheme ? "invert brightness-200" : ""
               }`}
-              alt="Logo"
+              alt="Obsidian Six logo"
               priority
             />
           </Link>

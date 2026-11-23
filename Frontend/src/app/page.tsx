@@ -17,6 +17,15 @@ import AIAudit from "./_components/ai-audit/AiAuditSection";
 import ResultsMarquee from "./_components/ResultsMarquee";
 import HowWeWork from "./_components/HowWeWork";
 import MeetTheFounder from "./_components/MeetTheFounder";
+import { pageMeta, jsonLd } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  path: "/",
+  title: "Digital Marketing & Web Agency in India | Obsidian Six",
+  absoluteTitle: true,
+  description:
+    "Obsidian Six is a digital marketing and web development agency in India, with offices in Mumbai and Bhopal. SEO, Meta and Google ads, branding and websites.",
+});
 
 export default function Home() {
   // Define the structured data as a constant
@@ -97,7 +106,7 @@ export default function Home() {
       {/* FAQ Schema Script Tag */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }}
       />
 
       {/* Persistent lead capture popup */}

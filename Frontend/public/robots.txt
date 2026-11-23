@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /api
 Disallow: /private
 
-Sitemap: https://socailai.com/sitemap.xml
+Sitemap: https://obsidiansix.com/sitemap.xml

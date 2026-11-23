@@ -581,12 +581,29 @@ const Footer = () => {
                   <Link href="/services/technology">Technology</Link>
                 </li>
                 <li>
-                  <Link href="/digital-marketing-agency-uae">
+                  <Link href="/digital-marketing-agency-india/">
                     Digital Marketing
                   </Link>
                 </li>
                 <li>
-                  <Link href="/branding-agency-uae">Branding</Link>
+                  <Link href="/web-development-company-india/">
+                    Web Development
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/search-engine-optimisation/">SEO</Link>
+                </li>
+                <li>
+                  <Link href="/services/brand-consulting/">Branding</Link>
+                </li>
+                <li>
+                  <Link href="/digital-marketing-agency-mumbai/">Agency in Mumbai</Link>
+                </li>
+                <li>
+                  <Link href="/digital-marketing-agency-bhopal/">Agency in Bhopal</Link>
+                </li>
+                <li>
+                  <Link href="/digital-marketing-agency-uae/">Agency in UAE</Link>
                 </li>
               </ul>
             </div>

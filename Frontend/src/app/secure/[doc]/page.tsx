@@ -45,34 +45,34 @@ export async function generateMetadata({
 
   if (pdfFile === "Task1.pdf") {
     return {
-      title: "Task1.pdf | Obsidian Six",
+      title: "Task1.pdf",
       description: "View the secure Task1.pdf document from Obsidian Six.",
       robots: noIndex,
     };
   }
   if (pdfFile === "GOOGLE_ADS_X_OBS.pdf") {
     return {
-      title: "GOOGLE_ADS_X_OBS.pdf | Obsidian Six",
+      title: "GOOGLE_ADS_X_OBS.pdf",
       description: "View the secure GOOGLE_ADS_X_OBS.pdf document from Obsidian Six.",
       robots: noIndex,
     };
   }
   if (pdfFile === "Task-3.pdf") {
     return {
-      title: "Task-3.pdf | Obsidian Six",
+      title: "Task-3.pdf",
       description: "View the secure Task-3.pdf document from Obsidian Six.",
       robots: noIndex,
     };
   }
   if (pdfFile === "GOOGLE_ADS_FINAL.pdf") {
     return {
-      title: "GOOGLE_ADS_FINAL.pdf | Obsidian Six",
+      title: "GOOGLE_ADS_FINAL.pdf",
       description: "View the secure GOOGLE_ADS_FINAL.pdf document from Obsidian Six.",
       robots: noIndex,
     };
   }
 
-  return { title: "Secure Document Vault | Obsidian Six", robots: noIndex };
+  return { title: "Secure Document Vault", robots: noIndex };
 }
 
 export default async function DocPage({ params }: { params: Promise<{ doc: string }> }) {
