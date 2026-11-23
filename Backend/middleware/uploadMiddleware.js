@@ -26,7 +26,8 @@ const storage = multer.diskStorage({
 // ------------------------------------------------------------------
 // Allowed mime/types (images & videos)
 // ------------------------------------------------------------------
-const allowed = /jpeg|jpg|png|gif|webp|svg|mp4|mov|avi|wmv|flv|mkv/;
+// SVG is not allowed: an uploaded SVG can run scripts on api.obsidiansix.com.
+const allowed = /jpeg|jpg|png|gif|webp|avif|mp4|mov|avi|wmv|flv|mkv/;
 const fileFilter = (req, file, cb) => {
   const extOk = allowed.test(path.extname(file.originalname).toLowerCase());
   const mimeOk = allowed.test(file.mimetype);

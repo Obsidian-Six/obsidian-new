@@ -11,7 +11,6 @@ if (dotenvResult.error) {
   console.error('Dotenv loading error:', dotenvResult.error);
 } else {
   console.log('Loaded env keys:', Object.keys(dotenvResult.parsed || {}));
-  console.log('JWT_SECRET exists in process.env:', !!process.env.JWT_SECRET);
 }
 
 // Connect to database
@@ -19,8 +18,8 @@ connectDB();
 
 const app = express();
 
-// Body parser middleware
-app.use(express.json());
+// Body parser middleware (long blog posts need more than the 100kb default)
+app.use(express.json({ limit: '2mb' }));
 
 // Enable CORS (Cross-Origin Resource Sharing)
 app.use(cors({ origin: '*' }));
@@ -40,6 +39,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/enquiries', require('./routes/enquiryRoutes'));
 app.use('/api/case-studies', require('./routes/caseStudyRoutes'));
 app.use('/api/documents', require('./routes/documentRoutes'));
+app.use('/api/blogs', require('./routes/blogRoutes'));
 
 // Root / Health check route
 app.get('/', (req, res) => {

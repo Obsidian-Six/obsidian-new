@@ -7,12 +7,7 @@ export default function ScrollToTop(): null {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Scroll the new page to the top
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    });
+    // Scrolling to the top on page change is handled in SmoothScroll.tsx.
 
     // Show navbar again
     const header = document.querySelector("header");

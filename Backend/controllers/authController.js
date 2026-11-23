@@ -9,9 +9,19 @@ const generateToken = (id) => {
 };
 
 
+// @desc    Register a new user
+// @route   POST /api/auth/register
+// @access  Disabled unless ALLOW_REGISTRATION=true. New users are never admins.
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    if (process.env.ALLOW_REGISTRATION !== 'true') {
+      return res.status(403).json({ success: false, message: 'Registration is disabled' });
+    }
+
+    const { name, email, password } = req.body;
+    if (typeof email !== 'string' || typeof password !== 'string') {
+      return res.status(400).json({ success: false, message: 'Invalid user data' });
+    }
 
     // Check if user already exists
     const userExists = await User.findOne({ email });
@@ -24,7 +34,7 @@ const registerUser = async (req, res) => {
       name,
       email,
       password,
-      role: role || 'user', // Allows assigning admin/user role
+      role: 'user', // Admins are only created through the seed script
     });
 
     if (user) {
@@ -54,8 +64,8 @@ const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Validate email & password
-    if (!email || !password) {
+    // Validate email & password (strings only, blocks {"$ne": null} style queries)
+    if (typeof email !== 'string' || typeof password !== 'string' || !email || !password) {
       return res.status(400).json({ success: false, message: 'Please provide an email and password' });
     }
 

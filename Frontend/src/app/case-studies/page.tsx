@@ -99,8 +99,9 @@ import type CaseStudy from "@/lib/models/case-study.types";
 import caseStudiesData from "@/lib/store/case-studies";
 import { normalizeMediaUrls, getSlug } from "@/lib/utils";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+// Re-fetch case studies at most once a minute instead of on every click.
+// New case studies from the admin panel still show up within a minute.
+export const revalidate = 60;
 
 export default async function Page() {
   const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -108,7 +109,8 @@ export default async function Page() {
 
   try {
     const res = await fetch(`${apiBase}/api/case-studies`, {
-      cache: "no-store",
+      next: { revalidate: 60 },
+      signal: AbortSignal.timeout(4000),
     });
     const data = await res.json();
     if (res.ok && data.success && Array.isArray(data.data)) {
@@ -170,6 +172,7 @@ export default async function Page() {
                   className="object-cover" /* Sabhi images uniformly crop hongi aur bilkul barabar dikhengi */
                   // sizes="(max-width: 768px) 100vw, 33vw"
                   sizes="300px"
+                  loading={index < 3 ? "eager" : "lazy"}
                   unoptimized
                 />
               </div>

@@ -70,7 +70,7 @@ export default function BlogCard({
         <div className="relative overflow-hidden aspect-4/3 bg-slate-100 mb-3">
         <Image
             src={imageUrl}
-            alt={post.title.rendered}
+            alt={post.coverImageAlt || post.title.rendered.replace(/<[^>]*>/g, "")}
             fill
             sizes="
               (max-width: 640px) 100vw,

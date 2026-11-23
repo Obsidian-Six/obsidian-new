@@ -666,3 +666,31 @@ body.mobile-menu-open header {
 }
 
 /* cursor */
+/* ------------------------------------------------------------------
+   Blog article body (content from the CMS)
+   ------------------------------------------------------------------ */
+.blog-content {
+  @apply text-slate-800 text-lg leading-[1.85] break-words;
+}
+.blog-content > * + * { @apply mt-6; }
+.blog-content h2 { @apply mt-14 mb-4 text-3xl md:text-4xl font-bold tracking-tight text-slate-900 scroll-mt-32; }
+.blog-content h3 { @apply mt-10 mb-3 text-2xl font-bold text-slate-900 scroll-mt-32; }
+.blog-content h4, .blog-content h5, .blog-content h6 { @apply mt-8 mb-2 text-xl font-semibold text-slate-900; }
+.blog-content a { @apply text-[#052D69] font-semibold underline underline-offset-4 decoration-[#052D69]/30 hover:decoration-[#052D69]; }
+.blog-content strong, .blog-content b { @apply font-semibold text-slate-900; }
+.blog-content ul { @apply list-disc pl-6 space-y-2; }
+.blog-content ol { @apply list-decimal pl-6 space-y-2; }
+.blog-content li::marker { @apply text-[#052D69]; }
+.blog-content blockquote { @apply border-l-4 border-[#052D69] bg-slate-50 py-4 px-6 italic text-slate-700 rounded-r-xl; }
+.blog-content img { @apply my-10 h-auto max-w-full rounded-2xl shadow-md; }
+.blog-content figure { @apply my-10; }
+.blog-content figure img { @apply my-0; }
+.blog-content figcaption { @apply mt-3 text-center text-sm text-slate-500; }
+.blog-content hr { @apply my-12 border-slate-200; }
+.blog-content code { @apply rounded bg-slate-100 px-1.5 py-0.5 text-[0.9em]; }
+.blog-content pre { @apply overflow-x-auto rounded-xl bg-slate-900 p-5 text-sm text-slate-100; }
+.blog-content pre code { @apply bg-transparent p-0 text-inherit; }
+.blog-content table { @apply block w-full overflow-x-auto border-collapse text-base; }
+.blog-content th, .blog-content td { @apply border border-slate-200 px-4 py-2 text-left; }
+.blog-content th { @apply bg-slate-50 font-semibold; }
+.blog-content iframe { @apply my-10 aspect-video h-auto w-full rounded-2xl; }

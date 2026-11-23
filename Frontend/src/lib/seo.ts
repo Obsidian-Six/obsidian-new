@@ -18,9 +18,9 @@ type PageMetaInput = {
   title: string;
   description: string;
   /** Use when the title already carries the brand or must skip the template. */
-  absoluteTitle?: boolean;
+  absoluteTitle?: boolean | undefined;
   image?: string | undefined;
-  noIndex?: boolean;
+  noIndex?: boolean | undefined;
 };
 
 /** One place to build title, description, canonical and social tags for a page. */
@@ -36,7 +36,8 @@ export function pageMeta({
   image = image || "/images/logo/logo2.png";
   const fullTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
   return {
-    title: absoluteTitle ? { absolute: title } : title,
+    // Always absolute so nested layouts can never drop or double the brand.
+    title: { absolute: fullTitle },
     description,
     alternates: { canonical: url },
     openGraph: {
