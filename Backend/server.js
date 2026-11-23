@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
@@ -40,6 +41,11 @@ app.use('/api/enquiries', require('./routes/enquiryRoutes'));
 app.use('/api/case-studies', require('./routes/caseStudyRoutes'));
 app.use('/api/documents', require('./routes/documentRoutes'));
 app.use('/api/blogs', require('./routes/blogRoutes'));
+
+// Used by the auto-deploy health check and to see which version is live.
+app.get('/api/health', (req, res) => {
+  res.json({ ok: true, version: process.env.GIT_COMMIT || 'unknown', db: mongoose.connection.readyState === 1 });
+});
 
 // Root / Health check route
 app.get('/', (req, res) => {
