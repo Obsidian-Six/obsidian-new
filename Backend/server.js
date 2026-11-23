@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
@@ -11,7 +12,6 @@ if (dotenvResult.error) {
   console.error('Dotenv loading error:', dotenvResult.error);
 } else {
   console.log('Loaded env keys:', Object.keys(dotenvResult.parsed || {}));
-  console.log('JWT_SECRET exists in process.env:', !!process.env.JWT_SECRET);
 }
 
 // Connect to database
@@ -19,8 +19,8 @@ connectDB();
 
 const app = express();
 
-// Body parser middleware
-app.use(express.json());
+// Body parser middleware (long blog posts need more than the 100kb default)
+app.use(express.json({ limit: '2mb' }));
 
 // Enable CORS (Cross-Origin Resource Sharing)
 app.use(cors({ origin: '*' }));
@@ -40,6 +40,12 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/enquiries', require('./routes/enquiryRoutes'));
 app.use('/api/case-studies', require('./routes/caseStudyRoutes'));
 app.use('/api/documents', require('./routes/documentRoutes'));
+app.use('/api/blogs', require('./routes/blogRoutes'));
+
+// Used by the auto-deploy health check and to see which version is live.
+app.get('/api/health', (req, res) => {
+  res.json({ ok: true, version: process.env.GIT_COMMIT || 'unknown', db: mongoose.connection.readyState === 1 });
+});
 
 // Root / Health check route
 app.get('/', (req, res) => {

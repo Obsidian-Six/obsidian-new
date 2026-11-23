@@ -140,7 +140,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="antialiased" cz-shortcut-listen="true">
         <div className="hidden md:block">
-          <SplashCursor />
+          <SplashCursor DYE_RESOLUTION={720} PRESSURE_ITERATIONS={10} />
         </div>
         <ScrollToTop />
         <SmoothScroll />

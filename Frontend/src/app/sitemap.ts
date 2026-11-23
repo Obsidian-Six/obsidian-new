@@ -3,10 +3,11 @@ import { canonicalUrl } from "@/lib/seo";
 import { servicesStore } from "@/lib/store/template-services";
 import { landingPageSlugs } from "@/lib/store/landing-pages";
 import caseStudiesData from "@/lib/store/case-studies";
+import { getAllPosts } from "@/lib/blog";
 
-// Rebuild the sitemap at most once a day so new case studies and blog posts appear
-// without a redeploy.
-export const revalidate = 86400;
+// Rebuild the sitemap at most once an hour so new blog posts and case studies
+// appear without a redeploy.
+export const revalidate = 3600;
 
 type Entry = MetadataRoute.Sitemap[number];
 
@@ -21,7 +22,7 @@ function entry(path: string, priority: number, changeFrequency: Entry["changeFre
 
 async function fetchJson<T>(url: string): Promise<T | null> {
   try {
-    const res = await fetch(url, { next: { revalidate: 86400 }, signal: AbortSignal.timeout(5000) });
+    const res = await fetch(url, { next: { revalidate: 3600 }, signal: AbortSignal.timeout(5000) });
     if (!res.ok) return null;
     return (await res.json()) as T;
   } catch {
@@ -43,11 +44,10 @@ async function caseStudyEntries(): Promise<Entry[]> {
 }
 
 async function blogEntries(): Promise<Entry[]> {
-  const posts = await fetchJson<{ slug: string; modified: string }[]>(
-    "https://public-api.wordpress.com/wp/v2/sites/obsidiansixblogs.wordpress.com/posts?per_page=100&_fields=slug,modified"
-  );
-  if (!Array.isArray(posts)) return [];
-  return posts.map((p) => entry(`/blogs/${p.slug}`, 0.6, "monthly", p.modified));
+  const posts = await getAllPosts(500);
+  return posts
+    .filter((p) => !p.seo?.noindex && !p.seo?.canonicalUrl)
+    .map((p) => entry(`/blogs/${p.slug}`, 0.6, "monthly", p.updatedAt || p.publishedAt));
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -15,8 +15,10 @@ const protect = async (req, res, next) => {
       token = req.headers.authorization.split(' ')[1];
 
       // Verify token
-      const jwtSecret = process.env.JWT_SECRET || 'obsidian_six_default_jwt_secret_key_2026_super_secure';
-      const decoded = jwt.verify(token, jwtSecret);
+      if (!process.env.JWT_SECRET) {
+        throw new Error('JWT_SECRET is not set');
+      }
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
       // Get user from the token, exclude password from payload
       req.user = await User.findById(decoded.id);
@@ -37,6 +39,24 @@ const protect = async (req, res, next) => {
   }
 };
 
+// Allow either a logged-in admin (Bearer token) or an automation client
+// that sends the BLOG_API_KEY in the "x-api-key" header.
+const crypto = require('crypto');
+const adminOrApiKey = (req, res, next) => {
+  const key = req.headers['x-api-key'];
+  const expected = process.env.BLOG_API_KEY;
+  if (key && expected && expected.length >= 24) {
+    const a = Buffer.from(String(key));
+    const b = Buffer.from(expected);
+    if (a.length === b.length && crypto.timingSafeEqual(a, b)) {
+      req.user = { _id: null, name: 'API automation', role: 'admin', viaApiKey: true };
+      return next();
+    }
+    return res.status(401).json({ success: false, message: 'Invalid API key' });
+  }
+  return protect(req, res, () => authorize('admin')(req, res, next));
+};
+
 // Grant access to specific roles (e.g. authorize('admin'))
 const authorize = (...roles) => {
   return (req, res, next) => {
@@ -50,4 +70,4 @@ const authorize = (...roles) => {
   };
 };
 
-module.exports = { protect, authorize };
+module.exports = { protect, authorize, adminOrApiKey };

@@ -1,3 +1,5 @@
+import { getAllPosts, toCardPost } from "@/lib/blog";
+
 export interface BlogPost {
   id: number;
   title: {
@@ -11,7 +13,9 @@ export interface BlogPost {
   };
   slug: string;
   date: string;
-  jetpack_featured_media_url?: string;
+  jetpack_featured_media_url?: string | undefined;
+  category?: string;
+  coverImageAlt?: string;
   _embedded?: {
     "wp:featuredmedia"?: Array<{
       source_url: string;
@@ -58,42 +62,11 @@ export function getBlogImage(
   /*
    * 4. Fallback
    */
-  return "/founder.jpg";
+  return "/images/gradient-hero.png";
 }
 
-export async function getBlogs(): Promise<
-  BlogPost[]
-> {
-  try {
-    const response = await fetch(
-      `${BLOGS_API}?_embed&per_page=100`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-        cache: "no-store",
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error(
-        `Blog API error: ${response.status}`
-      );
-    }
-
-    const data: unknown =
-      await response.json();
-
-    return Array.isArray(data)
-      ? (data as BlogPost[])
-      : [];
-  } catch (error) {
-    console.error(
-      "Failed to fetch blogs:",
-      error
-    );
-
-    return [];
-  }
+/** Latest posts from the CMS (falls back to WordPress until posts are imported). */
+export async function getBlogs(): Promise<BlogPost[]> {
+  const posts = await getAllPosts(12);
+  return posts.map((p, i) => toCardPost(p, i));
 }

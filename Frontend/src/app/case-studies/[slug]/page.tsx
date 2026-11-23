@@ -14,8 +14,8 @@ const loadCaseStudy = cache(async (slug: string): Promise<CaseStudy | null> => {
   const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
   try {
     const res = await fetch(`${apiBase}/api/case-studies/slug/${encodeURIComponent(slug)}`, {
-      cache: "no-store",
-      signal: AbortSignal.timeout(5000),
+      next: { revalidate: 60 },
+      signal: AbortSignal.timeout(4000),
     });
     const data = await res.json();
     if (res.ok && data.success && data.data) {
@@ -45,8 +45,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// Cache each case study for a minute; edits in the admin panel appear within 60 seconds.
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   return caseStudiesData.map((caseStudy) => ({

@@ -6,9 +6,11 @@ import { FaSpinner } from "react-icons/fa";
 import Sidebar from "../_components/Sidebar";
 import CaseStudiesTab from "../_components/CaseStudies/CaseStudiesTab";
 import CaseStudyForm from "../_components/CaseStudies/CaseStudyForm";
+import BlogsTab from "../_components/Blogs/BlogsTab";
+import BlogEditor from "../_components/Blogs/BlogEditor";
 
 // Strictly matching the TabKey definitions used by your Sidebar component
-type TabKey = "overview" | "case-studies" | "create-case-study";
+type TabKey = "overview" | "case-studies" | "create-case-study" | "blogs" | "blog-editor";
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -18,6 +20,8 @@ export default function AdminDashboard() {
 
   // View states
   const [editingCase, setEditingCase] = useState<any>(null);
+  const [editingBlogId, setEditingBlogId] = useState<string | null>(null);
+  const [editorKey, setEditorKey] = useState(0);
   const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
   // Core trigger to force component data re-fetching across child screens
@@ -46,6 +50,38 @@ export default function AdminDashboard() {
 
   // Render content conditionally with refresh indicators fully tied to key layouts
   const renderContent = () => {
+    if (activeTab === "blog-editor") {
+      return (
+        <BlogEditor
+          key={`${editingBlogId ?? "new"}-${editorKey}`}
+          token={token}
+          apiBase={apiBase}
+          postId={editingBlogId}
+          onClose={() => setActiveTab("blogs")}
+          onSaved={() => setRefreshNonce((prev) => prev + 1)}
+        />
+      );
+    }
+
+    if (activeTab === "blogs") {
+      return (
+        <BlogsTab
+          key={refreshNonce}
+          token={token}
+          apiBase={apiBase}
+          onOpenCreate={() => {
+            setEditingBlogId(null);
+            setEditorKey((k) => k + 1);
+            setActiveTab("blog-editor");
+          }}
+          onOpenEdit={(id) => {
+            setEditingBlogId(id);
+            setActiveTab("blog-editor");
+          }}
+        />
+      );
+    }
+
     if (activeTab === "create-case-study") {
       return (
         <CaseStudyForm
@@ -84,10 +120,16 @@ export default function AdminDashboard() {
   return (
     <div className="flex min-h-screen bg-gray-50 text-gray-900 font-sans">
       <Sidebar
-        activeTab={activeTab === "create-case-study" ? "case-studies" : activeTab}
+        activeTab={activeTab === "create-case-study" ? "case-studies" : activeTab === "blog-editor" ? "blogs" : activeTab}
         setActiveTab={(tab) => {
           setEditingCase(null);
+          setEditingBlogId(null);
           setActiveTab(tab);
+        }}
+        onOpenCreateBlog={() => {
+          setEditingBlogId(null);
+          setEditorKey((k) => k + 1);
+          setActiveTab("blog-editor");
         }}
         onOpenCreate={() => {
           setEditingCase(null);
