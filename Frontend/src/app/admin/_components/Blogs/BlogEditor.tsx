@@ -360,6 +360,10 @@ export default function BlogEditor({ token, apiBase, postId, onClose, onSaved }:
               }}
             />
             <div>
+              <label className={label} htmlFor="c-url">Or paste an image URL</label>
+              <input id="c-url" className={input} value={draft.coverImage} onChange={(e) => set("coverImage", e.target.value.trim())} placeholder="https://…" />
+            </div>
+            <div>
               <label className={label} htmlFor="c-alt">Alt text</label>
               <input id="c-alt" className={input} value={draft.coverImageAlt} onChange={(e) => set("coverImageAlt", e.target.value)} placeholder="Describe what the image shows" />
             </div>
