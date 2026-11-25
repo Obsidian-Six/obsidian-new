@@ -13,6 +13,8 @@
 # ---------------------------------------------------------------------------
 set -uo pipefail
 
+main() {
+
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BRANCH="${DEPLOY_BRANCH:-main}"
 SITE_URL="${SITE_URL:-https://obsidiansix.com/}"
@@ -43,8 +45,30 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
   exit 1
 fi
 
+CHANGED="$(git diff --name-only "$OLD" "$NEW")"
+CHANGED_POSTS="$(echo "$CHANGED" | grep -E '^content/blogs/.+\.md$' || true)"
+
 git checkout --quiet "$BRANCH" && git merge --quiet --ff-only "origin/$BRANCH" || {
   log "ERROR: could not fast-forward to origin/$BRANCH"; exit 1; }
+
+sync_posts() {
+  [ -z "$CHANGED_POSTS" ] && return 0
+  local files=()
+  while IFS= read -r f; do [ -f "$f" ] && files+=("$f"); done <<< "$CHANGED_POSTS"
+  [ "${#files[@]}" -eq 0 ] && return 0
+  if python3 deploy/sync-blogs.py "${files[@]}"; then
+    log "OK: synced ${#files[@]} blog post(s) to the CMS."
+  else
+    log "ERROR: blog sync failed. See the lines above."
+  fi
+}
+
+# Only blog content changed: no rebuild needed, just push the posts into the CMS.
+if [ "${1:-}" != "--force" ] && [ -n "$CHANGED" ] && ! echo "$CHANGED" | grep -qv '^content/'; then
+  sync_posts
+  log "OK: ${NEW:0:7} content update applied (no rebuild)."
+  exit 0
+fi
 
 export GIT_COMMIT="${NEW:0:7}"
 
@@ -82,3 +106,7 @@ fi
 
 docker image prune -f >/dev/null 2>&1
 log "OK: ${NEW:0:7} is live."
+sync_posts
+}
+
+main "$@"

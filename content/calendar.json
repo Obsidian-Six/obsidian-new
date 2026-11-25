@@ -1,0 +1,1026 @@
+{
+  "startDate": "2026-11-26",
+  "publishTimeIST": "09:30",
+  "posts": [
+    {
+      "day": 1,
+      "date": "2026-11-26",
+      "type": "article",
+      "title": "Google AI Mode Ads Are Now Live in India: What Changes for Your Google Ads",
+      "slug": "google-ai-mode-ads-india",
+      "focusKeyword": "google ai mode ads",
+      "icp": "Indian SMB owners running Google Ads",
+      "intent": "TOFU",
+      "cluster": "AI search",
+      "category": "Performance Marketing",
+      "angle": "Google expanded ads in AI Mode to India on 28 Oct 2026. Explain what it is, which campaigns are eligible, what to check in your account this week, and what it means for small budgets.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/digital-marketing-agency-india/"
+      ]
+    },
+    {
+      "day": 2,
+      "date": "2026-11-27",
+      "type": "article",
+      "title": "How Much Do Meta Ads Cost in India? CPM, CPC and Cost per Lead Explained",
+      "slug": "meta-ads-cost-india",
+      "focusKeyword": "meta ads cost india",
+      "icp": "Indian SMB owners planning ad budgets",
+      "intent": "MOFU",
+      "cluster": "Paid ads",
+      "category": "Performance Marketing",
+      "angle": "Explain what drives CPM/CPC/CPL in India, give sourced ranges only, show a simple budget calculation, and list the levers that lower cost per lead.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/digital-marketing-agency-india/"
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-11-28",
+      "type": "article",
+      "title": "Hotel Direct Bookings: How Independent Hotels in India Can Cut OTA Commission",
+      "slug": "hotel-direct-booking-strategy",
+      "focusKeyword": "hotel direct booking strategy",
+      "icp": "Independent hotel and homestay owners in India",
+      "intent": "MOFU",
+      "cluster": "Industry: hospitality",
+      "category": "Hospitality Marketing",
+      "angle": "Practical plan: Google Business Profile, booking engine, rate parity, WhatsApp, Meta ads for weekends and events, repeat guests. Show the commission maths with a worked example.",
+      "internalLinks": [
+        "/services/web-development/",
+        "/case-studies/"
+      ]
+    },
+    {
+      "day": 4,
+      "date": "2026-11-29",
+      "type": "article",
+      "title": "WhatsApp Business API Pricing in India: What You Actually Pay per Message",
+      "slug": "whatsapp-business-api-pricing-india",
+      "focusKeyword": "whatsapp business api pricing india",
+      "icp": "Indian businesses using or considering WhatsApp marketing",
+      "intent": "MOFU",
+      "cluster": "WhatsApp",
+      "category": "WhatsApp Marketing",
+      "angle": "Per-message pricing since July 2025, India rates from Meta's rate card, BSP fees, GST, how categorisation changes cost, a monthly cost example.",
+      "internalLinks": [
+        "/services/marketing-automation/",
+        "/services/performance-marketing/"
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-11-30",
+      "type": "news-roundup",
+      "title": "Marketing News This Week: Ads, Search and Social Updates (30 Nov 2026)",
+      "slug": "marketing-news-30-nov-2026",
+      "focusKeyword": "digital marketing news",
+      "icp": "Indian and UAE business owners and marketers",
+      "intent": "TOFU",
+      "cluster": "Weekly news",
+      "category": "Marketing News",
+      "angle": "Research what changed in the last 7 days across Google Search/Ads, Meta, Instagram, WhatsApp, LinkedIn, Indian/UAE regulation. Pick the 4-6 changes that matter to small businesses. For each: what changed (with source link and date), who it affects, what to do this week.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/search-engine-optimisation/"
+      ]
+    },
+    {
+      "day": 6,
+      "date": "2026-12-01",
+      "type": "article",
+      "title": "New Year Campaign Ideas for Indian Brands (With a 10-Day Plan)",
+      "slug": "new-year-marketing-campaign-ideas",
+      "focusKeyword": "new year marketing campaign ideas",
+      "icp": "D2C, retail, cafes and hotels in India",
+      "intent": "TOFU",
+      "cluster": "Seasonal",
+      "category": "Social Media Marketing",
+      "angle": "10 realistic campaign ideas by business type plus a day-by-day plan from 22 to 31 December, budgets kept small.",
+      "internalLinks": [
+        "/services/social-media-management/",
+        "/services/performance-marketing/"
+      ]
+    },
+    {
+      "day": 7,
+      "date": "2026-12-02",
+      "type": "article",
+      "title": "How to Generate Real Estate Leads in India Without Depending on Property Portals",
+      "slug": "real-estate-lead-generation-india",
+      "focusKeyword": "real estate lead generation india",
+      "icp": "Real estate developers and channel partners in India",
+      "intent": "MOFU",
+      "cluster": "Industry: real estate",
+      "category": "Real Estate Marketing",
+      "angle": "Own-channel lead system: project landing pages, Meta lead forms vs website forms, WhatsApp follow-up, site-visit tracking, RERA disclosure in ads.",
+      "internalLinks": [
+        "/digital-marketing-agency-mumbai/",
+        "/services/performance-marketing/"
+      ]
+    },
+    {
+      "day": 8,
+      "date": "2026-12-03",
+      "type": "article",
+      "title": "Google Business Profile Optimisation: A Checklist for Indian Local Businesses",
+      "slug": "google-business-profile-optimization",
+      "focusKeyword": "google business profile optimization",
+      "icp": "Local businesses in India (clinics, hotels, stores, institutes)",
+      "intent": "MOFU",
+      "cluster": "Local SEO",
+      "category": "SEO",
+      "angle": "Field-by-field checklist, categories, photos, posts, Q&A, reviews, NAP consistency, common suspension triggers.",
+      "internalLinks": [
+        "/services/search-engine-optimisation/",
+        "/digital-marketing-agency-bhopal/"
+      ]
+    },
+    {
+      "day": 9,
+      "date": "2026-12-04",
+      "type": "article",
+      "title": "DPDP Rules for Marketers: What Indian Businesses Must Change in Lead Forms and Ads",
+      "slug": "dpdp-act-marketing-compliance",
+      "focusKeyword": "dpdp act marketing compliance",
+      "icp": "Indian businesses collecting leads online",
+      "intent": "TOFU",
+      "cluster": "Compliance",
+      "category": "Digital Marketing",
+      "angle": "DPDP Rules notified Nov 2025 with phased timeline. What changes for consent on lead forms, WhatsApp lists, retargeting audiences, data retention. Not legal advice; link official PIB/MeitY sources.",
+      "internalLinks": [
+        "/services/web-development/",
+        "/services/marketing-automation/"
+      ]
+    },
+    {
+      "day": 10,
+      "date": "2026-12-05",
+      "type": "article",
+      "title": "Website Development Cost in India: What You Get at ₹30,000, ₹1 Lakh and ₹5 Lakh",
+      "slug": "website-development-cost-india",
+      "focusKeyword": "website development cost india",
+      "icp": "Indian SMB owners planning a new website",
+      "intent": "BOFU",
+      "cluster": "Web",
+      "category": "Web Development",
+      "angle": "Honest breakdown of what each budget buys, hidden costs (hosting, AMC, content, SEO setup), red flags in cheap quotes, questions to ask.",
+      "internalLinks": [
+        "/web-development-company-india/",
+        "/services/web-development/"
+      ]
+    },
+    {
+      "day": 11,
+      "date": "2026-12-06",
+      "type": "article",
+      "title": "Ayurveda Brand Marketing: How D2C Ayurvedic Brands Grow Online Within the Rules",
+      "slug": "ayurveda-brand-marketing",
+      "focusKeyword": "ayurveda brand marketing",
+      "icp": "Ayurveda and wellness D2C founders",
+      "intent": "MOFU",
+      "cluster": "Industry: Ayurveda",
+      "category": "Ayurveda & Wellness Marketing",
+      "angle": "Trust-building content, claims you cannot make in ads (Drugs and Magic Remedies Act, ASCI, Meta health policies), marketplaces vs own store, influencer approach.",
+      "internalLinks": [
+        "/case-studies/pachmarhi-ayurveda/",
+        "/services/e-commerce/"
+      ]
+    },
+    {
+      "day": 12,
+      "date": "2026-12-07",
+      "type": "news-roundup",
+      "title": "Marketing News This Week: Ads, Search and Social Updates (7 Dec 2026)",
+      "slug": "marketing-news-7-dec-2026",
+      "focusKeyword": "digital marketing news",
+      "icp": "Indian and UAE business owners and marketers",
+      "intent": "TOFU",
+      "cluster": "Weekly news",
+      "category": "Marketing News",
+      "angle": "Research what changed in the last 7 days across Google Search/Ads, Meta, Instagram, WhatsApp, LinkedIn, Indian/UAE regulation. Pick the 4-6 changes that matter to small businesses. For each: what changed (with source link and date), who it affects, what to do this week.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/search-engine-optimisation/"
+      ]
+    },
+    {
+      "day": 13,
+      "date": "2026-12-08",
+      "type": "article",
+      "title": "UAE Advertiser Permit: What Brands Must Check Before Hiring Influencers in Dubai",
+      "slug": "uae-advertiser-permit",
+      "focusKeyword": "uae advertiser permit",
+      "icp": "UAE brands and agencies working with creators",
+      "intent": "TOFU",
+      "cluster": "UAE",
+      "category": "UAE Marketing",
+      "angle": "Permit rules in force since Feb 2026, what brands should ask creators for, visiting creators, penalties, contract checklist.",
+      "internalLinks": [
+        "/digital-marketing-agency-uae/",
+        "/services/social-media-management/"
+      ]
+    },
+    {
+      "day": 14,
+      "date": "2026-12-09",
+      "type": "article",
+      "title": "GA4 Lead Tracking: Set Up Form, Call and WhatsApp Conversions in 30 Minutes",
+      "slug": "ga4-lead-tracking",
+      "focusKeyword": "ga4 lead tracking",
+      "icp": "Business owners and marketers running lead-gen sites",
+      "intent": "MOFU",
+      "cluster": "Analytics",
+      "category": "Analytics",
+      "angle": "Step-by-step: key events, form submit, tel: and wa.me click tracking, import to Google Ads, testing in DebugView.",
+      "internalLinks": [
+        "/services/analytics/",
+        "/services/performance-marketing/"
+      ]
+    },
+    {
+      "day": 15,
+      "date": "2026-12-10",
+      "type": "article",
+      "title": "Custom Website vs WordPress: Which Is Better for a Growing Business?",
+      "slug": "custom-website-vs-wordpress",
+      "focusKeyword": "custom website vs wordpress",
+      "icp": "SMB owners and founders deciding on a rebuild",
+      "intent": "MOFU",
+      "cluster": "Web",
+      "category": "Web Development",
+      "angle": "Fair comparison: cost over 3 years, speed, security, plugins, who edits content, SEO, when WordPress is the right answer.",
+      "internalLinks": [
+        "/web-development-company-india/",
+        "/services/web-development/"
+      ]
+    },
+    {
+      "day": 16,
+      "date": "2026-12-11",
+      "type": "article",
+      "title": "How to Choose a Digital Marketing Agency in India: 12 Questions to Ask First",
+      "slug": "how-to-choose-digital-marketing-agency",
+      "focusKeyword": "how to choose digital marketing agency",
+      "icp": "Indian SMB owners shortlisting agencies",
+      "intent": "BOFU",
+      "cluster": "Agency selection",
+      "category": "Digital Marketing",
+      "angle": "12 questions with what a good and bad answer sounds like: account ownership, reporting, lock-ins, who does the work, case studies you can verify.",
+      "internalLinks": [
+        "/digital-marketing-agency-india/",
+        "/case-studies/"
+      ]
+    },
+    {
+      "day": 17,
+      "date": "2026-12-12",
+      "type": "article",
+      "title": "Meta Advantage+ in 2026: When to Trust Automation and When to Take Control",
+      "slug": "meta-advantage-campaigns",
+      "focusKeyword": "meta advantage+ campaigns",
+      "icp": "Businesses running Meta ads in India and UAE",
+      "intent": "MOFU",
+      "cluster": "Paid ads",
+      "category": "Performance Marketing",
+      "angle": "Advantage+ is now the default; explain audience/placement/creative automation, when it works (enough conversions, good creative), when to add controls, recent changes.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/digital-marketing-agency-uae/"
+      ]
+    },
+    {
+      "day": 18,
+      "date": "2026-12-13",
+      "type": "article",
+      "title": "College Admission Marketing: A January to March Playbook",
+      "slug": "college-admission-marketing-strategy",
+      "focusKeyword": "college admission marketing strategy",
+      "icp": "Colleges, universities and institutes in India",
+      "intent": "MOFU",
+      "cluster": "Industry: education",
+      "category": "Education Marketing",
+      "angle": "Week-by-week plan for the admission season: search, Meta lead ads, counselling follow-up, alumni content, open-day events. Link to existing MBA post.",
+      "internalLinks": [
+        "/blogs/how-to-generate-admission-leads-for-mba-colleges-using-digital-marketing-in-2026/",
+        "/digital-marketing-agency-bhopal/"
+      ]
+    },
+    {
+      "day": 19,
+      "date": "2026-12-14",
+      "type": "news-roundup",
+      "title": "Marketing News This Week: Ads, Search and Social Updates (14 Dec 2026)",
+      "slug": "marketing-news-14-dec-2026",
+      "focusKeyword": "digital marketing news",
+      "icp": "Indian and UAE business owners and marketers",
+      "intent": "TOFU",
+      "cluster": "Weekly news",
+      "category": "Marketing News",
+      "angle": "Research what changed in the last 7 days across Google Search/Ads, Meta, Instagram, WhatsApp, LinkedIn, Indian/UAE regulation. Pick the 4-6 changes that matter to small businesses. For each: what changed (with source link and date), who it affects, what to do this week.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/search-engine-optimisation/"
+      ]
+    },
+    {
+      "day": 20,
+      "date": "2026-12-15",
+      "type": "article",
+      "title": "Healthcare Marketing in India: Getting Patients Without Breaking Ad Rules",
+      "slug": "healthcare-marketing-india",
+      "focusKeyword": "healthcare marketing india",
+      "icp": "Clinics, hospitals and doctors in India",
+      "intent": "MOFU",
+      "cluster": "Industry: healthcare",
+      "category": "Healthcare Marketing",
+      "angle": "NMC ethics limits for doctors, Google/Meta health ad policies, what works: GBP, condition pages, doctor videos, reviews, appointment flow.",
+      "internalLinks": [
+        "/services/search-engine-optimisation/",
+        "/services/web-development/"
+      ]
+    },
+    {
+      "day": 21,
+      "date": "2026-12-16",
+      "type": "article",
+      "title": "Local SEO for Multi-Location Businesses: How to Rank in Every City You Serve",
+      "slug": "local-seo-multiple-locations",
+      "focusKeyword": "local seo multiple locations",
+      "icp": "Businesses with branches or service areas in several cities",
+      "intent": "MOFU",
+      "cluster": "Local SEO",
+      "category": "SEO",
+      "angle": "Location pages that are not thin, one GBP per real location, internal linking, reviews per branch, tracking by city.",
+      "internalLinks": [
+        "/services/search-engine-optimisation/",
+        "/digital-marketing-agency-mumbai/"
+      ]
+    },
+    {
+      "day": 22,
+      "date": "2026-12-17",
+      "type": "article",
+      "title": "How Dubai Business Setup Consultants Can Get Leads Online in 2027",
+      "slug": "business-setup-consultant-marketing-dubai",
+      "focusKeyword": "business setup consultant marketing dubai",
+      "icp": "UAE business setup and corporate service firms",
+      "intent": "MOFU",
+      "cluster": "UAE",
+      "category": "UAE Marketing",
+      "angle": "Search intent by free zone, comparison content, Google Ads in a costly niche, WhatsApp handling, trust signals; link existing consulting-leads post.",
+      "internalLinks": [
+        "/digital-marketing-agency-uae/",
+        "/blogs/consulting-leads-dubai-without-ads/"
+      ]
+    },
+    {
+      "day": 23,
+      "date": "2026-12-18",
+      "type": "article",
+      "title": "Cost per Lead: How to Know If Your Ads Are Actually Working",
+      "slug": "cost-per-lead",
+      "focusKeyword": "cost per lead",
+      "icp": "SMB owners paying for ads",
+      "intent": "MOFU",
+      "cluster": "Paid ads",
+      "category": "Performance Marketing",
+      "angle": "Work backwards from customer value and close rate to an allowable CPL, why cheap leads can be expensive, a simple sheet to calculate it.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/analytics/"
+      ]
+    },
+    {
+      "day": 24,
+      "date": "2026-12-19",
+      "type": "article",
+      "title": "Lead Follow-Up Automation: Why Leads Go Cold in Minutes and How to Fix It",
+      "slug": "lead-follow-up-automation",
+      "focusKeyword": "lead follow up automation",
+      "icp": "Service businesses getting enquiries from ads",
+      "intent": "MOFU",
+      "cluster": "Automation",
+      "category": "Marketing Automation",
+      "angle": "Speed-to-lead, auto WhatsApp/email replies, call routing, CRM stages, a simple automation map for a small team.",
+      "internalLinks": [
+        "/services/marketing-automation/",
+        "/services/web-development/"
+      ]
+    },
+    {
+      "day": 25,
+      "date": "2026-12-20",
+      "type": "article",
+      "title": "How to Get Your Business Mentioned in Google AI Overviews and ChatGPT Answers",
+      "slug": "how-to-appear-in-ai-overviews",
+      "focusKeyword": "how to appear in ai overviews",
+      "icp": "Business owners worried about AI search",
+      "intent": "MOFU",
+      "cluster": "AI search",
+      "category": "SEO",
+      "angle": "What Google says about AI features and SEO, clear answers on pages, structured data, third-party mentions, measuring AI referrals; no hype.",
+      "internalLinks": [
+        "/services/search-engine-optimisation/",
+        "/services/content-marketing/"
+      ]
+    },
+    {
+      "day": 26,
+      "date": "2026-12-21",
+      "type": "news-roundup",
+      "title": "Marketing News This Week: Ads, Search and Social Updates (21 Dec 2026)",
+      "slug": "marketing-news-21-dec-2026",
+      "focusKeyword": "digital marketing news",
+      "icp": "Indian and UAE business owners and marketers",
+      "intent": "TOFU",
+      "cluster": "Weekly news",
+      "category": "Marketing News",
+      "angle": "Research what changed in the last 7 days across Google Search/Ads, Meta, Instagram, WhatsApp, LinkedIn, Indian/UAE regulation. Pick the 4-6 changes that matter to small businesses. For each: what changed (with source link and date), who it affects, what to do this week.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/search-engine-optimisation/"
+      ]
+    },
+    {
+      "day": 27,
+      "date": "2026-12-22",
+      "type": "article",
+      "title": "Instagram Reels for B2B: What Actually Brings Enquiries",
+      "slug": "instagram-reels-for-b2b",
+      "focusKeyword": "instagram reels for b2b",
+      "icp": "B2B founders and service firms",
+      "intent": "MOFU",
+      "cluster": "Social",
+      "category": "Social Media Marketing",
+      "angle": "Formats that work for B2B (founder POV, process, myth-busting, client questions), hooks, posting rhythm, measuring DMs and profile visits.",
+      "internalLinks": [
+        "/services/social-media-management/",
+        "/services/content-marketing/"
+      ]
+    },
+    {
+      "day": 28,
+      "date": "2026-12-23",
+      "type": "article",
+      "title": "Landing Page Mistakes That Waste Your Ad Budget (and How to Fix Them)",
+      "slug": "landing-page-optimization",
+      "focusKeyword": "landing page optimization",
+      "icp": "Businesses running paid campaigns",
+      "intent": "MOFU",
+      "cluster": "Web/CRO",
+      "category": "Web Development",
+      "angle": "Message match, speed, one CTA, forms, trust, mobile, WhatsApp button; before/after checklist.",
+      "internalLinks": [
+        "/web-development-company-india/",
+        "/services/performance-marketing/"
+      ]
+    },
+    {
+      "day": 29,
+      "date": "2026-12-24",
+      "type": "article",
+      "title": "Micro-Influencer Marketing in Tier 2 Cities: A Guide for Local Brands",
+      "slug": "micro-influencer-marketing-india",
+      "focusKeyword": "micro influencer marketing india",
+      "icp": "Local brands in Tier 2 and Tier 3 cities",
+      "intent": "MOFU",
+      "cluster": "Social",
+      "category": "Influencer Marketing",
+      "angle": "Finding creators, checking audience location, fair pay ranges only if sourced, briefs, ASCI disclosure rules, tracking.",
+      "internalLinks": [
+        "/services/social-media-management/",
+        "/digital-marketing-agency-bhopal/"
+      ]
+    },
+    {
+      "day": 30,
+      "date": "2026-12-25",
+      "type": "article",
+      "title": "Year-End Marketing Audit: 20 Things to Check Before Planning 2027",
+      "slug": "marketing-audit-checklist",
+      "focusKeyword": "marketing audit checklist",
+      "icp": "SMB owners and marketing heads",
+      "intent": "MOFU",
+      "cluster": "Strategy",
+      "category": "Digital Marketing",
+      "angle": "20-point audit across website, SEO, ads, social, CRM, reporting, with what good looks like.",
+      "internalLinks": [
+        "/digital-marketing-agency-india/",
+        "/contactus/"
+      ]
+    },
+    {
+      "day": 31,
+      "date": "2026-12-26",
+      "type": "article",
+      "title": "Google Ads for Service Businesses: Search Campaigns vs Performance Max",
+      "slug": "performance-max-vs-search-campaigns",
+      "focusKeyword": "performance max vs search campaigns",
+      "icp": "Service businesses running Google Ads",
+      "intent": "MOFU",
+      "cluster": "Paid ads",
+      "category": "Performance Marketing",
+      "angle": "When to use each, lead quality issues with PMax, brand exclusions, offline conversion imports, AI Mode impact.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/analytics/"
+      ]
+    },
+    {
+      "day": 32,
+      "date": "2026-12-27",
+      "type": "article",
+      "title": "Cafe and Restaurant Marketing: Filling Tables in the First 90 Days After Launch",
+      "slug": "cafe-marketing-strategy",
+      "focusKeyword": "cafe marketing strategy",
+      "icp": "Cafe and restaurant owners in India",
+      "intent": "MOFU",
+      "cluster": "Industry: F&B",
+      "category": "Hospitality Marketing",
+      "angle": "Pre-launch buzz, GBP and Zomato/Swiggy listings, local creators, events, WhatsApp community, Meta ads by radius, measuring footfall.",
+      "internalLinks": [
+        "/services/social-media-management/",
+        "/services/performance-marketing/"
+      ]
+    },
+    {
+      "day": 33,
+      "date": "2026-12-28",
+      "type": "news-roundup",
+      "title": "Marketing News This Week: Ads, Search and Social Updates (28 Dec 2026)",
+      "slug": "marketing-news-28-dec-2026",
+      "focusKeyword": "digital marketing news",
+      "icp": "Indian and UAE business owners and marketers",
+      "intent": "TOFU",
+      "cluster": "Weekly news",
+      "category": "Marketing News",
+      "angle": "Research what changed in the last 7 days across Google Search/Ads, Meta, Instagram, WhatsApp, LinkedIn, Indian/UAE regulation. Pick the 4-6 changes that matter to small businesses. For each: what changed (with source link and date), who it affects, what to do this week.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/search-engine-optimisation/"
+      ]
+    },
+    {
+      "day": 34,
+      "date": "2026-12-29",
+      "type": "article",
+      "title": "How Much Does SEO Cost in India? Monthly Pricing Explained",
+      "slug": "seo-cost-india",
+      "focusKeyword": "seo cost india",
+      "icp": "Indian SMB owners comparing SEO quotes",
+      "intent": "BOFU",
+      "cluster": "SEO",
+      "category": "SEO",
+      "angle": "What drives price, what a monthly retainer should include, why ₹5,000 packages fail, timelines, what to ask. Can state Obsidian Six SEO starts from ₹30,000/month with 5–7 keywords.",
+      "internalLinks": [
+        "/services/search-engine-optimisation/",
+        "/blogs/build-authentic-organic-audience/"
+      ]
+    },
+    {
+      "day": 35,
+      "date": "2026-12-30",
+      "type": "article",
+      "title": "Hiring an Indian Development Team from the UK or Europe: What to Know",
+      "slug": "outsource-web-development-india",
+      "focusKeyword": "outsource web development india",
+      "icp": "UK/EU founders and agencies outsourcing development",
+      "intent": "BOFU",
+      "cluster": "International",
+      "category": "Web Development",
+      "angle": "Engagement models, time-zone overlap, IP and code ownership, GDPR/DPA, how to test a team with a paid pilot, red flags.",
+      "internalLinks": [
+        "/web-development-company-india/",
+        "/services/web-development/"
+      ]
+    },
+    {
+      "day": 36,
+      "date": "2026-12-31",
+      "type": "article",
+      "title": "Custom CRM Development: Build Around Your Sales Process, Not the Other Way Round",
+      "slug": "custom-crm-development",
+      "focusKeyword": "custom crm development",
+      "icp": "SMBs outgrowing spreadsheets and off-the-shelf CRMs",
+      "intent": "MOFU",
+      "cluster": "Automation",
+      "category": "Marketing Automation",
+      "angle": "When off-the-shelf is enough, when custom wins, telephony/WhatsApp integration, cost drivers, phased build.",
+      "internalLinks": [
+        "/services/marketing-automation/",
+        "/web-development-company-india/"
+      ]
+    },
+    {
+      "day": 37,
+      "date": "2027-01-01",
+      "type": "article",
+      "title": "A One-Page Marketing Plan for 2027: Template for Small Businesses",
+      "slug": "marketing-plan-template",
+      "focusKeyword": "marketing plan template",
+      "icp": "Small business owners planning next year",
+      "intent": "TOFU",
+      "cluster": "Strategy",
+      "category": "Digital Marketing",
+      "angle": "One-page template: goal, customer, offer, channels, budget split, monthly rhythm, metrics; a filled example.",
+      "internalLinks": [
+        "/digital-marketing-agency-india/",
+        "/services/content-marketing/"
+      ]
+    },
+    {
+      "day": 38,
+      "date": "2027-01-02",
+      "type": "article",
+      "title": "Republic Day Marketing: Campaign Ideas That Stay Respectful and Still Sell",
+      "slug": "republic-day-marketing-ideas",
+      "focusKeyword": "republic day marketing ideas",
+      "icp": "D2C and retail brands in India",
+      "intent": "TOFU",
+      "cluster": "Seasonal",
+      "category": "Social Media Marketing",
+      "angle": "Ideas, Flag Code and emblem misuse rules, tone, offers, timeline.",
+      "internalLinks": [
+        "/services/social-media-management/",
+        "/services/brand-consulting/"
+      ]
+    },
+    {
+      "day": 39,
+      "date": "2027-01-03",
+      "type": "article",
+      "title": "Core Web Vitals for Business Owners: What a Slow Website Costs You",
+      "slug": "core-web-vitals",
+      "focusKeyword": "core web vitals",
+      "icp": "SMB owners with slow websites",
+      "intent": "MOFU",
+      "cluster": "Web",
+      "category": "Web Development",
+      "angle": "LCP, INP, CLS in plain words, how to test, common causes (heavy video, sliders, plugins), fixes, link to Google docs.",
+      "internalLinks": [
+        "/web-development-company-india/",
+        "/services/web-development/"
+      ]
+    },
+    {
+      "day": 40,
+      "date": "2027-01-04",
+      "type": "news-roundup",
+      "title": "Marketing News This Week: Ads, Search and Social Updates (4 Jan 2027)",
+      "slug": "marketing-news-4-jan-2027",
+      "focusKeyword": "digital marketing news",
+      "icp": "Indian and UAE business owners and marketers",
+      "intent": "TOFU",
+      "cluster": "Weekly news",
+      "category": "Marketing News",
+      "angle": "Research what changed in the last 7 days across Google Search/Ads, Meta, Instagram, WhatsApp, LinkedIn, Indian/UAE regulation. Pick the 4-6 changes that matter to small businesses. For each: what changed (with source link and date), who it affects, what to do this week.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/search-engine-optimisation/"
+      ]
+    },
+    {
+      "day": 41,
+      "date": "2027-01-05",
+      "type": "article",
+      "title": "Email Marketing in India: Is It Still Worth It in 2027?",
+      "slug": "email-marketing-india",
+      "focusKeyword": "email marketing india",
+      "icp": "Indian D2C and B2B businesses",
+      "intent": "TOFU",
+      "cluster": "CRM",
+      "category": "Marketing Automation",
+      "angle": "Where email still wins (B2B, repeat purchase), deliverability basics (SPF/DKIM/DMARC, Gmail bulk sender rules), DPDP consent, simple flows.",
+      "internalLinks": [
+        "/services/marketing-automation/",
+        "/services/content-marketing/"
+      ]
+    },
+    {
+      "day": 42,
+      "date": "2027-01-06",
+      "type": "article",
+      "title": "Founder Personal Branding on LinkedIn: A 30-Day Starter Plan",
+      "slug": "founder-personal-branding-linkedin",
+      "focusKeyword": "founder personal branding linkedin",
+      "icp": "Founders and consultants in India and UAE",
+      "intent": "MOFU",
+      "cluster": "Social",
+      "category": "Personal Branding",
+      "angle": "Profile fixes, 30 post ideas grouped by type, comment strategy, turning attention into conversations, what to avoid.",
+      "internalLinks": [
+        "/services/social-media-management/",
+        "/services/content-marketing/"
+      ]
+    },
+    {
+      "day": 43,
+      "date": "2027-01-07",
+      "type": "article",
+      "title": "Dubai Real Estate Marketing: How Brokerages Generate Off-Plan Leads",
+      "slug": "dubai-real-estate-marketing",
+      "focusKeyword": "dubai real estate marketing",
+      "icp": "Dubai real estate brokerages and agents",
+      "intent": "MOFU",
+      "cluster": "UAE",
+      "category": "UAE Marketing",
+      "angle": "Lead sources, Trakheesi/DLD advertising permit rules, landing pages per project, multilingual ads, follow-up speed.",
+      "internalLinks": [
+        "/digital-marketing-agency-uae/",
+        "/services/performance-marketing/"
+      ]
+    },
+    {
+      "day": 44,
+      "date": "2027-01-08",
+      "type": "article",
+      "title": "Retargeting Ads Done Right: Bring Visitors Back Without Annoying Them",
+      "slug": "retargeting-ads-strategy",
+      "focusKeyword": "retargeting ads strategy",
+      "icp": "Businesses with website traffic but few conversions",
+      "intent": "MOFU",
+      "cluster": "Paid ads",
+      "category": "Performance Marketing",
+      "angle": "Audience windows, frequency caps, sequencing, creative per stage, consent and DPDP, measuring incrementality simply.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/analytics/"
+      ]
+    },
+    {
+      "day": 45,
+      "date": "2027-01-09",
+      "type": "article",
+      "title": "Wedding Season Marketing for Hotels, Banquets and Venues",
+      "slug": "wedding-venue-marketing",
+      "focusKeyword": "wedding venue marketing",
+      "icp": "Hotels, banquet halls and wedding venues in India",
+      "intent": "MOFU",
+      "cluster": "Industry: hospitality",
+      "category": "Hospitality Marketing",
+      "angle": "Planning calendar, venue pages with pricing cues, Instagram and wedding planners, enquiry handling, reviews.",
+      "internalLinks": [
+        "/services/social-media-management/",
+        "/case-studies/"
+      ]
+    },
+    {
+      "day": 46,
+      "date": "2027-01-10",
+      "type": "article",
+      "title": "How to Get More Google Reviews Without Breaking Google's Rules",
+      "slug": "how-to-get-google-reviews",
+      "focusKeyword": "how to get google reviews",
+      "icp": "Local businesses in India and UAE",
+      "intent": "MOFU",
+      "cluster": "Local SEO",
+      "category": "SEO",
+      "angle": "Review link, timing, staff scripts, replying, what counts as review gating or fake reviews, handling negative reviews.",
+      "internalLinks": [
+        "/services/search-engine-optimisation/",
+        "/digital-marketing-agency-india/"
+      ]
+    },
+    {
+      "day": 47,
+      "date": "2027-01-11",
+      "type": "news-roundup",
+      "title": "Marketing News This Week: Ads, Search and Social Updates (11 Jan 2027)",
+      "slug": "marketing-news-11-jan-2027",
+      "focusKeyword": "digital marketing news",
+      "icp": "Indian and UAE business owners and marketers",
+      "intent": "TOFU",
+      "cluster": "Weekly news",
+      "category": "Marketing News",
+      "angle": "Research what changed in the last 7 days across Google Search/Ads, Meta, Instagram, WhatsApp, LinkedIn, Indian/UAE regulation. Pick the 4-6 changes that matter to small businesses. For each: what changed (with source link and date), who it affects, what to do this week.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/search-engine-optimisation/"
+      ]
+    },
+    {
+      "day": 48,
+      "date": "2027-01-12",
+      "type": "article",
+      "title": "Scaled Content and SEO: How to Publish More Pages Without Getting Penalised",
+      "slug": "scaled-content-abuse-seo",
+      "focusKeyword": "scaled content abuse seo",
+      "icp": "Marketers and founders publishing at scale",
+      "intent": "TOFU",
+      "cluster": "SEO",
+      "category": "SEO",
+      "angle": "Google's scaled content abuse policy explained, what quality looks like, how we write every post, programmatic pages done safely.",
+      "internalLinks": [
+        "/services/content-marketing/",
+        "/services/search-engine-optimisation/"
+      ]
+    },
+    {
+      "day": 49,
+      "date": "2027-01-13",
+      "type": "article",
+      "title": "AI Chatbots on Business Websites: When They Help Sales and When They Hurt",
+      "slug": "ai-chatbot-for-business-website",
+      "focusKeyword": "ai chatbot for business website",
+      "icp": "SMBs considering website chatbots",
+      "intent": "MOFU",
+      "cluster": "Automation",
+      "category": "Marketing Automation",
+      "angle": "Good use cases, bad experiences, handoff to humans, data privacy, cost, measuring impact.",
+      "internalLinks": [
+        "/services/ai-machine-learning/",
+        "/services/marketing-automation/"
+      ]
+    },
+    {
+      "day": 50,
+      "date": "2027-01-14",
+      "type": "article",
+      "title": "E-commerce Launch Checklist for Indian D2C Brands",
+      "slug": "ecommerce-launch-checklist-india",
+      "focusKeyword": "ecommerce launch checklist india",
+      "icp": "D2C founders launching an online store",
+      "intent": "MOFU",
+      "cluster": "Web",
+      "category": "E-commerce",
+      "angle": "Legal pages, GST invoices, payment gateway setup, COD rules, shipping, tracking, launch ads, first 30 days.",
+      "internalLinks": [
+        "/services/e-commerce/",
+        "/case-studies/pachmarhi-ayurveda/"
+      ]
+    },
+    {
+      "day": 51,
+      "date": "2027-01-15",
+      "type": "article",
+      "title": "Marketing Attribution for Small Businesses: Which Channel Really Brought the Sale?",
+      "slug": "marketing-attribution-small-business",
+      "focusKeyword": "marketing attribution small business",
+      "icp": "SMB owners running several channels",
+      "intent": "MOFU",
+      "cluster": "Analytics",
+      "category": "Analytics",
+      "angle": "UTMs, GA4 models, ask-how-did-you-hear, CRM source field, offline conversions, a simple weekly view.",
+      "internalLinks": [
+        "/services/analytics/",
+        "/services/performance-marketing/"
+      ]
+    },
+    {
+      "day": 52,
+      "date": "2027-01-16",
+      "type": "article",
+      "title": "Brand Identity on a Budget: What to Spend On First",
+      "slug": "brand-identity-design-cost",
+      "focusKeyword": "brand identity design cost",
+      "icp": "Startups and small businesses",
+      "intent": "BOFU",
+      "cluster": "Branding",
+      "category": "Branding",
+      "angle": "Order of priorities: positioning, name check/trademark, logo system, templates; what to skip; cost drivers.",
+      "internalLinks": [
+        "/services/brand-consulting/",
+        "/services/logo-design/"
+      ]
+    },
+    {
+      "day": 53,
+      "date": "2027-01-17",
+      "type": "article",
+      "title": "YouTube Ads for Local Businesses in India: A Starter Guide",
+      "slug": "youtube-ads-for-local-business",
+      "focusKeyword": "youtube ads for local business",
+      "icp": "Local businesses with video content",
+      "intent": "MOFU",
+      "cluster": "Paid ads",
+      "category": "Performance Marketing",
+      "angle": "Formats, location targeting, cheap test budgets, creative that works on mobile, measuring with brand search lift.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/social-media-management/"
+      ]
+    },
+    {
+      "day": 54,
+      "date": "2027-01-18",
+      "type": "news-roundup",
+      "title": "Marketing News This Week: Ads, Search and Social Updates (18 Jan 2027)",
+      "slug": "marketing-news-18-jan-2027",
+      "focusKeyword": "digital marketing news",
+      "icp": "Indian and UAE business owners and marketers",
+      "intent": "TOFU",
+      "cluster": "Weekly news",
+      "category": "Marketing News",
+      "angle": "Research what changed in the last 7 days across Google Search/Ads, Meta, Instagram, WhatsApp, LinkedIn, Indian/UAE regulation. Pick the 4-6 changes that matter to small businesses. For each: what changed (with source link and date), who it affects, what to do this week.",
+      "internalLinks": [
+        "/services/performance-marketing/",
+        "/services/search-engine-optimisation/"
+      ]
+    },
+    {
+      "day": 55,
+      "date": "2027-01-19",
+      "type": "article",
+      "title": "B2B Lead Generation for Manufacturers and Exporters in India",
+      "slug": "b2b-lead-generation-india",
+      "focusKeyword": "b2b lead generation india",
+      "icp": "Indian manufacturers and exporters",
+      "intent": "MOFU",
+      "cluster": "Industry: B2B",
+      "category": "B2B Marketing",
+      "angle": "Website as a catalogue, LinkedIn, Google Ads on product terms, trade directories, export SEO, case studies, sales follow-up.",
+      "internalLinks": [
+        "/case-studies/heavy-machinery-b2b-lead-generation/",
+        "/services/search-engine-optimisation/"
+      ]
+    },
+    {
+      "day": 56,
+      "date": "2027-01-20",
+      "type": "article",
+      "title": "Agency vs In-House Marketing Team: The Real Cost Comparison",
+      "slug": "agency-vs-in-house-marketing",
+      "focusKeyword": "agency vs in house marketing",
+      "icp": "SMB owners deciding how to staff marketing",
+      "intent": "BOFU",
+      "cluster": "Agency selection",
+      "category": "Digital Marketing",
+      "angle": "Salary ranges only if sourced, tools, management time, hybrid models, when each is right.",
+      "internalLinks": [
+        "/digital-marketing-agency-india/",
+        "/contactus/"
+      ]
+    },
+    {
+      "day": 57,
+      "date": "2027-01-21",
+      "type": "article",
+      "title": "A Social Media Content Calendar That Small Teams Actually Follow",
+      "slug": "social-media-content-calendar-template",
+      "focusKeyword": "social media content calendar template",
+      "icp": "Small teams managing their own social media",
+      "intent": "TOFU",
+      "cluster": "Social",
+      "category": "Social Media Marketing",
+      "angle": "Weekly rhythm, content pillars, batching, approvals, a template layout, how to measure.",
+      "internalLinks": [
+        "/services/social-media-management/",
+        "/blogs/build-authentic-organic-audience/"
+      ]
+    },
+    {
+      "day": 58,
+      "date": "2027-01-22",
+      "type": "article",
+      "title": "Coaching Institute Marketing: Filling Batches Before Exam Season",
+      "slug": "coaching-institute-marketing",
+      "focusKeyword": "coaching institute marketing",
+      "icp": "Coaching and test-prep institutes in India",
+      "intent": "MOFU",
+      "cluster": "Industry: education",
+      "category": "Education Marketing",
+      "angle": "Demo-class funnels, results content, parents vs students, local SEO, WhatsApp follow-up, ad policy for education claims.",
+      "internalLinks": [
+        "/digital-marketing-agency-bhopal/",
+        "/services/performance-marketing/"
+      ]
+    },
+    {
+      "day": 59,
+      "date": "2027-01-23",
+      "type": "article",
+      "title": "Travel Agency Marketing: How to Sell Tour Packages Online",
+      "slug": "travel-agency-marketing-ideas",
+      "focusKeyword": "travel agency marketing ideas",
+      "icp": "Travel agencies and tour operators in India and UAE",
+      "intent": "MOFU",
+      "cluster": "Industry: travel",
+      "category": "Travel Marketing",
+      "angle": "Package pages with prices, itinerary content, Instagram, WhatsApp catalogue, seasonal ads, reviews.",
+      "internalLinks": [
+        "/case-studies/dubai-travel-storytelling-seo-conversion-platform/",
+        "/services/web-development/"
+      ]
+    },
+    {
+      "day": 60,
+      "date": "2027-01-24",
+      "type": "article",
+      "title": "What a Good Monthly Marketing Report Should Show You",
+      "slug": "digital-marketing-report-template",
+      "focusKeyword": "digital marketing report template",
+      "icp": "Business owners paying an agency",
+      "intent": "BOFU",
+      "cluster": "Agency selection",
+      "category": "Digital Marketing",
+      "angle": "The 8 numbers that matter, what vanity metrics hide, a report layout, questions to ask your agency each month.",
+      "internalLinks": [
+        "/services/analytics/",
+        "/digital-marketing-agency-india/"
+      ]
+    }
+  ]
+}
