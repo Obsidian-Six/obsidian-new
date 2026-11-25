@@ -38,7 +38,7 @@ If you run Google Ads in India, a new kind of search result is now showing your 
 
 On 28 October 2026, Google [started scaling ads in AI Mode](https://blog.google/products/ads-commerce/ads-in-ai-mode-global/) to ten new countries, and India is on the list. AI Mode is the conversational part of Google Search where people ask long, detailed questions and get an AI-written answer instead of ten blue links. Now, when a question has commercial intent, a "Sponsored" ad can appear inside or next to that answer.
 
-For most business owners this raises three questions: does this affect me, do I need to change anything, and is it worth chasing on a small budget? Here is what we are telling our clients.
+For most business owners this raises three questions: does this affect me, do I need to change anything, and is it worth chasing on a small budget? Here is what we are telling our clients right now.
 
 ## Quick answer: what changed for Google Ads in India
 
