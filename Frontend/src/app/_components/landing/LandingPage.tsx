@@ -1,3 +1,4 @@
+import { getSlug } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import caseStudiesData from "@/lib/store/case-studies";
@@ -189,7 +190,7 @@ export default function LandingPage({ data }: { data: LandingPageData }) {
               {caseStudies.map((cs) => (
                 <Link
                   key={cs.slug}
-                  href={`/case-studies/${cs.slug}`}
+                  href={`/case-studies/${getSlug(cs.slug)}`}
                   className="group flex flex-col overflow-hidden border border-slate-100 bg-white transition-shadow hover:shadow-lg"
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">

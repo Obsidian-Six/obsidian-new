@@ -8,12 +8,7 @@ const createCaseStudy = async (req, res) => {
     const { name, slug } = req.body;
 
     // Generate slug from name if not provided to pre-check uniqueness
-    const generatedSlug = slug || name
-      .toLowerCase()
-      .trim()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/[\s_-]+/g, '-')
-      .replace(/^-+|-+$/g, '');
+    const generatedSlug = CaseStudy.toSlug(slug || name);
 
     const existingCase = await CaseStudy.findOne({ slug: generatedSlug });
     if (existingCase) {
@@ -63,7 +58,20 @@ const getCaseStudies = async (req, res) => {
 
 const getCaseStudyBySlug = async (req, res) => {
   try {
-    const caseStudy = await CaseStudy.findOne({ slug: req.params.slug.toLowerCase() });
+    const requested = req.params.slug.toLowerCase();
+    let caseStudy = await CaseStudy.findOne({ slug: requested });
+
+    // Older entries may have a slug saved with spaces or symbols.
+    // Match them by their clean form so /case-studies/transforming-shim-bhopal/ still works.
+    if (!caseStudy) {
+      const clean = CaseStudy.toSlug(requested);
+      caseStudy = await CaseStudy.findOne({ slug: clean });
+      if (!caseStudy) {
+        const all = await CaseStudy.find({}, { slug: 1 }).lean();
+        const match = all.find((cs) => CaseStudy.toSlug(cs.slug) === clean);
+        if (match) caseStudy = await CaseStudy.findById(match._id);
+      }
+    }
 
     if (!caseStudy) {
       return res.status(404).json({
@@ -96,9 +104,12 @@ const updateCaseStudy = async (req, res) => {
       });
     }
 
+    // Clean the slug the same way as on create (no spaces or symbols in links)
+    if (req.body.slug) req.body.slug = CaseStudy.toSlug(req.body.slug);
+
     // If slug is changing, check uniqueness
-    if (req.body.slug && req.body.slug.toLowerCase() !== caseStudy.slug) {
-      const existingSlug = await CaseStudy.findOne({ slug: req.body.slug.toLowerCase() });
+    if (req.body.slug && req.body.slug !== caseStudy.slug) {
+      const existingSlug = await CaseStudy.findOne({ slug: req.body.slug });
       if (existingSlug) {
         return res.status(400).json({
           success: false,

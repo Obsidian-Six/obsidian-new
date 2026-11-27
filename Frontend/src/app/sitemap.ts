@@ -4,6 +4,7 @@ import { servicesStore } from "@/lib/store/template-services";
 import { landingPageSlugs } from "@/lib/store/landing-pages";
 import caseStudiesData from "@/lib/store/case-studies";
 import { getAllPosts } from "@/lib/blog";
+import { cleanSlug } from "@/lib/utils";
 
 // Rebuild the sitemap at most once an hour so new blog posts and case studies
 // appear without a redeploy.
@@ -32,14 +33,23 @@ async function fetchJson<T>(url: string): Promise<T | null> {
 
 async function caseStudyEntries(): Promise<Entry[]> {
   const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-  const data = await fetchJson<{ success: boolean; data: { slug: string; updatedAt?: string }[] }>(
+  const data = await fetchJson<{ success: boolean; data: { slug: string; name?: string; updatedAt?: string }[] }>(
     `${apiBase}/api/case-studies`
   );
   const slugs = new Map<string, string | undefined>();
+  const names = new Set<string>();
   if (data?.success && Array.isArray(data.data)) {
-    for (const cs of data.data) if (cs.slug) slugs.set(cs.slug, cs.updatedAt);
+    for (const cs of data.data) {
+      if (!cs.slug) continue;
+      slugs.set(cleanSlug(cs.slug), cs.updatedAt);
+      if (cs.name) names.add(cleanSlug(cs.name));
+    }
   }
-  for (const cs of caseStudiesData) if (!slugs.has(cs.slug)) slugs.set(cs.slug, undefined);
+  // Built-in case studies only fill gaps: skip any the admin already has (same slug or same name)
+  for (const cs of caseStudiesData) {
+    const slug = cleanSlug(cs.slug);
+    if (!slugs.has(slug) && !names.has(cleanSlug(cs.name || ""))) slugs.set(slug, undefined);
+  }
   return [...slugs].map(([slug, updated]) => entry(`/case-studies/${slug}`, 0.7, "monthly", updated));
 }
 

@@ -4,7 +4,7 @@
 // import Image from "next/image";
 // import type CaseStudy from "@/lib/models/case-study.types";
 // import caseStudiesData from "@/lib/store/case-studies";
-// import { normalizeMediaUrls, getSlug } from "@/lib/utils";
+// import { normalizeMediaUrls, getSlug, cleanSlug } from "@/lib/utils";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -97,7 +97,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type CaseStudy from "@/lib/models/case-study.types";
 import caseStudiesData from "@/lib/store/case-studies";
-import { normalizeMediaUrls, getSlug } from "@/lib/utils";
+import { normalizeMediaUrls, getSlug, cleanSlug } from "@/lib/utils";
 
 // Re-fetch case studies at most once a minute instead of on every click.
 // New case studies from the admin panel still show up within a minute.
@@ -122,10 +122,12 @@ export default async function Page() {
 
   // Combine dynamic case studies with static ones, preventing duplicate slugs
   const combinedCaseStudies: CaseStudy[] = [...dynamicCaseStudies];
-  const dynamicSlugs = new Set(dynamicCaseStudies.map((cs) => cs.slug));
+  // Match on clean slug AND on name, so the same project is never listed twice
+  const dynamicSlugs = new Set(dynamicCaseStudies.map((cs) => cleanSlug(cs.slug)));
+  const dynamicNames = new Set(dynamicCaseStudies.map((cs) => cleanSlug(cs.name || "")));
 
   for (const staticCase of caseStudiesData) {
-    if (!dynamicSlugs.has(staticCase.slug)) {
+    if (!dynamicSlugs.has(cleanSlug(staticCase.slug)) && !dynamicNames.has(cleanSlug(staticCase.name || ""))) {
       // Cast static ID if missing to keep types happy
       combinedCaseStudies.push(staticCase as CaseStudy);
     }

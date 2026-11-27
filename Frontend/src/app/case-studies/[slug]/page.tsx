@@ -1,16 +1,22 @@
 import { cache } from "react";
 
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import TemplatePage from "./_template/template-page";
 import CustomPage from "./_custom/custom-page";
 import caseStudiesData from "@/lib/store/case-studies";
 import type CaseStudy from "@/lib/models/case-study.types";
 import type { TemplateCaseStudy } from "@/lib/models/case-study.types";
 import ContactUs from "@/app/_components/contact-us";
-import { normalizeMediaUrls } from "@/lib/utils";
+import { normalizeMediaUrls, cleanSlug } from "@/lib/utils";
 import { pageMeta, breadcrumbSchema, jsonLd } from "@/lib/seo";
 
-const loadCaseStudy = cache(async (slug: string): Promise<CaseStudy | null> => {
+const loadCaseStudy = cache(async (rawSlug: string): Promise<CaseStudy | null> => {
+  let slug = rawSlug;
+  try {
+    slug = decodeURIComponent(rawSlug);
+  } catch {
+    // keep as is
+  }
   const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
   try {
     const res = await fetch(`${apiBase}/api/case-studies/slug/${encodeURIComponent(slug)}`, {
@@ -24,7 +30,7 @@ const loadCaseStudy = cache(async (slug: string): Promise<CaseStudy | null> => {
   } catch (err) {
     console.error("Failed to fetch dynamic case study from backend:", err);
   }
-  return caseStudiesData.find((cs) => cs.slug === slug) ?? null;
+  return caseStudiesData.find((cs) => cs.slug === slug || cleanSlug(cs.slug) === cleanSlug(slug)) ?? null;
 });
 
 function trimTo(text: string, max: number) {
@@ -38,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const cs = await loadCaseStudy(slug);
   if (!cs) return {};
   return pageMeta({
-    path: `/case-studies/${cs.slug}`,
+    path: `/case-studies/${cleanSlug(cs.slug)}`,
     title: trimTo(`${cs.name} – ${cs.category} Case Study`, 44),
     description: trimTo(cs.details, 158),
     image: cs.image || undefined,
@@ -66,6 +72,12 @@ export default async function Page({
     return notFound();
   }
 
+  // Old or messy links (spaces, capitals) go to the one clean address.
+  const clean = cleanSlug(caseStudy.slug);
+  if (slug !== clean) {
+    permanentRedirect(`/case-studies/${clean}/`);
+  }
+
   const crumbs = (
     <script
       type="application/ld+json"
@@ -74,7 +86,7 @@ export default async function Page({
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Case Studies", path: "/case-studies" },
-            { name: caseStudy.name, path: `/case-studies/${caseStudy.slug}` },
+            { name: caseStudy.name, path: `/case-studies/${clean}` },
           ])
         ),
       }}

@@ -52,6 +52,11 @@ export interface ServiceData {
     question: string;
     answer: string;
   }>;
+  deliverablesTitle?: string;
+  deliverables?: Array<{
+    title: string;
+    description: string;
+  }>;
 }
 
 export const servicesStore: Record<string, ServiceData> = {
@@ -617,126 +622,210 @@ export const servicesStore: Record<string, ServiceData> = {
     title: "Search Engine Optimisation",
     category: "Digital Marketing",
     bgImage: "/images/web_development_hero_bg.png",
-    description: "Drive organic traffic and dominate search rankings through technical SEO and high-authority content structures.",
-    navItems: ["Overview", "Process", "Why Us", "FAQ"],
-    overviewTitle: "Data-Driven SEO Strategies to Capture High-Intent Leads",
+    description: "SEO services in India that bring steady leads from Google: technical fixes, keyword-led pages, local SEO and content, reported every month.",
+    navItems: ["Overview", "What You Get", "Process", "Why Us", "FAQ"],
+    overviewTitle: "SEO That Brings Enquiries, Not Just Rankings",
     overviewParagraphs: [
-      "Sustainable growth relies on strong organic visibility. We optimize your platform's technical core vitals, content hierarchy, and backlink authority to capture search share.",
-      "Rather than chasing short-term hacks, we build foundational SEO systems that continue to generate leads consistently over the long term."
+      "Most business owners in India come to us after paying for SEO for months and seeing a report full of keywords nobody searches for. Rankings for your own brand name or for phrases with no buyers do not pay salaries. We start from the other end: which searches does a person type just before they call a business like yours? \"CA firm in Andheri for GST filing\", \"interior designer for 3BHK in Bhopal\", \"company formation in Dubai for Indian founders\". Those are the pages we build and the positions we chase.",
+      "SEO has three parts and we handle all of them. The technical part makes sure Google can crawl and understand your site: speed, mobile layout, broken links, duplicate pages, sitemaps, canonical tags and structured data. The content part gives Google a clear page for every service and location you want to rank for, written so a real buyer gets their question answered. The authority part earns mentions and links from websites your customers already trust, without buying spammy link packages.",
+      "For businesses with a physical office or service area, local SEO usually brings the fastest results. That means a complete Google Business Profile, consistent name, address and phone number across directories like JustDial, Sulekha and IndiaMART, regular photos and posts, and a simple system to ask happy customers for reviews. For a clinic, a coaching institute or a showroom, the map pack often brings more calls than the website itself.",
+      "We also build SEO around how buying works in your sector. A B2B manufacturer needs pages for each product and industry it serves. A real estate developer needs project and locality pages. A UAE business setup firm needs pages that answer cost, timeline and visa questions honestly, because those are the searches that come before a call. Every page links to the next step: a call, a WhatsApp chat or a form.",
+      "You get a monthly report in plain language: which pages gained traffic, which searches brought enquiries, what we fixed and what we are doing next. If something is not working after three months, we say so and change the plan."
     ],
-    ctaText: "Improve your rankings",
+    ctaText: "Get a free SEO check of your website",
     ctaLink: "/contactus",
-    processTitle: "Our Search Optimization Workflow",
+    deliverablesTitle: "What you get with our SEO service",
+    deliverables: [
+      { title: "Technical SEO audit and fixes", description: "Crawl errors, slow pages, mobile issues, duplicate content, redirects, sitemap and robots.txt checked and fixed, not just listed in a PDF." },
+      { title: "Keyword and page plan", description: "A sheet of the searches your buyers use, grouped by intent and mapped to one page each, so your pages stop competing with each other." },
+      { title: "On-page optimisation", description: "Titles, meta descriptions, headings, internal links, image alt text and FAQ schema written for each priority page." },
+      { title: "Local SEO setup", description: "Google Business Profile optimised for each office, directory listings cleaned up so your details match everywhere, and a review request routine." },
+      { title: "Content that ranks", description: "Service pages, location pages and blog articles written around real questions your customers ask, in clear English (or Hindi where it helps)." },
+      { title: "Search Console and GA4 tracking", description: "Google Search Console and GA4 set up with enquiry tracking, so we can show which searches and pages actually bring leads." }
+    ],
+    processTitle: "How our SEO process works",
     processSteps: [
       {
-        title: "Technical Audits",
-        description: "We identify and fix crawl errors, slow loading scripts, missing meta tags, and broken canonical links.",
+        title: "Audit and baseline",
+        description: "In the first two weeks we audit your site, your Google Business Profile and your top competitors, and record where you stand today: traffic, rankings and enquiries. This baseline is how we measure progress later.",
         image: "/images/ProactiveImage.jpeg"
       },
       {
-        title: "Keyword & Intent Mapping",
-        description: "We perform deep keyword research, structuring your pages around topics that buyers are actively searching for.",
+        title: "Keyword and intent mapping",
+        description: "We research what your buyers search in your city or market, separate research searches from ready-to-buy searches, and decide which page should rank for each group.",
         image: "/images/ProactiveImage2.jpeg"
       },
       {
-        title: "Authority Link Building",
-        description: "We conduct ethical outreach campaigns to secure high-quality backlinks from reputable industry websites.",
+        title: "Technical fixes",
+        description: "We fix what stops Google from reading your site properly: speed, mobile layout, broken links, duplicate pages and missing structured data. On sites we built, we make these changes directly in the code.",
         image: "/images/ProactiveImage3.jpeg"
+      },
+      {
+        title: "Content and local SEO",
+        description: "We improve existing pages, create the missing service and location pages, set up your Google Business Profile and start a steady flow of useful articles.",
+        image: "/images/ProactiveImage.jpeg"
+      },
+      {
+        title: "Authority and reporting",
+        description: "We earn links and mentions through directories, partners, PR and useful content, and send a plain-language report every month with what changed and what comes next.",
+        image: "/images/ProactiveImage2.jpeg"
       }
     ],
-    whyUsTitle: "Why Partner With Our SEO Strategists?",
-    whyUsSubtitle: "We focus on long-term ranking stability and converting traffic into qualified business leads.",
+    whyUsTitle: "Why businesses choose our SEO team",
+    whyUsSubtitle: "We write, design and code in-house, so SEO fixes actually get done instead of waiting on a separate developer.",
     whyUsStats: [
-      { value: "300%+", label: "Average Increase in Non-Branded Organic Traffic" },
-      { value: "Top 3", label: "Positions Secured for Highly Competitive Queries" }
+      { value: "100+", label: "Businesses served across India, UAE, the US and Europe" },
+      { value: "7+ yrs", label: "Of hands-on digital marketing experience" },
+      { value: "2 offices", label: "Mumbai (BKC) and Bhopal, serving clients India-wide and in the UAE" }
     ],
     faq: [
-      { question: "How long does it take to see tangible SEO results?", answer: "While technical fixes provide an immediate boost, significant organic ranking improvements and traffic growth typically manifest between 3 to 6 months of consistent execution." },
-      { question: "Do you guarantee first-page rankings?", answer: "No reputable agency can guarantee exact placements due to algorithm unpredictability, but we guarantee strict adherence to white-hat practices that historically yield page-one results." }
+      { question: "How long does SEO take to show results?", answer: "Technical fixes and Google Business Profile changes can show results in a few weeks. Steady growth in organic traffic and enquiries usually takes 3 to 6 months, and competitive keywords in big cities can take longer. We share progress every month so you are never guessing." },
+      { question: "Do you guarantee first-page rankings?", answer: "No. Nobody controls Google's results, and agencies that guarantee positions usually use shortcuts that get sites penalised later. What we commit to is the work: a clear plan, fixes done on time, honest reporting, and changing course if something is not working." },
+      { question: "How much do SEO services cost in India?", answer: "It depends on how many pages, locations and keywords you want to target and how competitive your market is. A local business with one office needs far less work than a company targeting all of India or the UAE. We share a fixed monthly scope and price after a free audit, so you know exactly what you are paying for." },
+      { question: "What is local SEO and do I need it?", answer: "Local SEO helps you show up in Google Maps and \"near me\" searches. If customers visit your office, clinic, showroom or institute, or you serve a specific city, local SEO is usually the quickest win. It covers your Google Business Profile, directory listings, reviews and location pages on your website." },
+      { question: "Will you write the content or do I have to?", answer: "We write it. We will ask you a few questions at the start, because the best content comes from what you actually know about your customers, and you approve every page before it goes live." },
+      { question: "Can you do SEO on a WordPress, Shopify or custom-coded site?", answer: "Yes. We work on WordPress, Shopify, Wix and custom sites built in Next.js or React. If your current site has deep technical problems, we will tell you honestly whether fixing it or rebuilding it makes more sense." },
+      { question: "Do you work with businesses outside India?", answer: "Yes. We work with clients in the UAE, the US and Europe, and we often help Indian businesses rank in Dubai or abroad with separate pages for each market." }
     ]
   },
   "social-media-management": {
     title: "Social Media Management",
     category: "Digital Marketing",
     bgImage: "/images/web_development_hero_bg.png",
-    description: "Build authentic community engagement and amplify brand reach with consistent social media strategies.",
-    navItems: ["Overview", "Process", "Why Us", "FAQ"],
-    overviewTitle: "Dynamic Social Media Strategies that Spark Conversations",
+    description: "Social media management in India for Instagram, LinkedIn, Facebook and YouTube: content plans, reels, design, posting and replies, with monthly reporting.",
+    navItems: ["Overview", "What You Get", "Process", "Why Us", "FAQ"],
+    overviewTitle: "Social Media That Builds Trust Before the Sales Call",
     overviewParagraphs: [
-      "Social media is where your brand personality comes alive. We curate high-quality visual content, craft compelling copy, and manage interactions across major platforms.",
-      "By tailoring the tone and format to each platform's unique culture, we grow your follower base and foster a loyal digital community."
+      "Before anyone sends you an enquiry, they check your Instagram or LinkedIn. If the last post is from four months ago, or the feed is only festival wishes and stock photos, they quietly move on. Social media rarely closes the sale on its own, but it decides whether a buyer trusts you enough to call. That is the job we do: keep your pages active, useful and recognisably yours.",
+      "We plan content around what your customers want to know, not what fills a calendar. For a restaurant that means dishes, the people in the kitchen and the reasons to visit this weekend. For a CA firm it means short explainers on GST, ITR deadlines and new rules. For a real estate project it means site progress, locality guides and honest answers about possession and pricing. For a B2B company it means founder posts and proof of work on LinkedIn.",
+      "Reels and short videos get the widest reach on Instagram and YouTube Shorts today, so most of our plans are built around them. We script the reels, plan the shoot, and edit them in-house. Where it fits, we work with local creators so your brand is seen by audiences that already trust them. Carousels, static posts and stories fill the gaps and keep your feed complete.",
+      "We also handle the part most businesses forget: replying. Comments, DMs and enquiries on Instagram and Facebook get answered on time and routed to your sales team on WhatsApp or by phone. A message that waits two days is a lost lead.",
+      "Every month you get a short report: what we posted, what reached the most people, what brought profile visits, follows and enquiries, and what we will change next month. If you also run ads, we use what performs well organically to build better ads."
     ],
-    ctaText: "Grow your audience",
+    ctaText: "Plan your social media with us",
     ctaLink: "/contactus",
-    processTitle: "Our Social Media Process",
+    deliverablesTitle: "What you get with social media management",
+    deliverables: [
+      { title: "Monthly content calendar", description: "A plan of every post, reel and story for the month, shared in advance for your approval, with festival and industry dates built in." },
+      { title: "Reels and short videos", description: "Scripts, shoot planning and in-house editing for Instagram Reels and YouTube Shorts, with captions and trending audio where it fits." },
+      { title: "Posts, carousels and stories", description: "On-brand designs and captions written in English, Hindi or Hinglish depending on who your audience is." },
+      { title: "LinkedIn for founders and B2B", description: "Founder and company page posts that show expertise and proof of work, which is where most B2B buyers check you out." },
+      { title: "Community and DM handling", description: "Comments and messages answered on time, with enquiries passed to your team on WhatsApp or by phone the same day." },
+      { title: "Profile setup and monthly report", description: "Bio, highlights, links and contact buttons set up properly, plus a plain-language monthly report on reach, engagement and enquiries." }
+    ],
+    processTitle: "How we run your social media",
     processSteps: [
       {
-        title: "Content Calendar Planning",
-        description: "We map out monthly posting schedules that balance promotional content, educational insights, and community engagement.",
+        title: "Brand and audience check",
+        description: "We review your current pages and competitors, and agree on who we are talking to, what they care about and how your brand should sound.",
         image: "/images/ProactiveImage.jpeg"
       },
       {
-        title: "Creative Production",
-        description: "Our designers and copywriters generate striking visual assets and captions optimized for feed visibility.",
+        title: "Content calendar",
+        description: "Every month starts with a calendar of posts and reels that mixes education, proof of work, behind-the-scenes and offers, shared with you for approval.",
         image: "/images/ProactiveImage2.jpeg"
       },
       {
-        title: "Community Moderation",
-        description: "We actively respond to comments, messages, and mentions to maintain a responsive and caring brand image.",
+        title: "Shoot and design",
+        description: "We plan shoots, work with creators where it fits, design posts and edit reels in-house so everything looks like one brand.",
         image: "/images/ProactiveImage3.jpeg"
+      },
+      {
+        title: "Posting and replies",
+        description: "We post at the times your audience is active and reply to comments and DMs, passing real enquiries to your team quickly.",
+        image: "/images/ProactiveImage.jpeg"
+      },
+      {
+        title: "Review and improve",
+        description: "At the end of each month we look at what worked, drop what did not, and plan the next month around it.",
+        image: "/images/ProactiveImage2.jpeg"
       }
     ],
-    whyUsTitle: "Why Choose Our Social Media Team?",
-    whyUsSubtitle: "We treat your social channels as active communities, not just broadcasting megaphones.",
+    whyUsTitle: "Why choose our social media team?",
+    whyUsSubtitle: "Strategy, design, video editing and ads sit in one team, so your content and your ads tell the same story.",
     whyUsStats: [
-      { value: "5x", label: "Increase in Average Post Engagement Rates" },
-      { value: "24/7", label: "Active Community Monitoring and Moderation" }
+      { value: "100+", label: "Businesses served across India, UAE, the US and Europe" },
+      { value: "7+ yrs", label: "Of hands-on digital marketing experience" },
+      { value: "In-house", label: "Design, reels editing and copywriting under one roof" }
     ],
     faq: [
-      { question: "Which social platforms do you manage?", answer: "We tailor our focus based on your audience, managing campaigns across LinkedIn, Instagram, X (Twitter), Facebook, and TikTok." },
-      { question: "Do you handle influencer collaborations?", answer: "Yes, we identify, vet, and manage relationships with key industry influencers to expand your campaign reach." }
+      { question: "Which social media platforms do you manage?", answer: "Instagram, Facebook, LinkedIn and YouTube. We pick the right mix for your business: Instagram and Facebook for most consumer brands, LinkedIn for B2B and founders, YouTube when longer video makes sense." },
+      { question: "How many posts and reels will you make each month?", answer: "It depends on the plan. A typical starting plan for a small business is 12 to 16 pieces a month, mixing reels, carousels and posts, plus stories. We would rather post fewer, better pieces than fill the feed with filler." },
+      { question: "Do you shoot videos or do we have to?", answer: "Both work. We can plan and run shoots, work with local creators, or guide your team to shoot simple videos on a phone that we then edit. Many of the best-performing reels are shot by the owner or staff, because people trust real faces." },
+      { question: "Can you create content in Hindi or Hinglish?", answer: "Yes. If your customers speak Hindi or Hinglish, your content should too. We write captions and scripts in English, Hindi or Hinglish depending on the audience." },
+      { question: "Will social media alone bring me leads?", answer: "Organic social media builds trust and keeps you in front of people, and it does bring enquiries, especially through DMs. For predictable lead volume, most businesses pair it with paid ads on Meta or Google, which we also run." },
+      { question: "Do you handle influencer and creator collaborations?", answer: "Yes. We find creators who fit your brand and budget, check that their audience is real and local where needed, agree the brief and rates, and manage the shoot and posting." },
+      { question: "How do I know if it is working?", answer: "You get a monthly report showing reach, engagement, profile visits, follower growth and, most importantly, the DMs and enquiries that came in. We set targets together in the first month." }
     ]
   },
   "performance-marketing": {
     title: "Performance Marketing",
     category: "Digital Marketing",
     bgImage: "/images/web_development_hero_bg.png",
-    description: "Execute precision-targeted advertising campaigns designed to maximize ROI and lower acquisition costs.",
-    navItems: ["Overview", "Process", "Why Us", "FAQ"],
-    overviewTitle: "Data-Driven Ad Campaigns Built for High Conversion",
+    description: "Performance marketing in India: Google Ads and Meta Ads run for leads and sales, with proper tracking, landing pages and weekly reporting.",
+    navItems: ["Overview", "What You Get", "Process", "Why Us", "FAQ"],
+    overviewTitle: "Ads Measured in Leads and Sales, Not Clicks",
     overviewParagraphs: [
-      "Stop wasting ad spend on broad audiences. We deploy hyper-targeted campaigns across Google, Meta, and LinkedIn, rigorously testing creatives and copy.",
-      "Our performance marketers analyze live auction data, adjusting bids and re-allocating budgets daily to ensure every dollar generates measurable returns."
+      "Performance marketing means you pay for ads and judge them by what they bring back: enquiries, booked calls, store visits or sales. It sounds obvious, yet most ad accounts we audit are judged on clicks and reach, with no clear link to revenue. Half the leads are fake numbers, nobody tracks which campaign brought the deal that closed, and the budget keeps going to whatever the platform suggests.",
+      "We run ads on Google (Search, Performance Max, YouTube and Display) and Meta (Facebook and Instagram), plus LinkedIn for B2B when the deal size justifies it. The platform depends on how your customers buy. Someone searching \"best physiotherapy clinic near me\" is ready now, so Google Search fits. A new cafe or a real estate launch needs people to discover it, so Meta works better. A software company selling to CFOs may need LinkedIn.",
+      "In India, the lead form is often where campaigns win or lose. Instant forms on Meta bring cheap leads, but many are low quality unless the form asks the right questions. Click-to-WhatsApp ads often bring better conversations because people already use WhatsApp to talk to businesses. Google leads usually cost more but convert better. We test these options against your actual sales results, not just the cost per lead.",
+      "Tracking comes first. Before we spend your budget, we set up GA4, Google Tag Manager, the Meta Pixel and Conversions API, and conversion tracking for calls, forms and WhatsApp clicks. Where possible we connect your CRM or a simple lead sheet, so we can see which campaigns bring leads that turn into customers, and put more money there.",
+      "You get a weekly update and a monthly review with numbers you can check yourself: spend, leads, cost per lead, lead quality from your sales team, and what we are changing. Your ad accounts stay in your name, so you always own the data."
     ],
-    ctaText: "Maximize ad returns",
+    ctaText: "Get a free ad account audit",
     ctaLink: "/contactus",
-    processTitle: "Our Performance Campaign Lifecycle",
+    deliverablesTitle: "What you get with performance marketing",
+    deliverables: [
+      { title: "Ad account audit", description: "A review of your current Google and Meta accounts: wasted spend, wrong targeting, tracking gaps and quick fixes, before we change anything." },
+      { title: "Tracking setup", description: "GA4, Google Tag Manager, Meta Pixel and Conversions API, with call, form and WhatsApp click tracking, so results are measured properly." },
+      { title: "Campaign build and management", description: "Search, Performance Max, YouTube, Facebook and Instagram campaigns built around your goals, checked and adjusted every week." },
+      { title: "Ad creatives and copy", description: "Static ads, carousels and short video ads designed and written in-house, with new versions tested every month." },
+      { title: "Landing pages and lead forms", description: "Fast landing pages and lead forms built to qualify leads, so your sales team spends less time on fake or unready enquiries." },
+      { title: "Weekly updates and monthly review", description: "Spend, leads, cost per lead and lead quality in plain language, with the next month's plan agreed together." }
+    ],
+    processTitle: "How we run your ad campaigns",
     processSteps: [
       {
-        title: "Audience Segmentation",
-        description: "We use pixel data and CRM lists to build highly specific audience segments, targeting users with the highest purchase intent.",
+        title: "Audit and goals",
+        description: "We review your past campaigns and agree on the numbers that matter: target cost per lead, the lead quality you need and the monthly budget.",
         image: "/images/ProactiveImage.jpeg"
       },
       {
-        title: "A/B Multivariate Testing",
-        description: "We launch dozens of ad variations simultaneously, testing different headlines, images, and CTAs to find the winning formula.",
+        title: "Tracking before spend",
+        description: "We set up conversion tracking for forms, calls and WhatsApp, and connect your lead sheet or CRM so we can see which leads turn into customers.",
         image: "/images/ProactiveImage2.jpeg"
       },
       {
-        title: "Funnel Optimization",
-        description: "We don't just optimize the click; we analyze post-click behavior and optimize the landing page experience to secure the final conversion.",
+        title: "Launch and test",
+        description: "We launch with a few clearly different audiences, offers and creatives, so we learn quickly what works instead of guessing.",
         image: "/images/ProactiveImage3.jpeg"
+      },
+      {
+        title: "Weekly optimisation",
+        description: "Every week we cut what is not working, move budget to what is, refresh creatives that are tiring and check lead quality with your team.",
+        image: "/images/ProactiveImage.jpeg"
+      },
+      {
+        title: "Scale what works",
+        description: "Once a campaign brings good leads at a steady cost, we grow the budget step by step and expand to new audiences, cities or platforms.",
+        image: "/images/ProactiveImage2.jpeg"
       }
     ],
-    whyUsTitle: "Why Hire Our Performance Marketers?",
-    whyUsSubtitle: "We treat your ad budget like our own, relentlessly hunting for efficiencies and lower acquisition costs.",
+    whyUsTitle: "Why hire our performance marketers?",
+    whyUsSubtitle: "We judge campaigns by the leads your sales team can close, and your ad accounts always stay in your name.",
     whyUsStats: [
-      { value: "40%", label: "Average Reduction in Cost Per Acquisition (CPA)" },
-      { value: "6x", label: "Average Return on Ad Spend (ROAS) Achieved" }
+      { value: "100+", label: "Businesses served across India, UAE, the US and Europe" },
+      { value: "7+ yrs", label: "Of running Google and Meta ads" },
+      { value: "India + UAE", label: "Campaigns run for both markets from Mumbai and Bhopal" }
     ],
     faq: [
-      { question: "How do you track the success of campaigns?", answer: "We implement advanced server-side tracking and attribution modeling to measure exactly which ad drove which sale, bypassing iOS privacy limitations." },
-      { question: "What is your approach to retargeting?", answer: "We build sequential retargeting funnels that show users different messaging based on how they previously interacted with your site, gradually guiding them to purchase." }
+      { question: "What is performance marketing?", answer: "It is paid advertising judged by measurable results such as leads, calls, bookings or sales, rather than by views or clicks. Every rupee is tracked to see what it brought back, and budget moves to the campaigns that bring the best results." },
+      { question: "What budget do I need to start Google or Meta ads?", answer: "It depends on your city, industry and goal. A local business can test with a modest monthly budget, while competitive sectors like real estate, education or finance need more to get enough data. We suggest a test budget after the audit and only recommend scaling once the numbers make sense." },
+      { question: "Google Ads or Meta Ads: which is better for my business?", answer: "Google works best when people already search for what you sell, like a clinic, a CA or a service near them. Meta works best when you need people to discover you, like a new cafe, a product launch or a real estate project. Many businesses use both, and we split the budget based on results." },
+      { question: "Why are my Meta leads low quality and how do you fix it?", answer: "Easy forms bring many casual or fake leads. We fix this with higher-intent forms that ask a qualifying question, click-to-WhatsApp ads, better targeting and quick follow-up. We judge success by how many leads your team can actually talk to, not the cheapest cost per lead." },
+      { question: "How soon will I see results from ads?", answer: "Ads start bringing traffic and leads within days. The first two to four weeks are a learning phase where we test and cut. Most accounts settle into a steady cost per lead within one to two months." },
+      { question: "Who owns the ad accounts and data?", answer: "You do. We work inside ad accounts in your business name, or create them in your name. If you ever stop working with us, the accounts, pixels and data stay with you." },
+      { question: "Do you run ads for businesses in Dubai and the UAE?", answer: "Yes. We run Google and Meta campaigns for UAE businesses, including business setup, finance and travel companies, and campaigns that target Indian audiences for Dubai services." }
     ]
   },
   "content-marketing": {

@@ -15,6 +15,7 @@ import ServicesWeOffer from "../_components/ServicesWeOffer";
 import FaqSection from "../_components/FAQSection";
 import WhyUsSection from "../_components/WhyUsSection";
 import CaseStudiesSection from "../_components/CaseStudiesSection";
+import DeliverablesSection from "../_components/DeliverablesSection";
 
 export default function DynamicServicePage() {
   const { slug } = useParams();
@@ -53,7 +54,7 @@ export default function DynamicServicePage() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    const targets = ["overview", "case-studies", "services", "technologies", "process", "why-wac", "why-us", "faq"]
+    const targets = ["overview", "what-you-get", "case-studies", "services", "technologies", "process", "why-wac", "why-us", "faq"]
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
 
@@ -111,6 +112,15 @@ export default function DynamicServicePage() {
             />
           </motion.div>
         </section>
+
+        {service.deliverables && service.deliverables.length > 0 && (
+          <section id="what-you-get" className="scroll-mt-36">
+            <DeliverablesSection
+              title={service.deliverablesTitle || "What you get"}
+              items={service.deliverables}
+            />
+          </section>
+        )}
 
         {/* Case Studies — always shown */}
         <motion.div

@@ -46,9 +46,9 @@ export const serviceSeo: Record<string, ServiceSeo> = {
     h1: "Data Analytics Services",
   },
   "web-development": {
-    title: "Web Development Company in India",
+    title: "Web Development Services – Custom Websites",
     description: "Custom-coded websites in Next.js and React that load fast, rank on Google and convert visitors. Web development by Obsidian Six, Mumbai and Bhopal.",
-    h1: "Web Development Company in India",
+    h1: "Custom Website Development Services",
   },
   "mobile-app-development": {
     title: "Mobile App Development Company in India",

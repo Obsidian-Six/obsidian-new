@@ -1,5 +1,6 @@
 "use client";
 
+import { getSlug } from "@/lib/utils";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -873,7 +874,7 @@ export default function TechnologyPage() {
                     
                     <div className="pt-6">
                       <Link
-                        href={`/case-studies/${cs.slug}`}
+                        href={`/case-studies/${getSlug(cs.slug)}`}
                         className="inline-flex items-center gap-2 px-6 py-3 border border-slate-900 text-slate-900 hover:border-[#052D69] hover:text-[#052D69] hover:bg-blue-50/5 transition-all text-xs font-bold uppercase tracking-wider font-poppins rounded-none"
                       >
                         Read Case Study <ArrowRight size={14} />

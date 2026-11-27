@@ -46,13 +46,33 @@ export const normalizeMediaUrls = (obj: any, apiBase: string): any => {
   return obj;
 };
 
-export const getSlug = (slug: string): string => {
+/**
+ * Turns any slug typed in the admin ("Transforming SHIM Bhopal", "a%20b")
+ * into a clean URL part ("transforming-shim-bhopal").
+ */
+export const cleanSlug = (slug: string): string => {
+  let s = slug || "";
   try {
-    const url = new URL(slug);
-    // Remove leading or trailing slashes from the pathname
-    return url.pathname.replace(/^\/+|\/+$/g, "");
+    s = decodeURIComponent(s);
   } catch {
-    // If slug is not a URL, just strip leading/trailing slashes
-    return slug.replace(/^\/+|\/+$/g, "");
+    // keep as is
   }
+  return s
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+};
+
+export const getSlug = (slug: string): string => {
+  let path: string;
+  try {
+    // Full URLs: keep only the last part of the path
+    path = new URL(slug).pathname;
+  } catch {
+    path = slug;
+  }
+  const last = path.replace(/^\/+|\/+$/g, "").split("/").pop() || "";
+  return cleanSlug(last);
 };

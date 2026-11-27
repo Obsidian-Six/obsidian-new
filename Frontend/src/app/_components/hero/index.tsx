@@ -1347,7 +1347,7 @@ export default function Hero(): React.JSX.Element {
               <Image
                 className="cover"
                 src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=400&auto=format&fit=crop"
-                alt=""
+                alt="Abstract colourful artwork"
                 fill
                 sizes="(max-width: 768px) 28vw, 220px"
               />
@@ -1357,7 +1357,7 @@ export default function Hero(): React.JSX.Element {
               <Image
                 className="cover"
                 src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop"
-                alt=""
+                alt="Abstract gradient artwork"
                 fill
                 sizes="(max-width: 768px) 28vw, 220px"
               />
@@ -1367,7 +1367,7 @@ export default function Hero(): React.JSX.Element {
               <Image
                 className="cover is-zoom"
                 src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=400&auto=format&fit=crop"
-                alt=""
+                alt="Abstract 3D shapes artwork"
                 fill
                 sizes="(max-width: 768px) 28vw, 220px"
               />

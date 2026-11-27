@@ -104,18 +104,17 @@ export default function ProcessSection({
                   </span>
                 </button>
 
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      key="content"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pb-6">
-                        {/* Mobile: show image inline */}
+                {/* Always in the page (so Google reads every step); only the height animates */}
+                <div
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                  aria-hidden={!isOpen}
+                >
+                  <div className="overflow-hidden">
+                    <div className="pb-6">
+                      {/* Mobile: show image inline */}
+                      {isOpen && (
                         <div className="lg:hidden mb-4 relative w-full aspect-video rounded-sm overflow-hidden bg-slate-100">
                           <Image
                             src={step.image}
@@ -125,13 +124,13 @@ export default function ProcessSection({
                             sizes="100vw"
                           />
                         </div>
-                        <p className="text-sm font-light text-slate-500 leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      )}
+                      <p className="text-sm font-light text-slate-500 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             );
           })}

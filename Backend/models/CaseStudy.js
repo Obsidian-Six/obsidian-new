@@ -114,18 +114,22 @@ const CaseStudySchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Auto-generate slug from name if not provided
+// Turn any name or typed slug into a clean URL part: "Transforming SHIM Bhopal" -> "transforming-shim-bhopal"
+const toSlug = (text) =>
+  String(text || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+// Always store a clean slug, so a space or capital typed in the admin can never break the link.
 CaseStudySchema.pre('validate', function() {
-  if (this.name && !this.slug) {
-    this.slug = this.name
-      .toLowerCase()
-      .trim()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/[\s_-]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-  }
+  const source = this.slug || this.name;
+  if (source) this.slug = toSlug(source);
 });
 
+CaseStudySchema.statics.toSlug = toSlug;
 
 module.exports = mongoose.model('CaseStudy', CaseStudySchema);
 
