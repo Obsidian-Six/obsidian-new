@@ -51,6 +51,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
+// Case studies taken off the site (27 Nov 2026). If someone opens an old link,
+// send them to the case studies list instead of a dead page.
+// (If the admin panel has a case study with the same slug, that one is still shown.)
+const REMOVED_SLUGS = new Set([
+  "tathyabaan-publishing",
+  "educational-institute",
+  "rezmytour",
+  "dubai-travel-storytelling-seo-conversion-platform",
+  "heavy-machinery-b2b-lead-generation",
+  "fourth-dimension-general-construction",
+]);
+
 // Cache each case study for a minute; edits in the admin panel appear within 60 seconds.
 export const revalidate = 60;
 
@@ -69,6 +81,7 @@ export default async function Page({
   const caseStudy = await loadCaseStudy(slug);
 
   if (!caseStudy) {
+    if (REMOVED_SLUGS.has(cleanSlug(slug))) permanentRedirect("/case-studies/");
     return notFound();
   }
 

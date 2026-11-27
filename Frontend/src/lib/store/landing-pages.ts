@@ -137,7 +137,7 @@ export const landingPages: Record<string, LandingPageData> = {
     processHeading: "How we work",
     process: PROCESS_MARKETING,
     industries: ["Ayurveda and wellness", "Education and colleges", "Hospitality and hotels", "Real estate", "Travel and tourism", "E-commerce and D2C", "B2B and manufacturing", "Financial services"],
-    caseStudySlugs: ["pachmarhi-ayurveda", "tathyabaan-publishing", "educational-institute"],
+    caseStudySlugs: ["pachmarhi-ayurveda", "ten-on-ten-stays", "sweet-protection-custom-tech-ecommerce-performance-gear"],
     faq: [
       {
         question: "What does a digital marketing agency in India do?",
@@ -209,7 +209,7 @@ export const landingPages: Record<string, LandingPageData> = {
     processHeading: "How a website project runs",
     process: PROCESS_WEB,
     industries: ["Hotels and travel", "Schools and colleges", "Ayurveda and wellness brands", "Real estate", "Consulting and finance", "E-commerce and D2C", "Manufacturing", "Startups"],
-    caseStudySlugs: ["sweet-protection-custom-tech-ecommerce-performance-gear", "educational-institute", "dubai-travel-storytelling-seo-conversion-platform"],
+    caseStudySlugs: ["sweet-protection-custom-tech-ecommerce-performance-gear", "usa-based-ngo", "sportsxcoin"],
     faq: [
       {
         question: "How much does a website cost in India?",
@@ -281,7 +281,7 @@ export const landingPages: Record<string, LandingPageData> = {
     processHeading: "How we work",
     process: PROCESS_MARKETING,
     industries: ["Real estate", "D2C and e-commerce", "Hospitality and food", "Healthcare and wellness", "Financial services", "B2B and manufacturing"],
-    caseStudySlugs: ["heavy-machinery-b2b-lead-generation", "sweet-protection-custom-tech-ecommerce-performance-gear", "pachmarhi-ayurveda"],
+    caseStudySlugs: ["sweet-protection-custom-tech-ecommerce-performance-gear", "pachmarhi-ayurveda", "ten-on-ten-stays"],
     faq: [
       {
         question: "Where is your Mumbai office?",
@@ -347,7 +347,7 @@ export const landingPages: Record<string, LandingPageData> = {
     processHeading: "How we work",
     process: PROCESS_MARKETING,
     industries: ["Colleges and coaching", "Hotels and hospitality", "Healthcare and Ayurveda", "Retail and showrooms", "Real estate", "Manufacturing"],
-    caseStudySlugs: ["educational-institute", "pachmarhi-ayurveda", "tathyabaan-publishing"],
+    caseStudySlugs: ["pachmarhi-ayurveda", "ten-on-ten-stays", "usa-based-ngo"],
     faq: [
       {
         question: "Where is your Bhopal office?",
